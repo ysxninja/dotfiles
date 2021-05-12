@@ -1,1 +1,0 @@
-/home/yasuke/.fzf/shell/key-bindings.fish
