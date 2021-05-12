@@ -1,9 +1,3 @@
-"  ____ _____ 
-" |  _ \_   _|  Derek Taylor (DistroTube)
-" | | | || |    http://www.youtube.com/c/DistroTube
-" | |_| || |    http://www.gitlab.com/dwt1/
-" |____/ |_|
-"        
 " A customized init.vim for neovim (https://neovim.io/)     
 
 set nocompatible              " be iMproved, required
@@ -46,14 +40,17 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 " filetype plugin on
 
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" Am using junegunn/vim-plug 
 
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Brief help
+" :PlugStatus                   - Check the status of plugins
+" :PlugInstall [name ...]       - installs plugins; 
+" :PlugUpdate [name ...]        - install or update plugins
+" :PlugClean[!]                 - Remove unlisted plugins (bang version will clean without prompt)"
+" PlugUpgrade                   - Upgrade vim-plug itself
+" PlugDiff                      - Examine the changes from the previous update and the pending changes
+" PlugSnapshot[!] [output path] -	Generate script for restoring the current snapshot of the plugins
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Settings
@@ -176,15 +173,19 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-Instant-Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:instant_markdown_autostart = 0         " Turns off auto preview
-let g:instant_markdown_browser = "surf"      " Uses surf for preview
-map <Leader>md :InstantMarkdownPreview<CR>   " Previews .md file
-map <Leader>ms :InstantMarkdownStop<CR>      " Kills the preview
+let g:instant_markdown_autostart = 0                        " Turns off auto preview
+let g:instant_markdown_browser = "firefox --new-window"     " Uses firefox for preview
+
+" Previews .md file
+map <Leader>md :InstantMarkdownPreview<CR>                 
+" Kills the preview
+map <Leader>ms :InstantMarkdownStop<CR>                     
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Open terminal inside Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>tt :vnew term://fish<CR>
+map <Leader>tt :vnew term://zsh<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
