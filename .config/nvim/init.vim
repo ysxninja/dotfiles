@@ -33,6 +33,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/goyo.vim'                           " Distraction-free viewing
     Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
     Plug 'junegunn/vim-emoji'                          " Vim needs emojis!
+    Plug 'tpope/vim-fugitive'                          " Famous git vim plugin
 
 call plug#end()
 
@@ -40,7 +41,8 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 " filetype plugin on
 
-" Am using junegunn/vim-plug 
+
+" Am using junegunn/vim-plug so Vundle plugininstall commands won't work here
 
 " Brief help
 " :PlugStatus                   - Check the status of plugins
@@ -77,12 +79,24 @@ let g:rehash256 = 1
 " => Status Line
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " The lightline.vim theme
+" let g:lightline = {
+"      \ 'colorscheme': 'darcula',
+"      \ }
+"
 let g:lightline = {
       \ 'colorscheme': 'darcula',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
       \ }
 
+" If status line is all black, set this
 " Always show statusline
-set laststatus=2
+" set laststatus=2
 
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
 set noshowmode
@@ -173,6 +187,7 @@ let g:vimwiki_list = [{'path': '~/vimwiki/',
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-Instant-Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:instant_markdown_slow = 1                             " Turns off update in real time
 let g:instant_markdown_autostart = 0                        " Turns off auto preview
 let g:instant_markdown_browser = "firefox --new-window"     " Uses firefox for preview
 
@@ -220,6 +235,8 @@ set fillchars+=vert:\
 " => Other Stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:python_highlight_all = 1
+
+let g:rainbow_active = 1   " braces get the last color of the rainbow
 
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org            call org#SetOrgFileType()
