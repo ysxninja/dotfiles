@@ -77,7 +77,20 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+
+plugins=( git
+    extract
+    web-search
+    yum
+    git
+    git-extras
+    docker
+    zsh-interactive-cd
+    history
+    zsh-z
+    vi-mode
+    zsh-autosuggestions
+    vagrant )
 
 source $ZSH/oh-my-zsh.sh
 
@@ -114,7 +127,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ### SET VI MODE ###
 # Comment this line out to enable default emacs-like bindings
-bindkey -v
+# bindkey -v
 
 ### PATH
 if [ -d "$HOME/.bin" ] ;
@@ -182,8 +195,14 @@ IFS=$SAVEIFS
 
 ### ALIASES ### 
 
+# colorize nmap output
+alias nmap="grc nmap"
+
 # git, juice shop
 alias jshop="cd ~/Downloads/Compressed/git\ juice\ shop/juice-shop-master/ && npm start"
+
+# cd into git folder
+alias ys="cd ~/Documents/ya-suke"
 
 # root privileges
 alias doas="doas --"
@@ -318,16 +337,6 @@ alias tips='lbrynet txo spend --type=support --is_not_my_input --blocking'
 ### SETTING THE STARSHIP PROMPT ###
 # eval "$(starship init zsh)"
 
-plugins=(git
-         extract
-         web-search
-         yum
-         git
-         git-extras
-         docker
-         zsh-interactive-cd
-         history
-         vagrant)
 
 export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
@@ -344,3 +353,16 @@ autoload -U compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+source /etc/profile.d/mavenenv.sh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export http_proxy="http://192.168.49.1:8000/"
+export ftp_proxy="ftp://192.168.49.1:8000/"
+export rsync_proxy="rsync://192.168.49.1:8000/"
+export no_proxy="localhost,127.0.0.1,192.168.1.1,::1,*.local"
+export HTTP_PROXY="http://192.168.49.1:8000/"
+export FTP_PROXY="ftp://192.168.49.1:8000/"
+export RSYNC_PROXY="rsync://192.168.49.1:8000/"
+export NO_PROXY="localhost,127.0.0.1,192.168.1.1,::1,*.local"
+export https_proxy="http://192.168.49.1:8000/"
+export HTTPS_PROXY="http://192.168.49.1:8000/"
