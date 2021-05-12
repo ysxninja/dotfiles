@@ -1,4 +1,5 @@
 ## ALIASES
+
 alias nmap="grc nmap"
 
 # git, juice shop
