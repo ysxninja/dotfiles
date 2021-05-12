@@ -1,5 +1,6 @@
 ## ALIASES
 
+# colorize nmap output
 alias nmap="grc nmap"
 
 # git, juice shop

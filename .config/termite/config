@@ -16,9 +16,6 @@ scrollback_lines = 10000
 #search_wrap = true
 #urgent_on_bell = true
 
-# $BROWSER is used by default if set, with xdg-open as a fallback
-# browser = lynx
-
 # "system", "on" or "off"
 #cursor_blink = system
 
