@@ -11,6 +11,9 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export DOT_DEST=Documents/ya-suke
+export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -231,7 +234,7 @@ up () {
 alias vim="nvim"
 
 # Changing "find" to "fd"
-alias find='fd'
+# alias find='fd'
 
 # bat
 alias cat='bat'
@@ -356,13 +359,3 @@ autoload -U compinit && compinit
 
 source /etc/profile.d/mavenenv.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export http_proxy="http://192.168.49.1:8000/"
-export ftp_proxy="ftp://192.168.49.1:8000/"
-export rsync_proxy="rsync://192.168.49.1:8000/"
-export no_proxy="localhost,127.0.0.1,192.168.1.1,::1,*.local"
-export HTTP_PROXY="http://192.168.49.1:8000/"
-export FTP_PROXY="ftp://192.168.49.1:8000/"
-export RSYNC_PROXY="rsync://192.168.49.1:8000/"
-export NO_PROXY="localhost,127.0.0.1,192.168.1.1,::1,*.local"
-export https_proxy="http://192.168.49.1:8000/"
-export HTTPS_PROXY="http://192.168.49.1:8000/"
