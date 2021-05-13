@@ -17,10 +17,9 @@ export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set "setxkbmap -option 'caps:ctrl_modifier' " in your startup script, to map caps as a ctrl modifier,
-# Then map it to Escape using xcape (Mostly for vim)
-# The -t 100 option to reduce delay in vim
-/usr/bin/xcape -t 100 -e 'Caps_Lock=Escape'
+# Set "setxkbmap -option 'caps:ctrl_modifier' " in your startup script, to map caps as a ctrl modifier,...
+# But when it is pressed only once, treat is as escape
+killall xcape 2>/dev/null ; xcape -e 'Caps_Lock=Escape'
 
 #Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -41,11 +40,12 @@ DISABLE_AUTO_UPDATE="true"
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Add wisely, as too many plugins slow down shell startup.
+# removed yum, checkout httpie(curl replacement)
+# for pentest, zsh-pentest, zsh-handy-helpers, nmap
 
 plugins=(
     extract
     web-search
-    yum
     git
     git-extras
     docker
@@ -53,7 +53,10 @@ plugins=(
     history
     zsh-z
     vi-mode
+    nmap
     zsh-autosuggestions
+    zsh-pentest
+    zsh-handy-helpers
     vagrant )
 
 source $ZSH/oh-my-zsh.sh
