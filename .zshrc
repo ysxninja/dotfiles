@@ -17,13 +17,12 @@ export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set Caps_Lock as a modifier, then map it to Escape (Mostly for vim)
-# -t 100, removes the delay in Esc when using vim
-/usr/bin/setxkbmap -option 'caps:ctrl_modifier'
-/usr/bin/xcape -e 'Caps_Lock=Escape' -t 100
+# Set "setxkbmap -option 'caps:ctrl_modifier' " in your startup script, to map caps as a ctrl modifier,
+# Then map it to Escape using xcape (Mostly for vim)
+# The -t 100 option to reduce delay in vim
+/usr/bin/xcape -t 100 -e 'Caps_Lock=Escape'
 
-
-# Uncomment the following line to use case-sensitive completion.
+#Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
