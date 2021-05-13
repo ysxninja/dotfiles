@@ -72,8 +72,10 @@ let g:rehash256 = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remap Keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Remap ESC to ii
-:imap ii <Esc>
+" Remap ESC to jk and kj in insert mode,, use mapped caps for other modes to avoid
+" conflicts with jk in visual mode
+:imap jk <Esc>
+:imap kj <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status Line

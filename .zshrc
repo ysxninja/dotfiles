@@ -17,6 +17,12 @@ export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# Set Caps_Lock as a modifier, then map it to Escape (Mostly for vim)
+# -t 100, removes the delay in Esc when using vim
+/usr/bin/setxkbmap -option 'caps:ctrl_modifier'
+/usr/bin/xcape -e 'Caps_Lock=Escape' -t 100
+
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
