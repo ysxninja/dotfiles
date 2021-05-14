@@ -9,7 +9,7 @@
 # Bookmarks:
 
 # TUI:
-ar
+al
 q0
 v2
 ov
@@ -26,6 +26,9 @@ d/home
 0
 d/
 	bin
+0
+d/home/yasuke/.config/nvim
+	..
 0
 d
 

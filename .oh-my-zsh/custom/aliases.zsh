@@ -1,7 +1,17 @@
 ## ALIASES
 
+# shortcuts to config files
+alias cfv="vim ~/.config/nvim/init.vim"
+alias cfz="vim ~/.zshrc"
+alias cfr="vim ~/.local/bin/remaps"
+alias cfa="vim ~/.oh-my-zsh/custom/aliases.zsh"
+alias cfc="vim ~/Desktop/vim_cheat_sheet.txt"
+
 # colorize nmap output
 alias nmap="grc nmap"
+
+# task as todo
+alias todo="task"
 
 # git, juice shop
 alias jshop="cd ~/Downloads/Compressed/git\ juice\ shop/juice-shop-master/ && npm start"
@@ -127,4 +137,3 @@ alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 
 # Unlock LBRY tips
 alias tips='lbrynet txo spend --type=support --is_not_my_input --blocking'
-

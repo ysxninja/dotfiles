@@ -236,6 +236,12 @@ set fillchars+=vert:\
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other Stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Replace all is aliased to S
+nnoremap S :%s//g<Left><Left>
+
+" Spell-check set to <Leader>o, 'o' for 'orthography':
+map <Leader>o :setlocal spell! spelllang=en_us<CR>
+
 let g:python_highlight_all = 1
 
 let g:rainbow_active = 1   " braces get the last color of the rainbow
@@ -247,4 +253,3 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
-

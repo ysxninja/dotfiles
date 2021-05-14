@@ -110,3 +110,19 @@ autoload -U compinit && compinit
 
 source /etc/profile.d/mavenenv.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+PATH="/home/yasuke/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/home/yasuke/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/yasuke/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/yasuke/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/yasuke/perl5"; export PERL_MM_OPT;
+export http_proxy="http://192.168.49.1:8000/"
+export ftp_proxy="ftp://192.168.49.1:8000/"
+export rsync_proxy="rsync://192.168.49.1:8000/"
+export no_proxy="localhost,127.0.0.1,192.168.1.1,::1,*.local"
+export HTTP_PROXY="http://192.168.49.1:8000/"
+export FTP_PROXY="ftp://192.168.49.1:8000/"
+export RSYNC_PROXY="rsync://192.168.49.1:8000/"
+export NO_PROXY="localhost,127.0.0.1,192.168.1.1,::1,*.local"
+export https_proxy="http://192.168.49.1:8000/"
+export HTTPS_PROXY="http://192.168.49.1:8000/"
