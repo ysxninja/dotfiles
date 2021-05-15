@@ -1,5 +1,8 @@
 ## ALIASES
 
+# grep for aliases
+alias ag="alias | grep"
+
 # shortcuts to config files
 alias cfv="vim ~/.config/nvim/init.vim"
 alias cfz="vim ~/.zshrc"

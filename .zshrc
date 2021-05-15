@@ -5,9 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -18,55 +15,66 @@ export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set "setxkbmap -option 'caps:ctrl_modifier' " in your startup script, to map caps as a ctrl modifier,...
-# But when it is pressed only once, treat is as escape
+# But when it is pressed only once, treat it as escape
 killall xcape 2>/dev/null ; xcape -e 'Caps_Lock=Escape'
-
-#Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+### Function extract for common file formats ###
+SAVEIFS=$IFS
+IFS=$(echo -en "\n\b")
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+function extract {
+ if [ -z "$1" ]; then
+    # display usage if no parameters given
+    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    echo "       extract <path/file_name_1.ext> [path/file_name_2.ext] [path/file_name_3.ext]"
+ else
+    for n in "$@"
+    do
+      if [ -f "$n" ] ; then
+          case "${n%,}" in
+            *.cbt|*.tar.bz2|*.tar.gz|*.tar.xz|*.tbz2|*.tgz|*.txz|*.tar)
+                         tar xvf "$n"       ;;
+            *.lzma)      unlzma ./"$n"      ;;
+            *.bz2)       bunzip2 ./"$n"     ;;
+            *.cbr|*.rar)       unrar x -ad ./"$n" ;;
+            *.gz)        gunzip ./"$n"      ;;
+            *.cbz|*.epub|*.zip)       unzip ./"$n"       ;;
+            *.z)         uncompress ./"$n"  ;;
+            *.7z|*.arj|*.cab|*.cb7|*.chm|*.deb|*.dmg|*.iso|*.lzh|*.msi|*.pkg|*.rpm|*.udf|*.wim|*.xar)
+                         7z x ./"$n"        ;;
+            *.xz)        unxz ./"$n"        ;;
+            *.exe)       cabextract ./"$n"  ;;
+            *.cpio)      cpio -id < ./"$n"  ;;
+            *.cba|*.ace)      unace x ./"$n"      ;;
+            *)
+                         echo "extract: '$n' - unknown archive method"
+                         return 1
+                         ;;
+          esac
+      else
+          echo "'$n' - file does not exist"
+          return 1
+      fi
+    done
+fi
+}
 
-# Add wisely, as too many plugins slow down shell startup.
-# removed yum, checkout httpie(curl replacement)
-# for pentest, zsh-pentest, zsh-handy-helpers, nmap
-
-plugins=(
-    extract
-    web-search
-    git
-    git-extras
-    docker
-    zsh-interactive-cd
-    history
-    zsh-z
-    vi-mode
-    nmap
-    zsh-autosuggestions
-    zsh-pentest
-    zsh-handy-helpers
-    vagrant )
-
-source $ZSH/oh-my-zsh.sh
+IFS=$SAVEIFS
+ 
+######
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+### SET VI MODE
+bindkey -v
+
 ### EXPORT
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
-export EDITOR="nvim"              # $EDITOR use Emacs in terminal
+export EDITOR="nvim"
 export VISUAL="xed"
 
 ### "bat" as manpager
@@ -92,6 +100,30 @@ fi
 # defined in the ZSH_CUSTOM folder
 # For a full list of active aliases, run `alias`.
 
+### PLUGINS ###
+# Add wisely, as too many plugins slow down shell startup.
+# removed yum, docker, vagrant, git-extras
+# checkout httpie(curl replacement), 
+# removed vi-mode, extract already set in script
+# for pentest, zsh-pentest, zsh-handy-helpers, nmap
+
+plugins=(
+    web-search
+    git
+    zsh-interactive-cd
+    history
+    zsh-z
+    nmap
+    zsh-autosuggestions
+    zsh-pentest
+    zsh-handy-helpers
+    httpie
+)
+
+source $ZSH/oh-my-zsh.sh
+
+###
+
 export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
 source "$HOME/.cargo/env"
@@ -99,7 +131,7 @@ export PATH=/home/yasuke/Android:/usr/lib/jvm/java-8-openjdk-amd64/bin:/home/yas
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # eval "$(hub alias -s)"
 fpath=(~/.zsh/completions $fpath) 
@@ -108,7 +140,7 @@ autoload -U compinit && compinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source /etc/profile.d/mavenenv.sh
+# source /etc/profile.d/mavenenv.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # source grc, and do automatic aliasing for supported commands
