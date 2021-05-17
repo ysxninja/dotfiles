@@ -114,6 +114,8 @@ fi
 plugins=(
     web-search
     vi-mode
+    tmux
+    golang
     git
     git-extras
     zsh-interactive-cd
@@ -121,6 +123,7 @@ plugins=(
     zsh-z
     nmap
     zsh-autosuggestions
+    taskwarrior
     zsh-completions
     zsh-pentest
     zsh-handy-helpers
