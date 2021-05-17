@@ -1,6 +1,3 @@
-# 
-#
-# My fish config. Not much to see here; just some pretty standard stuff.
 
 ### EXPORT ###
 set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
@@ -190,6 +187,9 @@ end
 
 
 ### ALIASES ###
+# generic coloriser
+alias nmap="grc nmap"
+
 # spark aliases
 alias clear='clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
 
@@ -323,6 +323,9 @@ colorscript random
 
 ### SETTING THE STARSHIP PROMPT ###
 starship init fish | source
+
+# Automatic aliasing for grc supported commands
+# source /usr/local/etc/grc.fish
 
 set MAVEN_HOME /opt/maven
 set PATH $PATH /opt/maven/bin

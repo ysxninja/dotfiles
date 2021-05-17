@@ -13,6 +13,8 @@ alias cfc="vim ~/Desktop/vim_cheat_sheet.txt"
 # colorize nmap output
 alias nmap="grc nmap"
 
+# some automatic aliasing is done by grc source command is in .zshrc
+
 # task as todo
 alias todo="task"
 

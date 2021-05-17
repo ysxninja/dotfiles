@@ -8,6 +8,10 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+# Increase key speed via a rate change
+# xset r rate 300 50
+# TODO: Write a function to check if xrate is already set to preferred value 
+
 # Dotman 
 export DOT_DEST=Documents/ya-suke
 export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
@@ -102,19 +106,22 @@ fi
 
 ### PLUGINS ###
 # Add wisely, as too many plugins slow down shell startup.
-# removed yum, docker, vagrant, git-extras
+# removed yum, docker, vagrant, zsh-completions
 # checkout httpie(curl replacement), 
 # removed vi-mode, extract already set in script
 # for pentest, zsh-pentest, zsh-handy-helpers, nmap
 
 plugins=(
     web-search
+    vi-mode
     git
+    git-extras
     zsh-interactive-cd
     history
     zsh-z
     nmap
     zsh-autosuggestions
+    zsh-completions
     zsh-pentest
     zsh-handy-helpers
     httpie
@@ -124,26 +131,25 @@ source $ZSH/oh-my-zsh.sh
 
 ###
 
+### Export
 export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
 source "$HOME/.cargo/env"
-export PATH=/home/yasuke/Android:/usr/lib/jvm/java-8-openjdk-amd64/bin:/home/yasuke/.local/bin:/home/yasuke/.cargo/bin:/home/yasuke/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/postgresql/12/bin
+export PATH=/home/yasuke/Android:/usr/lib/jvm/java-8-openjdk-amd64/bin:/home/yasuke/.local/bin:/home/yasuke/.cargo/bin:/home/yasuke/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/postgresql/12/bin:/home/yasuke/.nvm/versions/node/v14.16.1/bin
 
 
-## !Slows down the shell loading
+## !Slows down shell loading declare elsewhere || or uncomment when needed
+# Node + npm updater
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# set aliasing for hub as git
 # eval "$(hub alias -s)"
-fpath=(~/.zsh/completions $fpath)
-## !Slows down the shell loading
-# autoload -U compinit && compinit
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# source /etc/profile.d/mavenenv.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # source grc, and do automatic aliasing for supported commands
