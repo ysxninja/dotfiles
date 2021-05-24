@@ -308,9 +308,6 @@ alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/mas
 # Unlock LBRY tips
 alias tips="lbrynet txo spend --type=support --is_not_my_input --blocking"
 
-# Thinkorswim
-#alias tos="/home/dt/thinkorswim/thinkorswim"
-#
 # force all kakoune windows into one session
 #alias kak="/usr/bin/kak -c mysession"
 #alias kaks="/usr/bin/kak -s mysession"

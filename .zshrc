@@ -10,7 +10,14 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Increase key speed via a rate change
 # xset r rate 300 50
-# TODO: Write a function to check if xrate is already set to preferred value 
+
+### Conditional to check if xrate is already set to preferred value 
+ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
+
+if [[ $ard -ne 300 ]]; then
+    xset r rate 300 50
+fi
+###
 
 # Dotman 
 export DOT_DEST=Documents/ya-suke
@@ -123,6 +130,7 @@ plugins=(
     zsh-z
     nmap
     zsh-autosuggestions
+    zsh-syntax-highlighting
     taskwarrior
     zsh-completions
     zsh-pentest
@@ -163,3 +171,11 @@ PERL5LIB="/home/yasuke/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LI
 PERL_LOCAL_LIB_ROOT="/home/yasuke/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/yasuke/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/yasuke/perl5"; export PERL_MM_OPT;
+
+export GOROOT=/usr/local/go
+export PATH=$PATH:$GOROOT/bin
+# The first segment of Gopath is going to be used by go get to store files,
+# but all segments will be searched for source code
+export GOPATH=/home/yasuke/golib
+export PATH=$PATH:$GOPATH/bin
+export GOPATH=$GOPATH:/home/yasuke/code

@@ -34,6 +34,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
     Plug 'junegunn/vim-emoji'                          " Vim needs emojis!
     Plug 'tpope/vim-fugitive'                          " Famous git vim plugin
+    Plug 'fatih/vim-go'                                " Vim plugin for golang
 
 call plug#end()
 
