@@ -140,7 +140,27 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-###
+### COLOR ###
+
+### ZSH_CUSTOM zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#839496,bg=default,default,default"
+
+### ZSH_CUSTOM zsh-syntax-highlighting
+# uncomment if not working
+# typeset -A ZSH_HIGHLIGHT_STYLES
+
+ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=#a3f7ff
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=#a3f7ff
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=#a3f7ff
+ZSH_HIGHLIGHT_STYLES[path]=fg=#a3f7ff
+ZSH_HIGHLIGHT_STYLES[path_prefix]=fg=#a3f7ff
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=fg=#a3f7ff
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]=fg=#a3f7ff
+ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=#FF8B92
+ZSH_HIGHLIGHT_STYLES[default]=fg=#a3f7ff            # everything else
+
+# Theme
+# ZSH_HIGHLIGHT_HIGLIGHTERS+=(acme)
 
 ### Export
 export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";

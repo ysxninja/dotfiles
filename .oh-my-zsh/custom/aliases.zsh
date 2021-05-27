@@ -10,6 +10,9 @@ alias cfr="vim ~/.local/bin/remaps"
 alias cfa="vim ~/.oh-my-zsh/custom/aliases.zsh"
 alias cfc="vim ~/Desktop/vim_cheat_sheet.txt"
 
+# Go shortcuts
+alias gosrc="cd ~/code/src/github.com/yasuke/"
+
 # colorize nmap output
 alias nmap="grc nmap"
 

@@ -10,11 +10,11 @@
 
 # TUI:
 al
-q0
+q1
 v2
 ov
 m-1
-l2
+l16,2
 r2
 
 # Left window history (oldest to newest):
@@ -30,6 +30,54 @@ d/
 d/home/yasuke/.config/nvim
 	..
 0
+d/home/yasuke/.config
+	nvim
+26
+d/home/yasuke/.config/nvim
+	..
+0
+d/home/yasuke/.config
+	nvim
+26
+d/home/yasuke/.config/nvim
+	..
+0
+d/home/yasuke/.config
+	nvim
+26
+d/home/yasuke/.config/nvim
+	..
+0
+d/home/yasuke/.config
+	nvim
+26
+d/home/yasuke/.config/nvim
+	..
+0
+d/home/yasuke/.config
+	nvim
+26
+d/home/yasuke/.config/nvim
+	coc-settings.json
+1
+d/home/yasuke/.config
+	..
+0
+d/home/yasuke
+	Music
+5
+d/home/yasuke/Music
+	..
+0
+d/home/yasuke
+	Pictures
+6
+d/home/yasuke/Pictures
+	..
+0
+d/home/yasuke
+	Templates
+9
 d
 
 # Right window history (oldest to newest):
@@ -39,6 +87,7 @@ D/home/yasuke
 D
 
 # Command line history (oldest to newest):
+:w
 :q
 
 # Search history (oldest to newest):

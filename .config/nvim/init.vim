@@ -10,31 +10,32 @@ filetype off                  " required
 call plug#begin('~/.vim/plugged')
 
 "{{ The Basics }}
-    Plug 'gmarik/Vundle.vim'                           " Vundle
-    Plug 'itchyny/lightline.vim'                       " Lightline statusbar
-    Plug 'suan/vim-instant-markdown', {'rtp': 'after'} " Markdown Preview
+    Plug 'gmarik/Vundle.vim'                                             " Vundle
+    Plug 'itchyny/lightline.vim'                                         " Lightline statusbar
+    Plug 'suan/vim-instant-markdown', {'rtp': 'after'}                   " Markdown Preview
     Plug 'frazrepo/vim-rainbow'
 "{{ File management }}
-    Plug 'vifm/vifm.vim'                               " Vifm
-    Plug 'scrooloose/nerdtree'                         " Nerdtree
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
-    Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
+    Plug 'vifm/vifm.vim'                                                 " Vifm
+    Plug 'scrooloose/nerdtree'                                           " Nerdtree
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                       " Highlighting Nerdtree
+    Plug 'ryanoasis/vim-devicons'                                        " Icons for Nerdtree
 "{{ Productivity }}
-    Plug 'vimwiki/vimwiki'                             " VimWiki 
-    Plug 'jreybert/vimagit'                            " Magit-like plugin for vim
+    Plug 'vimwiki/vimwiki'                                               " VimWiki 
+    Plug 'jreybert/vimagit'                                              " Magit-like plugin for vim
 "{{ Tim Pope Plugins }}
-    Plug 'tpope/vim-surround'                          " Change surrounding marks
+    Plug 'tpope/vim-surround'                                            " Change surrounding marks
 "{{ Syntax Highlighting and Colors }}
-    Plug 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
-    Plug 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
-    Plug 'vim-python/python-syntax'                    " Python highlighting
-    Plug 'ap/vim-css-color'                            " Color previews for CSS
+    Plug 'PotatoesMaster/i3-vim-syntax'                                  " i3 config highlighting
+    Plug 'kovetskiy/sxhkd-vim'                                           " sxhkd highlighting
+    Plug 'vim-python/python-syntax'                                      " Python highlighting
+    Plug 'ap/vim-css-color'                                              " Color previews for CSS
 "{{ Junegunn Choi Plugins }}
-    Plug 'junegunn/goyo.vim'                           " Distraction-free viewing
-    Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
-    Plug 'junegunn/vim-emoji'                          " Vim needs emojis!
-    Plug 'tpope/vim-fugitive'                          " Famous git vim plugin
-    Plug 'fatih/vim-go'                                " Vim plugin for golang
+    Plug 'junegunn/goyo.vim'                                             " Distraction-free viewing
+    Plug 'junegunn/limelight.vim'                                        " Hyperfocus on a range
+    Plug 'junegunn/vim-emoji'                                            " Vim needs emojis!
+    Plug 'tpope/vim-fugitive'                                            " Famous git vim plugin
+    Plug 'fatih/vim-go'                                                  " Vim plugin for golang
+    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}   " Conquer Of Completion for neovim (golang)
 
 call plug#end()
 
@@ -99,7 +100,7 @@ let g:lightline = {
 
 " If status line is all black, set this
 " Always show statusline
-" set laststatus=2
+set laststatus=2
 
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
 set noshowmode
@@ -124,6 +125,7 @@ let NERDTreeShowLineNumbers=1
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=38
+let NERDTreeHighlightCursorline = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
@@ -152,7 +154,7 @@ highlight Function         ctermfg=1    ctermbg=none    cterm=none
 " highlight DiffChange       ctermfg=none    ctermbg=56      cterm=none
 " highlight DiffDelete       ctermfg=168     ctermbg=96      cterm=none
 " highlight DiffText         ctermfg=0       ctermbg=80      cterm=none
-" highlight SignColumn       ctermfg=244     ctermbg=235     cterm=none
+highlight SignColumn       ctermfg=244     ctermbg=235     cterm=none
 " highlight Conceal          ctermfg=251     ctermbg=none    cterm=none
 " highlight SpellBad         ctermfg=168     ctermbg=none    cterm=underline
 " highlight SpellCap         ctermfg=80      ctermbg=none    cterm=underline
@@ -234,6 +236,81 @@ map <Leader>tk <C-w>t<C-w>K
 " Removes pipes | that act as seperators on splits
 set fillchars+=vert:\ 
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" coc.nvim default settings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Better display for messages
+set cmdheight=2
+" Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=300
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+" always show signcolumns
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[c` and `]c` to navigate diagnostics
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use U to show documentation in preview window
+nnoremap <silent> U :call <SID>show_documentation()<CR>
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+vmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Tell vim-go to not map gd as its shortcut for go to definition
+" disable vim-go :GoDef short cut (gd)
+" this is handled by LanguageClient [LC]
+" disabled to allow coc.vim to do the gd resolution
+let g:go_def_mapping_enabled = 0
+
+" change from default snake_case to camelcase while converting
+" let g:go_addtags_transform = "camelcase"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other Stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -254,3 +331,16 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+
+""" Customize colors """""""""""""""""""""""""""""""""""""""""""
+""" for Pmenu, which does suggestions for coc """"""""""""""""""
+hi Pmenu cterm=underline ctermfg=250 ctermbg=235 gui=underline guifg=#bcbcbc guibg=#262626
+hi PmenuSel cterm=underline ctermfg=250 ctermbg=131 gui=underline guifg=#bcbcbc guibg=#af5f5f
+" hi PmenuSbar
+" hi PmenuThumb
+
+" Map keys for most used Go commands.
+" Ex: `\b` for building, `\r` for running and `\t` for running test.
+map <leader>b :GoBuild<CR>
+map <leader>r :GoRun<CR>
+map <leader>t :GoTest<CR>
