@@ -314,7 +314,6 @@ alias tips="lbrynet txo spend --type=support --is_not_my_input --blocking"
 
 set MAVEN_HOME /opt/maven
 set PATH $PATH /opt/maven/bin
-set PATH $PATH /home/yasuke/.nvm/versions/node/v14.16.1/bin
 set PATH $PATH /home/yasuke/.cargo/bin
 set PATH $PATH /usr/bin
 set PATH $PATH /usr/lib/jvm/java-11-openjdk-amd64/bin

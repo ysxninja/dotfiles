@@ -231,11 +231,7 @@ colorscript random
 export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
 source "$HOME/.cargo/env"
-export PATH=/home/yasuke/Android:/usr/lib/jvm/java-8-openjdk-amd64/bin:/home/yasuke/.local/bin:/home/yasuke/.cargo/bin:/home/yasuke/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/postgresql/12/bin
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=$PATH:/usr/lib/postgresql/12/bin
 
 ### SETTING THE STARSHIP PROMPT ###
 eval "$(starship init bash)"
