@@ -166,14 +166,7 @@ ZSH_HIGHLIGHT_STYLES[default]=fg=#a3f7ff            # everything else
 export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
 source "$HOME/.cargo/env"
-export PATH=/home/yasuke/Android:/usr/lib/jvm/java-8-openjdk-amd64/bin:/home/yasuke/.local/bin:/home/yasuke/.cargo/bin:/home/yasuke/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/lib/postgresql/12/bin:/home/yasuke/.nvm/versions/node/v14.16.1/bin
-
-
-## !Slows down shell loading declare elsewhere || or uncomment when needed
-# Node + npm updater
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=$PATH:/usr/lib/postgresql/12/bin
 
 # set aliasing for hub as git
 # eval "$(hub alias -s)"
