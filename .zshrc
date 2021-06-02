@@ -8,10 +8,8 @@ fi
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Increase key speed via a rate change
-# xset r rate 300 50
-
 ### Conditional to check if xrate is already set to preferred value 
+
 ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
 
 if [[ $ard -ne 300 ]]; then
@@ -120,7 +118,6 @@ fi
 
 plugins=(
     web-search
-    vi-mode
     tmux
     golang
     git
@@ -165,19 +162,8 @@ ZSH_HIGHLIGHT_STYLES[default]=fg=#a3f7ff            # everything else
 ### Export
 export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
-source "$HOME/.cargo/env"
 export PATH=$PATH:/usr/lib/postgresql/12/bin
-
-# set aliasing for hub as git
-# eval "$(hub alias -s)"
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-# source grc, and do automatic aliasing for supported commands
-[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
 PATH="/home/yasuke/perl5/bin${PATH:+:${PATH}}"; export PATH;
 PERL5LIB="/home/yasuke/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
@@ -192,3 +178,19 @@ export PATH=$PATH:$GOROOT/bin
 export GOPATH=/home/yasuke/golib
 export PATH=$PATH:$GOPATH/bin
 export GOPATH=$GOPATH:/home/yasuke/code
+
+
+# set aliasing for hub as git
+# eval "$(hub alias -s)"
+
+cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# source grc, and do automatic aliasing for supported commands
+[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+
+source "$HOME/.cargo/env"

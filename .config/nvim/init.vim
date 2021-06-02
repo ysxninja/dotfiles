@@ -72,6 +72,22 @@ syntax enable
 let g:rehash256 = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Toggle hybrid numbers when in insert mode
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+":augroup numbertoggle
+":autocmd!
+":autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+":autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+":augroup END
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Toggle hybrid numbering in the focused window, and absolute in non-focused
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd WinEnter,FocusGained * :setlocal number relativenumber
+autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remap Keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap ESC to jk and kj in insert mode,, use mapped caps for other modes to avoid
@@ -130,23 +146,27 @@ let NERDTreeHighlightCursorline = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-highlight LineNr           ctermfg=8    ctermbg=none    cterm=none
-highlight CursorLineNr     ctermfg=7    ctermbg=8       cterm=none
-highlight VertSplit        ctermfg=0    ctermbg=8       cterm=none
-highlight Statement        ctermfg=2    ctermbg=none    cterm=none
-highlight Directory        ctermfg=4    ctermbg=none    cterm=none
-highlight StatusLine       ctermfg=7    ctermbg=8       cterm=none
-highlight StatusLineNC     ctermfg=7    ctermbg=8       cterm=none
-highlight NERDTreeClosable ctermfg=2
-highlight NERDTreeOpenable ctermfg=8
-highlight Comment          ctermfg=4    ctermbg=none    cterm=italic
-highlight Constant         ctermfg=12   ctermbg=none    cterm=none
-highlight Special          ctermfg=4    ctermbg=none    cterm=none
-highlight Identifier       ctermfg=6    ctermbg=none    cterm=none
-highlight PreProc          ctermfg=5    ctermbg=none    cterm=none
-highlight String           ctermfg=12   ctermbg=none    cterm=none
-highlight Number           ctermfg=1    ctermbg=none    cterm=none
-highlight Function         ctermfg=1    ctermbg=none    cterm=none
+" guifg and guibg for neovide
+
+highlight Normal           guifg=#dfdfdf ctermfg=15   guibg=#282c34 ctermbg=none  cterm=none
+highlight LineNr           guifg=#5b6268 ctermfg=8    guibg=#282c34 ctermbg=none  cterm=none
+highlight CursorLineNr     guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
+highlight VertSplit        guifg=#1c1f24 ctermfg=0    guifg=#5b6268 ctermbg=8     cterm=none
+highlight Statement        guifg=#98be65 ctermfg=2    guibg=none    ctermbg=none  cterm=none
+highlight Directory        guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none
+highlight StatusLine       guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
+highlight StatusLineNC     guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
+highlight NERDTreeClosable guifg=#98be65 ctermfg=2
+highlight NERDTreeOpenable guifg=#5b6268 ctermfg=8
+highlight Comment          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=italic
+highlight Constant         guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none
+highlight Special          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none
+highlight Identifier       guifg=#5699af ctermfg=6    guibg=none    ctermbg=none  cterm=none
+highlight PreProc          guifg=#c678dd ctermfg=5    guibg=none    ctermbg=none  cterm=none
+highlight String           guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none
+highlight Number           guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none
+highlight Function         guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none
+" highlight Visual           guifg=#dfdfdf ctermfg=1    guibg=#1c1f24 ctermbg=none  cterm=none
 " highlight WildMenu         ctermfg=0       ctermbg=80      cterm=none
 " highlight Folded           ctermfg=103     ctermbg=234     cterm=none
 " highlight FoldColumn       ctermfg=103     ctermbg=234     cterm=none
@@ -154,16 +174,17 @@ highlight Function         ctermfg=1    ctermbg=none    cterm=none
 " highlight DiffChange       ctermfg=none    ctermbg=56      cterm=none
 " highlight DiffDelete       ctermfg=168     ctermbg=96      cterm=none
 " highlight DiffText         ctermfg=0       ctermbg=80      cterm=none
-highlight SignColumn       ctermfg=244     ctermbg=235     cterm=none
+" highlight SignColumn       ctermfg=244     ctermbg=235     cterm=none
+highlight SignColumn       ctermfg=244     ctermbg=none     cterm=none
 " highlight Conceal          ctermfg=251     ctermbg=none    cterm=none
 " highlight SpellBad         ctermfg=168     ctermbg=none    cterm=underline
 " highlight SpellCap         ctermfg=80      ctermbg=none    cterm=underline
 " highlight SpellRare        ctermfg=121     ctermbg=none    cterm=underline
 " highlight SpellLocal       ctermfg=186     ctermbg=none    cterm=underline
-" highlight Pmenu            ctermfg=251     ctermbg=234     cterm=none
-" highlight PmenuSel         ctermfg=0       ctermbg=111     cterm=none
-" highlight PmenuSbar        ctermfg=206     ctermbg=235     cterm=none
-" highlight PmenuThumb       ctermfg=235     ctermbg=206     cterm=none
+highlight Pmenu            ctermfg=251     ctermbg=234     cterm=none
+highlight PmenuSel         ctermfg=0       ctermbg=111     cterm=none
+highlight PmenuSbar        ctermfg=206     ctermbg=235     cterm=none
+highlight PmenuThumb       ctermfg=235     ctermbg=206     cterm=none
 " highlight TabLine          ctermfg=244     ctermbg=234     cterm=none
 " highlight TablineSel       ctermfg=0       ctermbg=247     cterm=none
 " highlight TablineFill      ctermfg=244     ctermbg=234     cterm=none
@@ -211,6 +232,12 @@ map <Leader>tt :vnew term://zsh<CR>
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set mouse=nicr
+" set mouse=a       " for neovide
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Fix Sizing Bug With Alacritty Terminal
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Splits and Tabbed Files
@@ -238,7 +265,7 @@ set fillchars+=vert:\
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" coc.nvim default settings
+" => coc.nvim default settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Better display for messages
@@ -320,6 +347,11 @@ nnoremap S :%s//g<Left><Left>
 " Spell-check set to <Leader>o, 'o' for 'orthography':
 map <Leader>o :setlocal spell! spelllang=en_us<CR>
 
+" Map keys for most used Go commands.
+map <leader>b :GoBuild<CR>
+map <leader>r :GoRun<CR>
+map <leader>t :GoTest<CR>
+
 let g:python_highlight_all = 1
 
 let g:rainbow_active = 1   " braces get the last color of the rainbow
@@ -331,16 +363,7 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+"set guifont=SauceCodePro\ Nerd\ Font:h15
+"set guifont=Mononoki\ Nerd\ Font:h15
 
-""" Customize colors """""""""""""""""""""""""""""""""""""""""""
-""" for Pmenu, which does suggestions for coc """"""""""""""""""
-hi Pmenu cterm=underline ctermfg=250 ctermbg=235 gui=underline guifg=#bcbcbc guibg=#262626
-hi PmenuSel cterm=underline ctermfg=250 ctermbg=131 gui=underline guifg=#bcbcbc guibg=#af5f5f
-" hi PmenuSbar
-" hi PmenuThumb
-
-" Map keys for most used Go commands.
-" Ex: `\b` for building, `\r` for running and `\t` for running test.
-map <leader>b :GoBuild<CR>
-map <leader>r :GoRun<CR>
-map <leader>t :GoTest<CR>
+"let g:neovide_transparency=0.95

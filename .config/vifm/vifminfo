@@ -76,8 +76,17 @@ d/home/yasuke/Pictures
 	..
 0
 d/home/yasuke
-	Templates
-9
+	Documents
+3
+d/home/yasuke/Desktop
+	..
+0
+d/home/yasuke/vimwiki
+	..
+0
+d/home/yasuke
+	metasploit-latest-linux-x64-installer.run.1
+21
 d
 
 # Right window history (oldest to newest):
@@ -88,7 +97,12 @@ D
 
 # Command line history (oldest to newest):
 :w
+:help
 :q
+:!touch git
+:rm gi
+:rm git
+:!rm git
 
 # Search history (oldest to newest):
 
