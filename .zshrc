@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -17,15 +17,15 @@ if [[ $ard -ne 300 ]]; then
 fi
 ###
 
+# Set "setxkbmap -option 'caps:ctrl_modifier' " in your startup script, to map caps as a ctrl modifier,...
+# But when it is pressed only once, treat it as escape
+# killall xcape 2>/dev/null ; xcape -e 'Caps_Lock=Escape'
+
 # Dotman 
 export DOT_DEST=Documents/ya-suke
 export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# Set "setxkbmap -option 'caps:ctrl_modifier' " in your startup script, to map caps as a ctrl modifier,...
-# But when it is pressed only once, treat it as escape
-killall xcape 2>/dev/null ; xcape -e 'Caps_Lock=Escape'
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
@@ -121,18 +121,18 @@ plugins=(
     tmux
     golang
     git
-    git-extras
+    # git-extras
     zsh-interactive-cd
     history
     zsh-z
-    nmap
+    # nmap
     zsh-autosuggestions
     zsh-syntax-highlighting
-    taskwarrior
+    # taskwarrior
     zsh-completions
-    zsh-pentest
-    zsh-handy-helpers
-    httpie
+    # zsh-pentest
+    # zsh-handy-helpers
+    # httpie
 )
 
 source $ZSH/oh-my-zsh.sh
