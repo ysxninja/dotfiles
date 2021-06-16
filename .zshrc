@@ -160,7 +160,7 @@ ZSH_HIGHLIGHT_STYLES[default]=fg=#a3f7ff            # everything else
 # ZSH_HIGHLIGHT_HIGLIGHTERS+=(acme)
 
 ### Export
-export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
+# export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
 export PATH=$PATH:/usr/lib/postgresql/12/bin
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
