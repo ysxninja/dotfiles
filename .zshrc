@@ -183,7 +183,7 @@ export GOPATH=$GOPATH:/home/yasuke/code
 # set aliasing for hub as git
 # eval "$(hub alias -s)"
 
-cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
+# cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
