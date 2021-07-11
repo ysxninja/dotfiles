@@ -115,24 +115,21 @@ fi
 # checkout httpie(curl replacement), 
 # removed vi-mode, extract already set in script
 # for pentest, zsh-pentest, zsh-handy-helpers, nmap
-
+# taskwarrior
+# git-extras
+# nmap
+# zsh-pentest
+# zsh-handy-helpers
+# httpie
 plugins=(
     web-search
-    tmux
-    golang
     git
-    # git-extras
     zsh-interactive-cd
     history
     zsh-z
-    # nmap
     zsh-autosuggestions
     zsh-syntax-highlighting
-    # taskwarrior
     zsh-completions
-    # zsh-pentest
-    # zsh-handy-helpers
-    # httpie
 )
 
 source $ZSH/oh-my-zsh.sh
