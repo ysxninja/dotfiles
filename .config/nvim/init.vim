@@ -36,6 +36,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'                                            " Famous git vim plugin
     Plug 'fatih/vim-go'                                                  " Vim plugin for golang
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}   " Conquer Of Completion for neovim (golang)
+    Plug 'pangloss/vim-javascript'
+     " Vim plugin for javascript
+    Plug 'digitaltoad/vim-pug'
+     " Syntax highlighting for Html
+    Plug 'othree/html5.vim'
+     " Html Syntax detection
 
 call plug#end()
 
