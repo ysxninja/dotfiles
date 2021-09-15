@@ -1,7 +1,8 @@
 ## ALIASES
 
 # grep for aliases
-alias ag="alias | grep"
+alias agl="alias | grep"
+alias alacritty="WAYLAND_DISPLAY= alacritty"
 
 # shortcuts to config files
 alias cfv="vim ~/.config/nvim/init.vim"

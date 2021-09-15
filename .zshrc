@@ -5,8 +5,13 @@
 #   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+# HIsory file commands loaded into memory and stored in the history file
+HISTSIZE=100000
+SAVEHIST=300000
 
 ### Conditional to check if xrate is already set to preferred value 
 
@@ -14,6 +19,7 @@ ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
 
 if [[ $ard -ne 300 ]]; then
     xset r rate 300 50
+    remaps
 fi
 ###
 
@@ -121,8 +127,8 @@ fi
 # zsh-pentest
 # zsh-handy-helpers
 # httpie
+# web-search
 plugins=(
-    web-search
     git
     zsh-interactive-cd
     history
@@ -133,6 +139,16 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
+
+### TITLE BAR
+DISABLE_AUTO_TITLE="true"
+
+function set_terminal_title() {
+    # echo -en "\e]2;$@\a"               # For blank
+    echo -n -e "\033]0;/\\/!n]a\007"
+}
+
+set_terminal_title
 
 ### COLOR ###
 
@@ -162,12 +178,6 @@ export PATH="$HOME/Android:$PATH";
 export PATH=$PATH:/usr/lib/postgresql/12/bin
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
-PATH="/home/yasuke/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/home/yasuke/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/yasuke/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/yasuke/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/yasuke/perl5"; export PERL_MM_OPT;
-
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 # The first segment of Gopath is going to be used by go get to store files,
@@ -190,4 +200,3 @@ export GOPATH=$GOPATH:/home/yasuke/code
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
-source "$HOME/.cargo/env"

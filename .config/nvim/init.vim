@@ -13,7 +13,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'gmarik/Vundle.vim'                                             " Vundle
     Plug 'itchyny/lightline.vim'                                         " Lightline statusbar
     Plug 'suan/vim-instant-markdown', {'rtp': 'after'}                   " Markdown Preview
-    Plug 'frazrepo/vim-rainbow'
 "{{ File management }}
     Plug 'vifm/vifm.vim'                                                 " Vifm
     Plug 'scrooloose/nerdtree'                                           " Nerdtree
@@ -29,6 +28,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'kovetskiy/sxhkd-vim'                                           " sxhkd highlighting
     Plug 'vim-python/python-syntax'                                      " Python highlighting
     Plug 'ap/vim-css-color'                                              " Color previews for CSS
+    Plug 'frazrepo/vim-rainbow'
 "{{ Junegunn Choi Plugins }}
     Plug 'junegunn/goyo.vim'                                             " Distraction-free viewing
     Plug 'junegunn/limelight.vim'                                        " Hyperfocus on a range
@@ -42,6 +42,20 @@ call plug#begin('~/.vim/plugged')
      " Syntax highlighting for Html
     Plug 'othree/html5.vim'
      " Html Syntax detection
+
+     "For React >> snippets
+    Plug 'mlaursen/vim-react-snippets'
+    Plug 'pangloss/vim-javascript'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'peitalin/vim-jsx-typescript'
+    Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+    Plug 'jparise/vim-graphql'
+
+     " Vim HardTime for vim speed
+    Plug 'takac/vim-hardtime'
+
+     " CtrlP Fuzzy File Finder
+    Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -94,6 +108,14 @@ autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Enable syntax highlighing when I enter a JavaScript or TypeScript buffer
+" and disable it when I leave
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remap Keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap ESC to jk and kj in insert mode,, use mapped caps for other modes to avoid
@@ -119,6 +141,20 @@ let g:lightline = {
       \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
+let g:coc_global_extensions = [
+      \ 'coc-tsserver',
+      \ 'coc-git'
+      \ ]
+
+" coc-eslint and coc-prettier
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
+
 
 " If status line is all black, set this
 " Always show statusline
@@ -296,6 +332,22 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" See if either the diagnostic exists, otherwise the documentation on hover
+function! ShowDocIfNoDiagnostic(timer_id)
+  if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
+    silent call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:show_hover_doc()
+  call timer_start(500, 'ShowDocIfNoDiagnostic')
+endfunction
+
+autocmd CursorHoldI * :call <SID>show_hover_doc()
+autocmd CursorHold * :call <SID>show_hover_doc()
+"""
+
+
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -314,6 +366,9 @@ nnoremap <silent> U :call <SID>show_documentation()<CR>
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
+
+" Perform code actions
+nmap <leader>do <Plug>(coc-codeaction)
 
 " Remap for format selected region
 vmap <leader>f  <Plug>(coc-format-selected)
@@ -347,6 +402,10 @@ let g:go_def_mapping_enabled = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other Stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Make CtrlP use ag for listing the files. Way fater and no useless files.
+let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+let g:ctrlp_use_caching = 0
+
 " Replace all is aliased to S
 nnoremap S :%s//g<Left><Left>
 
@@ -359,8 +418,6 @@ map <leader>r :GoRun<CR>
 map <leader>t :GoTest<CR>
 
 let g:python_highlight_all = 1
-
-let g:rainbow_active = 1   " braces get the last color of the rainbow
 
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org            call org#SetOrgFileType()
