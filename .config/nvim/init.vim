@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree'                                           " Nerdtree
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                       " Highlighting Nerdtree
     Plug 'ryanoasis/vim-devicons'                                        " Icons for Nerdtree
+    " Plug 'kyazdani42/nvim-web-devicons'
 "{{ Productivity }}
     Plug 'vimwiki/vimwiki'                                               " VimWiki 
     Plug 'jreybert/vimagit'                                              " Magit-like plugin for vim
@@ -179,7 +180,7 @@ set tabstop=4                   " One tab == four spaces.
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
-let NERDTreeShowLineNumbers=1
+" let NERDTreeShowLineNumbers=1             "Causes scrolling to be slow
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=38
