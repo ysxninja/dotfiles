@@ -16,7 +16,9 @@ call plug#begin('~/.vim/plugged')
 "{{ File management }}
     Plug 'vifm/vifm.vim'                                                 " Vifm
     Plug 'scrooloose/nerdtree'                                           " Nerdtree
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                       " Highlighting Nerdtree
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    " Plug 'Xuyuanp/nerdtree-git-plugin' " git plugin for nerdtree
+    " Highlighting Nerdtree
     Plug 'ryanoasis/vim-devicons'                                        " Icons for Nerdtree
     " Plug 'kyazdani42/nvim-web-devicons'
 "{{ Productivity }}
@@ -186,6 +188,8 @@ let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=38
 let NERDTreeHighlightCursorline = 0
 
+" nerdtree git plugin
+let g:NERDTreeGitStatusUseNerdFonts = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
