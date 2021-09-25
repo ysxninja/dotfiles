@@ -28,6 +28,15 @@ alias jshop="cd ~/Downloads/Compressed/git\ juice\ shop/juice-shop-master/ && np
 # cd into git folder
 alias ys="cd ~/Documents/ya-suke"
 
+# chrome
+alias chrome="google-chrome-stable"
+
+# timewarrior
+alias tw="timew"
+
+# openvpn
+alias vpn_us6="sudo openvpn --config ~/Documents/vpn/us-free-06.protonvpn.com.tcp.ovpn --auth-user-pass ~/Documents/vpn/ax --daemon && notify-send 'vpn daemon started'"
+
 # root privileges
 alias doas="doas --"
 

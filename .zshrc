@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 
 # Path to your oh-my-zsh installation.
@@ -17,11 +17,15 @@ SAVEHIST=300000
 
 ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
 
-if [[ $ard -ne 300 ]]; then
-    xset r rate 300 50
-    remaps
+# xset r rate 300 50 fast medium smooth
+# xset r rate 190 38 fast very smooth
+
+if [[ $ard -ne 190 ]]; then
+    xset r rate 190 38
+    # echo "xset set"
+    # remaps
 fi
-###
+##
 
 # Set "setxkbmap -option 'caps:ctrl_modifier' " in your startup script, to map caps as a ctrl modifier,...
 # But when it is pressed only once, treat it as escape
@@ -90,7 +94,7 @@ bindkey -v
 ### EXPORT
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export EDITOR="nvim"
-export VISUAL="xed"
+export VISUAL="gedit"
 
 ### "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -175,7 +179,7 @@ ZSH_HIGHLIGHT_STYLES[default]=fg=#a3f7ff            # everything else
 ### Export
 # export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
-export PATH=$PATH:/usr/lib/postgresql/12/bin
+# export PATH=$PATH:/usr/lib/postgresql/12/bin
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
 export GOROOT=/usr/local/go

@@ -24,41 +24,39 @@ call plug#begin('~/.vim/plugged')
 "{{ Productivity }}
     Plug 'vimwiki/vimwiki'                                               " VimWiki 
     Plug 'jreybert/vimagit'                                              " Magit-like plugin for vim
-"{{ Tim Pope Plugins }}
-    Plug 'tpope/vim-surround'                                            " Change surrounding marks
-"{{ Syntax Highlighting and Colors }}
-    Plug 'PotatoesMaster/i3-vim-syntax'                                  " i3 config highlighting
-    Plug 'kovetskiy/sxhkd-vim'                                           " sxhkd highlighting
-    Plug 'vim-python/python-syntax'                                      " Python highlighting
-    Plug 'ap/vim-css-color'                                              " Color previews for CSS
-    Plug 'frazrepo/vim-rainbow'
-"{{ Junegunn Choi Plugins }}
-    Plug 'junegunn/goyo.vim'                                             " Distraction-free viewing
-    Plug 'junegunn/limelight.vim'                                        " Hyperfocus on a range
-    Plug 'junegunn/vim-emoji'                                            " Vim needs emojis!
-    Plug 'tpope/vim-fugitive'                                            " Famous git vim plugin
-    Plug 'fatih/vim-go'                                                  " Vim plugin for golang
-    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}   " Conquer Of Completion for neovim (golang)
-    Plug 'pangloss/vim-javascript'
-     " Vim plugin for javascript
-    Plug 'digitaltoad/vim-pug'
-     " Syntax highlighting for Html
-    Plug 'othree/html5.vim'
-     " Html Syntax detection
-
+    Plug 'takac/vim-hardtime'                                            " Vim HardTime for vim speed
+    Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
      "For React >> snippets
     Plug 'mlaursen/vim-react-snippets'
     Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+     "Code and code detection
     Plug 'jparise/vim-graphql'
+    Plug 'fatih/vim-go'                                                  " Vim plugin for golang
+    Plug 'pangloss/vim-javascript'                                       " Vim plugin for javascript
+    Plug 'othree/html5.vim'                                              " Html Syntax detection
 
-     " Vim HardTime for vim speed
-    Plug 'takac/vim-hardtime'
+"{{ Tim Pope Plugins }}
+    Plug 'tpope/vim-surround'                                            " Change surrounding marks
+    Plug 'tpope/vim-fugitive'                                            " Famous git vim plugin
+"{{ Syntax Highlighting and Colors }}
+    Plug 'PotatoesMaster/i3-vim-syntax'                                  " i3 config highlighting
+    Plug 'kovetskiy/sxhkd-vim'                                           " sxhkd highlighting
+    Plug 'vim-python/python-syntax'                                      " Python highlighting
+    Plug 'ap/vim-css-color'                                              " Color previews for CSS
+    Plug 'digitaltoad/vim-pug'                                           " Syntax highlighting for Html
+    Plug 'frazrepo/vim-rainbow'
+"{{ Junegunn Choi Plugins }}
+    Plug 'junegunn/goyo.vim'                                             " Distraction-free viewing
+    Plug 'junegunn/limelight.vim'                                        " Hyperfocus on a range
+    Plug 'junegunn/vim-emoji'                                            " Vim needs emojis!
 
+"{{ Completion }}
      " CtrlP Fuzzy File Finder
     Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}   " Conquer Of Completion for neovim (golang)
 
 call plug#end()
 
