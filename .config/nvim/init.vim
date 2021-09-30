@@ -122,7 +122,7 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 " Remap ESC to jk and kj in insert mode,, use mapped caps for other modes to avoid
 " conflicts with jk in visual mode
 :imap jk <Esc>
-:imap kj <Esc>
+" :imap kj <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Status Line
@@ -254,6 +254,8 @@ map <Leader>tv :TabVifm<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+
+let g:vimwiki_global_ext = 0     "use vimwiki filetype only for vimwiki files
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-Instant-Markdown
@@ -413,7 +415,7 @@ let g:ctrlp_use_caching = 0
 nnoremap S :%s//g<Left><Left>
 
 " Spell-check set to <Leader>o, 'o' for 'orthography':
-map <Leader>o :setlocal spell! spelllang=en_us<CR>
+map <Leader>s :setlocal spell! spelllang=en_us<CR>
 
 " Map keys for most used Go commands.
 map <leader>b :GoBuild<CR>

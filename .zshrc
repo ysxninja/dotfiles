@@ -92,9 +92,10 @@ IFS=$SAVEIFS
 bindkey -v
 
 ### EXPORT
+export TERM="xterm-256color"
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
-export EDITOR="nvim"
-export VISUAL="gedit"
+export EDITOR="emacsclient -t a ''"
+export VISUAL="emacsclient -c -a emacs"
 
 ### "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
