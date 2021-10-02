@@ -435,3 +435,28 @@ set guioptions-=L  "remove left-hand scroll bar
 "set guifont=Mononoki\ Nerd\ Font:h15
 
 "let g:neovide_transparency=0.95
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enter insert mode when terminal is opened
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" soln 1
+" automatically enter insert mode on new terminals
+autocmd TermOpen * startinsert
+
+"" soln 2
+"" Only switch to insert if the terminal wasn't focused before
+"" This way if bufenter event is called after already haveing the terminal
+"" focused, the editor won't switch to insert mode
+"let g:previous_window = -1
+"function SmartInsert()
+"  if &buftype == 'terminal'
+"    if g:previous_window != winnr()
+"      startinsert
+"    endif
+"    let g:previous_window = winnr()
+"  else
+"    let g:previous_window = -1
+"  endif
+"endfunction
+"
+"au BufEnter * call SmartInsert()
