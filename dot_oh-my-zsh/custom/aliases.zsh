@@ -5,11 +5,12 @@ alias agl="alias | grep"
 alias alacritty="WAYLAND_DISPLAY= alacritty"
 
 # shortcuts to config files
-alias cfv="vim ~/.config/nvim/init.vim"
-alias cfz="vim ~/.zshrc"
-alias cfr="vim ~/.local/bin/remaps"
-alias cfa="vim ~/.oh-my-zsh/custom/aliases.zsh"
+alias cfv="vim ~/.local/share/chezmoi/dot_config/nvim/init.vim"
+alias cfz="vim ~/.local/share/chezmoi/dot_zshrc"
+alias cfr="vim ~/.local/share/chezmoi/dot_local/bin/remaps"
+alias cfa="vim ~/.local/share/chezmoi/dot_oh-my-zsh/custom/aliases.zsh"
 alias cfc="vim ~/Desktop/vim_cheat_sheet.txt"
+alias cft="vim ~/.local/share/chezmoi/dot_config/alacritty/executable_alacritty.yml"
 
 # Go shortcuts
 alias gosrc="cd ~/code/src/github.com/yasuke/"
