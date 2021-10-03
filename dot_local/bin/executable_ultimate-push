@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "  直 "
+echo " Pushing tasks to repo     .."
+echo ""
+git -C /home/yasuke/.task/ push -u origin main
+
+echo ""
+
+echo " Pushing dotfiles to repo     .."
+echo ""
+git -C /home/yasuke/Documents/ya-suke/dotfiles push -u origin main
+

@@ -1,0 +1,128 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'h
+	/home/yasuke/
+	..
+1616661240
+
+# Bookmarks:
+
+# TUI:
+al
+q1
+v2
+ov
+m-1
+l16,2
+r2
+
+# Left window history (oldest to newest):
+d/home/yasuke
+	..
+0
+d/home
+	..
+0
+d/
+	bin
+0
+d/home/yasuke/.config/nvim
+	..
+0
+d/home/yasuke/.config
+	nvim
+26
+d/home/yasuke/.config/nvim
+	..
+0
+d/home/yasuke/.config
+	nvim
+26
+d/home/yasuke/.config/nvim
+	..
+0
+d/home/yasuke/.config
+	nvim
+26
+d/home/yasuke/.config/nvim
+	..
+0
+d/home/yasuke/.config
+	nvim
+26
+d/home/yasuke/.config/nvim
+	..
+0
+d/home/yasuke/.config
+	nvim
+26
+d/home/yasuke/.config/nvim
+	coc-settings.json
+1
+d/home/yasuke/.config
+	..
+0
+d/home/yasuke
+	Music
+5
+d/home/yasuke/Music
+	..
+0
+d/home/yasuke
+	Pictures
+6
+d/home/yasuke/Pictures
+	..
+0
+d/home/yasuke
+	Documents
+3
+d/home/yasuke/Desktop
+	..
+0
+d/home/yasuke/vimwiki
+	..
+0
+d/home/yasuke
+	metasploit-latest-linux-x64-installer.run.1
+21
+d
+
+# Right window history (oldest to newest):
+D/home/yasuke
+	..
+0
+D
+
+# Command line history (oldest to newest):
+:w
+:help
+:q
+:!touch git
+:rm gi
+:rm git
+:!rm git
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0
