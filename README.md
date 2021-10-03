@@ -3,9 +3,11 @@
 
 ### To install this configuration: 
 Default 
-
-`$ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply <github-username>`
+```console
+$ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply ya-suke
+```
 
 #### Transitory environment (short-lived Linux containers)
-
-`$ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --one-shot <github-username>`
+```console
+$ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --one-shot ya-suke
+```
