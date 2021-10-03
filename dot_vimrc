@@ -253,3 +253,6 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+
+" Vim to run chezmoi apply whenever a dotfile is edited
+autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"

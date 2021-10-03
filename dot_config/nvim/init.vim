@@ -482,3 +482,6 @@ nmap <Leader>m <Plug>(coc-markmap-create)
 
 " Command to create markmaps
 command! -range=% Markmap CocCommand markmap.create <line1> <line2>
+
+" Vim to run chezmoi apply whenever a dotfile is edited
+autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
