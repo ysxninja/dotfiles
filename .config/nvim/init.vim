@@ -132,6 +132,12 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 "      \ 'colorscheme': 'darcula',
 "      \ }
 "
+
+"" coc integration with lightline
+"function! CocCurrentFunction()
+"    return get(b:, 'coc_current_function', '')
+"endfunction
+
 let g:lightline = {
       \ 'colorscheme': 'darcula',
       \ 'active': {
@@ -260,21 +266,24 @@ let g:vimwiki_global_ext = 0     "use vimwiki filetype only for vimwiki files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-Instant-Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:instant_markdown_slow = 1                             " Turns off update in real time
-let g:instant_markdown_autostart = 0                        " Turns off auto preview
-let g:instant_markdown_browser = "firefox --new-window"     " Uses firefox for preview
-
-" Previews .md file
-map <Leader>md :InstantMarkdownPreview<CR>                 
-" Kills the preview
-map <Leader>ms :InstantMarkdownStop<CR>                     
+"let g:instant_markdown_slow = 1                             " Turns off update in real time
+"let g:instant_markdown_autostart = 0                        " Turns off auto preview
+"let g:instant_markdown_browser = "firefox --new-window"     " Uses firefox for preview
+"
+"" Previews .md file
+"map <Leader>md :InstantMarkdownPreview<CR>                 
+"" Kills the preview
+"map <Leader>ms :InstantMarkdownStop<CR>                     
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Open terminal inside Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>tt :vnew term://zsh<CR>
+"vertical split
+map <Leader>tt :vnew term://zsh<CR>  
 
+" horizontal split     
+" map <Leader>tt :new term://zsh<CR> 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -337,7 +346,10 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" See if either the diagnostic exists, otherwise the documentation on hover
+"" mapping to show documentation for the word under the cursor
+" nnoremap <silent> K :call CocAction('doHover')<CR>
+" this does the above command in a more automatic behavior
+" it checks if the diagnostic exists, otherwise shows the documentation on hover
 function! ShowDocIfNoDiagnostic(timer_id)
   if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
     silent call CocActionAsync('doHover')
@@ -460,3 +472,13 @@ autocmd TermOpen * startinsert
 "endfunction
 "
 "au BufEnter * call SmartInsert()
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Create markmap from the whole file
+nmap <Leader>m <Plug>(coc-markmap-create)
+" Create markmap from the selected lines
+"vmap <Leader>m <Plug>(coc-markmap-create-v)
+
+" Command to create markmaps
+command! -range=% Markmap CocCommand markmap.create <line1> <line2>
