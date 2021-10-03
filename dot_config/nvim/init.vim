@@ -37,6 +37,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'fatih/vim-go'                                                  " Vim plugin for golang
     Plug 'pangloss/vim-javascript'                                       " Vim plugin for javascript
     Plug 'othree/html5.vim'                                              " Html Syntax detection
+    Plug 'cespare/vim-toml'                                              " Plugin for TOML syntax
 
 "{{ Tim Pope Plugins }}
     Plug 'tpope/vim-surround'                                            " Change surrounding marks
