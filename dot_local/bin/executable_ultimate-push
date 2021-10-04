@@ -1,18 +1,26 @@
 #!/bin/bash
-echo "  直 Testing Connection....📡 "
-ping -c 1 google.com > /dev/null 2>&1 && echo "\n  🗱  connected " || (echo "\n 🗶  disconnected " && echo " ☠  Exiting..." && exit)
-echo " Pushing tasks to repo     ..\n"
+echo "  直 Testing Connection.... "
+echo "  📡 "
+ping -c 1 google.com > /dev/null 2>&1 && echo "  🗱  connected " || (echo " 🗶  disconnected " && echo "" && echo " ☠  Exiting..." && exit)
+echo " Pushing tasks to repo     .."
+
+echo ""
+
 git -C /home/yasuke/.task/ push -u origin main
 
 
-echo "\n Pushing dotfiles to repo     ..\n"
+echo ""
+echo " Pushing dotfiles to repo     .."
 # old dotfiles repo
 # git -C /home/yasuke/Documents/ya-suke/dotfiles push -u origin old
 
+echo ""
 echo "Committing updates"
 git -C /home/yasuke/.local/share/chezmoi/ commit -a -m "update dotfiles"
 
-echo "\nPushing"
+echo ""
+
+echo "Pushing"
 git -C /home/yasuke/.local/share/chezmoi/ push -u origin master
 
 # chezmoi apply
