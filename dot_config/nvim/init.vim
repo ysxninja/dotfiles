@@ -22,7 +22,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'                                        " Icons for Nerdtree
     " Plug 'kyazdani42/nvim-web-devicons'
 "{{ Productivity }}
-    Plug 'vimwiki/vimwiki'                                               " VimWiki 
+    Plug 'vimwiki/vimwiki', { 'branch': 'dev'}                           " VimWiki 
     Plug 'jreybert/vimagit'                                              " Magit-like plugin for vim
     Plug 'takac/vim-hardtime'                                            " Vim HardTime for vim speed
     Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
