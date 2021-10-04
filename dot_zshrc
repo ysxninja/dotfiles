@@ -49,7 +49,7 @@ bindkey -v
 ### EXPORT
 export TERM="xterm-256color"
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
-export EDITOR="emacsclient -t a ''"
+export EDITOR="nvim"
 export VISUAL="emacsclient -c -a emacs"
 
 ### "bat" as manpager
