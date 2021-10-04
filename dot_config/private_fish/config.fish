@@ -191,7 +191,7 @@ end
 alias nmap="grc nmap"
 
 # spark aliases
-alias clear='clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
+alias clear='/bin/clear; echo; echo; seq 1 (tput cols) | sort -R | spark | lolcat; echo; echo'
 
 # git, juice shop
 alias jshop="cd ~/Downloads/Compressed/git\ juice\ shop/juice-shop-master/ && npm start"
