@@ -8,5 +8,15 @@ echo ""
 
 echo " Pushing dotfiles to repo     .."
 echo ""
-git -C /home/yasuke/Documents/ya-suke/dotfiles push -u origin main
+# old dotfiles repo
+# git -C /home/yasuke/Documents/ya-suke/dotfiles push -u origin old
 
+chezmoi update
+
+echo " backing up group and hist files"
+sudo cat /etc/group > ~/group.bak && echo "group backup successful" || echo "group backup failed"
+cat ~/.zsh_history > ~/.zsh_history.bak && echo "hist backup successful" || echo "hist backup failed"
+
+echo ""
+
+echo "Exiting..."
