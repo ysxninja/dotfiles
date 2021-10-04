@@ -1,7 +1,19 @@
-#!/bin/bash
+#!/bin/sh
+
 echo "  直 Testing Connection.... "
 echo "  📡 "
-ping -c 1 google.com > /dev/null 2>&1 && echo "  🗱  connected " || (echo " 🗶  disconnected " && echo "" && echo " ☠  Exiting..." && exit)
+ping -c 1 -W 2 google.com > /dev/null 2>&1 && echo "  🗱  connected " || (echo "  🗶  disconnected " && echo "" && exit 4 )
+
+status=$?
+
+if test $status -eq 4
+then 
+    echo "  ☠  Exiting..."
+    exit
+else
+    continue
+fi
+
 echo ""
 echo ""
 echo " Pushing tasks to repo     .."
