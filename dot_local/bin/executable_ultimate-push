@@ -2,6 +2,8 @@
 echo "  直 Testing Connection.... "
 echo "  📡 "
 ping -c 1 google.com > /dev/null 2>&1 && echo "  🗱  connected " || (echo " 🗶  disconnected " && echo "" && echo " ☠  Exiting..." && exit)
+echo ""
+echo ""
 echo " Pushing tasks to repo     .."
 
 echo ""
@@ -28,8 +30,8 @@ git -C /home/yasuke/.local/share/chezmoi/ push -u origin master
 echo ""
 
 echo " backing up group and hist files"
-sudo cat /etc/group > ~/group.bak && echo "group backup successful" || echo "group backup failed"
-cat ~/.zsh_history > ~/.zsh_history.bak && echo "hist backup successful" || echo "hist backup failed"
+sudo cat /etc/group > ~/group.bak && echo "group backup successful" || echo " 🗶  group backup failed"
+cat ~/.zsh_history > ~/.zsh_history.bak && echo "hist backup successful" || echo " 🗶  hist backup failed"
 
 echo " ✅✅✅"
 
