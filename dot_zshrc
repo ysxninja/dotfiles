@@ -135,8 +135,8 @@ ZSH_HIGHLIGHT_STYLES[default]=fg=#a3f7ff            # everything else
 ### Export
 # export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
-export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH";
-# export PATH=$PATH:/usr/lib/postgresql/12/bin
+export PATH="/home/yasuke/.rvm/gems/ruby-3.0.0/bin:/home/yasuke/.rvm/gems/ruby-3.0.0@global/bin:/home/yasuke/.rvm/rubies/ruby-3.0.0/bin:/home/yasuke/.local/share/gem/ruby/3.0.0/bi:$PATH";
+ export PATH=$PATH:/usr/lib/postgresql/12/bin
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
 export GOROOT=/usr/local/go
