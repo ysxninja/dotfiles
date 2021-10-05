@@ -32,6 +32,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'leafgarland/typescript-vim'
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+    Plug 'akinsho/toggleterm.nvim'
      "Code and code detection
     Plug 'jparise/vim-graphql'
     Plug 'fatih/vim-go'                                                  " Vim plugin for golang
@@ -288,7 +289,7 @@ let g:vimwiki_global_ext = 0     "use vimwiki filetype only for vimwiki files
 " => Open terminal inside Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vertical split
-map <Leader>tt :vnew term://zsh<CR>  
+"map <Leader>tt :vnew term://zsh<CR>  
 
 " horizontal split     
 " map <Leader>tt :new term://zsh<CR> 
@@ -493,3 +494,21 @@ command! -range=% Markmap CocCommand markmap.create <line1> <line2>
 
 " Vim to run chezmoi apply whenever a dotfile is edited
 autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ToggleTerm
+" set
+let g:toggleterm_terminal_mapping = '<C-t>'
+" or manually...
+autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+" By applying the mappings this way you can pass a count to your
+" mapping to open a specific window.
+" For example: 2<C-t> will open terminal 2
+nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
+map <Leader>tt :ToggleTerm size=40 direction=vertical<CR>  
+
+" Bring back esc key in terminal to get back to normal mode
+tnoremap <Esc> <C-\><C-n>
