@@ -189,9 +189,9 @@ map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
 " let NERDTreeShowLineNumbers=1             "Causes scrolling to be slow
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden= 1
 let NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize=38
+let g:NERDTreeWinSize= 20
 let NERDTreeHighlightCursorline = 0
 
 " nerdtree git plugin
@@ -461,7 +461,7 @@ set guioptions-=L  "remove left-hand scroll bar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " soln 1
 " automatically enter insert mode on new terminals
-autocmd TermOpen * startinsert
+" autocmd TermOpen * startinsert
 
 "" soln 2
 "" Only switch to insert if the terminal wasn't focused before

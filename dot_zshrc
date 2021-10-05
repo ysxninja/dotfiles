@@ -50,7 +50,7 @@ bindkey -v
 export TERM="xterm-256color"
 export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export EDITOR="nvim"
-export VISUAL="emacsclient -c -a emacs"
+export VISUAL="nvim"
 
 ### "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -135,8 +135,6 @@ ZSH_HIGHLIGHT_STYLES[default]=fg=#a3f7ff            # everything else
 ### Export
 # export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
-export PATH="/home/yasuke/.rvm/gems/ruby-3.0.0/bin:/home/yasuke/.rvm/gems/ruby-3.0.0@global/bin:/home/yasuke/.rvm/rubies/ruby-3.0.0/bin:/home/yasuke/.local/share/gem/ruby/3.0.0/bi:$PATH";
- export PATH=$PATH:/usr/lib/postgresql/12/bin
 export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
 
 export GOROOT=/usr/local/go
@@ -161,3 +159,4 @@ export GOPATH=$GOPATH:/home/yasuke/code
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
+source /home/yasuke/.rvm/scripts/rvm
