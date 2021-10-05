@@ -6,14 +6,22 @@ filetype off                  " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vim polyglot
+let g:polyglot_disabled = ['markdown','go','html5']
 
 call plug#begin('~/.vim/plugged')
 
 "{{ The Basics }}
     Plug 'gmarik/Vundle.vim'                                             " Vundle
     Plug 'itchyny/lightline.vim'                                         " Lightline statusbar
-    Plug 'suan/vim-instant-markdown', {'rtp': 'after'}                   " Markdown Preview
+    " Plug 'suan/vim-instant-markdown', {'rtp': 'after'}                   " Markdown Preview
+    
+    " Colorscheme Theme
     Plug 'joshdick/onedark.vim'
+
+    " Terminal toggler
+    Plug 'akinsho/toggleterm.nvim'
+
 "{{ File management }}
     Plug 'vifm/vifm.vim'                                                 " Vifm
     Plug 'scrooloose/nerdtree'                                           " Nerdtree
@@ -22,36 +30,34 @@ call plug#begin('~/.vim/plugged')
     " Highlighting Nerdtree
     Plug 'ryanoasis/vim-devicons'                                        " Icons for Nerdtree
     " Plug 'kyazdani42/nvim-web-devicons'
+    
 "{{ Productivity }}
     Plug 'vimwiki/vimwiki', { 'branch': 'dev'}                           " VimWiki 
-    Plug 'jreybert/vimagit'                                              " Magit-like plugin for vim
-    Plug 'takac/vim-hardtime'                                            " Vim HardTime for vim speed
+    " Plug 'jreybert/vimagit'                                              " Magit-like plugin for vim
+    " Plug 'takac/vim-hardtime'                                            " Vim HardTime for vim speed
     Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
+
      "For React >> snippets
     Plug 'mlaursen/vim-react-snippets'
     Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-    Plug 'akinsho/toggleterm.nvim'
+
      "Code and code detection
     Plug 'jparise/vim-graphql'
     Plug 'fatih/vim-go'                                                  " Vim plugin for golang
     Plug 'pangloss/vim-javascript'                                       " Vim plugin for javascript
-    Plug 'othree/html5.vim'                                              " Html Syntax detection
-    Plug 'cespare/vim-toml'                                              " Plugin for TOML syntax
 
 "{{ Tim Pope Plugins }}
     Plug 'tpope/vim-surround'                                            " Change surrounding marks
     Plug 'tpope/vim-fugitive'                                            " Famous git vim plugin
-"{{ Syntax Highlighting and Colors }}
-    Plug 'PotatoesMaster/i3-vim-syntax'                                  " i3 config highlighting
-    " Plug 'sheerun/vim-polyglot'                                          " A collection of language packs for vim
-    Plug 'kovetskiy/sxhkd-vim'                                           " sxhkd highlighting
+
+"{{ Syntax Highlighting and Color detection }}
+    Plug 'sheerun/vim-polyglot'                                          " A collection of language packs for vim
     Plug 'vim-python/python-syntax'                                      " Python highlighting
     Plug 'ap/vim-css-color'                                              " Color previews for CSS
-    Plug 'digitaltoad/vim-pug'                                           " Syntax highlighting for Html
-    Plug 'frazrepo/vim-rainbow'
+
 "{{ Junegunn Choi Plugins }}
     Plug 'junegunn/goyo.vim'                                             " Distraction-free viewing
     Plug 'junegunn/limelight.vim'                                        " Hyperfocus on a range
@@ -446,7 +452,7 @@ map <leader>b :GoBuild<CR>
 map <leader>r :GoRun<CR>
 map <leader>t :GoTest<CR>
 
-let g:python_highlight_all = 1
+" let g:python_highlight_all = 1
 
 au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
 au BufEnter *.org            call org#SetOrgFileType()
@@ -525,4 +531,6 @@ tnoremap <Esc> <C-\><C-n>
 " nmap <silent> <C-N> :tabprevious<CR>
 " nmap <silent> <C-M> :tabnext<CR>
 " nmap <silent> <Leader>d :tabe %<CR>
+"
+
 
