@@ -159,4 +159,4 @@ export GOPATH=$GOPATH:/home/yasuke/code
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
-source /home/yasuke/.rvm/scripts/rvm
+# source /home/yasuke/.rvm/scripts/rvm
