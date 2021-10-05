@@ -13,6 +13,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'gmarik/Vundle.vim'                                             " Vundle
     Plug 'itchyny/lightline.vim'                                         " Lightline statusbar
     Plug 'suan/vim-instant-markdown', {'rtp': 'after'}                   " Markdown Preview
+    Plug 'joshdick/onedark.vim'
 "{{ File management }}
     Plug 'vifm/vifm.vim'                                                 " Vifm
     Plug 'scrooloose/nerdtree'                                           " Nerdtree
@@ -45,6 +46,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fugitive'                                            " Famous git vim plugin
 "{{ Syntax Highlighting and Colors }}
     Plug 'PotatoesMaster/i3-vim-syntax'                                  " i3 config highlighting
+    " Plug 'sheerun/vim-polyglot'                                          " A collection of language packs for vim
     Plug 'kovetskiy/sxhkd-vim'                                           " sxhkd highlighting
     Plug 'vim-python/python-syntax'                                      " Python highlighting
     Plug 'ap/vim-css-color'                                              " Color previews for CSS
@@ -200,6 +202,7 @@ let g:NERDTreeGitStatusUseNerdFonts = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme onedark
 " guifg and guibg for neovide
 
 highlight Normal           guifg=#dfdfdf ctermfg=15   guibg=#282c34 ctermbg=none  cterm=none
@@ -512,3 +515,14 @@ map <Leader>tt :ToggleTerm size=40 direction=vertical<CR>
 
 " Bring back esc key in terminal to get back to normal mode
 tnoremap <Esc> <C-\><C-n>
+
+" Use shift-H and shift-L for move to beginning/end
+" nnoremap <S-h> 0
+" nnoremap <S-l> $
+
+" For Tabs
+" nmap <silent> <Leader>t :tabnew<CR>
+" nmap <silent> <C-N> :tabprevious<CR>
+" nmap <silent> <C-M> :tabnext<CR>
+" nmap <silent> <Leader>d :tabe %<CR>
+
