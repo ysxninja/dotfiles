@@ -288,7 +288,7 @@ let g:vimwiki_global_ext = 0     "use vimwiki filetype only for vimwiki files
 " => Open terminal inside Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vertical split
-map <Leader>tt :vnew term://zsh<CR>  
+map <Leader>tt :vnew term://bash<CR>  
 
 " horizontal split     
 " map <Leader>tt :new term://zsh<CR> 
