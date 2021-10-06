@@ -38,7 +38,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
 
      "For React >> snippets
-    Plug 'mlaursen/vim-react-snippets'
+    " Plug 'SirVer/ultisnips'
+    " Plug 'mlaursen/vim-react-snippets'                                   " snippets for developing react apps, rely on ultisnips from sirver
+    Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
     Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
     Plug 'peitalin/vim-jsx-typescript'
@@ -55,7 +57,7 @@ call plug#begin('~/.vim/plugged')
 
 "{{ Syntax Highlighting and Color detection }}
     Plug 'sheerun/vim-polyglot'                                          " A collection of language packs for vim
-    Plug 'vim-python/python-syntax'                                      " Python highlighting
+    " Plug 'vim-python/python-syntax'                                      " Python highlighting
     Plug 'ap/vim-css-color'                                              " Color previews for CSS
 
 "{{ Junegunn Choi Plugins }}
@@ -193,18 +195,21 @@ set tabstop=4                   " One tab == four spaces.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Uncomment to autostart the NERDTree
 " autocmd vimenter * NERDTree
-" map <Leader>n : NERDTreeToggle<CR> 
+map <Leader>n : NERDTreeToggle<CR> 
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
-" let NERDTreeShowLineNumbers=1             "Causes scrolling to be slow
+let NERDTreeShowLineNumbers= 0             " 1 Causes scrolling to be slow
 let NERDTreeShowHidden= 1
 let NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize= 20
+let g:NERDTreeWinSize= 24
 let NERDTreeHighlightCursorline = 0
 
 " nerdtree git plugin
 let g:NERDTreeGitStatusUseNerdFonts = 1
+
+" auto reload on opening window
+autocmd BufEnter NERD_tree_* | execute 'normal R'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -281,6 +286,8 @@ let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/template
 
 let g:vimwiki_global_ext = 0     "use vimwiki filetype only for vimwiki files
 
+map <Leader>ww :VimwikiIndex <CR> :NERDTree /home/yasuke/vimwiki <CR> <C-l>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vim-Instant-Markdown
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -341,7 +348,8 @@ set fillchars+=vert:\
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => coc.nvim default settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+" Use <cr> to confirm completion
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Better display for messages
 set cmdheight=2
 " Smaller updatetime for CursorHold & CursorHoldI
@@ -531,6 +539,5 @@ tnoremap <Esc> <C-\><C-n>
 " nmap <silent> <C-N> :tabprevious<CR>
 " nmap <silent> <C-M> :tabnext<CR>
 " nmap <silent> <Leader>d :tabe %<CR>
-"
 
 
