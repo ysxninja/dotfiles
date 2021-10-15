@@ -69,6 +69,7 @@ call plug#begin('~/.vim/plugged')
      " CtrlP Fuzzy File Finder
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}   " Conquer Of Completion for neovim (golang)
+    Plug 'mattn/emmet-vim'                                               " Emmet for vim
 
 call plug#end()
 
@@ -202,7 +203,7 @@ let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeShowLineNumbers= 0             " 1 Causes scrolling to be slow
 let NERDTreeShowHidden= 1
 let NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize= 24
+let g:NERDTreeWinSize= 23
 let NERDTreeHighlightCursorline = 0
 
 " nerdtree git plugin
@@ -373,21 +374,21 @@ function! s:check_back_space() abort
 endfunction
 
 "" mapping to show documentation for the word under the cursor
-" nnoremap <silent> K :call CocAction('doHover')<CR>
+nnoremap <silent> K :call CocAction('doHover')<CR>
 " this does the above command in a more automatic behavior
 " it checks if the diagnostic exists, otherwise shows the documentation on hover
-function! ShowDocIfNoDiagnostic(timer_id)
-  if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
-    silent call CocActionAsync('doHover')
-  endif
-endfunction
-
-function! s:show_hover_doc()
-  call timer_start(500, 'ShowDocIfNoDiagnostic')
-endfunction
-
-autocmd CursorHoldI * :call <SID>show_hover_doc()
-autocmd CursorHold * :call <SID>show_hover_doc()
+" function! ShowDocIfNoDiagnostic(timer_id)
+"   if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
+"     silent call CocActionAsync('doHover')
+"   endif
+" endfunction
+" 
+" function! s:show_hover_doc()
+"   call timer_start(500, 'ShowDocIfNoDiagnostic')
+" endfunction
+" 
+" autocmd CursorHoldI * :call <SID>show_hover_doc()
+" autocmd CursorHold * :call <SID>show_hover_doc()
 """
 
 
@@ -540,4 +541,5 @@ tnoremap <Esc> <C-\><C-n>
 " nmap <silent> <C-M> :tabnext<CR>
 " nmap <silent> <Leader>d :tabe %<CR>
 
-
+" remap to not lose what's in register on delete
+vnoremap <leader>p "_dP
