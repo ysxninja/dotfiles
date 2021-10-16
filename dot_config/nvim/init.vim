@@ -1,4 +1,4 @@
-" A customized init.vim for neovim (https://neovim.io/)     
+"A customized init.vim for neovim (https://neovim.io/)     
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -18,6 +18,7 @@ call plug#begin('~/.vim/plugged')
     
     " Colorscheme Theme
     Plug 'joshdick/onedark.vim'
+    Plug 'gruvbox-community/gruvbox'
 
     " Terminal toggler
     Plug 'akinsho/toggleterm.nvim'
@@ -30,6 +31,7 @@ call plug#begin('~/.vim/plugged')
     " Highlighting Nerdtree
     Plug 'ryanoasis/vim-devicons'                                        " Icons for Nerdtree
     " Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'pixelastic/vim-undodir-tree'
     
 "{{ Productivity }}
     Plug 'vimwiki/vimwiki', { 'branch': 'dev'}                           " VimWiki 
@@ -77,19 +79,6 @@ filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 " filetype plugin on
 
-
-" Am using junegunn/vim-plug so Vundle plugininstall commands won't work here
-
-" Brief help
-" :PlugStatus                   - Check the status of plugins
-" :PlugInstall [name ...]       - installs plugins; 
-" :PlugUpdate [name ...]        - install or update plugins
-" :PlugClean[!]                 - Remove unlisted plugins (bang version will clean without prompt)"
-" PlugUpgrade                   - Upgrade vim-plug itself
-" PlugDiff                      - Examine the changes from the previous update and the pending changes
-" PlugSnapshot[!] [output path] -	Generate script for restoring the current snapshot of the plugins
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -102,24 +91,26 @@ set noswapfile                  " No swap
 set t_Co=256                    " Set if term supports 256 colors.
 set number relativenumber       " Display line numbers
 set clipboard=unnamedplus       " Copy/paste between vim and other programs.
+set nohlsearch                  " stop highlighting search after esc
+" set guicursor=                   " remove pipe cursor on insert
+set undodir=~/.vim/undodir
+set undofile
+set scrolloff=8                 " Better display for messages
+set cmdheight=2                 " Smaller updatetime for CursorHold & CursorHoldI
+set updatetime=50               " don't give |ins-completion-menu| messages.
+set shortmess+=c                " always show signcolumns
+set signcolumn=yes
+set shortmess+=c                " don't pass messages to ins-completion-menu
+
 syntax enable
 let g:rehash256 = 1
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Toggle hybrid numbers when in insert mode
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-":augroup numbertoggle
-":autocmd!
-":autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-":autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-":augroup END
+let mapleader = " "
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Toggle hybrid numbering in the focused window, and absolute in non-focused
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd WinEnter,FocusGained * :setlocal number relativenumber
 autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Enable syntax highlighing when I enter a JavaScript or TypeScript buffer
@@ -128,29 +119,16 @@ autocmd WinLeave,FocusLost   * :setlocal number norelativenumber
 autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
 autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Remap Keys
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Remap ESC to jk and kj in insert mode,, use mapped caps for other modes to avoid
 " conflicts with jk in visual mode
+
 :imap jk <Esc>
 " :imap kj <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Status Line
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" The lightline.vim theme
-" let g:lightline = {
-"      \ 'colorscheme': 'darcula',
-"      \ }
-"
-
-"" coc integration with lightline
-"function! CocCurrentFunction()
-"    return get(b:, 'coc_current_function', '')
-"endfunction
-
 let g:lightline = {
       \ 'colorscheme': 'darcula',
       \ 'active': {
@@ -175,7 +153,6 @@ if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
   let g:coc_global_extensions += ['coc-eslint']
 endif
 
-
 " If status line is all black, set this
 " Always show statusline
 set laststatus=2
@@ -196,7 +173,7 @@ set tabstop=4                   " One tab == four spaces.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Uncomment to autostart the NERDTree
 " autocmd vimenter * NERDTree
-map <Leader>n : NERDTreeToggle<CR> 
+map <leader>n : NERDTreeToggle<CR> 
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
@@ -214,64 +191,17 @@ autocmd BufEnter NERD_tree_* | execute 'normal R'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" colorscheme gruvbox
 colorscheme onedark
-" guifg and guibg for neovide
-
-highlight Normal           guifg=#dfdfdf ctermfg=15   guibg=#282c34 ctermbg=none  cterm=none
-highlight LineNr           guifg=#5b6268 ctermfg=8    guibg=#282c34 ctermbg=none  cterm=none
-highlight CursorLineNr     guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
-highlight VertSplit        guifg=#1c1f24 ctermfg=0    guifg=#5b6268 ctermbg=8     cterm=none
-highlight Statement        guifg=#98be65 ctermfg=2    guibg=none    ctermbg=none  cterm=none
-highlight Directory        guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none
-highlight StatusLine       guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
-highlight StatusLineNC     guifg=#202328 ctermfg=7    guifg=#5b6268 ctermbg=8     cterm=none
-highlight NERDTreeClosable guifg=#98be65 ctermfg=2
-highlight NERDTreeOpenable guifg=#5b6268 ctermfg=8
-highlight Comment          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=italic
-highlight Constant         guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none
-highlight Special          guifg=#51afef ctermfg=4    guibg=none    ctermbg=none  cterm=none
-highlight Identifier       guifg=#5699af ctermfg=6    guibg=none    ctermbg=none  cterm=none
-highlight PreProc          guifg=#c678dd ctermfg=5    guibg=none    ctermbg=none  cterm=none
-highlight String           guifg=#3071db ctermfg=12   guibg=none    ctermbg=none  cterm=none
-highlight Number           guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none
-highlight Function         guifg=#ff6c6b ctermfg=1    guibg=none    ctermbg=none  cterm=none
-" highlight Visual           guifg=#dfdfdf ctermfg=1    guibg=#1c1f24 ctermbg=none  cterm=none
-" highlight WildMenu         ctermfg=0       ctermbg=80      cterm=none
-" highlight Folded           ctermfg=103     ctermbg=234     cterm=none
-" highlight FoldColumn       ctermfg=103     ctermbg=234     cterm=none
-" highlight DiffAdd          ctermfg=none    ctermbg=23      cterm=none
-" highlight DiffChange       ctermfg=none    ctermbg=56      cterm=none
-" highlight DiffDelete       ctermfg=168     ctermbg=96      cterm=none
-" highlight DiffText         ctermfg=0       ctermbg=80      cterm=none
-" highlight SignColumn       ctermfg=244     ctermbg=235     cterm=none
-highlight SignColumn       ctermfg=244     ctermbg=none     cterm=none
-" highlight Conceal          ctermfg=251     ctermbg=none    cterm=none
-" highlight SpellBad         ctermfg=168     ctermbg=none    cterm=underline
-" highlight SpellCap         ctermfg=80      ctermbg=none    cterm=underline
-" highlight SpellRare        ctermfg=121     ctermbg=none    cterm=underline
-" highlight SpellLocal       ctermfg=186     ctermbg=none    cterm=underline
-highlight Pmenu            ctermfg=251     ctermbg=234     cterm=none
-highlight PmenuSel         ctermfg=0       ctermbg=111     cterm=none
-highlight PmenuSbar        ctermfg=206     ctermbg=235     cterm=none
-highlight PmenuThumb       ctermfg=235     ctermbg=206     cterm=none
-" highlight TabLine          ctermfg=244     ctermbg=234     cterm=none
-" highlight TablineSel       ctermfg=0       ctermbg=247     cterm=none
-" highlight TablineFill      ctermfg=244     ctermbg=234     cterm=none
-" highlight CursorColumn     ctermfg=none    ctermbg=236     cterm=none
-" highlight CursorLine       ctermfg=none    ctermbg=236     cterm=none
-" highlight ColorColumn      ctermfg=none    ctermbg=236     cterm=none
-" highlight Cursor           ctermfg=0       ctermbg=5       cterm=none
-" highlight htmlEndTag       ctermfg=114     ctermbg=none    cterm=none
-" highlight xmlEndTag        ctermfg=114     ctermbg=none    cterm=none
-
+highlight Normal ctermbg=none
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vifm
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>vv :Vifm<CR>
-map <Leader>vs :VsplitVifm<CR>
-map <Leader>sp :SplitVifm<CR>
-map <Leader>dv :DiffVifm<CR>
-map <Leader>tv :TabVifm<CR>
+map <leader>vv :Vifm<CR>
+map <leader>vs :VsplitVifm<CR>
+map <leader>sp :SplitVifm<CR>
+map <leader>dv :DiffVifm<CR>
+map <leader>tv :TabVifm<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VimWiki
@@ -287,29 +217,16 @@ let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/template
 
 let g:vimwiki_global_ext = 0     "use vimwiki filetype only for vimwiki files
 
-map <Leader>ww :VimwikiIndex <CR> :NERDTree /home/yasuke/vimwiki <CR> <C-l>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vim-Instant-Markdown
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:instant_markdown_slow = 1                             " Turns off update in real time
-"let g:instant_markdown_autostart = 0                        " Turns off auto preview
-"let g:instant_markdown_browser = "firefox --new-window"     " Uses firefox for preview
-"
-"" Previews .md file
-"map <Leader>md :InstantMarkdownPreview<CR>                 
-"" Kills the preview
-"map <Leader>ms :InstantMarkdownStop<CR>                     
-
+map <leader>ww :VimwikiIndex <CR> :NERDTree /home/yasuke/vimwiki <CR> <C-l>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Open terminal inside Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vertical split
-"map <Leader>tt :vnew term://zsh<CR>  
+"map <leader>tt :vnew term://zsh<CR>  
 
 " horizontal split     
-" map <Leader>tt :new term://zsh<CR> 
+" map <leader>tt :new term://zsh<CR> 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -339,26 +256,17 @@ noremap <silent> <C-Up> :resize +3<CR>
 noremap <silent> <C-Down> :resize -3<CR>
 
 " Change 2 split windows from vert to horiz or horiz to vert
-map <Leader>th <C-w>t<C-w>H
-map <Leader>tk <C-w>t<C-w>K
+map <leader>th <C-w>t<C-w>H
+map <leader>tk <C-w>t<C-w>K
 
 " Removes pipes | that act as seperators on splits
 set fillchars+=vert:\ 
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => coc.nvim default settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use <cr> to confirm completion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Better display for messages
-set cmdheight=2
-" Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=300
-" don't give |ins-completion-menu| messages.
-set shortmess+=c
-" always show signcolumns
-set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -375,22 +283,6 @@ endfunction
 
 "" mapping to show documentation for the word under the cursor
 nnoremap <silent> K :call CocAction('doHover')<CR>
-" this does the above command in a more automatic behavior
-" it checks if the diagnostic exists, otherwise shows the documentation on hover
-" function! ShowDocIfNoDiagnostic(timer_id)
-"   if (coc#float#has_float() == 0 && CocHasProvider('hover') == 1)
-"     silent call CocActionAsync('doHover')
-"   endif
-" endfunction
-" 
-" function! s:show_hover_doc()
-"   call timer_start(500, 'ShowDocIfNoDiagnostic')
-" endfunction
-" 
-" autocmd CursorHoldI * :call <SID>show_hover_doc()
-" autocmd CursorHold * :call <SID>show_hover_doc()
-"""
-
 
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -432,7 +324,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent> <space>pp  :<C-u>CocListResume<CR>
 
 " Tell vim-go to not map gd as its shortcut for go to definition
 " disable vim-go :GoDef short cut (gd)
@@ -441,7 +333,8 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 let g:go_def_mapping_enabled = 0
 
 " change from default snake_case to camelcase while converting
-" let g:go_addtags_transform = "camelcase"
+let g:go_addtags_transform = "camelcase"
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other Stuff
@@ -453,8 +346,8 @@ let g:ctrlp_use_caching = 0
 " Replace all is aliased to S
 nnoremap S :%s//g<Left><Left>
 
-" Spell-check set to <Leader>o, 'o' for 'orthography':
-map <Leader>s :setlocal spell! spelllang=en_us<CR>
+" Spell-check set to <leader>ss:
+map <leader>ss :setlocal spell! spelllang=en_us<CR>
 
 " Map keys for most used Go commands.
 map <leader>b :GoBuild<CR>
@@ -470,42 +363,12 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
-"set guifont=SauceCodePro\ Nerd\ Font:h15
-"set guifont=Mononoki\ Nerd\ Font:h15
-
-"let g:neovide_transparency=0.95
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Enter insert mode when terminal is opened
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" soln 1
-" automatically enter insert mode on new terminals
-" autocmd TermOpen * startinsert
-
-"" soln 2
-"" Only switch to insert if the terminal wasn't focused before
-"" This way if bufenter event is called after already haveing the terminal
-"" focused, the editor won't switch to insert mode
-"let g:previous_window = -1
-"function SmartInsert()
-"  if &buftype == 'terminal'
-"    if g:previous_window != winnr()
-"      startinsert
-"    endif
-"    let g:previous_window = winnr()
-"  else
-"    let g:previous_window = -1
-"  endif
-"endfunction
-"
-"au BufEnter * call SmartInsert()
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Create markmap from the whole file
-nmap <Leader>m <Plug>(coc-markmap-create)
+nmap <leader>m <Plug>(coc-markmap-create)
 " Create markmap from the selected lines
-"vmap <Leader>m <Plug>(coc-markmap-create-v)
+"vmap <leader>m <Plug>(coc-markmap-create-v)
 
 " Command to create markmaps
 command! -range=% Markmap CocCommand markmap.create <line1> <line2>
@@ -526,7 +389,7 @@ autocmd TermEnter term://*toggleterm#*
 " For example: 2<C-t> will open terminal 2
 nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
-map <Leader>tt :ToggleTerm size=40 direction=vertical<CR>  
+map <leader>tt :ToggleTerm size=40 direction=vertical<CR>  
 
 " Bring back esc key in terminal to get back to normal mode
 tnoremap <Esc> <C-\><C-n>
@@ -536,10 +399,10 @@ tnoremap <Esc> <C-\><C-n>
 " nnoremap <S-l> $
 
 " For Tabs
-" nmap <silent> <Leader>t :tabnew<CR>
+" nmap <silent> <leader>t :tabnew<CR>
 " nmap <silent> <C-N> :tabprevious<CR>
 " nmap <silent> <C-M> :tabnext<CR>
-" nmap <silent> <Leader>d :tabe %<CR>
+" nmap <silent> <leader>d :tabe %<CR>
 
 " remap to not lose what's in register on delete
 vnoremap <leader>p "_dP
