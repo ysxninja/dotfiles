@@ -14,7 +14,9 @@ call plug#begin('~/.vim/plugged')
 "{{ The Basics }}
     Plug 'gmarik/Vundle.vim'                                             " Vundle
     Plug 'itchyny/lightline.vim'                                         " Lightline statusbar
+    Plug 'itchyny/calendar.vim'
     " Plug 'suan/vim-instant-markdown', {'rtp': 'after'}                   " Markdown Preview
+    Plug 'ThePrimeagen/vim-be-good'
     
     " Colorscheme Theme
     Plug 'joshdick/onedark.vim'
@@ -31,7 +33,7 @@ call plug#begin('~/.vim/plugged')
     " Highlighting Nerdtree
     Plug 'ryanoasis/vim-devicons'                                        " Icons for Nerdtree
     " Plug 'kyazdani42/nvim-web-devicons'
-    Plug 'pixelastic/vim-undodir-tree'
+    Plug 'mbbill/undotree'
     
 "{{ Productivity }}
     Plug 'vimwiki/vimwiki', { 'branch': 'dev'}                           " VimWiki 
@@ -60,7 +62,9 @@ call plug#begin('~/.vim/plugged')
 "{{ Syntax Highlighting and Color detection }}
     Plug 'sheerun/vim-polyglot'                                          " A collection of language packs for vim
     " Plug 'vim-python/python-syntax'                                      " Python highlighting
-    Plug 'ap/vim-css-color'                                              " Color previews for CSS
+    "Plug 'ap/vim-css-color'                                              " Color previews for CSS
+    Plug 'rrethy/vim-hexokinase', {'do' : 'make hexokinase'}
+    Plug 'frazrepo/vim-rainbow'
 
 "{{ Junegunn Choi Plugins }}
     Plug 'junegunn/goyo.vim'                                             " Distraction-free viewing
@@ -101,6 +105,7 @@ set updatetime=50               " don't give |ins-completion-menu| messages.
 set shortmess+=c                " always show signcolumns
 set signcolumn=yes
 set shortmess+=c                " don't pass messages to ins-completion-menu
+set termguicolors
 
 syntax enable
 let g:rehash256 = 1
@@ -193,7 +198,7 @@ autocmd BufEnter NERD_tree_* | execute 'normal R'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colorscheme gruvbox
 colorscheme onedark
-highlight Normal ctermbg=none
+highlight Normal guibg=none
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vifm
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -209,6 +214,8 @@ map <leader>tv :TabVifm<CR>
 " let g:vimwiki_list = [{'path': '~/vimwiki/',
 "                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
+let g:vimwiki_list = [{'auto_diary_index':1}]
+
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
           \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
           \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
@@ -218,6 +225,28 @@ let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/template
 let g:vimwiki_global_ext = 0     "use vimwiki filetype only for vimwiki files
 
 map <leader>ww :VimwikiIndex <CR> :NERDTree /home/yasuke/vimwiki <CR> <C-l>
+
+" fix for vimwiki#diary#calendar_action
+autocmd FileType calendar nmap <buffer> <CR> :<C-u>call vimwiki#diary#calendar_action(b:calendar.day().get_day(), b:calendar.day().get_month(), b:calendar.day().get_year(), b:calendar.day().week(), "V")<CR>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Hexokinase config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:Hexokinase_refreshEvents = ['InsertLeave']
+
+let g:Hexokinase_optInPatterns = [
+\     'full_hex',
+\     'triple_hex',
+\     'rgb',
+\     'rgba',
+\     'hsl',
+\     'hsla',
+\     'colour_names'
+\ ]
+
+let g:Hexokinase_highlighters = ['backgroundfull']
+
+" Reenable hexokinase on enter
+autocmd VimEnter * HexokinaseTurnOn
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Open terminal inside Vim
@@ -406,3 +435,6 @@ tnoremap <Esc> <C-\><C-n>
 
 " remap to not lose what's in register on delete
 vnoremap <leader>p "_dP
+
+" enable vim rainbow globally for different parenthesis, brackets etc colors
+let g:rainbow_active = 1
