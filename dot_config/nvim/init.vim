@@ -12,7 +12,6 @@ let g:polyglot_disabled = ['markdown','go','html5']
 call plug#begin('~/.vim/plugged')
 
 "{{ The Basics }}
-    Plug 'gmarik/Vundle.vim'                                             " Vundle
     Plug 'itchyny/lightline.vim'                                         " Lightline statusbar
     Plug 'itchyny/calendar.vim'
     " Plug 'suan/vim-instant-markdown', {'rtp': 'after'}                   " Markdown Preview
@@ -51,9 +50,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
      "Code and code detection
-    Plug 'jparise/vim-graphql'
+    Plug 'ambv/black'                                                    " python formatter
+    " Plug 'jparise/vim-graphql'
     Plug 'fatih/vim-go'                                                  " Vim plugin for golang
-    Plug 'pangloss/vim-javascript'                                       " Vim plugin for javascript
 
 "{{ Tim Pope Plugins }}
     Plug 'tpope/vim-surround'                                            " Change surrounding marks
@@ -228,6 +227,7 @@ map <leader>ww :VimwikiIndex <CR> :NERDTree /home/yasuke/vimwiki <CR> <C-l>
 
 " fix for vimwiki#diary#calendar_action
 autocmd FileType calendar nmap <buffer> <CR> :<C-u>call vimwiki#diary#calendar_action(b:calendar.day().get_day(), b:calendar.day().get_month(), b:calendar.day().get_year(), b:calendar.day().week(), "V")<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Hexokinase config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -243,10 +243,29 @@ let g:Hexokinase_optInPatterns = [
 \     'colour_names'
 \ ]
 
+" All possible highlighters
+" virtual, sign_column, background, backgroundfull, foreground,foregroundfull
+
 let g:Hexokinase_highlighters = ['backgroundfull']
 
 " Reenable hexokinase on enter
 autocmd VimEnter * HexokinaseTurnOn
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Undotree 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <leader>u :UndotreeToggle<CR>
+
+let g:undotree_RelativeTimestamp = 1
+let g:undotree_ShortIndicators = 1
+let g:undotree_HelpLine = 0
+let g:undotree_WindowLayout = 2
+
+if has("persistent_undo")
+		set undodir=$HOME/.local/share/nvim/undodir
+		set undofile
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Open terminal inside Vim
