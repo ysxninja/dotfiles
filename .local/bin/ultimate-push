@@ -8,7 +8,7 @@ status=$?
 
 if test $status -eq 4
 then 
-    printf "\t☠  Exiting..."
+    printf "\n\t☠  Exiting...\n"
     exit
 else
     continue
