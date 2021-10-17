@@ -33,6 +33,6 @@ printf "\n backing up group and hist files\n"
 sudo cat /etc/group > ~/group.bak && printf " group backup successful" || printf " 🗶  group backup failed"
 cat ~/.zsh_history > ~/.zsh_history.bak && printf "\n hist backup successful" || printf "\n 🗶  hist backup failed"
 
-printf " \n\n\e[1;36m ✅✅✅\e[0m"
+printf " \n\n\e[1;33m ✅✅✅\e[0m"
 
-printf "Exiting...\n"
+printf "\nExiting...\n"
