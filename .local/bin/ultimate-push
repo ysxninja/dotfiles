@@ -19,7 +19,7 @@ printf "\n\n Pushing tasks to repo     ..\n"
 git -C /home/yasuke/.task/ push -u origin main
 
 
-printf "\n Pushing dotfiles to repo     .."
+printf "\n Pushing dotfiles to repo     ..\n"
 
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke commit -a -m "update dotfiles"
 
