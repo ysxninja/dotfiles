@@ -29,9 +29,9 @@ printf "\n Fetching origin to then push"
 
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke push origin main
 
-printf "\n backing up group and hist files"
+printf "\n backing up group and hist files\n"
 sudo cat /etc/group > ~/group.bak && printf " group backup successful" || printf " 🗶  group backup failed"
-cat ~/.zsh_history > ~/.zsh_history.bak && printf " hist backup successful" || printf " 🗶  hist backup failed"
+cat ~/.zsh_history > ~/.zsh_history.bak && printf "\n hist backup successful" || printf "\n 🗶  hist backup failed"
 
 printf " \n\t\e[1;32m✅✅✅\e[0m"
 
