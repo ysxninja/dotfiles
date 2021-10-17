@@ -63,7 +63,7 @@ call plug#begin('~/.vim/plugged')
     " Plug 'vim-python/python-syntax'                                      " Python highlighting
     "Plug 'ap/vim-css-color'                                              " Color previews for CSS
     Plug 'rrethy/vim-hexokinase', {'do' : 'make hexokinase'}
-    Plug 'frazrepo/vim-rainbow'
+    Plug 'luochen1990/rainbow'
 
 "{{ Junegunn Choi Plugins }}
     Plug 'junegunn/goyo.vim'                                             " Distraction-free viewing
@@ -426,10 +426,6 @@ command! -range=% Markmap CocCommand markmap.create <line1> <line2>
 " ToggleTerm
 " set
 let g:toggleterm_terminal_mapping = '<C-t>'
-" or manually...
-autocmd TermEnter term://*toggleterm#*
-      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-
 " By applying the mappings this way you can pass a count to your
 " mapping to open a specific window.
 " For example: 2<C-t> will open terminal 2
@@ -455,3 +451,10 @@ vnoremap <leader>p "_dP
 
 " enable vim rainbow globally for different parenthesis, brackets etc colors
 let g:rainbow_active = 1
+
+let g:rainbow_conf = {
+\	'guifgs': ['#98c379', '#c678dd', '#56b6c2', '#d19a66'],
+\	'ctermfgs': ['green', 'magenta', 'cyan', 'yellow'],
+\	'guis': [''],
+\	'cterms': [''],
+\}
