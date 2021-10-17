@@ -14,16 +14,16 @@ else
     continue
 fi
 
-printf "\n\n Pushing tasks to repo     ..\n"
+printf "\n\n\e[1;36m\e[0m Pushing tasks to repo \e[1;36m    ..\e[0m\n"
 
 git -C /home/yasuke/.task/ push -u origin main
 
 
-printf "\n Pushing dotfiles to repo     ..\n"
+printf "\n\e[1;36m\e[0m Pushing dotfiles to repo \e[1;36m    ..\e[0m\n"
 
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke commit -a -m "update dotfiles"
 
-printf "\n Fetching origin to then push"
+printf "\n Fetching origin to then push\n"
 
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke fetch origin
 
@@ -35,4 +35,4 @@ cat ~/.zsh_history > ~/.zsh_history.bak && printf "\n hist backup successful" ||
 
 printf " \n\n\e[1;32m ✅✅✅\e[0m"
 
-printf "Exiting..."
+printf "Exiting...\n"
