@@ -1,14 +1,14 @@
 #!/bin/sh
 
-printf "\n\t直 Testing Connection.... "
-printf "\n\t📡 "
-ping -c 1 -W 2 google.com > /dev/null 2>&1 && printf "\n\t🗱  connected " || (printf "\n\t🗶  disconnected \n" && exit 4 )
+printf "\n\t\e[1;36m直\e[0m Testing Connection.... "
+printf "\n\t\e[1;36m📡 \e[0m"
+ping -c 1 -W 2 google.com > /dev/null 2>&1 && printf "\n\t\e[1;32m🗱  \e[0m connected " || (printf "\n\t\e[1;31m🗶 \e[0m disconnected \n" && exit 4 )
 
 status=$?
 
 if test $status -eq 4
 then 
-    printf "\n\t☠  Exiting...\n"
+    printf "\n\t\e[0;31m☠  Exiting...\e[0m\n"
     exit
 else
     continue
@@ -33,6 +33,6 @@ printf "\n backing up group and hist files"
 sudo cat /etc/group > ~/group.bak && printf " group backup successful" || printf " 🗶  group backup failed"
 cat ~/.zsh_history > ~/.zsh_history.bak && printf " hist backup successful" || printf " 🗶  hist backup failed"
 
-printf " ✅✅✅"
+printf " \n\t\e[1;32m✅✅✅\e[0m"
 
 printf "Exiting..."
