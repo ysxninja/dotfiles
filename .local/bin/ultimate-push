@@ -35,7 +35,6 @@ echo " Fetching origin to then push"
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke fetch origin
 
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke push origin main
-# chezmoi apply
 
 echo ""
 
