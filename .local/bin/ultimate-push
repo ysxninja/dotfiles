@@ -1,47 +1,38 @@
 #!/bin/sh
 
-echo "  直 Testing Connection.... "
-echo "  📡 "
-ping -c 1 -W 2 google.com > /dev/null 2>&1 && echo "  🗱  connected " || (echo "  🗶  disconnected " && echo "" && exit 4 )
+printf "\t直 Testing Connection.... "
+printf "\t📡 "
+ping -c 1 -W 2 google.com > /dev/null 2>&1 && printf "\t🗱  connected " || (printf "\t🗶  disconnected \n" && exit 4 )
 
 status=$?
 
 if test $status -eq 4
 then 
-    echo "  ☠  Exiting..."
+    printf "\t☠  Exiting..."
     exit
 else
     continue
 fi
 
-echo ""
-echo ""
-echo " Pushing tasks to repo     .."
-
-echo ""
+printf "\n\n Pushing tasks to repo     ..\n"
 
 git -C /home/yasuke/.task/ push -u origin main
 
 
-echo ""
-echo " Pushing dotfiles to repo     .."
+printf "\n Pushing dotfiles to repo     .."
 
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke commit -a -m "update dotfiles"
 
-echo ""
-
-echo " Fetching origin to then push"
+printf "\n Fetching origin to then push"
 
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke fetch origin
 
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke push origin main
 
-echo ""
+printf "\n backing up group and hist files"
+sudo cat /etc/group > ~/group.bak && printf " group backup successful" || printf " 🗶  group backup failed"
+cat ~/.zsh_history > ~/.zsh_history.bak && printf " hist backup successful" || printf " 🗶  hist backup failed"
 
-echo " backing up group and hist files"
-sudo cat /etc/group > ~/group.bak && echo " group backup successful" || echo " 🗶  group backup failed"
-cat ~/.zsh_history > ~/.zsh_history.bak && echo " hist backup successful" || echo " 🗶  hist backup failed"
+printf " ✅✅✅"
 
-echo " ✅✅✅"
-
-echo "Exiting..."
+printf "Exiting..."

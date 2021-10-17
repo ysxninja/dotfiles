@@ -453,7 +453,7 @@ vnoremap <leader>p "_dP
 let g:rainbow_active = 1
 
 let g:rainbow_conf = {
-\	'guifgs': ['#98c379', '#c678dd', '#56b6c2', '#d19a66'],
+\	'guifgs': ['#98c379', '#c678dd', '#d19a66', '#56b6c2'],
 \	'ctermfgs': ['green', 'magenta', 'cyan', 'yellow'],
 \	'guis': [''],
 \	'cterms': [''],
