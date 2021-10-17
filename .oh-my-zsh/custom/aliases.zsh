@@ -1,16 +1,15 @@
 ## ALIASES
 
 # grep for aliases
-alias agl="alias | grep"
-alias alacritty="WAYLAND_DISPLAY= alacritty"
+alias agrep="alias | grep"
 
 # shortcuts to config files
-alias cfv="vim ~/.local/share/chezmoi/dot_config/nvim/init.vim"
-alias cfz="vim ~/.local/share/chezmoi/dot_zshrc"
-alias cfr="vim ~/.local/share/chezmoi/dot_local/bin/remaps"
-alias cfa="vim ~/.local/share/chezmoi/dot_oh-my-zsh/custom/aliases.zsh"
+alias cfv="vim ~/.config/nvim/init.vim"
+alias cfz="vim ~/.zshrc"
+alias cfr="vim ~/.local/bin/remaps"
+alias cfa="vim ~/.oh-my-zsh/custom/aliases.zsh"
+alias cft="vim ~/.config/alacritty/alacritty.yml"
 alias cfc="vim ~/Desktop/vim_cheat_sheet.txt"
-alias cft="vim ~/.local/share/chezmoi/dot_config/alacritty/executable_alacritty.yml"
 
 # Go shortcuts
 alias gosrc="cd ~/code/src/github.com/yasuke/"
@@ -22,9 +21,6 @@ alias nmap="grc nmap"
 
 # task as todo
 alias todo="task"
-
-# git, juice shop
-alias jshop="cd ~/Downloads/Compressed/git\ juice\ shop/juice-shop-master/ && npm start"
 
 # cd into git folder
 alias ys="cd ~/Documents/ya-suke"
@@ -199,7 +195,7 @@ alias tozsh="chsh $USER -s /bin/zsh && echo 'Now log out.'"
 alias tofish="chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 # bare git repo alias for dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/Documents/ya-suke/dotfiles --work-tree=$HOME/Documents/ya-suke"
+alias dotgit="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 
 # termbin
 alias tb="nc termbin.com 9999"
@@ -207,5 +203,3 @@ alias tb="nc termbin.com 9999"
 # the terminal rickroll
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
 
-# Unlock LBRY tips
-alias tips='lbrynet txo spend --type=support --is_not_my_input --blocking'
