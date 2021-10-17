@@ -25,18 +25,14 @@ git -C /home/yasuke/.task/ push -u origin main
 
 echo ""
 echo " Pushing dotfiles to repo     .."
-# old dotfiles repo
-# git -C /home/yasuke/Documents/ya-suke/dotfiles push -u origin old
 
-echo ""
-echo "Committing updates"
-git -C /home/yasuke/.local/share/chezmoi/ commit -a -m "update dotfiles"
+/usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke commit -a -m "update dotfiles"
 
 echo ""
 
 echo "Pushing"
-git -C /home/yasuke/.local/share/chezmoi/ push -u origin master
 
+/usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke push origin main
 # chezmoi apply
 
 echo ""
