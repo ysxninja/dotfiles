@@ -1,31 +1,32 @@
 #!/bin/sh
 
-# TODO:
-# simplify using below function and external text file with locations
-# cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
-
-configs=`echo "alacritty aliases remaps ultimate-push vim zshrc zsh_history cf starship" | tr ' ' '\n'`
+configs=`echo "alacritty aliases bashrc cf fish nvim remaps starship termite ultimate-push zshrc zsh_history" | tr ' ' '\n' | sort -u`
 
 selected=`printf "$configs\n" | fzf`
 
-if [[ $selected == "vim" ]] ; then
-    $EDITOR ~/.config/nvim/init.vim
-elif [[ $selected == "alacritty" ]] ; then
+if [[ $selected == "alacritty" ]] ; then
     $EDITOR ~/.config/alacritty/alacritty.yml
+elif [[ $selected == "aliases" ]] ; then
+    $EDITOR ~/.oh-my-zsh/custom/aliases.zsh
+elif [[ $selected == "bashrc" ]] ; then
+    $EDITOR ~/.bashrc
+elif [[ $selected == "cf" ]] ; then
+    $EDITOR ~/.local/bin/cf
+elif [[ $selected == "fish" ]] ; then
+    $EDITOR ~/.config/fish/config.fish
+elif [[ $selected == "nvim" ]] ; then
+    $EDITOR ~/.config/nvim/init.vim
+elif [[ $selected == "remaps" ]] ; then
+    $EDITOR ~/.local/bin/remaps
+elif [[ $selected == "starship" ]] ; then
+    $EDITOR ~/.config/starship.toml
+elif [[ $selected == "termite" ]] ; then
+    $EDITOR ~/.config/termite/config
+elif [[ $selected == "ultimate-push" ]] ; then
+    $EDITOR ~/.local/bin/ultimate-push
 elif [[ $selected == "zshrc" ]] ; then
     $EDITOR ~/.zshrc
 elif [[ $selected == "zsh_history" ]] ; then
     $EDITOR ~/.zsh_history
-elif [[ $selected == "aliases" ]] ; then
-    $EDITOR ~/.oh-my-zsh/custom/aliases.zsh
-elif [[ $selected == "remaps" ]] ; then
-    $EDITOR ~/.local/bin/remaps
-elif [[ $selected == "ultimate-push" ]] ; then
-    $EDITOR ~/.local/bin/ultimate-push
-elif [[ $selected == "cf" ]] ; then
-    $EDITOR ~/.local/bin/cf
-elif [[ $selected == "starship" ]] ; then
-    $EDITOR ~/.config/starship.toml
-
 fi
 

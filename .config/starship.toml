@@ -1,7 +1,7 @@
 # Don't print a new line at the start of the prompt
 add_newline = true
 # A minimal left prompt
-format = """$directory$fill$all  
+format = """$directory$fill$all$battery${custom.task-count}  
 $character"""
 
 # ${custom.task}
@@ -38,7 +38,7 @@ disabled = true
 [directory]
 truncation_length = 8
 truncation_symbol = ".../"
-read_only = "🔒"
+read_only = " 🔒"
 home_symbol = "    ~"
 style = "bold purple"
 
