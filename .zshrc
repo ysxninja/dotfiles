@@ -88,9 +88,7 @@ fi
 # zsh-handy-helpers
 # httpie
 plugins=(
-    git
     zsh-interactive-cd
-    history
     zsh-z
     zsh-autosuggestions
     zsh-syntax-highlighting

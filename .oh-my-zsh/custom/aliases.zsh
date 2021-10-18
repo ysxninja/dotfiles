@@ -11,6 +11,11 @@ alias cfa="vim ~/.oh-my-zsh/custom/aliases.zsh"
 alias cft="vim ~/.config/alacritty/alacritty.yml"
 alias cfc="vim ~/Desktop/vim_cheat_sheet.txt"
 
+# history aliases
+alias h="history"
+alias hs="history | grep"
+alias hsi="history | grep -i"
+
 # Go shortcuts
 alias gosrc="cd ~/code/src/github.com/yasuke/"
 
