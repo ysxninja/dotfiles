@@ -1,5 +1,5 @@
 # Don't print a new line at the start of the prompt
-add_newline = false
+add_newline = true
 
 # Make prompt a single line instead of two lines
 [line_break]
@@ -34,3 +34,4 @@ style = "bold red"
 [[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
 threshold = 30
 style = "bold yellow"
+
