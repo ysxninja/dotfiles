@@ -1,6 +1,10 @@
 #!/bin/sh
 
-configs=`echo "alacritty aliases remaps ultimate-push vim zshrc zsh_history cf" | tr ' ' '\n'`
+# TODO:
+# simplify using below function and external text file with locations
+# cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
+
+configs=`echo "alacritty aliases remaps ultimate-push vim zshrc zsh_history cf starship" | tr ' ' '\n'`
 
 selected=`printf "$configs\n" | fzf`
 
@@ -20,5 +24,8 @@ elif [[ $selected == "ultimate-push" ]] ; then
     $EDITOR ~/.local/bin/ultimate-push
 elif [[ $selected == "cf" ]] ; then
     $EDITOR ~/.local/bin/cf
+elif [[ $selected == "starship" ]] ; then
+    $EDITOR ~/.config/starship.toml
+
 fi
 

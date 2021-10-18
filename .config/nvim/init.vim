@@ -214,13 +214,12 @@ map <leader>tv :TabVifm<CR>
 " let g:vimwiki_list = [{'path': '~/vimwiki/',
 "                      \ 'syntax': 'markdown', 'ext': '.md'}]
 
-let g:vimwiki_list = [{'auto_diary_index':1}]
-
 let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
           \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
           \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
           \ 'html_filename_parameterization': 1,
-          \ 'template_ext': '.tpl'}]
+          \ 'template_ext': '.tpl',
+          \ 'auto_diary_index': 1,}]
 
 let g:vimwiki_global_ext = 0     "use vimwiki filetype only for vimwiki files
 
@@ -457,4 +456,8 @@ let g:rainbow_conf = {
 \	'ctermfgs': ['green', 'magenta', 'cyan', 'yellow'],
 \	'guis': [''],
 \	'cterms': [''],
+\	'separately': {
+\		'vimwiki': 0,
+\		'nerdtree': 0,
+\   }
 \}

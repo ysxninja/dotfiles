@@ -3,7 +3,32 @@ add_newline = true
 
 # Make prompt a single line instead of two lines
 [line_break]
-disabled = true
+disabled = false
+
+[directory]
+truncation_length = 8
+truncation_symbol = ".../"
+read_only = "🔒"
+home_symbol = "    ~"
+style = "bold purple"
+
+# [git_status]
+# conflicted = "🏳"
+# ahead = "🏎💨"
+# behind = "😰"
+# diverged = "😵"
+# up_to_date = "✓"
+# untracked = "🤷‍"
+# stashed = "📦"
+# modified = "📝"
+# staged = '[++\($count\)](green)'
+# renamed = "👅"
+# deleted = "🗑"
+
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
 
 # Replace the "❯" symbol in the prompt with "➜"
 # [character]                         # The name of the module we are configuring is "character"
