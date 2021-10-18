@@ -1,9 +1,39 @@
 # Don't print a new line at the start of the prompt
 add_newline = true
+# A minimal left prompt
+format = """$directory$fill$all  
+$character"""
+
+# ${custom.task}
+# move the rest of the prompt to the right
+# right_format = """$all"""
+# Use custom format
+# format = """
+# [┌───────────────────>](bold green)
+# [│](bold green)$directory$rust$package
+# [└─>](bold green) """
+
+[fill]
+symbol = " "
+# style = "bold green"
+
+[custom.task-count]
+description = "tasks"
+command = 'echo  "   $(cat ~/.task/pending.data | wc -l) " '
+format = "[$symbol$output]($style) "
+style = "bold bg:grey fg:purple"
+when = "true"
+
+# [custom.task]
+# description = "remaining tasks"
+# command = "task-starship"
+# format = "[$symbol$output]($style) "
+# style = "bold fg:bright-blue"
+# when = "true"
 
 # Make prompt a single line instead of two lines
 [line_break]
-disabled = false
+disabled = true
 
 [directory]
 truncation_length = 8
@@ -33,12 +63,6 @@ behind = "⇣${count}"
 # Replace the "❯" symbol in the prompt with "➜"
 # [character]                         # The name of the module we are configuring is "character"
 # success_symbol = "[➜](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
-
-# Use custom format
-# format = """
-# [┌───────────────────>](bold green)
-# [│](bold green)$directory$rust$package
-# [└─>](bold green) """
 
 # Disable the package module, hiding it from the prompt completely
 [package]

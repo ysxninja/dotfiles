@@ -27,6 +27,7 @@ search.case.sensitive=no
 list.all.projects=yes
 
 # Color theme (uncomment one to use)
+include /home/yasuke/.local/share/task-themes/solarized-16.theme
 #include /usr/local/share/doc/task/rc/light-16.theme
 #include /usr/local/share/doc/task/rc/light-256.theme
 #include /usr/local/share/doc/task/rc/dark-16.theme
