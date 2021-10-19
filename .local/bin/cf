@@ -1,6 +1,6 @@
 #!/bin/sh
 
-configs=`echo "alacritty aliases bashrc cf fish nvim remaps starship termite ultimate-push zshrc zsh_history" | tr ' ' '\n' | sort -u`
+configs=`echo "alacritty aliases bashrc cf fish nvim remaps starship termite tmux ultimate-push zshrc zsh_history" | tr ' ' '\n' | sort -u`
 
 selected=`printf "$configs\n" | fzf`
 
@@ -28,5 +28,7 @@ elif [[ $selected == "zshrc" ]] ; then
     $EDITOR ~/.zshrc
 elif [[ $selected == "zsh_history" ]] ; then
     $EDITOR ~/.zsh_history
+elif [[ $selected == "tmux" ]] ; then
+    $EDITOR ~/.tmux.conf.local
 fi
 

@@ -1,7 +1,7 @@
 # Don't print a new line at the start of the prompt
 add_newline = true
 # A minimal left prompt
-format = """$directory$fill$all$battery${custom.task-count}  
+format = """$directory$fill$all$battery ${custom.task-count}  
 $character"""
 
 # ${custom.task}
@@ -12,6 +12,14 @@ $character"""
 # [┌───────────────────>](bold green)
 # [│](bold green)$directory$rust$package
 # [└─>](bold green) """
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                         # The name of the module we are configuring is "character"
+# success_symbol = "[➜](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
+success_symbol = "[❯](bold purple)"  # The "success_symbol" is set to "➜" with color "bold blue"
+
+[time]
+style = "bold red"
 
 [fill]
 symbol = " "
@@ -36,10 +44,11 @@ when = "true"
 disabled = true
 
 [directory]
-truncation_length = 8
-truncation_symbol = ".../"
-read_only = " 🔒"
-home_symbol = "    ~"
+# truncation_length = 10
+truncation_symbol = "...  "
+read_only = "  "
+home_symbol = "    ~"
+# home_symbol = "    ~"
 style = "bold purple"
 
 # [git_status]
@@ -55,14 +64,19 @@ style = "bold purple"
 # renamed = "👅"
 # deleted = "🗑"
 
+[git_branch]
+symbol = " "
+# truncation_length = 4
+# truncation_symbol = ""
+# always_show_remote = false
+style = "bold green"
+# format = "[on ](bold cyan)[$symbol$branch]($style) "
+format = "[   $symbol$branch]($style) "
+
 [git_status]
 ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
-
-# Replace the "❯" symbol in the prompt with "➜"
-# [character]                         # The name of the module we are configuring is "character"
-# success_symbol = "[➜](bold green)"  # The "success_symbol" is set to "➜" with color "bold green"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -70,9 +84,9 @@ disabled = true
 
 ## Modules
 [battery]
-full_symbol = "🔋"
-charging_symbol = "⚡️"
-discharging_symbol = "💀"
+full_symbol = "   "
+charging_symbol = " ⚡️"
+discharging_symbol = " 💀"
 
 ##The display configuration option is used to define when the battery indicator should be shown (threshold) and what it looks like (style).
 
@@ -84,3 +98,159 @@ style = "bold red"
 threshold = 30
 style = "bold yellow"
 
+[nodejs]
+format = " [$symbol($version)]($style) "
+
+[python]
+# Display the version of python from inside a local venv.
+#
+# Note this will only work when the venv is inside the project and it will only
+# work in the directory that contains the venv dir but maybe this is ok?
+# python_binary = ["./venv/bin/python", "python", "python3", "python2"]
+#
+# Don't trigger for files with the py extension
+# detect_extensions = []
+# symbol = "👾 "
+# pyenv_version_name = true
+format = ' [${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+###############################################################################
+# below presets remove the "via"
+
+[aws]
+format = ' [$symbol($profile)(\($region\))( $duration )]($style) '
+
+[cmake]
+format = ' [$symbol($version)]($style) '
+
+[cmd_duration]
+format = ' [⏱ $duration ]($style) '
+
+[cobol]
+format = ' [$symbol($version)]($style) '
+
+[conda]
+format = ' [$symbol$environment]($style) '
+
+[crystal]
+format = ' [$symbol($version)]($style) '
+
+[dart]
+format = ' [$symbol($version)]($style) '
+
+[deno]
+format = ' [$symbol($version)]($style) '
+
+[docker_context]
+format = ' [$symbol$context]($style) '
+
+[dotnet]
+format = ' [$symbol($version)(🎯 $tfm)]($style) '
+
+[elixir]
+format = ' [$symbol($version \(OTP $otp_version\))]($style) '
+
+[elm]
+format = ' [$symbol($version)]($style) '
+
+[erlang]
+format = ' [$symbol($version)]($style) '
+
+[gcloud]
+format = ' [$symbol$account(@$domain)(\($region\))]($style) '
+
+# [git_branch]
+# format = ' [$symbol$branch]($style) '
+
+# [git_status]
+# format = '([ $all_status$ahead_behind ]($style))'
+
+[golang]
+format = ' [$symbol($version)]($style) '
+
+[helm]
+format = ' [$symbol($version)]($style) '
+
+[hg_branch]
+format = ' [$symbol$branch]($style) '
+
+[java]
+format = ' [$symbol($version)]($style) '
+
+[julia]
+format = ' [$symbol($version)]($style) '
+
+[kotlin]
+format = ' [$symbol($version)]($style) '
+
+[kubernetes]
+format = ' [$symbol$context( \($namespace\))]($style) '
+
+[lua]
+format = ' [$symbol($version)]($style) '
+
+[memory_usage]
+format = ' $symbol[$ram( | $swap)]($style) '
+
+[nim]
+format = ' [$symbol($version)]($style) '
+
+[nix_shell]
+format = ' [$symbol$state( \($name\))]($style) '
+
+# [nodejs]
+# format = ' [$symbol($version)]($style) '
+
+[ocaml]
+format = ' [$symbol($version)(\($switch_indicator$switch_name\))]($style) '
+
+[openstack]
+format = ' [$symbol$cloud(\($project\))]($style) '
+
+# [package]
+# format = ' [$symbol$version]($style) '
+
+[perl]
+format = ' [$symbol($version)]($style) '
+
+[php]
+format = ' [$symbol($version)]($style) '
+
+[purescript]
+format = ' [$symbol($version)]($style) '
+
+# [python]
+# format = ' [${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style) '
+
+[red]
+format = ' [$symbol($version)]($style) '
+
+[ruby]
+format = ' [$symbol($version)]($style) '
+
+[rust]
+format = ' [$symbol($version)]($style) '
+
+[scala]
+format = ' [$symbol($version)]($style) '
+
+[swift]
+format = ' [$symbol($version)]($style) '
+
+[terraform]
+format = ' [$symbol$workspace]($style) '
+
+# [time]
+# format = ' [$time]($style) '
+
+[username]
+format = ' [$user]($style) '
+
+[vagrant]
+format = ' [$symbol($version)]($style) '
+
+[vlang]
+format = ' [$symbol($version)]($style) '
+
+[zig]
+format = ' [$symbol($version)]($style) '

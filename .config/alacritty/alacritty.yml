@@ -238,6 +238,17 @@ draw_bold_text_with_bright_colors: true
 #   primary:
 #     background: '0x1e2127'
 #     foreground: '0xabb2bf'
+     
+# darcula
+# colors:
+#   # Default colors
+#   primary:
+#     background: '#282a36'
+#     # background: '#292d3e'
+#     foreground: '#f8f8f2'
+# 
+
+
 # Colors (Tomorrow Night Bright)
 colors:
   # Default colors
@@ -291,6 +302,30 @@ colors:
     magenta: '#e1acff'
     cyan:    '#a3f7ff'
     white:   '#ffffff'
+  
+    #  Darcula
+    #  # Normal colors
+    #  normal:
+    #    black:   '#000000'
+    #    red:     '#ff5555'
+    #    green:   '#50fa7b'
+    #    yellow:  '#f1fa8c'
+    #    blue:    '#caa9fa'
+    #    magenta: '#ff79c6'
+    #    cyan:    '#8be9fd'
+    #    white:   '#bfbfbf'
+    #
+    #  # Bright colors
+    #  bright:
+    #    black:   '#4d4d4d'
+    #    red:     '#ff6e67'
+    #    green:   '#5af78e'
+    #    yellow:  '#f4f99d'
+    #    blue:    '#caa9fa'
+    #    magenta: '#ff92d0'
+    #    cyan:    '#9aedfe'
+    #    white:   '#e6e6e6'
+    #
 
   # Dim colors
   #

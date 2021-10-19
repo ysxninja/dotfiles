@@ -1,4 +1,4 @@
-"A customized init.vim for neovim (https://neovim.io/)     
+
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -94,7 +94,7 @@ set noswapfile                  " No swap
 set t_Co=256                    " Set if term supports 256 colors.
 set number relativenumber       " Display line numbers
 set clipboard=unnamedplus       " Copy/paste between vim and other programs.
-set nohlsearch                  " stop highlighting search after esc
+" set nohlsearch                  " stop highlighting search after esc
 " set guicursor=                   " remove pipe cursor on insert
 set undodir=~/.vim/undodir
 set undofile
