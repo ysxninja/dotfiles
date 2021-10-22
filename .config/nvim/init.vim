@@ -38,7 +38,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vimwiki/vimwiki', { 'branch': 'dev'}                           " VimWiki 
     " Plug 'jreybert/vimagit'                                              " Magit-like plugin for vim
     " Plug 'takac/vim-hardtime'                                            " Vim HardTime for vim speed
-    Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
+    " Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
 
      "For React >> snippets
     " Plug 'SirVer/ultisnips'
@@ -57,6 +57,7 @@ call plug#begin('~/.vim/plugged')
 "{{ Tim Pope Plugins }}
     Plug 'tpope/vim-surround'                                            " Change surrounding marks
     Plug 'tpope/vim-fugitive'                                            " Famous git vim plugin
+    Plug 'ya-suke/vim-eunuch' , { 'branch': 'fix/detection'}                         " Helpers for Unix
 
 "{{ Syntax Highlighting and Color detection }}
     Plug 'sheerun/vim-polyglot'                                          " A collection of language packs for vim
@@ -80,7 +81,7 @@ call plug#end()
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-" filetype plugin on
+filetype plugin on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Settings
@@ -91,7 +92,6 @@ set incsearch                   " Incremental search
 set hidden                      " Needed to keep multiple buffers open
 set nobackup                    " No auto backups
 set noswapfile                  " No swap
-set t_Co=256                    " Set if term supports 256 colors.
 set number relativenumber       " Display line numbers
 set clipboard=unnamedplus       " Copy/paste between vim and other programs.
 " set nohlsearch                  " stop highlighting search after esc
