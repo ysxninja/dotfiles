@@ -42,7 +42,7 @@ when = "true"
 [username]
 style_user = "#8a8a8a bold"
 style_root = "red bold"
-format = "[𐂷  ](bold purple)[I am g](red bold)[$user]($style) "
+format = "[ ](bold purple)[I am g](red bold)[$user]($style) "
 # format = "[ ](bold purple)[I am g](red bold)[$user]($style) "
 disabled = false
 show_always= false

@@ -79,15 +79,16 @@ call plug#begin('~/.vim/plugged')
 "{{ Telescope }}
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 call plug#end()
 
-" lua require('yasuke/telescope')
+lua require('yasuke/telescope')
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-filetype plugin on
+" filetype plugin on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General Settings
@@ -98,6 +99,7 @@ set incsearch                   " Incremental search
 set hidden                      " Needed to keep multiple buffers open
 set nobackup                    " No auto backups
 set noswapfile                  " No swap
+set nopaste
 set number relativenumber       " Display line numbers
 set clipboard=unnamedplus       " Copy/paste between vim and other programs.
 " set nohlsearch                  " stop highlighting search after esc
@@ -121,6 +123,8 @@ set wildignore+=**/Android/*
 set wildignore+=**/Music/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
+set nowrap
+" set isfname+=@-@
 syntax enable
 " let g:rehash256 = 1
 let loaded_matchparen = 1
@@ -469,7 +473,7 @@ endfun
 command! Emptyregisters :call EmptyRegisters()
 
 " remap to not lose what's in register on delete
-vnoremap <leader>p "_dP
+" vnoremap <leader>p "_dP
 " nohl
 nnoremap <leader>h :nohl<CR><C-l>
 " enable vim rainbow globally for different parenthesis, brackets etc colors
@@ -488,3 +492,6 @@ let g:rainbow_conf = {
 
 " Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+
+nnoremap <leader>q :lua require('yasuke/telescope').search_dotfiles()<CR>
