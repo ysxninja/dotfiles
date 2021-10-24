@@ -26,7 +26,7 @@ window:
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
   position:
-      #x: 0 
+      #x: 0
       #y: 33
 
   # Window padding (changes require restart)
@@ -119,8 +119,9 @@ font:
     # family: TerminessTTF Nerd Font
     # family: Comic Sans Ms
     # family: Sans;
-    family: Mononoki Nerd Font
+    # family: Fira Code Nerd Font
     # family: 'MesloLGS NF'
+    family: Mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -232,13 +233,13 @@ draw_bold_text_with_bright_colors: true
 #   primary:
 #     background: '#282c34'
 #     foreground: '#abb2bf'
-# 
+#
 # colors:
 #   # Default colors
 #   primary:
 #     background: '0x1e2127'
 #     foreground: '0xabb2bf'
-     
+
 # darcula
 # colors:
 #   # Default colors
@@ -246,7 +247,7 @@ draw_bold_text_with_bright_colors: true
 #     background: '#282a36'
 #     # background: '#292d3e'
 #     foreground: '#f8f8f2'
-# 
+#
 
 
 # Colors (Tomorrow Night Bright)
@@ -302,7 +303,7 @@ colors:
     magenta: '#e1acff'
     cyan:    '#a3f7ff'
     white:   '#ffffff'
-  
+
     #  Darcula
     #  # Normal colors
     #  normal:

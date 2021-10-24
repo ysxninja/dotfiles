@@ -1,7 +1,7 @@
 # Don't print a new line at the start of the prompt
 add_newline = true
 # A minimal left prompt
-format = """$directory$fill$all$battery ${custom.task-count}  
+format = """$directory$fill$all$battery ${custom.task-count}
 $character"""
 
 # ${custom.task}
@@ -38,6 +38,14 @@ when = "true"
 # format = "[$symbol$output]($style) "
 # style = "bold fg:bright-blue"
 # when = "true"
+
+[username]
+style_user = "#8a8a8a bold"
+style_root = "red bold"
+format = "[𐂷  ](bold purple)[I am g](red bold)[$user]($style) "
+# format = "[ ](bold purple)[I am g](red bold)[$user]($style) "
+disabled = false
+show_always= false
 
 # Make prompt a single line instead of two lines
 [line_break]
@@ -243,8 +251,8 @@ format = ' [$symbol$workspace]($style) '
 # [time]
 # format = ' [$time]($style) '
 
-[username]
-format = ' [$user]($style) '
+# [username]
+# format = ' [$user]($style) '
 
 [vagrant]
 format = ' [$symbol($version)]($style) '

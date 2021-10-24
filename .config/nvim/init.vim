@@ -5,8 +5,7 @@ filetype off                  " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vim polyglot
+" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vim polyglot
 let g:polyglot_disabled = ['markdown','go','html5']
 
 call plug#begin('~/.vim/plugged')
@@ -16,7 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'itchyny/calendar.vim'
     " Plug 'suan/vim-instant-markdown', {'rtp': 'after'}                   " Markdown Preview
     Plug 'ThePrimeagen/vim-be-good'
-    
+
     " Colorscheme Theme
     Plug 'joshdick/onedark.vim'
     Plug 'gruvbox-community/gruvbox'
@@ -33,9 +32,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'                                        " Icons for Nerdtree
     " Plug 'kyazdani42/nvim-web-devicons'
     Plug 'mbbill/undotree'
-    
+
 "{{ Productivity }}
-    Plug 'vimwiki/vimwiki', { 'branch': 'dev'}                           " VimWiki 
+    Plug 'vimwiki/vimwiki', { 'branch': 'dev'}                           " VimWiki
     " Plug 'jreybert/vimagit'                                              " Magit-like plugin for vim
     " Plug 'takac/vim-hardtime'                                            " Vim HardTime for vim speed
     " Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
@@ -77,7 +76,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}   " Conquer Of Completion for neovim (golang)
     Plug 'mattn/emmet-vim'                                               " Emmet for vim
 
+"{{ Telescope }}
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
 call plug#end()
+
+" lua require('yasuke/telescope')
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -105,7 +111,16 @@ set shortmess+=c                " always show signcolumns
 set signcolumn=yes
 set shortmess+=c                " don't pass messages to ins-completion-menu
 set termguicolors
-
+" Ignore files
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
+set wildignore+=**/android/*
+set wildignore+=**/Android/*
+set wildignore+=**/Music/*
+set wildignore+=**/ios/*
+set wildignore+=**/.git/*
 syntax enable
 " let g:rehash256 = 1
 let loaded_matchparen = 1
@@ -178,7 +193,7 @@ set tabstop=4                   " One tab == four spaces.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Uncomment to autostart the NERDTree
 " autocmd vimenter * NERDTree
-map <leader>n : NERDTreeToggle<CR> 
+map <leader>n : NERDTreeToggle<CR>
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
@@ -202,11 +217,11 @@ highlight Normal guibg=none
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vifm
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>vv :Vifm<CR>
-map <leader>vs :VsplitVifm<CR>
-map <leader>sp :SplitVifm<CR>
-map <leader>dv :DiffVifm<CR>
-map <leader>tv :TabVifm<CR>
+" map <leader>vv :Vifm<CR>
+" map <leader>vs :VsplitVifm<CR>
+" map <leader>sp :SplitVifm<CR>
+" map <leader>dv :DiffVifm<CR>
+" map <leader>tv :TabVifm<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VimWiki
@@ -223,7 +238,7 @@ let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/template
 
 let g:vimwiki_global_ext = 0     "use vimwiki filetype only for vimwiki files
 
-map <leader>ww :VimwikiIndex <CR> :NERDTree /home/yasuke/vimwiki <CR> <C-l>
+" map <leader>ww :VimwikiIndex <CR> :NERDTree /home/yasuke/vimwiki <CR> <C-l>
 
 " fix for vimwiki#diary#calendar_action
 autocmd FileType calendar nmap <buffer> <CR> :<C-u>call vimwiki#diary#calendar_action(b:calendar.day().get_day(), b:calendar.day().get_month(), b:calendar.day().get_year(), b:calendar.day().week(), "V")<CR>
@@ -253,7 +268,7 @@ autocmd VimEnter * HexokinaseTurnOn
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Undotree 
+" => Undotree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <leader>u :UndotreeToggle<CR>
 
@@ -271,10 +286,10 @@ endif
 " => Open terminal inside Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "vertical split
-"map <leader>tt :vnew term://zsh<CR>  
+"map <leader>tt :vnew term://zsh<CR>
 
-" horizontal split     
-" map <leader>tt :new term://zsh<CR> 
+" horizontal split
+" map <leader>tt :new term://zsh<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -308,12 +323,11 @@ map <leader>th <C-w>t<C-w>H
 map <leader>tk <C-w>t<C-w>K
 
 " Removes pipes | that act as seperators on splits
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => coc.nvim default settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use <cr> to confirm completion
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use tab for trigger completion with characters ahead and navigate.
@@ -358,21 +372,21 @@ nmap <leader>do <Plug>(coc-codeaction)
 vmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 " Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+nnoremap <silent> <leader>a  :<C-u>CocList diagnostics<cr>
 " Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+nnoremap <silent> <leader>e  :<C-u>CocList extensions<cr>
 " Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+nnoremap <silent> <leader>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
-nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+nnoremap <silent> <leader>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
-nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" nnoremap <silent> <leader>s  :<C-u>CocList -I symbols<cr>
 " Do default action for next item.
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> <leader>j  :<C-u>CocNext<CR>
 " Do default action for previous item.
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent> <leader>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
-nnoremap <silent> <space>pp  :<C-u>CocListResume<CR>
+nnoremap <silent> <leader>pp  :<C-u>CocListResume<CR>
 
 " Tell vim-go to not map gd as its shortcut for go to definition
 " disable vim-go :GoDef short cut (gd)
@@ -387,15 +401,15 @@ let g:go_addtags_transform = "camelcase"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other Stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Make CtrlP use ag for listing the files. Way fater and no useless files.
-let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
-let g:ctrlp_use_caching = 0
+" Make CtrlP use ag for listing the files. Way faster and no useless files.
+" let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
+" let g:ctrlp_use_caching = 0
 
-" Replace all is aliased to S
-nnoremap S :%s//g<Left><Left>
+" Replace all
+nnoremap <leader>z :%s//g<Left><Left>
 
-" Spell-check set to <leader>ss:
-map <leader>ss :setlocal spell! spelllang=en_us<CR>
+" Spell-check set to Control-s:
+map <C-s> :setlocal spell! spelllang=en_us<CR>
 
 " Map keys for most used Go commands.
 map <leader>b :GoBuild<CR>
@@ -404,7 +418,7 @@ map <leader>t :GoTest<CR>
 
 " let g:python_highlight_all = 1
 
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org            call org#SetOrgFileType()
 
 set guioptions-=m  "remove menu bar
@@ -430,24 +444,34 @@ let g:toggleterm_terminal_mapping = '<C-t>'
 " For example: 2<C-t> will open terminal 2
 nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
-map <leader>tt :ToggleTerm size=40 direction=vertical<CR>  
+map <leader>tt :ToggleTerm size=40 direction=vertical<CR>
 
 " Bring back esc key in terminal to get back to normal mode
 tnoremap <Esc> <C-\><C-n>
 
-" Use shift-H and shift-L for move to beginning/end
-" nnoremap <S-h> 0
-" nnoremap <S-l> $
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
 
-" For Tabs
-" nmap <silent> <leader>t :tabnew<CR>
-" nmap <silent> <C-N> :tabprevious<CR>
-" nmap <silent> <C-M> :tabnext<CR>
-" nmap <silent> <leader>d :tabe %<CR>
+augroup YS
+    autocmd!
+    autocmd BufWritePre * :call TrimWhitespace()
+augroup end
+
+fun! EmptyRegisters()
+    let regs=split('abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-"', '\zs')
+    for r in regs
+        call setreg(r, [])
+    endfor
+endfun
+command! Emptyregisters :call EmptyRegisters()
 
 " remap to not lose what's in register on delete
 vnoremap <leader>p "_dP
-
+" nohl
+nnoremap <leader>h :nohl<CR><C-l>
 " enable vim rainbow globally for different parenthesis, brackets etc colors
 let g:rainbow_active = 1
 
@@ -461,3 +485,6 @@ let g:rainbow_conf = {
 \		'nerdtree': 0,
 \   }
 \}
+
+" Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile

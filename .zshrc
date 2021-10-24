@@ -13,7 +13,7 @@ export ZSH=$HOME/.oh-my-zsh
 HISTSIZE=100000
 SAVEHIST=300000
 
-### Conditional to check if xrate is already set to preferred value 
+### Conditional to check if xrate is already set to preferred value
 
 ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
 
@@ -31,7 +31,7 @@ fi
 # But when it is pressed only once, treat it as escape
 # killall xcape 2>/dev/null ; xcape -e 'Caps_Lock=Escape'
 
-# Dotman 
+# Dotman
 export DOT_DEST=Documents/ya-suke
 export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
 
@@ -71,14 +71,14 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-### ALIASES ### 
+### ALIASES ###
 # defined in the ZSH_CUSTOM folder
 # For a full list of active aliases, run `alias`.
 
 ### PLUGINS ###
 # Add wisely, as too many plugins slow down shell startup.
 # removed yum, docker, vagrant, zsh-completions
-# checkout httpie(curl replacement), 
+# checkout httpie(curl replacement),
 # removed vi-mode, extract already set in script
 # for pentest, zsh-pentest, zsh-handy-helpers, nmap
 # taskwarrior
@@ -114,27 +114,72 @@ set_terminal_title
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#839496,bg=default,default,default"
 
 ### ZSH_CUSTOM zsh-syntax-highlighting
-# uncomment if not working
-# typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#9cc4ff'
+## Constants
+## Entitites
+## Functions/methods
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#a3f7ff'
+ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=#a3f7ff'
+ZSH_HIGHLIGHT_STYLES[global-alias]='fg=#a3f7ff'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#a3f7ff'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#a3f7ff'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#a3f7ff,italic'
+ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=#ffcb6d,italic'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#ffcb6d'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#ffcb6d'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=#c792ea'
+## Keywords
+## Built ins
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#89ddff'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#89ddff'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=#89ddff'
+## Punctuation
+ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#e1acff'
+ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter-unquoted]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]='fg=#e1acff'
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=#e1acff'
+ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]='fg=#e1acff'
+## Serializable / Configuration Languages
+## Storage
+## Strings
+ZSH_HIGHLIGHT_STYLES[command-substitution-quoted]='fg=#ddffa7'
+ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter-quoted]='fg=#ddffa7'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#ddffa7'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=#ff8b92'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#ddffa7'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=#ff8b92'
+ZSH_HIGHLIGHT_STYLES[rc-quote]='fg=#ddffa7'
+## Variables
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=#ff8b92'
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[assign]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[named-fd]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[numeric-fd]='fg=#ffffff'
+## No category relevant in spec
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#ff8b92'
+ZSH_HIGHLIGHT_STYLES[path]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#c792ea'
+ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#c792ea'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=#c792ea'
+#ZSH_HIGHLIGHT_STYLES[command-substitution]='fg=?'
+#ZSH_HIGHLIGHT_STYLES[command-substitution-unquoted]='fg=?'
+#ZSH_HIGHLIGHT_STYLES[process-substitution]='fg=?'
+#ZSH_HIGHLIGHT_STYLES[arithmetic-expansion]='fg=?'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument-unclosed]='fg=#ff8b92'
+ZSH_HIGHLIGHT_STYLES[redirection]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[default]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[cursor]='standout'
 
-ZSH_HIGHLIGHT_STYLES[suffix-alias]=fg=#a3f7ff
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=#a3f7ff
-ZSH_HIGHLIGHT_STYLES[arg0]=fg=#a3f7ff
-ZSH_HIGHLIGHT_STYLES[path]=fg=#a3f7ff
-ZSH_HIGHLIGHT_STYLES[path_prefix]=fg=#a3f7ff
-ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]=fg=#a3f7ff
-ZSH_HIGHLIGHT_STYLES[path_pathseparator]=fg=#a3f7ff
-ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=#FF8B92
-ZSH_HIGHLIGHT_STYLES[default]=fg=#a3f7ff            # everything else
-
-# Theme
-# ZSH_HIGHLIGHT_HIGLIGHTERS+=(acme)
 
 ### Export
-# export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
 export PATH="$HOME/Android:$PATH";
-export FZF_DEFAULT_OPTS="--layout=reverse --height 40%"
-
+export FZF_DEFAULT_OPTS='--color=fg:#89ddff,hl:#ddffa7 --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea --color=marker:#ffffff,spinner:#c792ea,header:#82aaff --layout=reverse --height 40%'
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 # The first segment of Gopath is going to be used by go get to store files,
@@ -145,15 +190,13 @@ export GOPATH=$GOPATH:/home/yasuke/code
 
 # cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
+### Source
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
 # source /home/yasuke/.rvm/scripts/rvm
-
-colorscript random
+# colorscript random
 eval "$(starship init zsh)"
+
