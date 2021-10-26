@@ -25,6 +25,12 @@ style = "bold red"
 symbol = " "
 # style = "bold green"
 
+[jobs]
+symbol = " "
+number_threshold = 2
+style="bold green"
+format= "[$symbol$number]($style)"
+
 [custom.task-count]
 description = "tasks"
 command = 'echo  "   $(cat ~/.task/pending.data | wc -l) " '

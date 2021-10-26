@@ -12,6 +12,7 @@ export ZSH=$HOME/.oh-my-zsh
 # History file commands loaded into memory and stored in the history file
 HISTSIZE=100000
 SAVEHIST=300000
+HISTFILE=$HOME/.zsh_history
 
 ### Conditional to check if xrate is already set to preferred value
 
@@ -48,7 +49,7 @@ bindkey -v
 
 ### EXPORT
 export TERM="xterm-256color"
-export HISTORY_IGNORE="(ls|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+export HISTORY_IGNORE="(ls|clear|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
@@ -179,7 +180,6 @@ ZSH_HIGHLIGHT_STYLES[cursor]='standout'
 
 ### Export
 export PATH="$HOME/Android:$PATH";
-export FZF_DEFAULT_OPTS='--color=fg:#89ddff,hl:#ddffa7 --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea --color=marker:#ffffff,spinner:#c792ea,header:#82aaff --layout=reverse --height 40%'
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 # The first segment of Gopath is going to be used by go get to store files,
@@ -191,12 +191,20 @@ export GOPATH=$GOPATH:/home/yasuke/code
 # cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
 
 ### Source
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
 # source /home/yasuke/.rvm/scripts/rvm
+
+## FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--color=fg:#89ddff,hl:#ddffa7 --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea --color=marker:#ffffff,spinner:#c792ea,header:#82aaff --layout=reverse --height 40%'
+# Setting fd as the default source for fzf
+# export FZF_DEFAULT_COMMAND='fd --type f'
+# follow symbolic links and don't exclude hidden files
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # colorscript random
 eval "$(starship init zsh)"
-

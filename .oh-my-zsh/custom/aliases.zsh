@@ -1,7 +1,7 @@
 ## ALIASES
 
-# grep for aliases
-alias agrep="alias | grep"
+# ripgrep for aliases
+alias agrep="alias | rg"
 
 # shortcuts to config files
 alias cfv="vim ~/.config/nvim/init.vim"
@@ -13,14 +13,14 @@ alias cfc="vim ~/Desktop/vim_cheat_sheet.txt"
 
 # history aliases
 alias h="history"
-alias hs="history | grep"
-alias hsi="history | grep -i"
+alias hs="history | rg"
+alias hsi="history | rg -i"
 
 # Go shortcuts
 alias gosrc="cd ~/code/src/github.com/yasuke/"
 
 # colorize nmap output
-alias nmap="grc nmap"
+# alias nmap="grc nmap"
 
 # some automatic aliasing is done by grc source command is in .zshrc
 
@@ -114,11 +114,11 @@ fi
 }
 
 IFS=$SAVEIFS
- 
+
 ######
 
 # Changing "find" to "fd"
-# alias find='fd'
+alias find='fd'
 
 # bat
 alias cat='bat'
@@ -128,17 +128,16 @@ alias ls='exa -al --color=always --group-directories-first --icons -a -s type' #
 alias la='exa -a --color=always --group-directories-first --icons -a -s type'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first --icons -a -s type'  # long format
 alias lt='exa -aT --color=always --group-directories-first' # tree listing
-alias l.='exa -a | egrep "^\."'
+alias l.='exa -a | rg "^\."'
 
 
-# Colorize grep output (good for log files)
-# alias grep='grep -n --color=auto'
-alias grep='grep --color=auto'
-alias egrep='egrep --color=auto'
-alias fgrep='fgrep --color=auto'
+# Colorize ripgrep output (good for log files)
+alias grep='rg --color auto'
+alias egrep='rg -e --color auto'
+alias fgrep='rg -F --color auto'
 
 # confirm before overwriting something
-alias cp="cp -i"
+alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
 
@@ -157,7 +156,7 @@ alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 
 # Merge Xresources
-alias merge='xrdb -merge ~/.Xresources'
+# alias merge='xrdb -merge ~/.Xresources'
 
 # git
 alias addup='git add -u'
