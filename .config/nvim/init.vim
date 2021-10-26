@@ -5,7 +5,8 @@ filetype off                  " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
-" """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""Vim polyglot
+" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" "Vim polyglot
 let g:polyglot_disabled = ['markdown','go','html5']
 
 call plug#begin('~/.vim/plugged')
@@ -24,17 +25,17 @@ call plug#begin('~/.vim/plugged')
     Plug 'akinsho/toggleterm.nvim'
 
 "{{ File management }}
-    Plug 'vifm/vifm.vim'                                                 " Vifm
-    Plug 'scrooloose/nerdtree'                                           " Nerdtree
+    Plug 'vifm/vifm.vim'                                                   " Vifm
+    Plug 'scrooloose/nerdtree'                                             " Nerdtree
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     " Plug 'Xuyuanp/nerdtree-git-plugin' " git plugin for nerdtree
     " Highlighting Nerdtree
-    Plug 'ryanoasis/vim-devicons'                                        " Icons for Nerdtree
+    Plug 'ryanoasis/vim-devicons'                                          " Icons for Nerdtree
     " Plug 'kyazdani42/nvim-web-devicons'
     Plug 'mbbill/undotree'
 
 "{{ Productivity }}
-    Plug 'vimwiki/vimwiki', { 'branch': 'dev'}                           " VimWiki
+    Plug 'vimwiki/vimwiki', { 'branch': 'dev'}                             " VimWiki
     " Plug 'jreybert/vimagit'                                              " Magit-like plugin for vim
     " Plug 'takac/vim-hardtime'                                            " Vim HardTime for vim speed
     " Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
@@ -72,7 +73,7 @@ call plug#begin('~/.vim/plugged')
 
 "{{ Completion }}
      " CtrlP Fuzzy File Finder
-    Plug 'ctrlpvim/ctrlp.vim'
+    " Plug 'ctrlpvim/ctrlp.vim'
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}   " Conquer Of Completion for neovim (golang)
     Plug 'mattn/emmet-vim'                                               " Emmet for vim
 
@@ -341,7 +342,6 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -492,6 +492,13 @@ let g:rainbow_conf = {
 
 " Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
+" Telescope
+nnoremap <C-p> :lua require('telescope.builtin').git_files()<CR>
+nnoremap <leader>yf :lua require('telescope.builtin').find_files()<CR>
 
+nnoremap <leader>yb :lua require('telescope.builtin').buffers()<CR>
+nnoremap <leader>yh :lua require('telescope.builtin').help_tags()<CR>
+nnoremap <leader>ys :lua require('yasuke/telescope').search_repos()<CR>
 
-nnoremap <leader>q :lua require('yasuke/telescope').search_dotfiles()<CR>
+highlight Pmenu            guifg=#c678dd     guibg=none     cterm=none
+" highlight PmenuSel         guifg=0       guibg=111     cterm=none
