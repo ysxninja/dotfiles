@@ -99,11 +99,6 @@ urgency.user.project.fun.coefficient=-1.0
 urgency.user.tag.fun.coefficient=-1.0
 
 # Contexts! I use these for everything!
-context.sfw=-nsfw
-context.nofun=project.not:fun -nsfw -fun
-context.fun=project:fun or +fun or +nsfw
-context.srs=project.not:fun project.not:social -nsfw -fun
-context.conference=-nsfw -kate -INBOX project.not:kate
 
 # Enable hooks for Kusarigama
 # https://github.com/yanick/Taskwarrior-Kusarigama#name
@@ -121,3 +116,13 @@ report.and-after.columns=id
 report.and-after.description=pseudo-report for command
 report.but-before.columns=id
 report.but-before.description=pseudo-report for command
+context.school.read=project:school
+context.school.write=project:school
+context.fun.read=project:fun or +fun or +nsfw
+context.fun.write=project:fun or +fun or +nsfw
+context.nofun.read=project.not:fun -nsfw -fun
+context.openSource.read=project:openSource or +contribution
+context.openSource.write=project:openSource or +contribution
+context.programming.read=project:programming
+context.programming.write=project:programming
+news.version=2.6.0

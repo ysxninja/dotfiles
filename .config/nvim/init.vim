@@ -1,5 +1,3 @@
-
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -100,11 +98,10 @@ set incsearch                   " Incremental search
 set hidden                      " Needed to keep multiple buffers open
 set nobackup                    " No auto backups
 set noswapfile                  " No swap
-set nopaste
 set number relativenumber       " Display line numbers
 set clipboard=unnamedplus       " Copy/paste between vim and other programs.
 " set nohlsearch                  " stop highlighting search after esc
-" set guicursor=                   " remove pipe cursor on insert
+set guicursor=                   " remove pipe cursor on insert
 set undodir=~/.vim/undodir
 set undofile
 set scrolloff=8                 " Better display for messages
@@ -112,7 +109,6 @@ set cmdheight=2                 " Smaller updatetime for CursorHold & CursorHold
 set updatetime=50               " don't give |ins-completion-menu| messages.
 set shortmess+=c                " always show signcolumns
 set signcolumn=yes
-set shortmess+=c                " don't pass messages to ins-completion-menu
 set termguicolors
 " Ignore files
 set wildignore+=*.pyc
@@ -180,7 +176,7 @@ endif
 
 " If status line is all black, set this
 " Always show statusline
-set laststatus=2
+" set laststatus=2
 
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
 set noshowmode
@@ -199,9 +195,9 @@ set tabstop=4                   " One tab == four spaces.
 " Uncomment to autostart the NERDTree
 " autocmd vimenter * NERDTree
 map <leader>n : NERDTreeToggle<CR>
-map <C-n> :NERDTreeToggle<CR>
-let g:NERDTreeDirArrowExpandable = '►'
-let g:NERDTreeDirArrowCollapsible = '▼'
+" map <C-n> :NERDTreeToggle<CR>
+" let g:NERDTreeDirArrowExpandable = '►'
+" let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeShowLineNumbers= 0             " 1 Causes scrolling to be slow
 let NERDTreeShowHidden= 1
 let NERDTreeMinimalUI = 1
@@ -209,10 +205,11 @@ let g:NERDTreeWinSize= 23
 let NERDTreeHighlightCursorline = 0
 
 " nerdtree git plugin
-let g:NERDTreeGitStatusUseNerdFonts = 1
+" let g:NERDTreeGitStatusUseNerdFonts = 1
 
 " auto reload on opening window
 autocmd BufEnter NERD_tree_* | execute 'normal R'
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Theming
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -298,13 +295,13 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set mouse=nicr
+" set mouse=nicr
 " set mouse=a       " for neovide
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Fix Sizing Bug With Alacritty Terminal
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"
+" autocmd VimEnter * :silent exec "!kill -s SIGWINCH $PPID"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Splits and Tabbed Files
@@ -472,8 +469,8 @@ fun! EmptyRegisters()
 endfun
 command! Emptyregisters :call EmptyRegisters()
 
-" remap to not lose what's in register on delete
-" vnoremap <leader>p "_dP
+" remap to not lose what's in register after paste
+vnoremap <leader>p "_dP
 " nohl
 nnoremap <leader>h :nohl<CR><C-l>
 " enable vim rainbow globally for different parenthesis, brackets etc colors
