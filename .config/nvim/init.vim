@@ -5,7 +5,7 @@ filetype off                  " required
 " => Vundle For Managing Plugins
 " """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " "Vim polyglot
-let g:polyglot_disabled = ['markdown','go','html5']
+" let g:polyglot_disabled = ['markdown','go','html5']
 
 call plug#begin('~/.vim/plugged')
 
@@ -58,16 +58,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'ya-suke/vim-eunuch' , { 'branch': 'fix/detection'}                         " Helpers for Unix
 
 "{{ Syntax Highlighting and Color detection }}
-    Plug 'sheerun/vim-polyglot'                                          " A collection of language packs for vim
+"    Plug 'sheerun/vim-polyglot'                                          " A collection of language packs for vim
     " Plug 'vim-python/python-syntax'                                      " Python highlighting
-    "Plug 'ap/vim-css-color'                                              " Color previews for CSS
+    " Plug 'ap/vim-css-color'                                              " Color previews for CSS
     Plug 'rrethy/vim-hexokinase', {'do' : 'make hexokinase'}
     Plug 'luochen1990/rainbow'
 
 "{{ Junegunn Choi Plugins }}
     Plug 'junegunn/goyo.vim'                                             " Distraction-free viewing
-    Plug 'junegunn/limelight.vim'                                        " Hyperfocus on a range
-    Plug 'junegunn/vim-emoji'                                            " Vim needs emojis!
+    " Plug 'junegunn/limelight.vim'                                        " Hyperfocus on a range
+    " Plug 'junegunn/vim-emoji'                                            " Vim needs emojis!
 
 "{{ Completion }}
      " CtrlP Fuzzy File Finder
@@ -80,6 +80,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
     Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+"{{ nvim-treesitter }}
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'nvim-treesitter/playground'
 
 call plug#end()
 
