@@ -36,7 +36,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'vimwiki/vimwiki', { 'branch': 'dev'}                             " VimWiki
     " Plug 'jreybert/vimagit'                                              " Magit-like plugin for vim
     " Plug 'takac/vim-hardtime'                                            " Vim HardTime for vim speed
-    " Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
+    Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
 
      "For React >> snippets
     " Plug 'SirVer/ultisnips'
@@ -242,7 +242,8 @@ let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/template
           \ 'template_ext': '.tpl',
           \ 'auto_diary_index': 1,}]
 
-let g:vimwiki_global_ext = 0     "use vimwiki filetype only for vimwiki files
+" use vimwiki filetype only for vimwiki files
+let g:vimwiki_global_ext = 0
 
 " map <leader>ww :VimwikiIndex <CR> :NERDTree /home/yasuke/vimwiki <CR> <C-l>
 
@@ -299,7 +300,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" set mouse=nicr
+set mouse=nicr
 " set mouse=a       " for neovide
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -361,7 +362,7 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use U to show documentation in preview window
@@ -409,6 +410,9 @@ let g:go_addtags_transform = "camelcase"
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
 " let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 " let g:ctrlp_use_caching = 0
+
+" Python
+" let g:python3_host_prog = '/usr/bin/python'
 
 " Replace all
 nnoremap <leader>z :%s//g<Left><Left>
@@ -473,6 +477,12 @@ fun! EmptyRegisters()
 endfun
 command! Emptyregisters :call EmptyRegisters()
 
+function! Formatonsave()
+  let l:formatdiff = 1
+  py3f /usr/share/clang/clang-format.py
+endfunction
+autocmd BufWritePre *.h,*.c,*.cc,*.cpp call Formatonsave()
+
 " remap to not lose what's in register after paste
 vnoremap <leader>p "_dP
 " nohl
@@ -501,5 +511,5 @@ nnoremap <leader>yb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>yh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>ys :lua require('yasuke/telescope').search_repos()<CR>
 
-highlight Pmenu            guifg=#c678dd     guibg=none     cterm=none
+highlight Pmenu            guifg=#c678dd     guibg=#292d3e     cterm=none
 " highlight PmenuSel         guifg=0       guibg=111     cterm=none
