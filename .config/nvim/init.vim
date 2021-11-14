@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
 
     " Colorscheme Theme
     Plug 'joshdick/onedark.vim'
-    Plug 'gruvbox-community/gruvbox'
+    " Plug 'gruvbox-community/gruvbox'
 
     " Terminal toggler
     Plug 'akinsho/toggleterm.nvim'
@@ -48,7 +48,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
      "Code and code detection
-    Plug 'ambv/black'                                                    " python formatter
+    " Plug 'ambv/black'                                                    " python formatter
     " Plug 'jparise/vim-graphql'
     Plug 'fatih/vim-go'                                                  " Vim plugin for golang
 
@@ -150,8 +150,8 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 " Remap ESC to jk and kj in insert mode,, use mapped caps for other modes to avoid
 " conflicts with jk in visual mode
 
-:imap jk <Esc>
-" :imap kj <Esc>
+" remap ii to ESC
+:imap ii <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {

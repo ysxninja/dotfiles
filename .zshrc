@@ -49,7 +49,7 @@ bindkey -v
 
 ### EXPORT
 export TERM="xterm-256color"
-export HISTORY_IGNORE="(ls|clear|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
 export EDITOR="nvim"
 export VISUAL="nvim"
 

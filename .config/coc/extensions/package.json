@@ -10,10 +10,8 @@
     "coc-markmap": ">=0.5.0",
     "coc-prettier": ">=1.1.24",
     "coc-pyright": ">=1.1.172",
-    "coc-rust-analyzer": ">=0.54.0",
     "coc-snippets": ">=2.4.6",
     "coc-styled-components": ">=0.5.0",
-    "coc-sumneko-lua": ">=0.0.11",
     "coc-tsserver": ">=1.8.6"
   }
 }

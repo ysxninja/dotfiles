@@ -2,6 +2,7 @@
 
 # ripgrep for aliases
 alias agrep="alias | rg"
+alias gp="git pull && git push"
 
 # shortcuts to config files
 alias cfv="vim ~/.config/nvim/init.vim"
