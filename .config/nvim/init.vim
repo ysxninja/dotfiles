@@ -108,11 +108,11 @@ set clipboard=unnamedplus       " Copy/paste between vim and other programs.
 set guicursor=                   " remove pipe cursor on insert
 set undodir=~/.vim/undodir
 set undofile
-set scrolloff=8                 " Better display for messages
-set cmdheight=2                 " Smaller updatetime for CursorHold & CursorHoldI
-set updatetime=50               " don't give |ins-completion-menu| messages.
-set shortmess+=c                " always show signcolumns
-set signcolumn=yes
+set scrolloff=8
+set cmdheight=2                 " Better display for messages
+set updatetime=50               " Smaller updatetime for CursorHold & CursorHoldI
+set shortmess+=c                " don't give \|ins-completion-menu\| messages.
+set signcolumn=yes              " always show signcolumns
 set termguicolors
 " Ignore files
 set wildignore+=*.pyc
@@ -124,7 +124,6 @@ set wildignore+=**/Android/*
 set wildignore+=**/Music/*
 set wildignore+=**/ios/*
 set wildignore+=**/.git/*
-set nowrap
 " set isfname+=@-@
 syntax enable
 " let g:rehash256 = 1
@@ -151,7 +150,7 @@ autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 " conflicts with jk in visual mode
 
 " remap ii to ESC
-:imap ii <Esc>
+:imap jk <Esc>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:lightline = {
@@ -407,6 +406,13 @@ let g:go_addtags_transform = "camelcase"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other Stuff
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable Perl support
+let g:loaded_perl_provider = 0
+" Disable Ruby support
+let g:loaded_ruby_provider = 0
+" Disable Python support
+let g:loaded_python_provider = 0
+
 " Make CtrlP use ag for listing the files. Way faster and no useless files.
 " let g:ctrlp_user_command = 'ag %s -l --hidden --nocolor -g ""'
 " let g:ctrlp_use_caching = 0
