@@ -1,4 +1,4 @@
-" A customized init.vim for neovim (https://neovim.io/)     
+" A customized init.vim for neovim (https://neovim.io/)
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -20,7 +20,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'     " Highlighting Nerdtree
     Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 "{{ Productivity }}
-    Plug 'vimwiki/vimwiki'                             " VimWiki 
+    Plug 'vimwiki/vimwiki'                             " VimWiki
     Plug 'jreybert/vimagit'                            " Magit-like plugin for vim
 "{{ Tim Pope Plugins }}
     Plug 'tpope/vim-surround'                          " Change surrounding marks
@@ -46,7 +46,7 @@ filetype plugin indent on    " required
 
 " Brief help
 " :PlugStatus                   - Check the status of plugins
-" :PlugInstall [name ...]       - installs plugins; 
+" :PlugInstall [name ...]       - installs plugins;
 " :PlugUpdate [name ...]        - install or update plugins
 " :PlugClean[!]                 - Remove unlisted plugins (bang version will clean without prompt)"
 " PlugUpgrade                   - Upgrade vim-plug itself
@@ -194,9 +194,9 @@ let g:instant_markdown_autostart = 0                        " Turns off auto pre
 let g:instant_markdown_browser = "firefox --new-window"     " Uses firefox for preview
 
 " Previews .md file
-map <Leader>md :InstantMarkdownPreview<CR>                 
+map <Leader>md :InstantMarkdownPreview<CR>
 " Kills the preview
-map <Leader>ms :InstantMarkdownStop<CR>                     
+map <Leader>ms :InstantMarkdownStop<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -231,7 +231,7 @@ map <Leader>th <C-w>t<C-w>H
 map <Leader>tk <C-w>t<C-w>K
 
 " Removes pipes | that act as seperators on splits
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other Stuff
@@ -246,7 +246,7 @@ let g:python_highlight_all = 1
 
 let g:rainbow_active = 1   " braces get the last color of the rainbow
 
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org 
+au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
 au BufEnter *.org            call org#SetOrgFileType()
 
 set guioptions-=m  "remove menu bar
@@ -254,5 +254,3 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
-" Vim to run chezmoi apply whenever a dotfile is edited
-autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"

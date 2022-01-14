@@ -24,11 +24,11 @@ call plug#begin('~/.vim/plugged')
 
 "{{ File management }}
     Plug 'vifm/vifm.vim'                                                   " Vifm
-    Plug 'scrooloose/nerdtree'                                             " Nerdtree
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"    Plug 'scrooloose/nerdtree'                                             " Nerdtree
+"    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     " Plug 'Xuyuanp/nerdtree-git-plugin' " git plugin for nerdtree
     " Highlighting Nerdtree
-    Plug 'ryanoasis/vim-devicons'                                          " Icons for Nerdtree
+"    Plug 'ryanoasis/vim-devicons'                                          " Icons for Nerdtree
     " Plug 'kyazdani42/nvim-web-devicons'
     Plug 'mbbill/undotree'
 
@@ -65,7 +65,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'luochen1990/rainbow'
 
 "{{ Junegunn Choi Plugins }}
-    Plug 'junegunn/goyo.vim'                                             " Distraction-free viewing
+"    Plug 'junegunn/goyo.vim'                                             " Distraction-free viewing
     " Plug 'junegunn/limelight.vim'                                        " Hyperfocus on a range
     " Plug 'junegunn/vim-emoji'                                            " Vim needs emojis!
 
