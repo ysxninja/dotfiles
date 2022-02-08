@@ -49,7 +49,7 @@ bindkey -v
 
 ### EXPORT
 export TERM="xterm-256color"
-export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..)"
+export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..|cf)"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
@@ -180,6 +180,7 @@ ZSH_HIGHLIGHT_STYLES[cursor]='standout'
 
 ### Export
 export PATH="$HOME/Android:$PATH";
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 # The first segment of Gopath is going to be used by go get to store files,

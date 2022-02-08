@@ -48,7 +48,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
      "Code and code detection
-    " Plug 'ambv/black'                                                    " python formatter
+    Plug 'ambv/black'                                                    " python formatter
     " Plug 'jparise/vim-graphql'
     Plug 'fatih/vim-go'                                                  " Vim plugin for golang
 
@@ -488,6 +488,9 @@ function! Formatonsave()
   py3f /usr/share/clang/clang-format.py
 endfunction
 autocmd BufWritePre *.h,*.c,*.cc,*.cpp call Formatonsave()
+
+" run python Black on save
+autocmd BufWritePre *.py execute ':Black'
 
 " remap to not lose what's in register after paste
 vnoremap <leader>p "_dP
