@@ -29,7 +29,7 @@ call plug#begin('~/.vim/plugged')
     " Plug 'Xuyuanp/nerdtree-git-plugin' " git plugin for nerdtree
     " Highlighting Nerdtree
 "    Plug 'ryanoasis/vim-devicons'                                          " Icons for Nerdtree
-    " Plug 'kyazdani42/nvim-web-devicons'
+    Plug 'kyazdani42/nvim-web-devicons'
     Plug 'mbbill/undotree'
 
 "{{ Productivity }}

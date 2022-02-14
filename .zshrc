@@ -180,7 +180,9 @@ ZSH_HIGHLIGHT_STYLES[cursor]='standout'
 
 ### Export
 export PATH="$HOME/Android:$PATH";
+# Ruby gems path for vimgolf
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+# Golang paths
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin
 # The first segment of Gopath is going to be used by go get to store files,
@@ -189,6 +191,18 @@ export GOPATH=/home/yasuke/golib
 export PATH=$PATH:$GOPATH/bin
 export GOPATH=$GOPATH:/home/yasuke/code
 
+# Android Flutter path
+export PATH="$PATH:$HOME/development/flutter/bin"
+# Android SDKS
+export ANDROID_SDK_ROOT='/opt/android-sdk'
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
+export PATH=$PATH:$ANDROID_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
+
+# Chrome executable path for flutter doctor
+CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
+export CHROME_EXECUTABLE
 # cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
 
 ### Source
