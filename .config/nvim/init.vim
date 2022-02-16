@@ -38,9 +38,13 @@ call plug#begin('~/.vim/plugged')
     " Plug 'takac/vim-hardtime'                                            " Vim HardTime for vim speed
     Plug 'lambdalisue/suda.vim'                                          " Sudo write permissions
 
-     "For React >> snippets
-    " Plug 'SirVer/ultisnips'
-    " Plug 'mlaursen/vim-react-snippets'                                   " snippets for developing react apps, rely on ultisnips from sirver
+    " Snippets engine
+    Plug 'SirVer/ultisnips'
+    " Snippets
+    Plug 'honza/vim-snippets'
+    Plug 'natebosch/dartlang-snippets'
+
+    " React js snippets
     Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
     Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
@@ -51,6 +55,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'ambv/black'                                                    " python formatter
     " Plug 'jparise/vim-graphql'
     Plug 'fatih/vim-go'                                                  " Vim plugin for golang
+    Plug 'dart-lang/dart-vim-plugin'                                     " Vim plugin for dart
+    " Plug 'thosakwe/vim-flutter'                                          " Vim commands for flutter
 
 "{{ Tim Pope Plugins }}
     Plug 'tpope/vim-surround'                                            " Change surrounding marks
@@ -519,6 +525,13 @@ nnoremap <leader>yf :lua require('telescope.builtin').find_files()<CR>
 nnoremap <leader>yb :lua require('telescope.builtin').buffers()<CR>
 nnoremap <leader>yh :lua require('telescope.builtin').help_tags()<CR>
 nnoremap <leader>ys :lua require('yasuke/telescope').search_repos()<CR>
+
+"" Flutter
+nnoremap <leader>fa :CocCommand flutter.run<CR>
+nnoremap <leader>fq :CocCommand flutter.dev.quit<CR>
+nnoremap <leader>fr :CocCommand flutter.dev.hotReload<CR>
+nnoremap <leader>fR :CocCommand flutter.dev.hotRestart<CR>
+nnoremap <leader>fd :CocCommand flutter.dev.openDevLog<CR>
 
 highlight Pmenu            guifg=#c678dd     guibg=#292d3e     cterm=none
 " highlight PmenuSel         guifg=0       guibg=111     cterm=none

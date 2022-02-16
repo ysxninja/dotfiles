@@ -201,8 +201,8 @@ export PATH=$PATH:$ANDROID_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
 
 # Chrome executable path for flutter doctor
-CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
-export CHROME_EXECUTABLE
+# CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
+# export CHROME_EXECUTABLE
 # cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
 
 ### Source

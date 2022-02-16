@@ -13,7 +13,8 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "jsonc"
+    "jsonc",
+    "dart"
   ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true
