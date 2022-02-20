@@ -7,7 +7,7 @@ ping -c 1 -W 2 google.com > /dev/null 2>&1 && printf "\n\t\e[1;32m🗱  \e[0m co
 status=$?
 
 if test $status -eq 4
-then 
+then
     printf "\n\t\e[0;31m☠  Exiting...\e[0m\n"
     exit
 else
@@ -31,7 +31,7 @@ printf "\n Fetching origin to then push\n"
 
 printf "\n backing up group and hist files\n"
 sudo cat /etc/group > ~/group.bak && printf " group backup successful" || printf " 🗶  group backup failed"
-cat ~/.zsh_history > ~/.zsh_history.bak && printf "\n hist backup successful" || printf "\n 🗶  hist backup failed"
+cat ~/.zsh_history > ~/ysbackup/.zsh_history.bak && printf "\n hist backup successful" || printf "\n 🗶  hist backup failed"
 
 printf " \n\n\t\e[1;33m✅✅✅\e[0m\n"
 
