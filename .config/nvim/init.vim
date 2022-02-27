@@ -40,11 +40,9 @@ call plug#begin('~/.vim/plugged')
 
     " Snippets engine
     Plug 'SirVer/ultisnips'
-    " Snippets
     Plug 'honza/vim-snippets'
     Plug 'natebosch/dartlang-snippets'
 
-    " React js snippets
     Plug 'dsznajder/vscode-es7-javascript-react-snippets', { 'do': 'yarn install --frozen-lockfile && yarn compile' }
     Plug 'pangloss/vim-javascript'
     Plug 'leafgarland/typescript-vim'
