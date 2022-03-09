@@ -12,9 +12,9 @@
     "javascript",
     "javascriptreact",
     "typescript",
-    "typescriptreact",
     "jsonc",
-    "dart"
+    "dart",
+    "yaml"
   ],
   "tsserver.formatOnType": true,
   "coc.preferences.formatOnType": true

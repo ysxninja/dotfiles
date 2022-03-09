@@ -89,12 +89,13 @@ fi
 # zsh-handy-helpers
 # httpie
 plugins=(
-    zsh-interactive-cd
     zsh-z
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-completions
     web-search
+    fzf-tab
+    fzf
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -200,6 +201,12 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
 export PATH=$PATH:$ANDROID_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
 
+# Export path or yarn
+export PATH="$PATH:$(yarn global bin)"
+
+# Docker Gateway fallback host
+export DOCKER_GATEWAY_HOST=172.17.0.1
+
 # Chrome executable path for flutter doctor
 # CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 # export CHROME_EXECUTABLE
@@ -212,7 +219,7 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
 # source /home/yasuke/.rvm/scripts/rvm
 
 ## FZF
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS='--color=fg:#89ddff,hl:#ddffa7 --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea --color=marker:#ffffff,spinner:#c792ea,header:#82aaff --layout=reverse --height 40%'
 # Setting fd as the default source for fzf
 # export FZF_DEFAULT_COMMAND='fd --type f'
@@ -220,6 +227,14 @@ export FZF_DEFAULT_OPTS='--color=fg:#89ddff,hl:#ddffa7 --color=fg+:#c792ea,bg+:#
 export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Fzf-tab
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath' # remember to use single quote here!!!
+# Show systemd unit status
+zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+
+# For less lessfilter
+export LESSOPEN='|~/.lessfilter %s'
 
 # colorscript random
 eval "$(starship init zsh)"

@@ -437,8 +437,8 @@ map <leader>t :GoTest<CR>
 
 " let g:python_highlight_all = 1
 
-au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
-au BufEnter *.org            call org#SetOrgFileType()
+" au! BufRead,BufWrite,BufWritePost,BufNewFile *.org
+" au BufEnter *.org            call org#SetOrgFileType()
 
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
