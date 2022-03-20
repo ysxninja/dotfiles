@@ -184,8 +184,8 @@ export PATH="$HOME/Android:$PATH";
 # Ruby gems path for vimgolf
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 # Golang paths
-export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin
+# export GOROOT=/usr/local/go
+# export PATH=$PATH:$GOROOT/bin
 # The first segment of Gopath is going to be used by go get to store files,
 # but all segments will be searched for source code
 export GOPATH=/home/yasuke/golib
