@@ -22,6 +22,9 @@ call plug#begin('~/.vim/plugged')
     " Terminal toggler
     Plug 'akinsho/toggleterm.nvim'
 
+    " Dashboard
+    Plug 'glepnir/dashboard-nvim'
+
 "{{ File management }}
     Plug 'vifm/vifm.vim'                                                   " Vifm
 "    Plug 'scrooloose/nerdtree'                                             " Nerdtree
@@ -59,6 +62,8 @@ call plug#begin('~/.vim/plugged')
 "{{ Tim Pope Plugins }}
     Plug 'tpope/vim-surround'                                            " Change surrounding marks
     Plug 'tpope/vim-fugitive'                                            " Famous git vim plugin
+    Plug 'tpope/vim-commentary'                                          " Commenting support (gc, gcc)
+
     Plug 'ya-suke/vim-eunuch' , { 'branch': 'fix/detection'}                         " Helpers for Unix
 
 "{{ Syntax Highlighting and Color detection }}
@@ -513,6 +518,30 @@ let g:rainbow_conf = {
 \		'nerdtree': 0,
 \   }
 \}
+
+" Dashboard-nvim
+let g:dashboard_default_executive ='telescope'
+" image to braile
+let g:dashboard_custom_header=[
+    \'',
+    \'',
+    \'',
+    \'⠀⠀⠀⠀⠀⠀⠀⠀⣀⠤⠔⠒⠒⠒⠑⠒⠲⢤⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀ ',
+    \'⠀⠀⠀⠀⠀⡠⠒⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢿⣿⣶⣄⠀⠀⠀⠀⠀ ',
+    \'⠀⠀⠀⡠⠊⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⠀⠀⠀⠀⠀⢻⣿⣿⣷⣄⠀⠀⠀ ',
+    \'⠀⠀⡔⠁⠀⠀⠀⠀⠀⠀⠀⠀⢼⣿⣿⡧⠀⠀⠀⠀⢸⣿⣿⣿⣿⣦⠀⠀ ',
+    \'⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠛⠁⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣧⠀ ',
+    \'⢰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⡆ ',
+    \'⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⣾⣿⣿⣿⣿⣿⣿⣿⣿⡇ ',
+    \'⢸⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣾⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇ ',
+    \'⠘⡄⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃ ',
+    \'⠀⢣⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⡿⠛⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀ ',
+    \'⠀⠀⢣⠀⠀⠀⠀⢺⣿⣿⣿⣿⡅⠀⠀⢨⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀ ',
+    \'⠀⠀⠀⠑⢄⠀⠀⠘⣿⣿⣿⣿⣿⣷⣾⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⠀⠀ ',
+    \'⠀⠀⠀⠀⠀⠙⠢⣀⠘⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠋⠀⠀⠀⠀⠀ ',
+    \'⠀⠀⠀⠀⠀⠀⠀⠀⠉⠒⠪⠽⠿⠿⠿⠿⠿⠛⠛⠉⠀⠀⠀⠀⠀⠀⠀⠀ ',
+    \'',
+    \]
 
 " Prettier
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
