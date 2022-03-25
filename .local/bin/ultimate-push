@@ -15,18 +15,16 @@ else
 fi
 
 printf "\n\n\e[1;36m\e[0m Pushing tasks to repo \e[1;36m    ..\e[0m\n"
-
 git -C /home/yasuke/.task/ push -u origin main
 
+printf "\n\n\e[1;36m\e[0m Pushing passwords to repo \e[1;36m    ..\e[0m\n"
+git -C /home/yasuke/.password-store/ push -u origin main
 
 printf "\n\e[1;36m\e[0m Pushing dotfiles to repo \e[1;36m    ..\e[0m\n"
-
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke commit -a -m "update dotfiles"
 
 printf "\n Fetching origin to then push\n"
-
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke fetch origin
-
 /usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke push origin main
 
 printf "\n backing up group and hist files\n"

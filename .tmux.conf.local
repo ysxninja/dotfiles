@@ -14,8 +14,6 @@
 # then uncomment the following line to make Meta + arrow keys mapping work
 #set -ga terminal-overrides "*:kUP3=\e[1;9A,*:kDN3=\e[1;9B,*:kRIT3=\e[1;9C,*:kLFT3=\e[1;9D"
 
-# fix numbering for panes nvim
-# set-option -g focus-events on
 
 # -- windows & pane creation ---------------------------------------------------
 
@@ -51,12 +49,12 @@ tmux_conf_24b_colour=false
 tmux_conf_theme_colour_1="#080808"    # dark gray
 tmux_conf_theme_colour_2="#303030"    # gray
 tmux_conf_theme_colour_3="#8a8a8a"    # light gray
-tmux_conf_theme_colour_4="#82aaff"    # light blue
+tmux_conf_theme_colour_4="#00afff"    # light blue
 tmux_conf_theme_colour_5="#ffff00"    # yellow
 tmux_conf_theme_colour_6="#080808"    # dark gray
 tmux_conf_theme_colour_7="#e4e4e4"    # white
 tmux_conf_theme_colour_8="#080808"    # dark gray
-tmux_conf_theme_colour_9="#e4e4e4"    # yellow
+tmux_conf_theme_colour_9="#ffff00"    # yellow
 tmux_conf_theme_colour_10="#ff00af"   # pink
 tmux_conf_theme_colour_11="#5fff00"   # green
 tmux_conf_theme_colour_12="#8a8a8a"   # light gray
@@ -121,13 +119,13 @@ tmux_conf_theme_message_command_bg="$tmux_conf_theme_colour_1"
 tmux_conf_theme_message_command_attr="bold"
 
 # window modes style
-tmux_conf_theme_mode_fg="red"
-tmux_conf_theme_mode_bg="default"
+tmux_conf_theme_mode_fg="$tmux_conf_theme_colour_1"
+tmux_conf_theme_mode_bg="$tmux_conf_theme_colour_5"
 tmux_conf_theme_mode_attr="bold"
 
 # status line style
 tmux_conf_theme_status_fg="$tmux_conf_theme_colour_3"
-tmux_conf_theme_status_bg="default"
+tmux_conf_theme_status_bg="$tmux_conf_theme_colour_1"
 tmux_conf_theme_status_attr="none"
 
 # terminal title
@@ -140,8 +138,7 @@ tmux_conf_theme_status_attr="none"
 #     - #{hostname_full_ssh}
 #     - #{username}
 #     - #{username_ssh}
-# tmux_conf_theme_terminal_title="#h ❐ #S ● #I #W"
-tmux_conf_theme_terminal_title="#{username}@#h"
+tmux_conf_theme_terminal_title="#h ❐ #S ● #I #W"
 
 # window status style
 #   - built-in variables are:
@@ -154,7 +151,7 @@ tmux_conf_theme_terminal_title="#{username}@#h"
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_window_status_fg="$tmux_conf_theme_colour_3"
-tmux_conf_theme_window_status_bg="default"
+tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_1"
 tmux_conf_theme_window_status_attr="none"
 tmux_conf_theme_window_status_format="#I #W"
 #tmux_conf_theme_window_status_format="#{circled_window_index} #W"
@@ -197,10 +194,10 @@ tmux_conf_theme_left_separator_main=""
 tmux_conf_theme_left_separator_sub="|"
 tmux_conf_theme_right_separator_main=""
 tmux_conf_theme_right_separator_sub="|"
-#tmux_conf_theme_left_separator_main="\uE0B0"  # /!\ you don't need to install Powerline
-#tmux_conf_theme_left_separator_sub="\uE0B1"   #   you only need fonts patched with
-#tmux_conf_theme_right_separator_main="\uE0B2" #   Powerline symbols or the standalone
-#tmux_conf_theme_right_separator_sub="\uE0B3"  #   PowerlineSymbols.otf font, see README.md
+#tmux_conf_theme_left_separator_main='\uE0B0'  # /!\ you don't need to install Powerline
+#tmux_conf_theme_left_separator_sub='\uE0B1'   #   you only need fonts patched with
+#tmux_conf_theme_right_separator_main='\uE0B2' #   Powerline symbols or the standalone
+#tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see README.md
 
 # status left/right content:
 #   - separate main sections with "|"
@@ -229,29 +226,28 @@ tmux_conf_theme_right_separator_sub="|"
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=" ❐ #S "
-tmux_conf_theme_status_right="#{prefix}#{mouse}#{pairing}#{synchronized} | #{username}#{root}#{username_ssh}#{hostname_ssh}"
+tmux_conf_theme_status_left=" ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} "
+tmux_conf_theme_status_right=" #{prefix}#{mouse}#{pairing}#{synchronized}#{?battery_status,#{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} "
 
 # status left style
-tmux_conf_theme_status_left_fg="#82aaff,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
-tmux_conf_theme_status_left_bg="default,#d0d0d0,$tmux_conf_theme_colour_11"
-#tmux_conf_theme_status_left_bg="#1B1E35,#1B1E35,#1B1E35"
+tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_7,$tmux_conf_theme_colour_8"
+tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_9,$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_11"
 tmux_conf_theme_status_left_attr="bold,none,none"
 
 # status right style
-tmux_conf_theme_status_right_fg="none,$tmux_conf_theme_colour_13,$tmux_conf_theme_colour_14"
-tmux_conf_theme_status_right_bg="default"
+tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_12,$tmux_conf_theme_colour_13,$tmux_conf_theme_colour_14"
+tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_15,$tmux_conf_theme_colour_16,$tmux_conf_theme_colour_17"
 tmux_conf_theme_status_right_attr="none,none,bold"
 
 # pairing indicator
-tmux_conf_theme_pairing="⚇"                 # u+2687
+tmux_conf_theme_pairing="⚇"                 # U+2687
 tmux_conf_theme_pairing_fg="none"
 tmux_conf_theme_pairing_bg="none"
 tmux_conf_theme_pairing_attr="none"
 
 # prefix indicator
-tmux_conf_theme_prefix="⌨"                  # u+2328
-tmux_conf_theme_prefix_fg="#82aaff"
+tmux_conf_theme_prefix="⌨"                  # U+2328
+tmux_conf_theme_prefix_fg="none"
 tmux_conf_theme_prefix_bg="none"
 tmux_conf_theme_prefix_attr="none"
 
@@ -324,28 +320,22 @@ tmux_conf_theme_clock_style="24"
 #   - false (default)
 # on macOS, this requires installing reattach-to-user-namespace, see README.md
 # on Linux, this requires xsel or xclip
-tmux_conf_copy_to_os_clipboard=true
+tmux_conf_copy_to_os_clipboard=false
 
 
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
 # increase history size
-set -g history-limit 10000
-
-# disallow renaming windows
-set -g allow-rename off
+#set -g history-limit 10000
 
 # start with mouse mode enabled
-set -g mouse on
+#set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
-set -g status-keys vi
-set -g mode-keys vi
-
-# Search mode VI (default is emac)
-set-window-option -g mode-keys vi
+#set -g status-keys vi
+#set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
 # set -gu prefix2
@@ -354,13 +344,9 @@ set-window-option -g mode-keys vi
 # set -g prefix C-a
 # bind C-a send-prefix
 
-# remap prefix to screens
-set -g prefix C-a
-bind C-a send-prefix
-unbind C-b
-
 # move status line to top
 #set -g status-position top
+
 
 # -- tpm -----------------------------------------------------------------------
 
@@ -374,12 +360,23 @@ unbind C-b
 # by default, launching tmux will update tpm and all plugins
 #   - true (default)
 #   - false
-# tmux_conf_update_plugins_on_launch=true
+tmux_conf_update_plugins_on_launch=true
 
 # by default, reloading the configuration will update tpm and all plugins
 #   - true (default)
 #   - false
-# tmux_conf_update_plugins_on_reload=true
+tmux_conf_update_plugins_on_reload=true
+
+# by default, reloading the configuration will uninstall tpm and plugins when no
+# plugins are enabled
+#   - true (default)
+#   - false
+tmux_conf_uninstall_plugins_on_reload=true
+
+# /!\ the tpm bindings differ slightly from upstream:
+#   - installing plugins: <prefix> + I
+#   - uninstalling plugins: <prefix> + Alt + u
+#   - updating plugins: <prefix> + u
 
 # /!\ do not add set -g @plugin 'tmux-plugins/tpm'
 # /!\ do not add run '~/.tmux/plugins/tpm/tpm'
