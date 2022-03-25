@@ -14,10 +14,10 @@ else
     continue
 fi
 
-printf "\n\n\e[1;36m\e[0m Pushing tasks to repo \e[1;36m    ..\e[0m"
+printf "\n\n\e[1;36m\e[0m Pushing tasks to repo \e[1;36m    ..\e[0m\n"
 git -C /home/yasuke/.task/ push -u origin main
 
-printf "\n\n\e[1;36m\e[0m Pushing passwords to repo \e[1;36m    ..\e[0m\n"
+printf "\n\e[1;36m\e[0m Pushing passwords to repo \e[1;36m    ..\e[0m\n"
 git -C /home/yasuke/.password-store/ push -u origin main
 
 printf "\n\e[1;36m\e[0m Pushing dotfiles to repo \e[1;36m    ..\e[0m\n"
