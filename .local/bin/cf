@@ -15,7 +15,7 @@ elif [[ $selected == "cf" ]] ; then
 elif [[ $selected == "fish" ]] ; then
     $EDITOR ~/.config/fish/config.fish
 elif [[ $selected == "nvim" ]] ; then
-    $EDITOR ~/.config/nvim/init.vim
+    $EDITOR ~/.config/nvim/lua/user/init.lua
 elif [[ $selected == "remaps" ]] ; then
     $EDITOR ~/.local/bin/remaps
 elif [[ $selected == "starship" ]] ; then
