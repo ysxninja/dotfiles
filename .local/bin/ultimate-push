@@ -30,6 +30,7 @@ printf "\n Fetching origin to then push\n"
 printf "\n backing up group and hist files\n"
 sudo cat /etc/group > ~/group.bak && printf " group backup successful" || printf " 🗶  group backup failed"
 cat ~/.zsh_history > ~/ysbackup/.zsh_history.bak && printf "\n hist backup successful" || printf "\n 🗶  hist backup failed"
+rsync -av ~/.config/nvim/lua/user/init.lua ~/ysbackup/init.lua.bak && printf "\n lua user config backup successful" || printf "\n lua config backup failed"
 
 printf " \n\n\t\e[1;33m✅✅✅\e[0m\n"
 
