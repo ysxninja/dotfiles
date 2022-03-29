@@ -8,7 +8,7 @@
 ``` sh
  git clone \
    --separate-git-dir=$HOME/dotfiles \
-   git@github.com:Ya-suke/dotfiles.git \
+   https://github.com/Ya-suke/dotfiles.git \
    dotfiles-tmp
 ```
 - copy the snapshot from tmp dir to the correct locations
