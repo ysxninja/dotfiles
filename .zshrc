@@ -36,6 +36,7 @@ export DOT_DEST=Documents/ya-suke
 export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
 
 # ZSH_THEME="spaceship"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
