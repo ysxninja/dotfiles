@@ -202,7 +202,7 @@ export PATH=$PATH:$ANDROID_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
 
 # Export path or yarn
-export PATH="$PATH:$(yarn global bin)"
+# export PATH="$PATH:$(yarn global bin)"
 
 # Docker Gateway fallback host
 export DOCKER_GATEWAY_HOST=172.17.0.1
