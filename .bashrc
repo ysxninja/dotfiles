@@ -229,9 +229,9 @@ colorscript random
 #fi
 
 # export PATH="/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH";
-export PATH="$HOME/Android:$PATH";
-source "$HOME/.cargo/env"
-export PATH=$PATH:/usr/lib/postgresql/12/bin
+# export PATH="$HOME/Android:$PATH";
+# source "$HOME/.cargo/env"
+# export PATH=$PATH:/usr/lib/postgresql/12/bin
 
 ### SETTING THE STARSHIP PROMPT ###
 eval "$(starship init bash)"
