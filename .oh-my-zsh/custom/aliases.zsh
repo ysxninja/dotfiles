@@ -119,7 +119,7 @@ IFS=$SAVEIFS
 ######
 
 # Changing "find" to "fd"
-alias find='fd'
+# alias find='fd'
 
 # bat
 alias cat='bat'
