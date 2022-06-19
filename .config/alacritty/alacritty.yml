@@ -257,6 +257,7 @@ colors:
     # background: '#292d3e'
     background: "#282a36"
     # background: "#282c34"
+    # background: "#282c34"
     foreground: "#bbc5ff"
 
     # Bright and dim foreground colors
@@ -386,7 +387,7 @@ colors:
 # window.opacity: 1.0
 # window.opacity: 0.96
 window:
-  opacity: 0.96
+  opacity: 0.90
 
 #selection:
 #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
@@ -630,6 +631,7 @@ key_bindings:
   # (Windows, Linux, and BSD only)
   - { key: V, mods: Control|Shift, action: Paste }
   - { key: C, mods: Control|Shift, action: Copy }
+  # - { key: C, mods: Control|Shift, chars: "\x03" }
   - { key: Insert, mods: Shift, action: PasteSelection }
   - { key: Key0, mods: Control, action: ResetFontSize }
   - { key: Equals, mods: Control, action: IncreaseFontSize }
