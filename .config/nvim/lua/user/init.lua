@@ -161,6 +161,9 @@ local config = {
       {
         "dsznajder/vscode-es7-javascript-react-snippets",
         run = "yarn install --frozen-lockfile && yarn compile"
+      },
+      {
+        "github/copilot.vim"
       }
     },
     -- All other entries override the setup() call for default plugins
