@@ -15,16 +15,16 @@ HISTFILE=$HOME/.zsh_history
 
 ### Conditional to check if xrate is already set to preferred value
 
-ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
+# ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
+## xset r rate 300 50 fast medium smooth
+## xset r rate 190 38 fast very smooth
 
-# xset r rate 300 50 fast medium smooth
-# xset r rate 190 38 fast very smooth
-
-if [[ $ard -ne 190 ]]; then
-    xset r rate 190 38
-    # echo "xset set"
-    # remaps
-fi
+## TODO: Do I really need to set this?
+# if [[ $ard -ne 190 ]]; then
+#     xset r rate 190 38
+#     # echo "xset set"
+#     # remaps
+# fi
 ##
 
 # Set "setxkbmap -option 'caps:ctrl_modifier' " in your startup script, to map caps as a ctrl modifier,...
@@ -178,56 +178,6 @@ ZSH_HIGHLIGHT_STYLES[arg0]='fg=#ffffff'
 ZSH_HIGHLIGHT_STYLES[default]='fg=#ffffff'
 ZSH_HIGHLIGHT_STYLES[cursor]='standout'
 
-
-### Export
-export PATH="$HOME/Android:$PATH";
-# Ruby gems path for vimgolf
-export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
-# Golang paths
-# export GOROOT=/usr/local/go
-# export PATH=$PATH:$GOROOT/bin
-# The first segment of Gopath is going to be used by go get to store files,
-# but all segments will be searched for source code
-export GOPATH=/home/yasuke/golib
-export PATH=$PATH:$GOPATH/bin
-export GOPATH=$GOPATH:/home/yasuke/code
-
-# Android Flutter path
-export PATH="$PATH:$HOME/development/flutter/bin"
-# Android SDKS
-export ANDROID_SDK_ROOT='/opt/android-sdk'
-export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
-export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
-export PATH=$PATH:$ANDROID_ROOT/emulator
-export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
-
-# Export path or yarn
-# export PATH="$PATH:$(yarn global bin)"
-
-# Docker Gateway fallback host
-export DOCKER_GATEWAY_HOST=172.17.0.1
-
-# Chrome executable path for flutter doctor
-# CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
-# export CHROME_EXECUTABLE
-# cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
-
-### Source
-# source grc, and do automatic aliasing for supported commands
-[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
-
-# source /home/yasuke/.rvm/scripts/rvm
-
-## FZF
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS='--color=fg:#89ddff,hl:#ddffa7 --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea --color=marker:#ffffff,spinner:#c792ea,header:#82aaff --layout=reverse --height 40%'
-# Setting fd as the default source for fzf
-# export FZF_DEFAULT_COMMAND='fd --type f'
-# follow symbolic links and don't exclude hidden files
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-# To apply the command to CTRL-T as well
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 ### Fzf-tab
 # Show full path for files on cd
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath' # remember to use single quote here!!!
@@ -256,8 +206,62 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 # Preview for all files on tab
 # zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 
+### Export
+export PATH="$HOME/Android:$PATH";
+# Ruby gems path for vimgolf
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+
+# Golang paths
+# export GOROOT=/usr/local/go
+# export PATH=$PATH:$GOROOT/bin
+# The first segment of Gopath is going to be used by go get to store files,
+# but all segments will be searched for source code
+# export GOPATH=/home/yasuke/golib
+# export PATH=$PATH:$GOPATH/bin
+# export GOPATH=$GOPATH:/home/yasuke/code
+
+# Android Flutter path
+# export PATH="$PATH:$HOME/development/flutter/bin"
+# # Android SDKS
+# export ANDROID_SDK_ROOT='/opt/android-sdk'
+# export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
+# export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
+# export PATH=$PATH:$ANDROID_ROOT/emulator
+# export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
+
+# Export path or yarn
+# export PATH="$PATH:$(yarn global bin)"
+
+# Docker Gateway fallback host
+# export DOCKER_GATEWAY_HOST=172.17.0.1
+
+# Chrome executable path for flutter doctor
+# CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
+# export CHROME_EXECUTABLE
+# cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
+
+# Rust- Cargo path
+export PATH="$PATH:$HOME/.cargo/bin"
+
+## FZF
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--color=fg:#89ddff,hl:#ddffa7 --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea --color=marker:#ffffff,spinner:#c792ea,header:#82aaff --layout=reverse --height 40%'
+# Setting fd as the default source for fzf
+# export FZF_DEFAULT_COMMAND='fd --type f'
+# follow symbolic links and don't exclude hidden files
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # For less lessfilter
 export LESSOPEN='|~/.lessfilter %s'
+
+
+### Source
+# source grc, and do automatic aliasing for supported commands
+[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+
+# source /home/yasuke/.rvm/scripts/rvm
 
 # colorscript random
 eval "$(starship init zsh)"

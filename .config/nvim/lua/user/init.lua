@@ -285,11 +285,28 @@ local config = {
   -- This function is run last
   -- good place to configure mappings and vim options
   polish = function()
+    -- Rust
     vim.g.rustfmt_autosave = 1
+    -- Copilot
+    vim.g.copilot_no_tab_map = true
+    vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+    vim.g.copilot_filetypes = {
+      ["*"] = false,
+      ["javascript"] = true,
+      ["typescript"] = true,
+      ["lua"] = false,
+      ["rust"] = true,
+      ["c"] = true,
+      ["c#"] = true,
+      ["c++"] = true,
+      ["go"] = true,
+      ["python"] = true,
+    }
     -- Set key bindings
     -- vim.keymap.set("n", "<C-s>", ":w!<CR>")
 
-    -- Set autocommands
+    -- Set autocommands\
+    vim.cmd[[autocmd FileType * setlocal formatoptions-=ro]]
     vim.api.nvim_create_augroup("packer_conf", { clear = true })
     vim.api.nvim_create_autocmd("BufWritePost", {
       desc = "Sync packer after modifying plugins.lua",
