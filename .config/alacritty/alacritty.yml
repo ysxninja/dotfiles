@@ -387,7 +387,7 @@ colors:
 # window.opacity: 1.0
 # window.opacity: 0.96
 window:
-  opacity: 0.92
+  opacity: 0.96
 
 #selection:
 #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
