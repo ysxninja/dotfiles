@@ -327,6 +327,7 @@ local config = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    vim.g.vim_be_good_log_file = 1
   end,
 }
 
