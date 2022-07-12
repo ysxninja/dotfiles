@@ -260,6 +260,8 @@ export LESSOPEN='|~/.lessfilter %s'
 ### Source
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+# source nvm
+# source /usr/share/nvm/init-nvm.sh
 
 # source /home/yasuke/.rvm/scripts/rvm
 
