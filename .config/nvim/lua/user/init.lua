@@ -133,6 +133,11 @@ local config = {
             transparent = true,
           }
           require('onedark').load()
+          -- require('lualine').setup {
+          --   options = {
+          --     theme = 'onedark'
+          --   }
+          -- }
         end
 
       },

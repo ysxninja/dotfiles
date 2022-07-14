@@ -282,7 +282,7 @@ colors:
   # background is unset, selection color will be the inverse of the cell colors.
   # If only text is unset the cell text color will remain the same.
   #selection:
-  #text: '0xbbc2cf'
+  #  text: '0xbbc2cf'
 
   # Normal colors
   normal:
