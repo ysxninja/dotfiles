@@ -1,5 +1,8 @@
 ## ALIASES
 
+# ttyper
+alias ttyper="RUST_BACKTRACE=full ttyper"
+
 # ripgrep for aliases
 alias agrep="alias | rg"
 alias gp="git pull && git push"
