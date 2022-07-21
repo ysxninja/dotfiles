@@ -29,6 +29,6 @@ elif [[ $selected == "zshrc" ]] ; then
 elif [[ $selected == "zsh_history" ]] ; then
     $EDITOR ~/.zsh_history
 elif [[ $selected == "tmux" ]] ; then
-    $EDITOR ~/.tmux.conf.local
+    $EDITOR ~/.tmux.conf
 fi
 
