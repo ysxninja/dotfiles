@@ -169,6 +169,9 @@ local config = {
       },
       {
         "github/copilot.vim"
+      },
+      {
+        "vimpostor/vim-tpipeline"
       }
     },
     -- All other entries override the setup() call for default plugins
