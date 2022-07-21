@@ -31,6 +31,17 @@ HISTFILE=$HOME/.zsh_history
 # But when it is pressed only once, treat it as escape
 # killall xcape 2>/dev/null ; xcape -e 'Caps_Lock=Escape'
 
+# Tmux conf
+_not_inside_tmux() { [[ -z "$TMUX" ]] }
+
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tattach
+  fi
+}
+
+ensure_tmux_is_running
+
 # Dotman
 export DOT_DEST=Documents/ya-suke
 export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
@@ -49,7 +60,7 @@ bindkey -v
 
 ### EXPORT
 export TERM="xterm-256color"
-export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..|cf|ys)"
+export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..|cf|ys|tmux|ttyper)"
 export EDITOR="nvim"
 export VISUAL="nvim"
 
