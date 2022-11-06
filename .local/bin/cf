@@ -1,6 +1,6 @@
 #!/bin/sh
 
-configs=`echo "alacritty aliases bashrc cf fish nvim remaps starship termite tmux ultimate-push zshrc zsh_history" | tr ' ' '\n' | sort -u`
+configs=`echo "alacritty aliases bashrc cf dmenu fish i3 nvim remaps starship termite tmux ultimate-push zshrc zsh_history Xmodmap" | tr ' ' '\n' | sort -u`
 
 selected=`printf "$configs\n" | fzf`
 
@@ -14,6 +14,8 @@ elif [[ $selected == "cf" ]] ; then
     $EDITOR ~/.local/bin/cf
 elif [[ $selected == "fish" ]] ; then
     $EDITOR ~/.config/fish/config.fish
+elif [[ $selected == "i3" ]] ; then
+    $EDITOR ~/.i3/config
 elif [[ $selected == "nvim" ]] ; then
     $EDITOR ~/.config/nvim/lua/user/init.lua
 elif [[ $selected == "remaps" ]] ; then
@@ -30,5 +32,9 @@ elif [[ $selected == "zsh_history" ]] ; then
     $EDITOR ~/.zsh_history
 elif [[ $selected == "tmux" ]] ; then
     $EDITOR ~/.tmux.conf
+elif [[ $selected == "Xmodmap" ]] ; then
+    $EDITOR ~/.Xmodmap
+elif [[ $selected == "dmenu" ]] ; then
+    $EDITOR ~/.dmenurc
 fi
 

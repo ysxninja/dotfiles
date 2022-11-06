@@ -267,6 +267,8 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # For less lessfilter
 export LESSOPEN='|~/.lessfilter %s'
 
+# For github signing with gpgkey
+export GPG_TTY=$(tty)
 
 ### Source
 # source grc, and do automatic aliasing for supported commands

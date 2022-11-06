@@ -172,6 +172,9 @@ local config = {
       },
       {
         "vimpostor/vim-tpipeline"
+      },
+      {
+        "lambdalisue/suda.vim"
       }
     },
     -- All other entries override the setup() call for default plugins
