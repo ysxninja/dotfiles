@@ -1,0 +1,86 @@
+[global]
+    font = JetBrainsMono Nerd Font 10
+    markup  = yes
+    # format = "<b>%s</b>\n%b"
+    format = "%s %p\n%b"
+    sort = yes
+    indicate_hidden = yes
+    alignment = center
+    bounce_freq = 0
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    geometry = "200x5-6+30"
+    transparency = 0
+    idle_threshold = 120
+    monitor = 0
+    follow = keyboard
+    sticky_history = yes
+    history_length = 20
+    show_indicators = yes
+    line_height = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    separator_color = "#58585822"
+    startup_notification = false
+    corner_radius = 6
+    # https://github.com/knopwob/dunst/issues/26#issuecomment-36159395
+    #icon_position = left
+    #icon_folders = /usr/share/icons/elementary/actions/16/
+    # Align icons left/right/off
+    icon_position = left
+
+    # Paths to default icons.
+    icon_path = /usr/share/icons/Adwaita/16x16/status/:/usr/share/icons/Adwaita/16x16/devices/
+
+    # Limit icons size.
+    max_icon_size=128
+    browser = google-chrome-stable
+    frame_width = 1
+    frame_color = "#abb2bf66"
+
+[shortcuts]
+
+    # Shortcuts are specified as [modifier+][modifier+]...key
+    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
+    # "mod3" and "mod4" (windows-key).
+    # Xev might be helpful to find names for keys.
+    
+    # Close notification.
+    close = mod1+space
+    
+    # Close all notifications.
+    # close_all = ctrl+shift+space
+    close_all = ctrl+mod1+space
+
+    # Redisplay last message(s).
+    # On the US keyboard layout "grave" is normally above TAB and left
+    # of "1".
+    history = ctrl+mod4+h 
+    
+    # Context menu.
+    context = ctrl+mod1+c
+
+# Achieve transparency by adding percentage after color code
+[urgency_low]
+    # IMPORTANT: colors have to be defined in quotation marks.
+    # Otherwise the "#" and following would be interpreted as a comment.
+    background = "#282c34"
+    foreground = "#c678dd95"
+    timeout = 10
+    frame_color = "#c678dd66"
+
+[urgency_normal]
+    # background = "#4b52631"
+    # foreground = "#abb2bf"
+    background = "#282c34"
+    foreground = "#c678dd95"
+    timeout = 10
+    frame_color = "#c678dd66"
+
+[urgency_critical]
+    background = "#fdf6e3"
+    foreground = "#dc322f95"
+    timeout = 0
+    frame_color = "#dc322f66"
