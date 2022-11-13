@@ -4,7 +4,7 @@
  *******************************************************/
 
 configuration {
-    font:				"JetBrainsMono Nerd Font 12";
+    font:				"JetBrainsMono Nerd Font 10";
     show-icons:				true;
     icon-theme:				"Arc-X-D";
     display-drun:			"Apps";
@@ -22,8 +22,8 @@ window {
     padding:          30;
 }
 listview {
-    lines:                          10;
-    columns:                        3;
+    lines:                          2;
+    columns:                        2;
 }
 mainbox {
     border:  0;
@@ -112,8 +112,7 @@ inputbar {
     spacing:    0;
     text-color: @normal-foreground;
     padding:    1px ;
-}
-case-indicator {
+} case-indicator {
     spacing:    0;
     text-color: @normal-foreground;
 }
