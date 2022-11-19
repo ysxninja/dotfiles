@@ -1,6 +1,9 @@
 #!/bin/sh
 
-configs=`echo "alacritty aliases bashrc cf dmenu fish i3 nvim remaps starship termite tmux ultimate-push zshrc zsh_history Xmodmap" | tr ' ' '\n' | sort -u`
+configs=`echo "alacritty aliases bashrc cf dmenu dunst fish i3 nvim remaps
+starship termite tmux ultimate-push zshrc zsh_history Xmodmap
+polybar polybarusermodules change-brightness change-caffeine
+change-wallpaper change-volume picom network-traffic" | tr ' ' '\n' | sort -u`
 
 selected=`printf "$configs\n" | fzf`
 
@@ -36,5 +39,23 @@ elif [[ $selected == "Xmodmap" ]] ; then
     $EDITOR ~/.Xmodmap
 elif [[ $selected == "dmenu" ]] ; then
     $EDITOR ~/.dmenurc
+elif [[ $selected == "dunstrc" ]] ; then
+    $EDITOR ~/.config/dunst/dunstrc
+elif [[ $selected == "polybar" ]] ; then
+    $EDITOR ~/.config/polybar/cuts/config.ini
+elif [[ $selected == "polybarusermodules" ]] ; then
+    $EDITOR ~/.config/polybar/cuts/user_modules.ini
+elif [[ $selected == "picom" ]] ; then
+    $EDITOR ~/.config/picom.conf
+elif [[ $selected == "change-volume" ]] ; then
+    $EDITOR ~/.local/bin/change-volume
+elif [[ $selected == "change-caffeine" ]] ; then
+    $EDITOR ~/.local/bin/change-caffeine
+elif [[ $selected == "change-wallpaper" ]] ; then
+    $EDITOR ~/.local/bin/change-wallpaper
+elif [[ $selected == "change-brightness" ]] ; then
+    $EDITOR ~/.local/bin/change-brightness
+elif [[ $selected == "network-traffic" ]] ; then
+    $EDITOR ~/.local/bin/network-traffic.sh
 fi
 

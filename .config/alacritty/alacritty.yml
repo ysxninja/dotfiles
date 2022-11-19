@@ -64,10 +64,10 @@ window:
   #   - Windowed
   #   - Maximized
   #   - Fullscreen
+  startup_mode: Maximized
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Fullscreen
 
   # Window title
   title: Alacritty

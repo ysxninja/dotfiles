@@ -1,0 +1,35 @@
+#!/bin/env bash
+
+# Enable/disable automatic screen locking and dpms
+
+# REQUIREMENTS:
+#   xdg-screensaver
+#   xdotool
+#   xprop (as dependency for xdotool)
+#   notify-send
+
+timeout_status=`xset -q | awk '/timeout/ {print $2 }'`
+# echo $status
+is_activated=0
+
+if [ $timeout_status == "0" ];
+then
+  is_activated=1
+else
+  is_activated=0
+fi
+
+echo "here"
+if [ $is_activated == 0 ];
+then
+  # polybar-msg hook caffeine 2 # deprecated
+  polybar-msg action "#caffeine.hook.1"
+  xset -dpms && xset s off
+  dunstify 'Caffeine Enabled!'
+elif [ $is_activated == 1 ];
+then
+  # polybar-msg hook caffeine 1 # deprecated
+  polybar-msg action "#caffeine.hook.0"
+  xset +dpms && xset s 600 600
+  dunstify 'Caffeine Disabled!'
+fi

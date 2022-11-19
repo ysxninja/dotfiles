@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [ -z "$1" ] || [ -z "$2" ] || [ "$1" == "--help" ]; then
+echo "change-wallpaper 0.1"
+echo "changes your wallpaper every x seconds"
+echo ""          
+echo "Use: change-wallpaper /path/of/wallpapers/directory seconds"
+echo "Example: change-wallpaper /home/$USER/wallpapers 120"
+exit
+fi
+
+if ! [ -e "$1" ]; then
+echo "The directory $1 does not exist"
+exit
+fi
+
+cd $1
+
+function checker() {
+num=1
+for x in *;
+do
+       let num=$num+1
+
+done
+}
+
+while [ 1 ]; do
+        checker
+	random_variable=$(($RANDOM%$num))
+        counter=1
+	for y in *; do
+		if [ "$random_variable" -eq "$counter" ]; then
+			feh --bg-scale $y
+			sleep $2
+			break
+		fi		
+		
+		let counter=$counter+1
+	done
+done
