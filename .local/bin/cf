@@ -3,7 +3,7 @@
 configs=`echo "alacritty aliases bashrc cf dmenu dunst fish i3 nvim remaps
 starship termite tmux ultimate-push zshrc zsh_history Xmodmap
 polybar polybarusermodules change-brightness change-caffeine
-change-wallpaper change-volume picom network-traffic" | tr ' ' '\n' | sort -u`
+change-wallpaper change-volume picom network-traffic rofi" | tr ' ' '\n' | sort -u`
 
 selected=`printf "$configs\n" | fzf`
 
@@ -57,5 +57,7 @@ elif [[ $selected == "change-brightness" ]] ; then
     $EDITOR ~/.local/bin/change-brightness
 elif [[ $selected == "network-traffic" ]] ; then
     $EDITOR ~/.local/bin/network-traffic.sh
+elif [[ $selected == "rofi" ]]; then
+    $EDITOR ~/.config/rofi/theme.rasi
 fi
 
