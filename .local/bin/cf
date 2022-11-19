@@ -2,8 +2,8 @@
 
 configs=`echo "alacritty aliases bashrc cf dmenu dunst fish i3 nvim remaps
 starship termite tmux ultimate-push zshrc zsh_history Xmodmap
-polybar polybarusermodules change-brightness change-caffeine
-change-wallpaper change-volume picom network-traffic rofi" | tr ' ' '\n' | sort -u`
+polybar polybarmodules polybarusermodules change-brightness change-caffeine
+change-wallpaper change-volume picom network-traffic rofi ncmpcpp mpv mpd" | tr ' ' '\n' | sort -u`
 
 selected=`printf "$configs\n" | fzf`
 
@@ -39,10 +39,12 @@ elif [[ $selected == "Xmodmap" ]] ; then
     $EDITOR ~/.Xmodmap
 elif [[ $selected == "dmenu" ]] ; then
     $EDITOR ~/.dmenurc
-elif [[ $selected == "dunstrc" ]] ; then
+elif [[ $selected == "dunst" ]] ; then
     $EDITOR ~/.config/dunst/dunstrc
 elif [[ $selected == "polybar" ]] ; then
     $EDITOR ~/.config/polybar/cuts/config.ini
+elif [[ $selected == "polybarmodules" ]] ; then
+    $EDITOR ~/.config/polybar/cuts/modules.ini
 elif [[ $selected == "polybarusermodules" ]] ; then
     $EDITOR ~/.config/polybar/cuts/user_modules.ini
 elif [[ $selected == "picom" ]] ; then
@@ -59,5 +61,11 @@ elif [[ $selected == "network-traffic" ]] ; then
     $EDITOR ~/.local/bin/network-traffic.sh
 elif [[ $selected == "rofi" ]]; then
     $EDITOR ~/.config/rofi/theme.rasi
+elif [[ $selected == "ncmpcpp" ]]; then
+    $EDITOR ~/.config/ncmpcpp/config
+elif [[ $selected == "mpd" ]]; then
+    $EDITOR ~/.config/mpd/mpd.conf
+elif [[ $selected == "mpv" ]]; then
+    $EDITOR ~/.config/mpv/mpv.conf
 fi
 
