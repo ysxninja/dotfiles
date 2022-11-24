@@ -37,8 +37,8 @@ window_border-color = "black"
 # song_columns_list_format = "(10)[blue]{l} (30)[green]{t} (30)[magenta]{a} (30)[yellow]{b}"
 # song_list_format = "{$7%a - $9}{$5%t$9}|{$5%f$9}$R{$6%b $9}{$3%l$9}"
 
-# song_columns_list_format = "(33)[cyan]{t} (32)[green]{a} (30)[magenta]{b} (5f)[blue]{l}"
-# song_list_format = "{%a - }{%t}|{$5%f$9}$R{$7(%l)$9}"
+song_columns_list_format = "(33)[yellow]{t} (32)[104]{a} (30)[104]{b} (5f)[104]{l}"
+song_list_format = "{%a - }{%t}|{$5%f$9}$R{$7(%l)$9}"
 
 # Library
 song_library_format = "{{%a - %t}|{%f}}{$R%l}"
@@ -59,8 +59,10 @@ current_item_inactive_column_suffix = "$(end)"
 ## Classic Interface ##
 user_interface = "classic"
 # song_status_format = " $6%a $7⟫⟫ $3%t $7⟫⟫ $4%b "
-song_status_format = "$5$b%t $6$/b• $3%a $6• $6%b {(Disc %d) }$6• $4%y"
-# song_status_format = "{%t - %a}"
+# song_status_format = "$2$b%t $6$/b• $3%a $6• $6%b {(Disc %d) }$6• $4%y"
+# song_status_format = "$4$b%t $6$/b• $2%a $6• $2%y"
+# song_status_format = "$4$b%t $6$/b• $(104)%a $6"
+song_status_format = "{%t - %a}"
 
 ## Visualizer ##
 visualizer_type = "spectrum"
@@ -112,6 +114,6 @@ empty_tag_marker = ""
 
 mpd_crossfade_time=3
 
-external_editor = "vim"
+external_editor = "nvim"
 # Use ~/.local/bin/songinfo for album art with dunst
 execute_on_song_change = songinfo

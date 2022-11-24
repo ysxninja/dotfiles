@@ -7,6 +7,8 @@ alias ttyper="RUST_BACKTRACE=full ttyper"
 alias agrep="alias | rg"
 alias gp="git pull && git push"
 
+alias dd="deemix --path ~/Music "
+
 # shortcuts to config files
 alias cfv="vim ~/.config/nvim/init.vim"
 alias cfz="vim ~/.zshrc"

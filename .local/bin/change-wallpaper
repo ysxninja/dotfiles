@@ -31,7 +31,8 @@ while [ 1 ]; do
         counter=1
 	for y in *; do
 		if [ "$random_variable" -eq "$counter" ]; then
-			feh --bg-scale $y
+			# feh --bg-scale $y
+			feh --bg-fill $y
 			sleep $2
 			break
 		fi		
