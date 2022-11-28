@@ -59,7 +59,7 @@ DISABLE_AUTO_UPDATE="true"
 bindkey -v
 
 ### EXPORT
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..|cf|ys|tmux|ttyper)"
 export EDITOR="nvim"
 export VISUAL="nvim"
@@ -269,6 +269,10 @@ export LESSOPEN='|~/.lessfilter %s'
 
 # For github signing with gpgkey
 export GPG_TTY=$(tty)
+
+# Npm global config
+export NPM_CONFIG_PREFIX=~/.npm-global
+export PATH=$PATH:~/.npm-global/bin
 
 ### Source
 # source grc, and do automatic aliasing for supported commands

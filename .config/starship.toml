@@ -1,5 +1,6 @@
 # Don't print a new line at the start of the prompt
 add_newline = true
+command_timeout = 1000
 # A minimal left prompt
 format = """$directory$fill$all$battery ${custom.task-count}
 $character"""

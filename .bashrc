@@ -2,7 +2,7 @@
 # My bash config. Not much to see here; just some pretty standard stuff.
 
 ### EXPORT
-export TERM="xterm-256color"                      # getting proper colors
+# export TERM="xterm-256color"                      # getting proper colors
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 export ALTERNATE_EDITOR=""                        # setting for emacsclient
 #export EDITOR="emacsclient -t -a ''"              # $EDITOR use Emacs in terminal
