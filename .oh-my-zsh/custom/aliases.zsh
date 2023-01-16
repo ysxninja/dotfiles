@@ -151,7 +151,7 @@ alias rm='rm -i'
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias lynx='lynx -cfg=~/.lynx/lynx.cfg -lss=~/.lynx/lynx.lss -vikeys'
-alias vifm='./.config/vifm/scripts/vifmrun'
+alias vifm='~/.config/vifm/scripts/vifmrun'
 
 ## get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'

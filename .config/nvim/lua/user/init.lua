@@ -229,6 +229,7 @@ local config = {
       -- quick save
       -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
     },
+    -- terminal mode
     t = {
       -- setting a mapping to false will disable it
       -- ["<esc>"] = false,
@@ -260,35 +261,9 @@ local config = {
       --   end,
       -- },
       --
-      -- ["rcarriga/nvim-notify"] = { disable = true },
-      ["NvChad/nvim-colorizer.lua"] = {
-        config = function()
-          require("colorizer").setup {
-            filetypes = { "*" },
-            user_default_options = {
-              RGB = true, -- #RGB hex codes
-              RRGGBB = true, -- #RRGGBB hex codes
-              names = false, -- "Name" codes like Blue or blue
-              RRGGBBAA = true, -- #RRGGBBAA hex codes
-              AARRGGBB = true, -- 0xAARRGGBB hex codes
-              rgb_fn = true, -- CSS rgb() and rgba() functions
-              hsl_fn = true, -- CSS hsl() and hsla() functions
-              css = false, -- Enable all CSS features: rgb_fn, hsl_fn, names, RGB, RRGGBB
-              css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
-              -- Available modes for `mode`: foreground, background,  virtualtext
-              mode = "background", -- Set the display mode.
-              -- Available methods are false / true / "normal" / "lsp" / "both"
-              -- True is same as normal
-              tailwind = true, -- Enable tailwind colors
-              -- parsers can contain values used in |user_default_options|
-              sass = { enable = true, parsers = { css }, }, -- Enable sass colors
-              virtualtext = "■",
-            },
-            -- all the sub-options of filetypes apply to buftypes
-            buftypes = { "*" },
-          }
-        end
-      },
+      -- ["rcarriga/nvim-notify"] = { 
+      --  disable = true 
+      -- },
       {
         "ya-suke/onedark.nvim",
         config = function()
@@ -325,6 +300,9 @@ local config = {
         "ThePrimeagen/vim-be-good"
       },
       {
+        "ThePrimeagen/harpoon"
+      },
+      {
         "ambv/black"
       },
       {
@@ -340,6 +318,21 @@ local config = {
       {
         "lambdalisue/suda.vim"
       }
+    },
+
+    colorizer = {
+      { "*" },
+      {
+        RGB = true, -- #RGB hex codes
+        RRGGBB = true, -- #RRGGBB hex codes
+        names = false, -- "Name" codes like Blue
+        RRGGBBAA = true, -- #RRGGBBAA hex codes
+        rgb_fn = true, -- CSS rgb() and rgba() functions
+        hsl_fn = true, -- CSS hsl() and hsla() functions
+        css = false, -- Enable all css features: rgb_fn, hsl_fn, names, RGB, RRGGBB
+        css_fn = true, -- Enable all CSS *functions*: rgb_fn, hsl_fn
+        mode = "background", -- Set the display mode
+      },
     },
     -- All other entries override the require("<key>").setup({...}) call for default plugins
     ["null-ls"] = function(config) -- overrides `require("null-ls").setup(config)`
@@ -366,6 +359,9 @@ local config = {
     -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
     ["mason-null-ls"] = { -- overrides `require("mason-null-ls").setup(...)`
       -- ensure_installed = { "prettier", "stylua" },
+    },
+    ["mason-nvim-dap"] = { -- overrides `require("mason-nvim-dap").setup(...)`
+      -- ensure_installed = { "python" },
     },
   },
 
@@ -419,6 +415,68 @@ local config = {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
+
+    local mark = require("harpoon.mark")
+    local ui = require("harpoon.ui")
+    vim.keymap.set("n", "<leader>a", mark.add_file , { desc = "Harpoon add" })
+    vim.keymap.set("n", "<leader>v", ui.toggle_quick_menu, { desc = "Harpoon toggle"})
+    vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end)
+    vim.keymap.set("n", "<leader>2", function() ui.nav_file(2) end)
+    vim.keymap.set("n", "<leader>3", function() ui.nav_file(3) end)
+    vim.keymap.set("n", "<leader>4", function() ui.nav_file(4) end)
+
+    -- local alpha = require("alpha")
+    -- local dashboard = require("alpha.themes.dashboard")
+    -- 
+    -- -- dashboard.section.header.val2 = {
+    -- --   '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣤⣤⣤⣤⣤⣶⣦⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀ ',
+    -- --   '⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⡿⠛⠉⠙⠛⠛⠛⠛⠻⢿⣿⣷⣤⡀⠀⠀⠀⠀⠀ ',
+    -- --   '⠀⠀⠀⠀⠀⠀⠀⣼⣿⠋⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⠈⢻⣿⣿⡄⠀⠀⠀⠀ ',
+    -- --   '⠀⠀⠀⠀⠀⠀⣸⣿⡏⠀⠀⠀⣠⣶⣾⣿⣿⣿⠿⠿⠿⢿⣿⣿⣿⣄⠀⠀⠀ ',
+    -- --   '⠀⠀⠀⠀⠀⠀⣿⣿⠁⠀⠀⢰⣿⣿⣯⠁⠀⠀⠀⠀⠀⠀⠀⠈⠙⢿⣷⡄⠀ ',
+    -- --   '⠀⣀⣤⣴⣶⣶⣿⡟⠀⠀⠀⢸⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣷⠀ ',
+    -- --   '⢰⣿⡟⠋⠉⣹⣿⡇⠀⠀⠀⠘⣿⣿⣿⣿⣷⣦⣤⣤⣤⣶⣶⣶⣶⣿⣿⣿⠀ ',
+    -- --   '⢸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀ ',
+    -- --   '⣸⣿⡇⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠉⠻⠿⣿⣿⣿⣿⡿⠿⠿⠛⢻⣿⡇⠀⠀ ',
+    -- --   '⣿⣿⠁⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣧⠀⠀ ',
+    -- --   '⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀ ',
+    -- --   '⣿⣿⠀⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⠀⠀ ',
+    -- --   '⢿⣿⡆⠀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⠀ ',
+    -- --   '⠸⣿⣧⡀⠀⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⠃⠀⠀ ',
+    -- --   '⠀⠛⢿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⣰⣿⣿⣷⣶⣶⣶⣶⠶⠀⢠⣿⣿⠀⠀⠀ ',
+    -- --   '⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⣽⣿⡏⠁⠀⠀⢸⣿⡇⠀⠀⠀ ',
+    -- --   '⠀⠀⠀⠀⠀⠀⣿⣿⠀⠀⠀⠀⠀⣿⣿⡇⠀⢹⣿⡆⠀⠀⠀⣸⣿⠇⠀⠀⠀ ',
+    -- --   '⠀⠀⠀⠀⠀⠀⢿⣿⣦⣄⣀⣠⣴⣿⣿⠁⠀⠈⠻⣿⣿⣿⣿⡿⠏⠀⠀⠀⠀ ',
+    -- --   '⠀⠀⠀⠀⠀⠀⠈⠛⠻⠿⠿⠿⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀',
+    -- -- }
+    --
+    -- dashboard.section.header.val = {
+    --   '    ⢰⣧⣼⣯⠄⣸⣠⣶⣶⣦⣾⠄⠄⠄⠄⡀⠄⢀⣿⣿⠄⠄⠄⢸⡇⠄⠄ ',
+    --   '    ⣾⣿⠿⠿⠶⠿⢿⣿⣿⣿⣿⣦⣤⣄⢀⡅⢠⣾⣛⡉⠄⠄⠄⠸⢀⣿⠄ ',
+    --   '   ⢀⡋⣡⣴⣶⣶⡀⠄⠄⠙⢿⣿⣿⣿⣿⣿⣴⣿⣿⣿⢃⣤⣄⣀⣥⣿⣿⠄ ',
+    --   '   ⢸⣇⠻⣿⣿⣿⣧⣀⢀⣠⡌⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠿⣿⣿⣿⠄ ',
+    --   '  ⢀⢸⣿⣷⣤⣤⣤⣬⣙⣛⢿⣿⣿⣿⣿⣿⣿⡿⣿⣿⡍⠄⠄⢀⣤⣄⠉⠋⣰ ',
+    --   '  ⣼⣖⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⣿⣿⣿⣿⣿⢇⣿⣿⡷⠶⠶⢿⣿⣿⠇⢀⣤ ',
+    --   ' ⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣿⣿⣿⡇⣿⣿⣿⣿⣿⣿⣷⣶⣥⣴⣿⡗ ',
+    --   ' ⢀⠈⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟  ',
+    --   ' ⢸⣿⣦⣌⣛⣻⣿⣿⣧⠙⠛⠛⡭⠅⠒⠦⠭⣭⡻⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃  ',
+    --   ' ⠘⣿⣿⣿⣿⣿⣿⣿⣿⡆⠄⠄⠄⠄⠄⠄⠄⠄⠹⠈⢋⣽⣿⣿⣿⣿⣵⣾⠃  ',
+    --   '  ⠘⣿⣿⣿⣿⣿⣿⣿⣿⠄⣴⣿⣶⣄⠄⣴⣶⠄⢀⣾⣿⣿⣿⣿⣿⣿⠃   ',
+    --   '   ⠈⠻⣿⣿⣿⣿⣿⣿⡄⢻⣿⣿⣿⠄⣿⣿⡀⣾⣿⣿⣿⣿⣛⠛⠁    ',
+    --   '     ⠈⠛⢿⣿⣿⣿⠁⠞⢿⣿⣿⡄⢿⣿⡇⣸⣿⣿⠿⠛⠁      ',
+    --   '        ⠉⠻⣿⣿⣾⣦⡙⠻⣷⣾⣿⠃⠿⠋⠁     ⢀⣠⣴ ',
+    --   ' ⣿⣿⣿⣶⣶⣮⣥⣒⠲⢮⣝⡿⣿⣿⡆⣿⡿⠃⠄⠄⠄⠄⠄⠄⠄⣠⣴⣿⣿⣿ ',
+    -- }
+    --
+    -- dashboard.section.buttons.val = {
+    --   dashboard.button( "e", "  > New file" , ":ene <BAR> startinsert <CR>"),
+    --   dashboard.button( "f", "  > Find file", ":cd $HOME/Workspace | Telescope find_files<CR>"),
+    --   dashboard.button( "r", "  > Recent"   , ":Telescope oldfiles<CR>"),
+    --   dashboard.button( "s", "  > Settings" , ":e $MYVIMRC | :cd %:p:h | split . | wincmd k | pwd<CR>"),
+    --   dashboard.button( "q", "  > Quit NVIM", ":qa<CR>"),
+    -- }
+    -- alpha.setup(dashboard.opts)
+
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
