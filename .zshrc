@@ -274,6 +274,9 @@ export GPG_TTY=$(tty)
 export NPM_CONFIG_PREFIX=~/.npm-global
 export PATH=$PATH:~/.npm-global/bin
 
+# proxy
+# export http_proxy=socks5://192.168.43.1:8089
+
 ### Source
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
