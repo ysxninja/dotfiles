@@ -16,7 +16,7 @@ status() {
 %{A5:pactl set-source-volume @DEFAULT_SOURCE@ +5%:}\
 %{A4:pactl set-source-volume @DEFAULT_SOURCE@ -5%:}\
 %{A3:pavucontrol -t 4:}\
-%{F#dc322f}%{F-} $volume%{A}%{A}%{A}%{A}"
+%{F#dc322f} %{F-}$volume%{A}%{A}%{A}%{A}"
   fi
 }
 
