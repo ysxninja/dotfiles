@@ -1,8 +1,11 @@
 #!/bin/sh
+# depends on httping
 
 printf "\n\t\e[1;36m直\e[0m Testing Connection.... "
 printf "\n\t\e[1;36m📡 \e[0m"
-ping -c 1 -W 2 google.com > /dev/null 2>&1 && printf "\n\t\e[1;32m🗱  \e[0m connected " || (printf "\n\t\e[1;31m🗶 \e[0m disconnected \n" && exit 4 )
+
+# ping -c 1 -W 2 google.com > /dev/null 2>&1 && printf "\n\t\e[1;32m🗱  \e[0m connected " || (printf "\n\t\e[1;31m🗶 \e[0m disconnected \n" && exit 4 )
+httping -c 1 -t 2 google.com > /dev/null 2>&1 && printf "\n\t\e[1;32m🗱  \e[0m connected " || (printf "\n\t\e[1;31m🗶 \e[0m disconnected \n" && exit 4 )
 
 status=$?
 

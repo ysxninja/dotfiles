@@ -14,10 +14,11 @@ SAVEHIST=300000
 HISTFILE=$HOME/.zsh_history
 
 ### Conditional to check if xrate is already set to preferred value
+## Only set if remaps script is not set to execute in i3
 
 # ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
-## xset r rate 300 50 fast medium smooth
-## xset r rate 190 38 fast very smooth
+## xset r rate 300 50 ## fast medium smooth
+## xset r rate 190 38 ## fast very smooth
 
 ## TODO: Do I really need to set this?
 # if [[ $ard -ne 190 ]]; then
@@ -220,16 +221,16 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 ### Export
 export PATH="$HOME/Android:$PATH";
 # Ruby gems path for vimgolf
-export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+# export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # Golang paths
 # export GOROOT=/usr/local/go
-# export PATH=$PATH:$GOROOT/bin
+export PATH=$PATH:$GOROOT/bin
 # The first segment of Gopath is going to be used by go get to store files,
 # but all segments will be searched for source code
-# export GOPATH=/home/yasuke/golib
-# export PATH=$PATH:$GOPATH/bin
-# export GOPATH=$GOPATH:/home/yasuke/code
+export GOPATH=/home/yasuke/golib
+export PATH=$PATH:$GOPATH/bin
+export GOPATH=$GOPATH:/home/yasuke/code
 
 # Android Flutter path
 # export PATH="$PATH:$HOME/development/flutter/bin"
@@ -240,7 +241,7 @@ export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 # export PATH=$PATH:$ANDROID_ROOT/emulator
 # export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
 
-# Export path or yarn
+# Export path for yarn
 # export PATH="$PATH:$(yarn global bin)"
 
 # Docker Gateway fallback host
