@@ -102,9 +102,9 @@ urgency.user.tag.fun.coefficient=-1.0
 
 # Enable hooks for Kusarigama
 # https://github.com/yanick/Taskwarrior-Kusarigama#name
-hooks=on
-debug.hooks=0
-kusarigama.plugins= Command::AndAfter,Command::ButBefore,GitCommit,Renew
+# hooks=on
+# debug.hooks=0
+# kusarigama.plugins= Command::AndAfter,Command::ButBefore,GitCommit,Renew
 
 uda.rscheduled.label=next task 'scheduled' period
 uda.rwait.label=next task 'wait' period

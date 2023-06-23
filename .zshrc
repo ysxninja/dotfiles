@@ -16,17 +16,16 @@ HISTFILE=$HOME/.zsh_history
 ### Conditional to check if xrate is already set to preferred value
 ## Only set if remaps script is not set to execute in i3
 
-# ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
+ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
 ## xset r rate 300 50 ## fast medium smooth
 ## xset r rate 190 38 ## fast very smooth
 
 ## TODO: Do I really need to set this?
-# if [[ $ard -ne 190 ]]; then
-#     xset r rate 190 38
-#     # echo "xset set"
-#     # remaps
-# fi
-##
+if [[ $ard -ne 190 ]]; then
+    xset r rate 190 38
+    # echo "xset set"
+    # remaps
+fi
 
 # Set "setxkbmap -option 'caps:ctrl_modifier' " in your startup script, to map caps as a ctrl modifier,...
 # But when it is pressed only once, treat it as escape
@@ -220,8 +219,8 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 
 ### Export
 export PATH="$HOME/Android:$PATH";
-# Ruby gems path for vimgolf
-# export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+# Ruby gems path for vimgolf, mdless etc
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # Golang paths
 # export GOROOT=/usr/local/go

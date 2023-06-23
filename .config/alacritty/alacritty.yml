@@ -31,7 +31,7 @@ window:
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
-  position:
+  # position:
     # x: 0
     # y: 33
 
@@ -409,6 +409,7 @@ shell:
   # args:
   #   - -l
   #   - -c
+  #   - --command=tmux
   #   - "tmux attach || tmux"
 #  args:
 #    - --login

@@ -1,8 +1,10 @@
+! NOTE: This config is useless when using keyboard that will constantly detach/sleep i.e bt keyboard
+! INFO: edit /etc/X11/xorg.conf.d/00-keyboard.conf instead
 ! Turn CapsLock into control
-clear lock
-clear control
-keycode 66 = Control_L
-add control = Control_L Control_R
+! clear lock
+! clear control
+! keycode 66 = Control_L
+! add control = Control_L Control_R
 
 ! Turn CapsLock into Control, and LeftControl into Hyper
 ! clear      lock 

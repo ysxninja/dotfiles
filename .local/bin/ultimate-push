@@ -5,7 +5,7 @@ printf "\n\t\e[1;36m直\e[0m Testing Connection.... "
 printf "\n\t\e[1;36m📡 \e[0m"
 
 # ping -c 1 -W 2 google.com > /dev/null 2>&1 && printf "\n\t\e[1;32m🗱  \e[0m connected " || (printf "\n\t\e[1;31m🗶 \e[0m disconnected \n" && exit 4 )
-httping -c 1 -t 2 google.com > /dev/null 2>&1 && printf "\n\t\e[1;32m🗱  \e[0m connected " || (printf "\n\t\e[1;31m🗶 \e[0m disconnected \n" && exit 4 )
+httping -c 1 -t 2 google.com > /dev/null 2>&1 && (printf "\n\t\e[1;32m🗱  \e[0m connected ") || (printf "\n\t\e[1;31m🗶 \e[0m disconnected \n" && exit 4 )
 
 status=$?
 
@@ -13,8 +13,6 @@ if test $status -eq 4
 then
     printf "\n\t\e[0;31m☠  Exiting...\e[0m\n"
     exit
-else
-    continue
 fi
 
 printf "\n\n\e[1;36m\e[0m Pushing tasks to repo \e[1;36m   ..\e[0m\n"
