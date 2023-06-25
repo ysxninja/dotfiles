@@ -18,12 +18,11 @@ env:
   # available, otherwise `xterm-256color` is used.
   TERM: xterm-256color
 window:
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-# window.opacity: 1.0
-# window.opacity: 0.96
+  # Background opacity
+  # Window opacity as a floating point number from `0.0` to `1.0`.
+  # The value `0.0` is completely transparent and `1.0` is opaque.
+  # window.opacity: 1.0
+  # window.opacity: 0.96
   opacity: 0.90
   # Window dimensions (changes require restart)
   #
@@ -38,8 +37,8 @@ window:
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
   # position:
-     # x: 0
-     # y: 33
+  # x: 0
+  # y: 33
 
   # Window padding (changes require restart)
   #
@@ -60,7 +59,8 @@ window:
   #
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
-  #     - buttonless: Title bar, transparent background, but no title bar buttons
+  #     - buttonless: Title bar, transparent background,
+  #       but no title bar buttons
   # decorations: full
 
   # Startup Mode (changes require restart)
@@ -83,11 +83,12 @@ window:
     # General application class
     general: Alacritty
 
-  # GTK theme variant (Linux/BSD only)
-  #
-  # Override the variant of the GTK theme. Commonly supported values are `dark` and `light`.
-  # Set this to `None` to use the default theme variant.
-  # gtk_theme_variant: None
+    # GTK theme variant (Linux/BSD only)
+    #
+    # Override the variant of the GTK theme.
+    # Commonly supported values are `dark` and `light`.
+    # Set this to `None` to use the default theme variant.
+    # gtk_theme_variant: None
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
@@ -201,14 +202,16 @@ font:
   # Point size
   size: 10.0
 
-  # Offset is the extra space around each character. `offset.y` can be thought of
-  # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
+  # Offset is the extra space around each character.
+  # `offset.y` can be thought of as modifying the line spacing,
+  # and `offset.x` as modifying the letter spacing.
   # offset:
   #   x: 0
   #   y: 1
 
   # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom. Increasing `x` moves the glyph to the right,
+  # the default being at the bottom.
+  # Increasing `x` moves the glyph to the right,
   # increasing `y` moves the glyph upwards.
   # glyph_offset:
   #  x: 0
@@ -230,7 +233,7 @@ font:
   # effect.
   # use_thin_strokes: true
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+# draw_bold_text_with_bright_colors: true
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
 # rung, the terminal background will be set to white and transition back to the
 # default background color. You can control the rate of this transition by
@@ -275,7 +278,8 @@ draw_bold_text_with_bright_colors: true
 # live_config_reload: true
 # Shell
 #
-# You can set `shell.program` to the path of your favorite shell, e.g. `/bin/fish`.
+# You can set `shell.program` to the path of your favorite shell,
+# e.g. `/bin/fish`.
 # Entries in `shell.args` are passed unmodified as arguments to the shell.
 #
 # Default:
@@ -353,8 +357,9 @@ shell:
 #  args: []
 # URL modifiers
 #
-# These are the modifiers that need to be held down for opening URLs when clicking
-# on them. The available modifiers are documented in the key binding section.
+# These are the modifiers that need to be held down
+# for opening URLs when clicking on them.
+# The available modifiers are documented in the key binding section.
 # modifiers: None
 # Mouse bindings
 #
@@ -490,8 +495,8 @@ key_bindings:
   - {key: Minus, mods: Control, action: DecreaseFontSize}
   - {key: Paste, action: Paste}
   - {key: Copy, action: Copy}
-  # - {key: L, mods: Control, action: ClearLogNotice}
-  # - {key: L, mods: Control, chars: "\f"}
+  - {key: L, mods: Control, action: ClearLogNotice}
+  - {key: L, mods: Control, chars: "\x0c"}
   - {key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt}
   - {key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt}
   - {key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt}

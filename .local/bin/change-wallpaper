@@ -14,29 +14,36 @@ echo "The directory $1 does not exist"
 exit
 fi
 
-cd $1
+cd "$1" || return 
 
 function checker() {
 num=1
-for x in *;
-do
-       let num=$num+1
 
+for _ in *;
+do
+	((num=num+1))
 done
 }
 
-while [ 1 ]; do
+while true ; do
         checker
-	random_variable=$(($RANDOM%$num))
+	random_variable=$((RANDOM%num))
         counter=1
 	for y in *; do
 		if [ "$random_variable" -eq "$counter" ]; then
 			# feh --bg-scale $y
-			feh --bg-fill $y
-			sleep $2
+			# For multiwindow setups use below, otherwise add --xinerama-index option for specific monitor
+			# for nitrogen use --head option
+			# feh --bg-fill "$y"
+			
+			# set random wallpaper for first display,
+			feh --bg-fill "$y" 0306.jpg
+			# feh --bg-fill "$y" --xinerama-index 0
+			# nitrogen --set-zoom-fill "$y" --head=0
+			sleep "$2"
 			break
 		fi		
 		
-		let counter=$counter+1
+		((counter=counter+1))
 	done
 done

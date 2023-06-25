@@ -1,82 +1,54 @@
-# [Created by task 2.5.1 2/19/2017 04:19:13]
-# Taskwarrior program configuration file.
+# [Created by task 2.5.1 2/19/2017 04:19:13] Taskwarrior program configuration file.
 # For more documentation, see http://taskwarrior.org or try 'man task', 'man task-color',
 # 'man task-sync' or 'man taskrc'
-
-# Here is an example of entries that use the default, override and blank values
-# variable=foo -- By specifying a value, this overrides the default
-# variable= -- By specifying no value, this means no default
-# #variable=foo -- By commenting out the line, or deleting it, this uses the default
-
-# Use the command 'task show' to see all defaults and overrides
 
 # Files
 data.location=~/.task
 
-# These are just User Defined Attributes (UDAs) used by BugWarrior and Kusarigama.
-#include ~/.taskrc.d/bugwarrior-uda.rc
-#include ~/.taskrc.d/twk-renew.rc
-
 # Basic config
 weekstart=monday
 default.command=ready limit:page
-# tasksh.autoclear=true
 search.case.sensitive=no
 
 # List all projects with `task projects`, including those completed.
 list.all.projects=yes
 
-# Color theme (uncomment one to use)
-include /home/yasuke/.local/share/task-themes/solarized-16.theme
-#include /usr/local/share/doc/task/rc/light-16.theme
-#include /usr/local/share/doc/task/rc/light-256.theme
-#include /usr/local/share/doc/task/rc/dark-16.theme
-#include /usr/local/share/doc/task/rc/dark-256.theme
-#include /usr/local/share/doc/task/rc/dark-red-256.theme
-#include /usr/local/share/doc/task/rc/dark-green-256.theme
-#include /usr/local/share/doc/task/rc/dark-blue-256.theme
-#include /usr/local/share/doc/task/rc/dark-violets-256.theme
-#include /usr/local/share/doc/task/rc/dark-yellow-green.theme
-#include /usr/local/share/doc/task/rc/dark-gray-256.theme
-#include /usr/local/share/doc/task/rc/dark-gray-blue-256.theme
-#include /usr/local/share/doc/task/rc/solarized-dark-256.theme
-#include /usr/local/share/doc/task/rc/solarized-light-256.theme
-#include /usr/local/share/doc/task/rc/no-color.theme
+# Color theme
+include /home/yasuke/.local/share/task-themes/catppuccin.theme
 
-# Let's make our own scheduled report.
-
-report.scheduled.description=Scheduled tasks
-report.scheduled.columns=id,start.age,entry.age,priority,project,tags,recur.indicator,scheduled.relative,due.relative,until.remaining,description.count,urgency
-report.scheduled.labels=ID,Active,Age,P,Project,Tags,R,S,Due,Until,Description,Urg
-report.scheduled.sort=scheduled
-report.scheduled.filter=+SCHEDULED -COMPLETED -DELETED
-
-# I never really got into the review system in `tasksh`, but here's the config from when I tried.
-uda.reviewed.type=date
-uda.reviewed.label=Reviewed
-report._reviewed.description=Tasksh review report. Adjust the filter to your needs.
-report._reviewed.columns=uuid
-report._reviewed.sort=reviewed+,modified+
-report._reviewed.filter=( reviewed.none: or reviewed.before:now-1week ) and ( +PENDING or +WAITING )
-
-# next report: don't show annotations
-report.next.columns=id,start.age,entry.age,depends,priority,project,tags,recur,scheduled.countdown,due.relative,until.remaining,description.count,urgency
-
-# Ready report: don't show annotations. Don't show depends.indicator
-report.ready.columns=id,start.age,entry.age,priority,project,tags,recur.indicator,scheduled.countdown,due.relative,until.remaining,description.count,urgency
-report.ready.labels=ID,Active,Age,P,Project,Tags,R,S,Due,Until,Description,Urg
-
-# OMG completed report, don't show me annotations.
-report.completed.columns=id,uuid.short,entry,end,entry.age,depends,priority,project,tags,recur.indicator,due,description.count
-report.completed.labels=ID,UUID,Created,Completed,Age,Deps,P,Project,Tags,R,Due,Description
-
-# No. Nothing should show annotations. No. Also relative dates please.
-report.waiting.labels=ID,A,Age,D,P,Project,Tags,R,Waiting,Sched,Due,Until,Description
-report.waiting.columns=id,start.active,entry.age,depends.indicator,priority,project,tags,recur.indicator,wait.remaining,scheduled,due.relative,until,description.count
-report.waiting.sort=wait+,due+,entry+
+# Taskwarrior-tui
+uda.taskwarrior-tui.selection.indicator=•
+uda.taskwarrior-tui.selection.bold=yes
+uda.taskwarrior-tui.selection.italic=no
+uda.taskwarrior-tui.selection.dim=no
+uda.taskwarrior-tui.selection.blink=no
+uda.taskwarrior-tui.selection.reverse=no
+uda.taskwarrior-tui.mark.indicator=✔
+uda.taskwarrior-tui.unmark.indicator=
+uda.taskwarrior-tui.mark-selection.indicator=⦿
+uda.taskwarrior-tui.unmark-selection.indicator=⦾
+uda.taskwarrior-tui.calendar.months-per-row=4
+uda.taskwarrior-tui.task-report.show-info=true
+uda.taskwarrior-tui.task-report.looping=true
+uda.taskwarrior-tui.task-report.jump-on-task-add=true
+uda.taskwarrior-tui.task-report.prompt-on-delete=false
+uda.taskwarrior-tui.task-report.prompt-on-done=false
+uda.taskwarrior-tui.style.report.selection=
+uda.taskwarrior-tui.style.context.active=black on rgb444
+uda.taskwarrior-tui.style.calendar.title=black on rgb444
+uda.taskwarrior-tui.style.report.scrollbar=black
+uda.taskwarrior-tui.scrollbar.indicator=█
+uda.taskwarrior-tui.style.report.scrollbar.area=white
+uda.taskwarrior-tui.scrollbar.area=║
+# uda.taskwarrior-tui.task-report.next.filter=$(task show report.all.filter)
+uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-add=true
+uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-annotate=true
+uda.taskwarrior-tui.task-report.auto-insert-double-quotes-on-log=true
+uda.taskwarrior-tui.task-report.reset-filter-on-esc=true
+uda.taskwarrior-tui.context-menu.select-on-move=false
+uda.taskwarrior-tui.tabs.change-focus-rotate=false
 
 # Child tasks inherit their parent's urgency if that's higher.
-# It's like this option was made for me.
 urgency.inherit=on
 
 # How urgent something is depends upon what's waiting on it.
@@ -91,21 +63,14 @@ urgency.uda.priority..coefficient=1.8
 # Costly tasks are most important.
 urgency.user.tag.costly.coefficient=3.0
 
-# Kate is more important than non-Kate tasks.
-urgency.user.project.kate.coefficient=1.0
+# programming is more important than non-programming tasks.
+urgency.user.project.programming.coefficient=1.0
 
 # Fun things are less important
 urgency.user.project.fun.coefficient=-1.0
 urgency.user.tag.fun.coefficient=-1.0
 
-# Contexts! I use these for everything!
-
-# Enable hooks for Kusarigama
-# https://github.com/yanick/Taskwarrior-Kusarigama#name
-# hooks=on
-# debug.hooks=0
-# kusarigama.plugins= Command::AndAfter,Command::ButBefore,GitCommit,Renew
-
+# Contexts
 uda.rscheduled.label=next task 'scheduled' period
 uda.rwait.label=next task 'wait' period
 uda.renew.label=creates a follow-up task upon closing
@@ -116,8 +81,8 @@ report.and-after.columns=id
 report.and-after.description=pseudo-report for command
 report.but-before.columns=id
 report.but-before.description=pseudo-report for command
-context.school.read=project:school
-context.school.write=project:school
+context.security.read=project:security
+context.security.write=project:security
 context.fun.read=project:fun or +fun or +nsfw
 context.fun.write=project:fun or +fun or +nsfw
 context.nofun.read=project.not:fun -nsfw -fun
