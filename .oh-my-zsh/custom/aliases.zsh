@@ -2,6 +2,7 @@
 
 # ttyper
 alias ttyper="RUST_BACKTRACE=full ttyper"
+alias tt="taskwarrior-tui"
 
 # ripgrep for aliases
 alias agrep="alias | rg"

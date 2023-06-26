@@ -115,8 +115,7 @@ source $ZSH/oh-my-zsh.sh
 DISABLE_AUTO_TITLE="true"
 
 function set_terminal_title() {
-    # echo -en "\e]2;$@\a"               # For blank
-    echo -n -e "\033]0;/\\/!n]a\007"
+    echo -en "\e]2;$@\a"               # For blank
 }
 
 set_terminal_title
@@ -257,7 +256,16 @@ export PATH="$PATH:$HOME/.cargo/bin"
 ## FZF
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # export FZF_DEFAULT_OPTS='--color=fg:#89ddff,hl:#ddffa7 --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea --color=marker:#ffffff,spinner:#c792ea,header:#82aaff --layout=reverse --height 40%'
-export FZF_DEFAULT_OPTS='--color=fg:#89ddff,hl:#ddffa7 --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea --color=marker:#ffffff,spinner:#c792ea,header:#82aaff'
+export FZF_DEFAULT_OPTS="\
+    --color=fg:#89ddff,hl:#ddffa7 \
+    --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 \
+    --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea \
+    --color=marker:#ffffff,spinner:#c792ea,header:#82aaff"
+# Catppuccin
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+# --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+# --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 # Setting fd as the default source for fzf
 # export FZF_DEFAULT_COMMAND='fd --type f'
 # follow symbolic links and don't exclude hidden files
