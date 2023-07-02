@@ -16,7 +16,8 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: xterm-256color
+  # TERM: xterm-256color
+  COLORTERM: truecolor
 window:
   # Background opacity
   # Window opacity as a floating point number from `0.0` to `1.0`.
@@ -49,7 +50,7 @@ window:
     y: 3  #  3
 
   # Spread additional padding evenly around the terminal content.
-  # dynamic_padding: false
+  dynamic_padding: false
 
   # Window decorations
   #
@@ -76,6 +77,10 @@ window:
 
   # Window title
   title: Alacritty
+
+  # Allow terminal applications to change Alacritty's window title.
+  # dynamic_title: true
+
   # Window class (Linux/BSD only):
   class:
     # Application instance name
@@ -96,7 +101,16 @@ scrolling:
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
-  # multiplier: 3
+  multiplier: 3
+
+  # Faux Scrolling
+  #
+  # The `faux_multiplier` setting controls the number of lines the terminal
+  # should scroll when the alternate screen buffer is active. This is used
+  # to allow mouse scrolling for applications like `man`.
+  #
+  # Specifying `0` will disable faux scrolling.
+  faux_multiplier: 3
 
   # Scroll to the bottom when new text is written to the terminal.
   # auto_scroll: false
@@ -483,6 +497,14 @@ shell:
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
 key_bindings:
+  - {key: Paste, action: Paste}
+  - {key: Copy, action: Copy}
+  - {key: L, mods: Control, action: ClearLogNotice}
+  - {key: L, mods: Control, chars: "\x0c"}
+  - {key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt}
+  - {key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt}
+  - {key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt}
+  - {key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt}
   # (Windows, Linux, and BSD only)
   - {key: V, mods: Control|Shift, action: Paste}
   - {key: C, mods: Control|Shift, action: Copy}
@@ -493,12 +515,4 @@ key_bindings:
   - {key: Plus, mods: Control, action: IncreaseFontSize}
   - {key: Minus, mods: Control, action: DecreaseFontSize}
   - {key: Minus, mods: Control, action: DecreaseFontSize}
-  - {key: Paste, action: Paste}
-  - {key: Copy, action: Copy}
-  - {key: L, mods: Control, action: ClearLogNotice}
-  - {key: L, mods: Control, chars: "\x0c"}
-  - {key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt}
-  - {key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt}
-  - {key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt}
-  - {key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt}
-  - {key: F11, action: ToggleFullscreen}
+  # - {key: F11, action: ToggleFullscreen}
