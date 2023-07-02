@@ -6,7 +6,7 @@
 # xset r rate 300 50 
 # fast medium smooth
 
-xset r rate 190 38 
+xset r rate 190 30 
 # fast very smooth
 
 # Maps caps as a control modifier, then maps it as an escape key when pressed

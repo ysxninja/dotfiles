@@ -18,11 +18,11 @@ HISTFILE=$HOME/.zsh_history
 
 ard=$(xset -q | awk '/auto repeat delay/ {print $4}')
 ## xset r rate 300 50 ## fast medium smooth
-## xset r rate 190 38 ## fast very smooth
+## xset r rate 190 30 ## fast very smooth
 
 ## TODO: Do I really need to set this?
 if [[ $ard -ne 190 ]]; then
-    xset r rate 190 38
+    xset r rate 190 30
     # echo "xset set"
     # remaps
 fi
@@ -223,7 +223,7 @@ export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # Golang paths
 # export GOROOT=/usr/local/go
-export PATH=$PATH:$GOROOT/bin
+# export PATH=$PATH:$GOROOT/bin
 # The first segment of Gopath is going to be used by go get to store files,
 # but all segments will be searched for source code
 export GOPATH=/home/yasuke/golib
