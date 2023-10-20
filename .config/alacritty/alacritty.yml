@@ -70,7 +70,7 @@ window:
   #   - Windowed
   #   - Maximized
   #   - Fullscreen
-  startup_mode: Fullscreen
+  # startup_mode: Fullscreen
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen

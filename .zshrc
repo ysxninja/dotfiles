@@ -66,6 +66,8 @@ export VISUAL="nvim"
 
 ### "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# Fix formatting problems
+export MANROFFOPT="-c"
 
 ### PATH
 if [ -d "$HOME/.bin" ] ;
@@ -250,6 +252,11 @@ export GOPATH=$GOPATH:/home/yasuke/code
 # export CHROME_EXECUTABLE
 # cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
 
+# CHROME_EXECUTABLE & chromedriver
+export PATH="$PATH:/usr/bin/chromedriver"
+CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
+export CHROME_EXECUTABLE
+
 # Rust- Cargo path
 export PATH="$PATH:$HOME/.cargo/bin"
 
@@ -281,7 +288,10 @@ export GPG_TTY=$(tty)
 
 # Npm global config
 export NPM_CONFIG_PREFIX=~/.npm-global
-export PATH=$PATH:~/.npm-global/bin
+export PATH="$PATH:~/.npm-global/bin"
+
+# Export jfx to fix errors
+# export PATH="$PATH:/usr/lib/jvm/java-20-openjdk/lib"
 
 # proxy
 # export http_proxy=socks5://192.168.43.1:8089

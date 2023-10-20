@@ -16,7 +16,7 @@ polybar-msg cmd quit
 
 # Launch bar1 and bar2
 echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
-polybar -q mainbar-i3 -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar1.log & disown
-polybar -q mainbar2-i3 -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar1.log & disown
+polybar -q external-bar -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar1.log & disown
+polybar -q laptop-bar -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar2.log & disown
 
 echo "Bars launched..."
