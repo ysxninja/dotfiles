@@ -291,7 +291,7 @@ export NPM_CONFIG_PREFIX=~/.npm-global
 export PATH="$PATH:~/.npm-global/bin"
 
 # Export jfx to fix errors
-# export PATH="$PATH:/usr/lib/jvm/java-20-openjdk/lib"
+# export PATH="$PATH:/usr/lib/jvm/java-17-openjdk/lib/"
 
 # proxy
 # export http_proxy=socks5://192.168.43.1:8089
