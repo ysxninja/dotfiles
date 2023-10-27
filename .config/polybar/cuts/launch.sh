@@ -43,6 +43,10 @@ if [ -n "$vga_status" ]; then
   polybar -q external-bar -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar1.log & disown
   polybar -q laptop-bar -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar2.log & disown
 
+  # Nitrogen set wallpapers
+  nitrogen --set-zoom-fill --random ~/.config/wallpaper --head=0
+  nitrogen --set-zoom-fill ~/.config/wallpaper/0306.jpg --head=1
+
 else
   # VGA monitor is disconnected, move workspaces to FM(LVDS1)
   # # Launch laptopwithout-bar for single monitor setup
@@ -50,6 +54,10 @@ else
   xrandr --output "$laptop" --auto --primary --output $vga --off
   i3-msg "workspace 1 move workspace to output $FM, workspace 2 move workspace to output $FM"
   polybar -q laptopwithout-bar -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar2.log & disown
+
+  # Set random wallpaper
+  change-wallpaper ~/.config/wallpaper 21600
+
 fi
 
 echo "Bars launched..."
