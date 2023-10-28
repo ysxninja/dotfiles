@@ -39,7 +39,8 @@ if [ -n "$vga_status" ]; then
   xrandr --output $laptop --auto --right-of "$FM"
 
   # Move workspaces to FM (VGA1)
-  i3-msg "workspace 1 move workspace to output $FM, workspace 2 move workspace to output $FM"
+  i3-msg "workspace 1, move workspace to output $FM"
+  i3-msg "workspace 2, move workspace to output $FM"
   polybar -q external-bar -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar1.log & disown
   polybar -q laptop-bar -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar2.log & disown
 
@@ -52,7 +53,8 @@ else
   # # Launch laptopwithout-bar for single monitor setup
   # Configure monitors and move workspaces to FM(LVDS1)
   xrandr --output "$laptop" --auto --primary --output $vga --off
-  i3-msg "workspace 1 move workspace to output $FM, workspace 2 move workspace to output $FM"
+  i3-msg "workspace 1, move workspace to output $FM"
+  i3-msg "workspace 2, move workspace to output $FM"
   polybar -q laptopwithout-bar -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar2.log & disown
 
   # Set random wallpaper
