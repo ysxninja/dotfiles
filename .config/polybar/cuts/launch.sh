@@ -21,7 +21,9 @@ echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
 if [ -n "$vga_status" ]; then
   # VGA monitor is connected
   # Launch external-bar and laptop-bar for dual monitor setup
-  # Xrandr organise displays, FM(VGA1) to the right of LVDS1
+  # NOTE: there is no xrandr --on option, only the --auto option to redetect displays
+  xrandr --output $external1 --auto
+  # Xrandr organise displays, external1(VGA1) to the right of laptop(LVDS1)
   xrandr --output $laptop --auto --right-of "$external1"
 
   # Move workspaces to FM (VGA1)
@@ -33,9 +35,9 @@ if [ -n "$vga_status" ]; then
   nitrogen --set-zoom-fill ~/.config/wallpaper/0306.jpg --head=1
 
 else
-  # VGA monitor is disconnected, move workspaces to FM(LVDS1)
+  # VGA monitor is disconnected, move workspaces to laptop(LVDS1)
   # Launch laptopwithout-bar for single monitor setup
-  # Configure monitors and move workspaces to FM(LVDS1)
+  # Configure monitors and move workspaces to laptop(LVDS1)
   xrandr --output $laptop --auto --primary --output $external1 --off
   polybar -q laptopwithout-bar -c "$DIR"/config.ini 2>&1 | tee -a /tmp/polybar2.log & disown
 
