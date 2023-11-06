@@ -185,6 +185,8 @@
     show_indicators = false
 
     ### Icons ###
+    # Corner radius for the icon.
+    icon_corner_radius = 12
 
     # Align icons left/right/off
     icon_position = left
