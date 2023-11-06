@@ -1,11 +1,11 @@
 ## ALIASES
 
-# ttyper
-alias ttyper="RUST_BACKTRACE=full ttyper"
+# # ttyper
+# alias ttyper="RUST_BACKTRACE=full ttyper"
 alias tt="taskwarrior-tui"
 
 # ripgrep for aliases
-alias agrep="alias | rg"
+# alias agrep="alias | rg"
 alias gp="git pull && git push"
 
 alias dd="deemix --path ~/Music "
@@ -139,9 +139,9 @@ alias l.='exa -a | rg "^\."'
 
 
 # Colorize ripgrep output (good for log files)
-alias grep='rg --color auto'
-alias egrep='rg -e --color auto'
-alias fgrep='rg -F --color auto'
+# alias grep='rg --color auto'
+# alias egrep='rg -e --color auto'
+# alias fgrep='rg -F --color auto'
 
 # confirm before overwriting something
 alias cp='cp -i'
