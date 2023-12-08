@@ -192,6 +192,8 @@ bindsym $mod+Ctrl+Left workspace prev
 
 set $external1 VGA1
 set $laptop LVDS1
+# set $external1 DP2
+# set $laptop eDP1
 
 # workspace 1 and 2 default to external monitor, otherwise laptop
 workspace 1 output $external1 $laptop

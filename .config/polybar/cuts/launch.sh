@@ -12,7 +12,9 @@ polybar-msg cmd quit
 
 # The $FM variable is either VGA1(if on) or LVDS1(default)
 laptop1=LVDS1
+# laptop1=eDP1
 external1=VGA1
+# external1=DP2
 laptop2=eDP1
 external1_status=$(xrandr | grep "$external1 connected")
 laptop1_status=$(xrandr | grep "$laptop1 connected")

@@ -244,6 +244,9 @@ export GOPATH=$GOPATH:/home/yasuke/code
 # Export path for yarn
 # export PATH="$PATH:$(yarn global bin)"
 
+# Export path for node
+# export PATH=~/.npm-global/bin:$PATH
+
 # Docker Gateway fallback host
 # export DOCKER_GATEWAY_HOST=172.17.0.1
 
@@ -289,6 +292,9 @@ export GPG_TTY=$(tty)
 # Npm global config
 export NPM_CONFIG_PREFIX=~/.npm-global
 export PATH="$PATH:~/.npm-global/bin"
+
+# Export Wakatime HOME for wakapi
+export WAKATIME_HOME='/opt/wakapi'
 
 # Export jfx to fix errors
 # export PATH="$PATH:/usr/lib/jvm/java-17-openjdk/lib/"
