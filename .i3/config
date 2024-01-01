@@ -251,10 +251,10 @@ assign [class="Google-chrome"] $ws3
 assign [class="xdman-Main"] $ws4
 assign [class="Nemo"] $ws4
 assign [class="Plex"] $ws2
-assign [class="burp-StartBurp"] $ws2
-assign [class="org-zaproxy-zap-ZAP"] $ws2
-assign [class="OWASP ZAP"] $ws2
-assign [class="ZAP"] $ws2
+# assign [class="burp-StartBurp"] $ws2
+# assign [class="org-zaproxy-zap-ZAP"] $ws2
+# assign [class="OWASP ZAP"] $ws2
+# assign [class="ZAP"] $ws2
 
 # Fullscreen for assigned workspace apps
 for_window [class="io.github.celluloid_player.Celluloid"] fullscreen
