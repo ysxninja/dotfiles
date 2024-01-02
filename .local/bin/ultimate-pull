@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# Author: github.com/ya-suke
+# Description: This Bash script pulls updates from specified Git repositories.
+# License: MIT
+
+# Define repositories and their corresponding paths
+declare -A repositories=(
+    ["https://github.com/ohmyzsh/ohmyzsh.git"]="$HOME/.oh-my-zsh"
+    ["https://github.com/catppuccin/alacritty.git"]="$HOME/.config/alacritty/catppuccin"
+    # Add more repositories and paths as needed
+)
+
+# Loop through the repositories and pull
+for repo in "${!repositories[@]}"; do
+    repo_path="${repositories[$repo]}"
+
+    # Check if the repository already exists
+    if [ -d "$repo_path" ]; then
+        echo "Updating $(basename "$repo")..."
+        git -C "$repo_path" pull
+    else
+        # Clone the repository if it doesn't exist
+        echo "Cloning $(basename "$repo")..."
+        git clone "$repo" "$repo_path"
+    fi
+done
+
+echo "Finished pulling repositories."
