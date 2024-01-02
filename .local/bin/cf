@@ -1,71 +1,32 @@
 #!/bin/sh
+#
+# cf | cf.sh | interactive-config-editor.sh
+#
+# Author: github.com/ya-suke
+# Description: This script allows you to interactively select and edit configuration files
+#              from a Git repository using fzf.
+# License: MIT License
 
-configs=`echo "alacritty aliases bashrc cf dmenu dunst fish i3 nvim remaps
-starship termite tmux ultimate-push zshrc zsh_history Xmodmap
-polybar polybarmodules polybarusermodules change-brightness change-caffeine
-change-wallpaper change-volume picom network-traffic rofi ncmpcpp mpv mpd" | tr ' ' '\n' | sort -u`
+# This script allows you to interactively select and edit
+#      configuration files from a Git repository using fzf.
 
-selected=`printf "$configs\n" | fzf`
+# From yadm, or your preferred dotfiles manager
+# Get a list of configuration files from the Git repository, excluding files ending with ".py" and ".pyc"
+dotgitls='/usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke ls-tree --full-tree -r HEAD'
 
-if [[ $selected == "alacritty" ]] ; then
-    $EDITOR ~/.config/alacritty/alacritty.yml
-elif [[ $selected == "aliases" ]] ; then
-    $EDITOR ~/.oh-my-zsh/custom/aliases.zsh
-elif [[ $selected == "bashrc" ]] ; then
-    $EDITOR ~/.bashrc
-elif [[ $selected == "cf" ]] ; then
-    $EDITOR ~/.local/bin/cf
-elif [[ $selected == "fish" ]] ; then
-    $EDITOR ~/.config/fish/config.fish
-elif [[ $selected == "i3" ]] ; then
-    $EDITOR ~/.i3/config
-elif [[ $selected == "nvim" ]] ; then
-    $EDITOR ~/.config/nvim/lua/user/init.lua
-elif [[ $selected == "remaps" ]] ; then
-    $EDITOR ~/.local/bin/remaps
-elif [[ $selected == "starship" ]] ; then
-    $EDITOR ~/.config/starship.toml
-elif [[ $selected == "termite" ]] ; then
-    $EDITOR ~/.config/termite/config
-elif [[ $selected == "ultimate-push" ]] ; then
-    $EDITOR ~/.local/bin/ultimate-push
-elif [[ $selected == "zshrc" ]] ; then
-    $EDITOR ~/.zshrc
-elif [[ $selected == "zsh_history" ]] ; then
-    $EDITOR ~/.zsh_history
-elif [[ $selected == "tmux" ]] ; then
-    $EDITOR ~/.tmux.conf
-elif [[ $selected == "Xmodmap" ]] ; then
-    $EDITOR ~/.Xmodmap
-elif [[ $selected == "dmenu" ]] ; then
-    $EDITOR ~/.dmenurc
-elif [[ $selected == "dunst" ]] ; then
-    $EDITOR ~/.config/dunst/dunstrc
-elif [[ $selected == "polybar" ]] ; then
-    $EDITOR ~/.config/polybar/cuts/config.ini
-elif [[ $selected == "polybarmodules" ]] ; then
-    $EDITOR ~/.config/polybar/cuts/modules.ini
-elif [[ $selected == "polybarusermodules" ]] ; then
-    $EDITOR ~/.config/polybar/cuts/user_modules.ini
-elif [[ $selected == "picom" ]] ; then
-    $EDITOR ~/.config/picom.conf
-elif [[ $selected == "change-volume" ]] ; then
-    $EDITOR ~/.local/bin/change-volume
-elif [[ $selected == "change-caffeine" ]] ; then
-    $EDITOR ~/.local/bin/change-caffeine
-elif [[ $selected == "change-wallpaper" ]] ; then
-    $EDITOR ~/.local/bin/change-wallpaper
-elif [[ $selected == "change-brightness" ]] ; then
-    $EDITOR ~/.local/bin/change-brightness
-elif [[ $selected == "network-traffic" ]] ; then
-    $EDITOR ~/.local/bin/network-traffic.sh
-elif [[ $selected == "rofi" ]]; then
-    $EDITOR ~/.config/rofi/theme.rasi
-elif [[ $selected == "ncmpcpp" ]]; then
-    $EDITOR ~/.config/ncmpcpp/config
-elif [[ $selected == "mpd" ]]; then
-    $EDITOR ~/.config/mpd/mpd.conf
-elif [[ $selected == "mpv" ]]; then
-    $EDITOR ~/.config/mpv/mpv.conf
+configs=$($dotgitls | awk '{print $4}' | xargs -n1 basename | grep -Ev '\.py$|\.pyc$' | sort -u)
+
+# Use fzf to interactively select a configuration file
+selected=$(printf "%s\n" "$configs" | fzf)
+
+if [ -n "$selected" ]; then
+    # Use grep with word boundaries to ensure an exact match
+    config_file=$($dotgitls | grep -E "\b$selected\b" | awk '{print $4}')
+    
+    if [ -n "$config_file" ]; then
+        # Open the selected configuration file in the user's preferred text editor
+        $EDITOR "$config_file"
+    else
+        echo "Error: Unable to find a unique match for '$selected'."
+    fi
 fi
-
