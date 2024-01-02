@@ -1,5 +1,7 @@
 #!/bin/sh
 # depends on httping
+# WARN: Deprecated AF
+# TODO: Cleanup, Update
 
 printf "\n\t\e[1;36m直\e[0m Testing Connection.... "
 printf "\n\t\e[1;36m📡 \e[0m"
