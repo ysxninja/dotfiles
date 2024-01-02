@@ -2,6 +2,7 @@
 #
 # Author: github.com/ya-suke
 # Description: This Bash script pulls updates from specified Git repositories.
+# Use case: Add to crontab to monitor/update scripts/repositories
 # License: MIT
 
 # Define repositories and their corresponding paths
@@ -11,19 +12,23 @@ declare -A repositories=(
     # Add more repositories and paths as needed
 )
 
-# Loop through the repositories and pull
+# Function to print a success message
+print_success() {
+    printf "\t\e[1;33m✅✅✅\e[0m %s\n" "$1"
+}
+
+# Loop through the repositories and pull/update them
 for repo in "${!repositories[@]}"; do
     repo_path="${repositories[$repo]}"
 
     # Check if the repository already exists
     if [ -d "$repo_path" ]; then
         echo "Updating $(basename "$repo")..."
-        git -C "$repo_path" pull
+        git -C "$repo_path" pull && print_success "Update successful for $(basename "$repo")"
     else
         # Clone the repository if it doesn't exist
         echo "Cloning $(basename "$repo")..."
-        git clone "$repo" "$repo_path"
+        git clone "$repo" "$repo_path" && print_success "Clone successful for $(basename "$repo")"
     fi
 done
 
-echo "Finished pulling repositories."
