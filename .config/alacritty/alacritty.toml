@@ -1,634 +1,135 @@
----
-# Configuration for Alacritty, the GPU enhanced terminal emulator.
-# Any items in the `env` entry below will be added as
-# environment variables. Some entries may override variables
-# set by alacritty itself.
-import:
-  # uncomment the flavour you want below:
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
-env:
-  # TERM variable
-  #
-  # This value is used to set the `$TERM` environment variable for
-  # each instance of Alacritty. If it is not present, alacritty will
-  # check the local terminfo database and use `alacritty` if it is
-  # available, otherwise `xterm-256color` is used.
-  # TERM: xterm-256color
-  COLORTERM: truecolor
-window:
-  # Background opacity
-  # Window opacity as a floating point number from `0.0` to `1.0`.
-  # The value `0.0` is completely transparent and `1.0` is opaque.
-  # window.opacity: 1.0
-  # window.opacity: 0.96
-  opacity: 0.90
-  # Window dimensions (changes require restart)
-  #
-  # Specified in number of columns/lines, not pixels.
-  # If both are `0`, this setting is ignored.
-  dimensions:
-    columns: 90
-    lines: 29
+import = [
+"~/.config/alacritty/catppuccin/catppuccin-mocha.toml",   
+# "~/.config/alacritty/catppuccin/catppuccin-macchiato.toml",    
+# "~/.config/alacritty/catppuccin/catppuccin-frappe.toml",   
+# "~/.config/alacritty/catppuccin/catppuccin-latte.toml ",   
+]
 
-  # Window position (changes require restart)
-  #
-  # Specified in number of pixels.
-  # If the position is not set, the window manager will handle the placement.
-  # position:
-  # x: 0
-  # y: 33
+[env]
+COLORTERM = "truecolor"
 
-  # Window padding (changes require restart)
-  #
-  # Blank space added around the window in pixels. This padding is scaled
-  # by DPI and the specified value is always added at both opposing sides.
-  padding:
-    x: 2  #  6
-    y: 3  #  3
+[font]
+size = 10.0
 
-  # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+[font.bold]
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
 
-  # Window decorations
-  #
-  # Values for `decorations`:
-  #     - full: Borders and title bar
-  #     - none: Neither borders nor title bar
-  #
-  # Values for `decorations` (macOS only):
-  #     - transparent: Title bar, transparent background and title bar buttons
-  #     - buttonless: Title bar, transparent background,
-  #       but no title bar buttons
-  # decorations: full
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font"
+style = "Bold Italic"
 
-  # Startup Mode (changes require restart)
-  #
-  # Values for `startup_mode`:
-  #   - Windowed
-  #   - Maximized
-  #   - Fullscreen
-  # startup_mode: Fullscreen
-  #
-  # Values for `startup_mode` (macOS only):
-  #   - SimpleFullscreen
+[font.italic]
+family = "JetBrainsMono Nerd Font"
+style = "Medium Italic"
 
-  # Window title
-  title: Alacritty
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
 
-  # Allow terminal applications to change Alacritty's window title.
-  # dynamic_title: true
+[[keyboard.bindings]]
+action = "Paste"
+key = "Paste"
 
-  # Window class (Linux/BSD only):
-  class:
-    # Application instance name
-    instance: Alacritty
-    # General application class
-    general: Alacritty
+[[keyboard.bindings]]
+action = "Copy"
+key = "Copy"
 
-    # GTK theme variant (Linux/BSD only)
-    #
-    # Override the variant of the GTK theme.
-    # Commonly supported values are `dark` and `light`.
-    # Set this to `None` to use the default theme variant.
-    # gtk_theme_variant: None
-scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
-  history: 5000
+[[keyboard.bindings]]
+action = "ClearLogNotice"
+key = "L"
+mods = "Control"
 
-  # Number of lines the viewport will move for every line scrolled when
-  # scrollback is enabled (history > 0).
-  multiplier: 3
+[[keyboard.bindings]]
+chars = "\f"
+key = "L"
+mods = "Control"
 
-  # Faux Scrolling
-  #
-  # The `faux_multiplier` setting controls the number of lines the terminal
-  # should scroll when the alternate screen buffer is active. This is used
-  # to allow mouse scrolling for applications like `man`.
-  #
-  # Specifying `0` will disable faux scrolling.
-  faux_multiplier: 3
+[[keyboard.bindings]]
+action = "ScrollPageUp"
+key = "PageUp"
+mode = "~Alt"
+mods = "Shift"
 
-  # Scroll to the bottom when new text is written to the terminal.
-  # auto_scroll: false
-# Spaces per Tab (changes require restart)
-#
-# This setting defines the width of a tab in cells.
-#
-# Some applications, like Emacs, rely on knowing about the width of a tab.
-# To prevent unexpected behavior in these applications, it's also required to
-# change the `it` value in terminfo when altering this setting.
-# tabspaces: 8
-# Font configuration
-font:
-  # Normal (roman) font face
-  normal:
-    # Font family
-    #
-    # Default:
-    #   - (macOS) Menlo
-    #   - (Linux/BSD) monospace
-    #   - (Windows) Consolas
-    # family: SauceCodePro Nerd Font
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    family: JetBrainsMono Nerd Font
-    # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    # family: TerminessTTF Nerd Font
-    # family: Comic Sans Ms
-    # family: Fira Code Nerd Font
-    # family: 'MesloLGS NF'
-    # family: Mononoki Nerd Font
+[[keyboard.bindings]]
+action = "ScrollPageDown"
+key = "PageDown"
+mode = "~Alt"
+mods = "Shift"
 
-    # The `style` can be specified to pick a specific face.
-    style: Regular
+[[keyboard.bindings]]
+action = "ScrollToTop"
+key = "Home"
+mode = "~Alt"
+mods = "Shift"
 
-  # Bold font face
-  bold:
-    # Font family
-    #
-    # If the bold family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: SauceCodePro Nerd Font
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    family: JetBrainsMono Nerd Font
-    # family: UbuntuMono Nerd Font
-    # family: Monofur Nerd Font
-    # family: TerminessTTF Nerd Font
-    # family: Comic Sans Ms
-    # family: Mononoki Nerd Font
+[[keyboard.bindings]]
+action = "ScrollToBottom"
+key = "End"
+mode = "~Alt"
+mods = "Shift"
 
-    # The `style` can be specified to pick a specific face.
-    style: Bold
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Shift"
 
-  # Italic font face
-  italic:
-    # Font family
-    #
-    # If the italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: SauceCodePro Nerd Font Mono
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    family: JetBrainsMono Nerd Font
-    # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    # family: TerminessTTF Nerd Font
-    # family: SauceCodePro Nerd Font
-    # family: FiraCode Nerd Font
-    # family: 'MesloLGS NF'
-    # family: Comic Sans Ms
-    # family: Hack Nerd Font
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Control|Shift"
 
-    # The `style` can be specified to pick a specific face.
-    # style: Italic
-    # style: SemiBold Italic
-    style: Medium Italic
+[[keyboard.bindings]]
+action = "PasteSelection"
+key = "Insert"
+mods = "Shift"
 
-  # Bold italic font face
-  bold_italic:
-    # Font family
-    #
-    # If the bold italic family is not specified, it will fall back to the
-    # value specified for the normal font.
-    # family: SauceCodePro Nerd Font Mono
-    # family: CodeNewRoman Nerd Font
-    # family: RobotoMono Nerd Font
-    # family: Hack
-    family: JetBrainsMono Nerd Font
-    # family: UbuntuMono Nerd Font
-    # family: Monofuritalic Nerd Font Mono
-    # family: TerminessTTF Nerd Font
-    # family: SauceCodePro Nerd Font
-    # family: 'MesloLGS NF'
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
 
-    # The `style` can be specified to pick a specific face.
-    style: Bold Italic
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
 
-  # Point size
-  size: 10.0
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
 
-  # Offset is the extra space around each character.
-  # `offset.y` can be thought of as modifying the line spacing,
-  # and `offset.x` as modifying the letter spacing.
-  # offset:
-  #   x: 0
-  #   y: 1
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
 
-  # Glyph offset determines the locations of the glyphs within their cells with
-  # the default being at the bottom.
-  # Increasing `x` moves the glyph to the right,
-  # increasing `y` moves the glyph upwards.
-  # glyph_offset:
-  #  x: 0
-  #  y: 0
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
 
-  # Use built-in font for box drawing characters.
-  #
-  # If `true`, Alacritty will use a custom built-in font for box drawing
-  # characters (Unicode points 2500 - 259f).
-  #
-  # builtin_box_drawing: true
+[scrolling]
+# faux_multiplier = 3
+history = 5000
+multiplier = 3
 
-# If `true`, bold text is drawn using the bright color variants.
-# draw_bold_text_with_bright_colors: true
-# Any time the BEL code is received, Alacritty "rings" the visual bell. Once
-# rung, the terminal background will be set to white and transition back to the
-# default background color. You can control the rate of this transition by
-# setting the `duration` property (represented in milliseconds). You can also
-# configure the transition function by setting the `animation` property.
-#
-# Values for `animation`:
-#   - Ease
-#   - EaseOut
-#   - EaseOutSine
-#   - EaseOutQuad
-#   - EaseOutCubic
-#   - EaseOutQuart
-#   - EaseOutQuint
-#   - EaseOutExpo
-#   - EaseOutCirc
-#   - Linear
-#
-# Specifying a `duration` of `0` will disable the visual bell.
-# visual_bell:
-#  animation: EaseOutExpo
-#  duration: 0
-#  color: '0xffffff'
-# selection:
-# semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
-# When set to `true`, selected text will be copied to the primary clipboard.
-# save_to_clipboard: false
-# Allow terminal applications to change Alacritty's window title.
-# dynamic_title: false
-# cursor:
-# Cursor style
-#
-# Values for `style`:
-#   - ▇ Block
-#   - _ Underline
-#   - | Beam
-# style: Block
-# If this is `true`, the cursor will be rendered as a hollow box when the
-# window is not focused.
-# unfocused_hollow: true
-# Live config reload (changes require restart)
-# live_config_reload: true
-# Shell
-#
-# You can set `shell.program` to the path of your favorite shell,
-# e.g. `/bin/fish`.
-# Entries in `shell.args` are passed unmodified as arguments to the shell.
-#
-# Default:
-#   - (macOS) /bin/bash --login
-#   - (Linux/BSD) user login shell
-#   - (Windows) powershell
-shell:
-  program: /usr/bin/zsh
-  # args:
-  #   - -l
-  #   - -c
-  #   - --command=tmux
-  #   - "tmux attach || tmux"
-  #    - --login
+[shell]
+program = "/usr/bin/zsh"
 
-# Startup directory
-#
-# Directory the shell is started in. If this is unset, or `None`, the working
-# directory of the parent process will be used.
-# working_directory: None
-# Log level
-#
-# Values for `log_level`:
-#   - None
-#   - Error
-#   - Warn
-#   - Info
-#   - Debug
-#   - Trace
-# log_level: Warn
-# Print all received window events.
-# print_events: false
-# Record all characters and escape sequences as test data.
-# ref_test: false
-# mouse:
-# Click settings
-#
-# The `double_click` and `triple_click` settings control the time
-# alacritty should wait for accepting multiple clicks as one double
-# or triple click.
-# double_click: { threshold: 300 }
-# triple_click: { threshold: 300 }
-# If this is `true`, the cursor is temporarily hidden when typing.
-# hide_when_typing: false
-#
-# Hints
-#
-# Terminal hints can be used to find text or hyperlink in the visible part of
-# the terminal and pipe it to other applications.
-#hints:
-  # Keys used for the hint labels.
-  #alphabet: "jfkdls;ahgurieowpq"
+[window]
+dynamic_padding = false
+opacity = 0.9
+title = "Alacritty"
 
-  # List with all available hints
-  #
-  # Each hint must have any of `regex` or `hyperlinks` field and either an
-  # `action` or a `command` field. The fields `mouse`, `binding` and
-  # `post_processing` are optional.
-  #
-  # The `hyperlinks` option will cause OSC 8 escape sequence hyperlinks to be
-  # highlighted.
-  #
-  # The fields `command`, `binding.key`, `binding.mods`, `binding.mode` and
-  # `mouse.mods` accept the same values as they do in the `key_bindings` section.
-  #
-  # The `mouse.enabled` field controls if the hint should be underlined while
-  # the mouse with all `mouse.mods` keys held or the vi mode cursor is above it.
-  #
-  # If the `post_processing` field is set to `true`, heuristics will be used to
-  # shorten the match if there are characters likely not to be part of the hint
-  # (e.g. a trailing `.`). This is most useful for URIs and applies only to
-  # `regex` matches.
-  #
-  # Values for `action`:
-  #   - Copy
-  #       Copy the hint's text to the clipboard.
-  #   - Paste
-  #       Paste the hint's text to the terminal or search.
-  #   - Select
-  #       Select the hint's text.
-  #   - MoveViModeCursor
-  #       Move the vi mode cursor to the beginning of the hint.
-  #enabled:
-  # - regex: "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)\
-  #           [^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"
-  #   hyperlinks: true
-  #   command: xdg-open
-  #   post_processing: true
-  #   mouse:
-  #     enabled: true
-  #     mods: None
-  #   binding:
-  #     key: U
-  #     mods: Control|Shift
-  #
-  #
-# Mouse bindings
-#
-# Mouse bindings are specified as a list of objects, much like the key
-# bindings further below.
-#
-# Each mouse binding will specify a:
-#
-# - `mouse`:
-#
-#   - Middle
-#   - Left
-#   - Right
-#   - Numeric identifier such as `5`
-#
-# - `action` (see key bindings)
-#
-# And optionally:
-#
-# - `mods` (see key bindings)
-# mouse_bindings:
-#  - { mouse: Middle, action: PasteSelection }
-# Key bindings
-#
-# Key bindings are specified as a list of objects. For example, this is the
-# default paste binding:
-#
-# `- { key: V, mods: Control|Shift, action: Paste }`
-#
-# Each key binding will specify a:
-#
-# - `key`: Identifier of the key pressed
-#
-#    - A-Z
-#    - F1-F24
-#    - Key0-Key9
-#
-#    A full list with available key codes can be found here:
-#    https://docs.rs/winit/*/winit/event/enum.VirtualKeyCode.html#variants
-#
-#    Instead of using the name of the keys, the `key` field also supports using
-#    the scancode of the desired key. Scancodes have to be specified as a
-#    decimal number. This command will allow you to display the hex scancodes
-#    for certain keys:
-#
-#       `showkey --scancodes`.
-#
-# Then exactly one of:
-#
-# - `chars`: Send a byte sequence to the running application
-#
-#    The `chars` field writes the specified string to the terminal. This makes
-#    it possible to pass escape sequences. To find escape codes for bindings
-#    like `PageUp` (`"\x1b[5~"`), you can run the command `showkey -a` outside
-#    of tmux. Note that applications use terminfo to map escape sequences back
-#    to keys. It is therefore required to update the terminfo when changing an
-#    escape sequence.
-#
-# - `action`: Execute a predefined action
-#
-#   - ToggleViMode
-#   - SearchForward
-#       Start searching toward the right of the search origin.
-#   - SearchBackward
-#       Start searching toward the left of the search origin.
-#   - Copy
-#   - Paste
-#   - IncreaseFontSize
-#   - DecreaseFontSize
-#   - ResetFontSize
-#   - ScrollPageUp
-#   - ScrollPageDown
-#   - ScrollHalfPageUp
-#   - ScrollHalfPageDown
-#   - ScrollLineUp
-#   - ScrollLineDown
-#   - ScrollToTop
-#   - ScrollToBottom
-#   - ClearHistory
-#       Remove the terminal's scrollback history.
-#   - Hide
-#       Hide the Alacritty window.
-#   - Minimize
-#       Minimize the Alacritty window.
-#   - Quit
-#       Quit Alacritty.
-#   - ToggleFullscreen
-#   - ToggleMaximized
-#   - SpawnNewInstance
-#       Spawn a new instance of Alacritty.
-#   - CreateNewWindow
-#       Create a new Alacritty window from the current process.
-#   - ClearLogNotice
-#       Clear Alacritty's UI warning and error notice.
-#   - ClearSelection
-#       Remove the active selection.
-#   - ReceiveChar
-#   - None
-#
-# - Vi mode exclusive actions:
-#
-#   - Open
-#       Perform the action of the first matching hint under the vi mode cursor
-#       with `mouse.enabled` set to `true`.
-#   - ToggleNormalSelection
-#   - ToggleLineSelection
-#   - ToggleBlockSelection
-#   - ToggleSemanticSelection
-#       Toggle semantic selection based on `selection.semantic_escape_chars`.
-#   - CenterAroundViCursor
-#       Center view around vi mode cursor
-#
-# - Vi mode exclusive cursor motion actions:
-#
-#   - Up
-#       One line up.
-#   - Down
-#       One line down.
-#   - Left
-#       One character left.
-#   - Right
-#       One character right.
-#   - First
-#       First column, or beginning of the line when already at the first column.
-#   - Last
-#       Last column, or beginning of the line when already at the last column.
-#   - FirstOccupied
-#       First non-empty cell in this terminal row, or first non-empty cell of
-#       the line when already at the first cell of the row.
-#   - High
-#       Top of the screen.
-#   - Middle
-#       Center of the screen.
-#   - Low
-#       Bottom of the screen.
-#   - SemanticLeft
-#       Start of the previous semantically separated word.
-#   - SemanticRight
-#       Start of the next semantically separated word.
-#   - SemanticLeftEnd
-#       End of the previous semantically separated word.
-#   - SemanticRightEnd
-#       End of the next semantically separated word.
-#   - WordLeft
-#       Start of the previous whitespace separated word.
-#   - WordRight
-#       Start of the next whitespace separated word.
-#   - WordLeftEnd
-#       End of the previous whitespace separated word.
-#   - WordRightEnd
-#       End of the next whitespace separated word.
-#   - Bracket
-#       Character matching the bracket at the cursor's location.
-#   - SearchNext
-#       Beginning of the next match.
-#   - SearchPrevious
-#       Beginning of the previous match.
-#   - SearchStart
-#       Start of the match to the left of the vi mode cursor.
-#   - SearchEnd
-#       End of the match to the right of the vi mode cursor.
-#
-# - Search mode exclusive actions:
-#   - SearchFocusNext
-#       Move the focus to the next search match.
-#   - SearchFocusPrevious
-#       Move the focus to the previous search match.
-#   - SearchConfirm
-#   - SearchCancel
-#   - SearchClear
-#       Reset the search regex.
-#   - SearchDeleteWord
-#       Delete the last word in the search regex.
-#   - SearchHistoryPrevious
-#       Go to the previous regex in the search history.
-#   - SearchHistoryNext
-#       Go to the next regex in the search history.
-#
-# - macOS exclusive actions:
-#   - ToggleSimpleFullscreen
-#       Enter fullscreen without occupying another space.
-#
-# - Linux/BSD exclusive actions:
-#
-#   - CopySelection
-#       Copy from the selection buffer.
-#   - PasteSelection
-#       Paste from the selection buffer.
-#
-# - `command`: Fork and execute a specified command plus arguments
-#
-#    The `command` field must be a map containing a `program` string and an
-#    `args` array of command line parameter strings. For example:
-#       `{ program: "alacritty", args: ["-e", "vttest"] }`
-#
-# And optionally:
-#
-# - `mods`: Key modifiers to filter binding actions
-#
-#    - Command
-#    - Control
-#    - Option
-#    - Super
-#    - Shift
-#    - Alt
-#
-#    Multiple `mods` can be combined using `|` like this:
-#       `mods: Control|Shift`.
-#    Whitespace and capitalization are relevant and must match the example.
-#
-# - `mode`: Indicate a binding for only specific terminal reported modes
-#
-#    This is mainly used to send applications the correct escape sequences
-#    when in different modes.
-#
-#    - AppCursor
-#    - AppKeypad
-#    - Search
-#    - Alt
-#    - Vi
-#
-#    A `~` operator can be used before a mode to apply the binding whenever
-#    the mode is *not* active, e.g. `~Alt`.
-#
-# Bindings are always filled by default, but will be replaced when a new
-# binding with the same triggers is defined. To unset a default binding, it can
-# be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
-# a no-op if you do not wish to receive input characters for that binding.
-#
-# If the same trigger is assigned to multiple actions, all of them are executed
-# in the order they were defined in.
-key_bindings:
-  - {key: Paste, action: Paste}
-  - {key: Copy, action: Copy}
-  - {key: L, mods: Control, action: ClearLogNotice}
-  - {key: L, mods: Control, chars: "\x0c"}
-  - {key: PageUp, mods: Shift, action: ScrollPageUp, mode: ~Alt}
-  - {key: PageDown, mods: Shift, action: ScrollPageDown, mode: ~Alt}
-  - {key: Home, mods: Shift, action: ScrollToTop, mode: ~Alt}
-  - {key: End, mods: Shift, action: ScrollToBottom, mode: ~Alt}
-  # (Windows, Linux, and BSD only)
-  - {key: V, mods: Control|Shift, action: Paste}
-  - {key: C, mods: Control|Shift, action: Copy}
-  # - { key: C, mods: Control|Shift, chars: "\x03" }
-  - {key: Insert, mods: Shift, action: PasteSelection}
-  - {key: Key0, mods: Control, action: ResetFontSize}
-  - {key: Equals, mods: Control, action: IncreaseFontSize}
-  - {key: Plus, mods: Control, action: IncreaseFontSize}
-  - {key: Minus, mods: Control, action: DecreaseFontSize}
-  - {key: Minus, mods: Control, action: DecreaseFontSize}
-  # - {key: F11, action: ToggleFullscreen}
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.dimensions]
+columns = 90
+lines = 29
+
+[window.padding]
+x = 2
+y = 3
