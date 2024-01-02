@@ -11,21 +11,31 @@
 #      configuration files from a Git repository using fzf.
 
 # From yadm, or your preferred dotfiles manager
-# Get a list of configuration files from the Git repository, excluding files ending with ".py" and ".pyc"
+# Get a list of configuration files from the Git repository
 dotgitls='/usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke ls-tree --full-tree -r HEAD'
 
-configs=$($dotgitls | awk '{print $4}' | xargs -n1 basename | grep -Ev '\.py$|\.pyc$' | sort -u)
+# Additional custom list of files, untracked
+# custom_configs_list="file1  file2 file3"
+custom_configs_list=".zsh_history"
+custom_configs=$(echo "$custom_configs_list" | xargs -n1 )
+
+# Exclude files ending with ".py" and ".pyc"
+configs=$(eval "$dotgitls" | awk '{print $4}' | xargs -n1 | grep -Ev '\.py$|\.pyc$' | sort -u && echo "$custom_configs")
+# echo "$configs"
 
 # Use fzf to interactively select a configuration file
 selected=$(printf "%s\n" "$configs" | fzf)
+# echo "$selected"
 
 if [ -n "$selected" ]; then
     # Use grep with word boundaries to ensure an exact match
-    config_file=$($dotgitls | grep -E "\b$selected\b" | awk '{print $4}')
-    
+    # config_file=$($dotgitls | grep -E "\b$selected\b" | awk '{print $4}')
+    config_file=$( ( eval "$dotgitls" | awk '{print $4}'; echo "$custom_configs" ) | grep -F -e "$selected" )
+
     if [ -n "$config_file" ]; then
         # Open the selected configuration file in the user's preferred text editor
-        $EDITOR "$config_file"
+        # DEBUG: echo "$HOME/$config_file"
+        $EDITOR "$HOME/$config_file"
     else
         echo "Error: Unable to find a unique match for '$selected'."
     fi
