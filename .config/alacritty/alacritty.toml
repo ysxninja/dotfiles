@@ -112,7 +112,6 @@ key = "Minus"
 mods = "Control"
 
 [scrolling]
-# faux_multiplier = 3
 history = 5000
 multiplier = 3
 
@@ -123,6 +122,7 @@ program = "/usr/bin/zsh"
 dynamic_padding = false
 opacity = 0.9
 title = "Alacritty"
+dynamic_title = true
 
 [window.class]
 general = "Alacritty"
