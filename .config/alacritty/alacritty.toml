@@ -7,6 +7,8 @@ import = [
 
 [env]
 COLORTERM = "truecolor"
+WINIT_X11_SCALE_FACTOR = "1.0"
+
 
 [font]
 size = 10.0
