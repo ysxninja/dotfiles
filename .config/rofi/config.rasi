@@ -7,8 +7,11 @@ configuration {
     font:				"JetBrainsMono Nerd Font 10";
     show-icons:				true;
     icon-theme:				"Arc-X-D";
-    display-drun:			"Apps";
-    drun-display-format:		"{name}";
+    display-drun: "  Apps ";
+    display-run: "  Run ";
+    display-window: " 﩯  Window";
+    display-Network: "󰤨  Network";
+    drun-display-format: "{icon} {name}";
     scroll-method:			0;
     disable-history:			false;
     sidebar-mode:			false;
