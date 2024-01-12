@@ -1,3 +1,54 @@
+# Evince Monitor Script
+
+# Description:
+#   Monitors Evince document viewer activity, captures window information, and sends heartbeats to WakaTime API.
+
+# Author: github.com/ya-suke
+
+# License: MIT
+
+# Requirements:
+# - i3 window manager
+# - i3ass
+# - Evince document viewer
+# - Python 3
+# - WakaTime API key (configure in .wakatime.cfg) / Wakapi
+
+# Installation:
+# 1. Clone repository: git clone [repository_url]
+# 2. Navigate to script directory: cd [script_directory]
+# 3. Install dependencies: pip install -r requirements.txt
+# 4. Configure WakaTime API key in .wakatime.cfg
+# 5. Run script: python evince_monitor.py
+
+# Configuration:
+# - Configure WakaTime API key and endpoint in .wakatime.cfg
+# - Adjust script parameters as needed
+
+# Usage:
+# - Script runs in the background, continuously monitoring Evince activity.
+# - Heartbeat events sent to WakaTime API every 2 minutes during active Evince usage.
+# - Activity logs recorded in specified log file.
+
+# Note:
+# - Ensure i3 window manager and Evince are installed and running.
+# - Properly configure WakaTime API key and endpoint in configuration file.
+# - Setup as service for best results
+#   e.g. /etc/systemd/system/evince-monitor.service
+#           [Unit]
+#           Description=Evince Monitor Service
+#           After=network.target i3.target  # Add i3.target as a dependency
+#
+#           [Service]
+#           Environment=DISPLAY=:0  # Set the display variable
+#           Environment=XAUTHORITY=/home/your_username/.Xauthority  # Set the Xauthority file path
+#           ExecStart=/usr/bin/python3 /path/to/your/script.py
+#           Restart=always
+#           RestartSec=60
+#
+#           [Install]
+#           WantedBy=multi-user.target
+
 import subprocess
 import os
 import time
@@ -5,16 +56,19 @@ import requests
 import configparser
 import base64
 
+# Configure, and WAKATIME_ENDPOINT as needed:
+WAKATIME_CONFIG_FILE="/opt/wakapi/.wakatime.cfg"
+LOGFILE = "/opt/wakapi/evince_monitor.log"
+
 # Read Wakatime API key from configuration file
 config = configparser.ConfigParser()
-config.read(os.path.expanduser('/opt/wakapi/.wakatime.cfg'))
+config.read(os.path.expanduser(WAKATIME_CONFIG_FILE))
 
 WAKATIME_API_KEY = config.get('settings', 'api_key')
 WAKATIME_API_KEY_BASE64 = base64.b64encode(WAKATIME_API_KEY.encode()).decode()
 WAKATIME_API_URL = config.get('settings', 'api_url')
 WAKATIME_ENDPOINT = f"{WAKATIME_API_URL}/users/current/heartbeats"
 # DEBUG: WAKATIME_ENDPOINT = "http://localhost:3003/api/users/current/heartbeats"
-LOGFILE = "/opt/wakapi/evince_monitor.log"
 
 def get_active_window():
     try:
