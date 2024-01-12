@@ -18,9 +18,9 @@ LOGFILE = "/opt/wakapi/evince_monitor.log"
 
 def get_active_window():
     try:
-        title = subprocess.check_output(["i3get", "--instance", "evince", "--print", "t"]).decode("utf-8").strip()
-        con_id = subprocess.check_output(["i3get", "--instance", "evince", "--print", "n"]).decode("utf-8").strip()
-        window_class = subprocess.check_output(["i3get", "--instance", "evince", "--print", "c"]).decode("utf-8").strip()
+        title = subprocess.check_output(["/usr/bin/i3get", "--instance", "evince", "--print", "t"]).decode("utf-8").strip()
+        con_id = subprocess.check_output(["/usr/bin/i3get", "--instance", "evince", "--print", "n"]).decode("utf-8").strip()
+        window_class = subprocess.check_output(["/usr/bin/i3get", "--instance", "evince", "--print", "c"]).decode("utf-8").strip()
 
         # Split title into main and subtitle parts
         title_parts = title.split(" — ")  # Adjust the separator based on your actual title format
@@ -67,7 +67,7 @@ def send_heartbeat():
             "editor" : "Evince",
             "os" : "Linux",
             "project": "Learning",
-            "branch": "main",
+            "branch": "security",
             "category": "Learning",
         }
 
