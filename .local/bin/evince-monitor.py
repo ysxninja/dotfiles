@@ -1,7 +1,8 @@
 # Evince Monitor Script
 
 # Description:
-#   Monitors Evince document viewer activity, captures window information, and sends heartbeats to WakaTime API.
+#   Monitors Evince document viewer activity, captures window information,
+#   and sends heartbeats to WakaTime API.
 
 # Author: github.com/ya-suke
 
@@ -40,7 +41,7 @@
 #           After=network.target i3.target  # Add i3.target as a dependency
 #
 #           [Service]
-#           Environment=DISPLAY=:0  # Set the display variable
+#           Environment=DISPLAY=:0  # Set the display variable, check with, echo $DISPLAY
 #           Environment=XAUTHORITY=/home/your_username/.Xauthority  # Set the Xauthority file path
 #           ExecStart=/usr/bin/python3 /path/to/your/script.py
 #           Restart=always
@@ -114,14 +115,14 @@ def send_heartbeat():
         timestamp = time.time()
         entity = window_info[2] if window_info[2] else window_info[1]  # Use subtitle as entity, fallback to main title
         data = {
-            "entity": entity.capitalize(),  # Capitalize the first letter
+            "entity": window_info[1],  # Main title as entity
             "time": timestamp,
             "type": "file",
             "user_agent": "Evince",
             "editor" : "Evince",
             "os" : "Linux",
-            "project": "Learning",
-            "branch": "security",
+            "project": entity.capitalize(),  # Capitalize the first letter
+            "branch": "Learning",
             "category": "Learning",
         }
 
