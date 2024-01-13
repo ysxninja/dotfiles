@@ -60,6 +60,7 @@ import requests
 import configparser
 import base64
 
+print("Evince-monitor.sh: started")
 # Configure, and WAKATIME_ENDPOINT as needed:
 WAKATIME_CONFIG_FILE="/opt/wakapi/.wakatime.cfg"
 LOGFILE = "/opt/wakapi/evince_monitor.log"

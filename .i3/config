@@ -369,7 +369,7 @@ exec --no-startup-id /usr/bin/flameshot
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id /usr/bin/kdeconnect-indicator
 exec --no-startup-id $HOME/.local/bin/remaps
-exec --no-startup-id $HOME/.local/bin/evince-monitor.py
+exec --no-startup-id $HOME/.local/bin/evince-monitor
 
 # hide/unhide polybar
 bindsym $mod+m exec --no-startup-id "polybar-msg cmd toggle"

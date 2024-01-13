@@ -6,6 +6,7 @@
 # xset r rate 300 50 
 # fast medium smooth
 
+echo "Remaps.sh: Changing Xset r rate to 190 30"
 xset r rate 190 30 
 # fast very smooth
 
@@ -16,6 +17,4 @@ xset r rate 190 30
 
 # when it is pressed only once, treat it as escape key
 # killall xcape 2>/dev/null ; xcape -e 'Caps_Lock=Escape'
-
-# echo "WEll xx run" > /home/yasuke/Desktop/success
 
