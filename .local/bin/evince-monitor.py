@@ -34,7 +34,8 @@
 # Note:
 # - Ensure i3 window manager and Evince are installed and running.
 # - Properly configure WakaTime API key and endpoint in configuration file.
-# - Setup as service for best results
+# - Autostart in i3 config file for best results
+#   OR systemd service file, you masochist you
 #   e.g. /etc/systemd/system/evince-monitor.service
 #           [Unit]
 #           Description=Evince Monitor Service
