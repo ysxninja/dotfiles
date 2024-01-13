@@ -364,7 +364,7 @@ exec --no-startup-id xidlehook --not-when-audio --timer 400 'xrandr --output "$l
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 # exec_always --no-startup-id dunst -config $dunst/dunstrc
-exec --no-startup-id "unclutter -grab -idle 5"
+exec --no-startup-id unclutter
 exec --no-startup-id /usr/bin/flameshot
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id /usr/bin/kdeconnect-indicator
