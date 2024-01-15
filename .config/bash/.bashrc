@@ -1,4 +1,4 @@
-#
+#!/bin/bash
 # My bash config. Not much to see here; just some pretty standard stuff.
 
 ### EXPORT
