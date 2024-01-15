@@ -37,6 +37,27 @@ if [ -n "$FIFO_UEBERZUG" ]; then
       ffmpegthumbnailer -i "$file" -o "$cache" -s 0
       draw "$cache" "$@"
       ;;
+    application/x-tar)
+      tar tf "$file"
+      ;;
+    application/zip)
+      unzip -l "$file"
+      ;;
+    application/x-rar-compressed)
+      unrar l "$file"
+      ;;
+    application/x-7z-compressed)
+      7z l "$file"
+      ;;
+    application/pdf)
+      cache="$(hash "$file").jpg"
+      cache "$cache" "$@"
+      gs -o "$cache" -sDEVICE=pngalpha -dLastPage=1 "$file" >/dev/null
+      draw "$cache" "$@"
+      ;;
+    *)
+      bat "$file"
+      ;;
   esac
 fi
 
