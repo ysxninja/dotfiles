@@ -10,15 +10,21 @@ set cursorpreviewfmt "\033[7;90m"
 set icons
 set previewer '~/.config/lf/previewer.sh'
 set cleaner '~/.config/lf/clear_img.sh'
+# set drawbox
+# set ratios 1
+set info size:time
+set period 1
 
 # Basic Functions
-# map . set hidden!
 map d
 map m
 
+map zp toggle_preview
 map dd trash
 map dr restore_trash
 map <enter> open
+map . set hidden!
+# map <c-h> set hidden! # waiting for #Fix
 # map <enter> shell
 map R reload
 map mf mkfile
@@ -141,6 +147,15 @@ cmd trash ${{
 cmd restore_trash ${{
   trash-restore
 }}
+
 # cmd on-select &{{
 #     lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\""
 # }}
+
+cmd toggle_preview %{{
+    if [ "$lf_preview" = "true" ]; then
+        lf -remote "send $id :set preview false; set ratios 1:5"
+    else
+        lf -remote "send $id :set preview true; set ratios 1:2:3"
+    fi
+}}
