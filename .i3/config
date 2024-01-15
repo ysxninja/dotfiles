@@ -111,7 +111,7 @@ bindsym Ctrl+Shift+Escape --release exec --no-startup-id xkill
 # scratchpad for temporary terminal thus dubbed ttrm
 bindsym $mod+7 exec --no-startup-id i3run --title ttrm -- alacritty --title ttrm -e tattach-ttrm
 # scratchpad for ranger terminal thus dubbed fm
-bindsym $mod+8 exec --no-startup-id i3run --class fm -- alacritty --class fm -e lfup
+bindsym $mod+8 exec --no-startup-id i3run --class fm -- alacritty --class fm -e lfub
 # scratchpad for ncmpcpp terminal thus dubbed harmonia, go forth and bring harmony
 bindsym $mod+9 exec --no-startup-id i3run --title harmonia -- alacritty --title harmonia -e ncmpcpp
 # move the currently focused window to the scratchpad
