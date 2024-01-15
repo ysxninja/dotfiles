@@ -5,7 +5,8 @@ set ifs "\n"
 set hidden true
 set ignorecase true
 set scrolloff 10 # leave some space at the top and the bottom of the screen
-set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline for the cursor in the preview pane
+# set cursorpreviewfmt "\033[7;2m" # Use the `dim` attribute instead of underline for the cursor in the preview pane
+set cursorpreviewfmt "\033[7;90m"	
 set icons
 set previewer '~/.config/lf/previewer.sh'
 set cleaner '~/.config/lf/clear_img.sh'
@@ -140,4 +141,6 @@ cmd trash ${{
 cmd restore_trash ${{
   trash-restore
 }}
-
+# cmd on-select &{{
+#     lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\""
+# }}
