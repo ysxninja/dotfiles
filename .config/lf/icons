@@ -32,8 +32,8 @@ bd      b       # BLK
 cd      c       # CHR
 su      u       # SETUID
 sg      g       # SETGID
-ex             # EXEC
-fi             # FILE 
+ex      🎯       # EXEC 
+fi             # FILE  	📃
 
 # file extensions (vim-devicons)
 *.styl          
