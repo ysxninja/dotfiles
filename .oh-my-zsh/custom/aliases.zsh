@@ -4,6 +4,9 @@
 # alias ttyper="RUST_BACKTRACE=full ttyper"
 alias tt="taskwarrior-tui"
 
+# lf with ueberzug
+alias lf="lfub"
+
 # ripgrep for aliases
 # alias agrep="alias | rg"
 alias gp="git pull && git push"
@@ -130,12 +133,12 @@ IFS=$SAVEIFS
 # bat
 alias cat='bat'
 
-# Changing "ls" to "exa"
-alias ls='exa -al --color=always --group-directories-first --icons -a -s type' # my preferred listing
-alias la='exa -a --color=always --group-directories-first --icons -a -s type'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first --icons -a -s type'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
-alias l.='exa -a | rg "^\."'
+# Changing "ls" to "eza"
+alias ls='eza -al --color=always --group-directories-first --icons -a -s type' # my preferred listing
+alias la='eza -a --color=always --group-directories-first --icons -a -s type'  # all files and dirs
+alias ll='eza -l --color=always --group-directories-first --icons -a -s type'  # long format
+alias lt='eza -aT --color=always --group-directories-first' # tree listing
+alias l.='eza -a | rg "^\."'
 
 
 # Colorize ripgrep output (good for log files)
