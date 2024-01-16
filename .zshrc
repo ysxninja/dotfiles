@@ -64,10 +64,14 @@ export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..|
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-### "bat" as manpager
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# Fix formatting problems
-export MANROFFOPT="-c"
+### SET MANPAGER
+# ### "bat" as manpager
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# # Fix formatting problems
+# export MANROFFOPT="-c"
+
+### "nvim" as manpageer
+export MANPAGER="nvim +Man!"
 
 ### PATH
 if [ -d "$HOME/.bin" ] ;
