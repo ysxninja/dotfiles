@@ -77,12 +77,12 @@ fi
 # zsh-pentest
 # zsh-handy-helpers
 # httpie
+# web-search
 plugins=(
     zsh-z
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-completions
-    web-search
     fzf-tab
     fzf
 )
