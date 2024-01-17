@@ -117,6 +117,7 @@ style = "bold yellow"
 
 [nodejs]
 format = " [$symbol($version)]($style) "
+disabled = true
 
 [python]
 # Display the version of python from inside a local venv.
