@@ -282,6 +282,9 @@ export WAKATIME_HOME='/opt/wakapi'
 # proxy
 # export http_proxy=socks5://192.168.43.1:8089
 
+### Initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
 ### Source
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
