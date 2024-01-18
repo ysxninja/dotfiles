@@ -195,7 +195,7 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 # zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
 
 ### Export
-export PATH="$HOME/Android:$PATH";
+export ANDROID_HOME="$XDG_DATA_HOME"/android
 # Ruby gems path for vimgolf, mdless etc
 export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
@@ -236,7 +236,7 @@ CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 export CHROME_EXECUTABLE
 
 # Rust- Cargo path
-export PATH="$PATH:$HOME/.cargo/bin"
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
 
 ## FZF
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
