@@ -19,6 +19,7 @@ set period 1
 map d
 map m
 
+map x  cut
 map zp toggle_preview
 map dd trash
 map dr restore_trash
@@ -32,8 +33,8 @@ map md mkdir
 # show the result of execution of previous commands
 map ` !true
 # execute current file (must be executable)
-map x $$f
-map X !$f
+map gx $$f
+map gX !$f
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
