@@ -282,9 +282,6 @@ export WAKATIME_HOME='/opt/wakapi'
 # proxy
 # export http_proxy=socks5://192.168.43.1:8089
 
-# export PATH="$HOME/.tmux/plugins/tmuxifier/bin:$PATH"
-# eval "$(tmuxifier init -)"
-
 ### Initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
