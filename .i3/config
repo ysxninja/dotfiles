@@ -368,7 +368,7 @@ exec --no-startup-id unclutter
 exec --no-startup-id /usr/bin/flameshot
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id /usr/bin/kdeconnect-indicator
-exec --no-startup-id $HOME/.local/bin/remaps
+exec_always --no-startup-id $HOME/.local/bin/remaps
 exec --no-startup-id $HOME/.local/bin/evince-monitor
 
 # hide/unhide polybar
