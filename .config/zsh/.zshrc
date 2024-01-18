@@ -4,7 +4,7 @@ export ZSH=$HOME/.oh-my-zsh
 # History file commands loaded into memory and stored in the history file
 HISTSIZE=100000
 SAVEHIST=300000
-HISTFILE=$HOME/.zsh_history
+HISTFILE=$HOME/.config/zsh/.zsh_history
 
 # Tmux conf
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
