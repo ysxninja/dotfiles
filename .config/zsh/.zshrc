@@ -4,8 +4,8 @@ export ZSH=$HOME/.oh-my-zsh
 # History file commands loaded into memory and stored in the history file
 HISTSIZE=100000
 SAVEHIST=300000
-# export HISTFILE=$XDG_STATE_HOME/zsh/history
 export HISTFILE="$XDG_STATE_HOME"/zsh/history
+
 # Tmux conf
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
@@ -237,6 +237,8 @@ export CHROME_EXECUTABLE
 
 # Rust- Cargo path
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
+
+export _Z_DATA="$XDG_DATA_HOME/z"
 
 ## FZF
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
