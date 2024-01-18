@@ -16,7 +16,7 @@ dotgitls='/usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke
 
 # Additional custom list of files, untracked
 # custom_configs_list="file1  file2 file3"
-custom_configs_list=".config/zsh/.zsh_history"
+custom_configs_list=".local/state/zsh/history"
 custom_configs=$(echo "$custom_configs_list" | xargs -n1 )
 
 # Exclude files ending with ".py" and ".pyc"
