@@ -229,7 +229,6 @@ export GOPATH=$GOPATH:/home/yasuke/code
 # Chrome executable path for flutter doctor
 # CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 # export CHROME_EXECUTABLE
-# cf() { du -a ~/.config/ | awk '{print $2}' | fzf | xargs -r $EDITOR }
 
 # CHROME_EXECUTABLE & chromedriver
 export PATH="$PATH:/usr/bin/chromedriver"
