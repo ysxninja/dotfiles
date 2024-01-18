@@ -64,8 +64,10 @@
     # Show how many messages are currently hidden (because of
     # notification_limit).
     indicate_hidden = yes
- 
-    shrink = no
+
+    # Shrink window if it's smaller than the width
+    # shrink = no
+    #
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing window manager is
     # present (e.g. xcompmgr, compiz, etc.). (X11 only)
@@ -91,6 +93,12 @@
 
     # Defines color of the frame around the notification window.
     frame_color = "#282a36"
+
+    # Size of gap to display between notifications - requires a compositor.
+    # If value is greater than 0, separator_height will be ignored and a border
+    # of size frame_width will be drawn around each notification instead.
+    # Click events on gaps do not currently propagate to applications below.
+    gap_size = 5
 
     # Define a color for the separator.
     # possible values are:
@@ -185,6 +193,17 @@
     show_indicators = false
 
     ### Icons ###
+
+    # Recursive icon lookup. You can set a single theme, instead of having to
+    # define all lookup paths.
+    enable_recursive_icon_lookup = true
+
+    # Set icon theme (only used for recursive icon lookup)
+    icon_theme = a_hyb_WhiteSur
+    # You can also set multiple icon themes, with the leftmost one being used first.
+    # icon_theme = "Adwaita, breeze"
+
+    # Align icons left/right/top/off
     # Corner radius for the icon.
     icon_corner_radius = 12
 
@@ -194,12 +213,12 @@
     # Scale small icons up to this size, set to 0 to disable. Helpful
     # for e.g. small files or high-dpi screens. In case of conflict,
     # max_icon_size takes precedence over this.
-    min_icon_size = 0
+    min_icon_size = 32
 
     # Scale larger icons down to this size, set to 0 to disable
-    max_icon_size = 48
+    max_icon_size = 128
 
-    # Paths to default icons.
+    # Paths to default icons (only neccesary when not using recursive icon lookup)
     # icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
     icon_path = /home/yasuke/.icons/a_hyb_WhiteSur/status/32:/home/yasuke/.icons/a_hyb_WhiteSur/status/24:/home/yasuke/.icons/a_hyb_WhiteSur/devices/24
     ### History ###
@@ -217,7 +236,7 @@
     # dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    # browser = /usr/bin/firefox -new-tab
+    browser = /usr/bin/firefox -new-tab
 
     # Always run rule-defined scripts, even if the notification is suppressed
     always_run_script = true
