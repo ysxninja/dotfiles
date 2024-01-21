@@ -2,6 +2,7 @@
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
+let mapleader = " "           " space as leader key
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vundle For Managing Plugins
@@ -29,6 +30,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
     Plug 'vim-python/python-syntax'                    " Python highlighting
     Plug 'ap/vim-css-color'                            " Color previews for CSS
+    Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 "{{ Junegunn Choi Plugins }}
     Plug 'junegunn/goyo.vim'                           " Distraction-free viewing
     Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
@@ -86,7 +88,7 @@ let g:rehash256 = 1
 "      \ }
 "
 let g:lightline = {
-      \ 'colorscheme': 'darcula',
+      \ 'colorscheme': 'catppuccin_mocha',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -98,7 +100,7 @@ let g:lightline = {
 
 " If status line is all black, set this
 " Always show statusline
-" set laststatus=2
+set laststatus=2
 
 " Uncomment to prevent non-normal modes showing in powerline and below powerline.
 set noshowmode
@@ -108,8 +110,8 @@ set noshowmode
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set expandtab                   " Use spaces instead of tabs.
 set smarttab                    " Be smart using tabs ;)
-set shiftwidth=4                " One tab == four spaces.
-set tabstop=4                   " One tab == four spaces.
+set shiftwidth=2                " One tab == two spaces.
+set tabstop=2                   " One tab == two spaces.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
@@ -253,4 +255,13 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
+set termguicolors
+
+" In some version combinations of alacritty + tmux + vim, vim can't properly detect which escape sequence it should use for truecolor. Add the following snippet to tell vim how the escape sequence should look:
+if !empty($TMUX) && empty(&t_8f)
+  let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+  let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+endif
+
+colorscheme catppuccin_mocha
 
