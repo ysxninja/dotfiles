@@ -183,6 +183,8 @@ bindsym $mod+a focus parent
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
+# bindsym $mod+c move position center
+
 set $external1 VGA1
 set $laptop LVDS1
 # set $external1 DP2
@@ -244,7 +246,7 @@ assign [class="Google-chrome"] $ws3
 assign [class="xdman-Main"] $ws4
 assign [class="Nemo"] $ws4
 assign [class="Plex"] $ws2
-# assign [class="burp-StartBurp"] $ws2
+assign [class="burp-StartBurp"] $ws2
 # assign [class="org-zaproxy-zap-ZAP"] $ws2
 # assign [class="OWASP ZAP"] $ws2
 # assign [class="ZAP"] $ws2
@@ -260,6 +262,13 @@ for_window [class="Google-chrome"] fullscreen
 # for_window [class="org-zaproxy-zap-ZAP"] floating enable
 # for_window [class="org-zaproxy-zap-ZAP"][window_type=dialog] focus
 # for_window [class="burp-StartBurp"] floating enable
+# burp specific tabs
+for_window [class="burp-StartBurp"] [title="\bSettings\b"] floating enable move position center
+for_window [class="burp-StartBurp"] [title="\bEdit live passive crawl task\b"] floating enable move position center
+# for_window [class="burp-StartBurp"] [title="\bIntruder attack of\b"] floating enable move position center
+# Fix burploader not centered
+for_window [title="Java"] floating enable move position center
+
 for_window [title="alsamixer"] floating enable 
 for_window [class="calamares"] floating enable
 for_window [class="Clipgrab"] floating enable
