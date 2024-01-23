@@ -1,0 +1,19 @@
+#!/bin/bash
+
+SESSION_NAMES=("ttrm" "yasuke" "code")
+
+while true; do
+    for SESSION_NAME in "${SESSION_NAMES[@]}"; do
+        if ! tmux has-session -t "$SESSION_NAME" &> /dev/null; then
+            # The session doesn't exist, create it
+            tmux new-session -d -s "$SESSION_NAME"
+
+            # Add any additional configuration or commands here if needed
+
+            echo "Session '$SESSION_NAME' created."
+        fi
+    done
+
+    # Sleep for a while before checking again (adjust the sleep duration as needed)
+    sleep 1
+done
