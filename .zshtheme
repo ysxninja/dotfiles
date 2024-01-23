@@ -1,0 +1,95 @@
+### COLOR ###
+
+### ZSH_CUSTOM zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#839496,bg=default,default,default"
+
+### ZSH_CUSTOM zsh-syntax-highlighting
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#9cc4ff'
+## Constants
+## Entitites
+## Functions/methods
+ZSH_HIGHLIGHT_STYLES[alias]='fg=#a3f7ff'
+ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=#a3f7ff'
+ZSH_HIGHLIGHT_STYLES[global-alias]='fg=#a3f7ff'
+ZSH_HIGHLIGHT_STYLES[function]='fg=#a3f7ff'
+ZSH_HIGHLIGHT_STYLES[command]='fg=#a3f7ff'
+ZSH_HIGHLIGHT_STYLES[precommand]='fg=#a3f7ff,italic'
+ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=#ffcb6d,italic'
+ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#ffcb6d'
+ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#ffcb6d'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=#c792ea'
+## Keywords
+## Built ins
+ZSH_HIGHLIGHT_STYLES[builtin]='fg=#89ddff'
+ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#89ddff'
+ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=#89ddff'
+## Punctuation
+ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#e1acff'
+ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter-unquoted]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]='fg=#e1acff'
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=#e1acff'
+ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]='fg=#e1acff'
+## Serializable / Configuration Languages
+## Storage
+## Strings
+ZSH_HIGHLIGHT_STYLES[command-substitution-quoted]='fg=#ddffa7'
+ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter-quoted]='fg=#ddffa7'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#ddffa7'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=#ff8b92'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#ddffa7'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=#ff8b92'
+ZSH_HIGHLIGHT_STYLES[rc-quote]='fg=#ddffa7'
+## Variables
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=#ff8b92'
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[assign]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[named-fd]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[numeric-fd]='fg=#ffffff'
+## No category relevant in spec
+ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#ff8b92'
+ZSH_HIGHLIGHT_STYLES[path]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#c792ea'
+ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#c792ea'
+ZSH_HIGHLIGHT_STYLES[globbing]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=#c792ea'
+#ZSH_HIGHLIGHT_STYLES[command-substitution]='fg=?'
+#ZSH_HIGHLIGHT_STYLES[command-substitution-unquoted]='fg=?'
+#ZSH_HIGHLIGHT_STYLES[process-substitution]='fg=?'
+#ZSH_HIGHLIGHT_STYLES[arithmetic-expansion]='fg=?'
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument-unclosed]='fg=#ff8b92'
+ZSH_HIGHLIGHT_STYLES[redirection]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[default]='fg=#ffffff'
+ZSH_HIGHLIGHT_STYLES[cursor]='standout'
+
+### Fzf-tab
+# Show full path for files on cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath' # remember to use single quote here!!!
+# Show systemd unit status
+zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+## Git
+# it is an example. you can change it
+zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
+	'git diff $word | delta'
+zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
+	'git log --color=always $word'
+zstyle ':fzf-tab:complete:git-help:*' fzf-preview \
+	'git help $word | bat -plman --color=always'
+zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
+	'case "$group" in
+	"commit tag") git show --color=always $word ;;
+	*) git show --color=always $word | delta ;;
+	esac'
+zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
+	'case "$group" in
+	"modified file") git diff $word | delta ;;
+	"recent commit object name") git show --color=always $word | delta ;;
+	*) git log --color=always $word ;;
+	esac'
+
+# Preview for all files on tab
+# zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'

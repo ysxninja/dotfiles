@@ -1,14 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
-# History file commands loaded into memory and stored in the history file
-HISTSIZE=100000
-SAVEHIST=300000
-export HISTFILE="$XDG_STATE_HOME"/zsh/history
-
 # Tmux conf
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
@@ -20,33 +12,15 @@ ensure_tmux_is_running() {
 
 ensure_tmux_is_running
 
-# Dotman
-export DOT_DEST=Documents/ya-suke
-export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
+# History file commands loaded into memory and stored in the history file
+HISTSIZE=100000
+SAVEHIST=300000
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 DISABLE_AUTO_UPDATE="true"
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
 ### SET VI MODE
 bindkey -v
-
-### EXPORT
-# export TERM="xterm-256color"
-export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..|cf|ys|tmux|ttyper)"
-export EDITOR="nvim"
-export VISUAL="nvim"
-
-### SET MANPAGER
-# ### "bat" as manpager
-# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-# # Fix formatting problems
-# export MANROFFOPT="-c"
-
-### "nvim" as manpageer
-export MANPAGER="nvim +Man!"
 
 ### PATH
 if [ -d "$HOME/.bin" ] ;
@@ -61,26 +35,13 @@ if [ -d "$HOME/Applications" ] ;
   then PATH="$HOME/Applications:$PATH"
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-### ALIASES ###
-# defined in the ZSH_CUSTOM folder
-# For a full list of active aliases, run `alias`.
-
 ### PLUGINS ###
 # Add wisely, as too many plugins slow down shell startup.
 # removed yum, docker, vagrant, zsh-completions
 # checkout httpie(curl replacement),
 # removed vi-mode, extract already set in script
-# for pentest, zsh-pentest, zsh-handy-helpers, nmap
-# taskwarrior
-# git-extras
-# nmap
-# zsh-pentest
-# zsh-handy-helpers
-# httpie
-# web-search
+# for pentest, zsh-pentest, zsh-handy-helpers, nmap taskwarrior git-extras nmap zsh-pentest
+# zsh-handy-helpers httpie web-search
 plugins=(
     zsh-z
     zsh-autosuggestions
@@ -101,200 +62,15 @@ function set_terminal_title() {
 
 set_terminal_title
 
-### COLOR ###
-
-### ZSH_CUSTOM zsh-autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#839496,bg=default,default,default"
-
-### ZSH_CUSTOM zsh-syntax-highlighting
-ZSH_HIGHLIGHT_STYLES[comment]='fg=#9cc4ff'
-## Constants
-## Entitites
-## Functions/methods
-ZSH_HIGHLIGHT_STYLES[alias]='fg=#a3f7ff'
-ZSH_HIGHLIGHT_STYLES[suffix-alias]='fg=#a3f7ff'
-ZSH_HIGHLIGHT_STYLES[global-alias]='fg=#a3f7ff'
-ZSH_HIGHLIGHT_STYLES[function]='fg=#a3f7ff'
-ZSH_HIGHLIGHT_STYLES[command]='fg=#a3f7ff'
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=#a3f7ff,italic'
-ZSH_HIGHLIGHT_STYLES[autodirectory]='fg=#ffcb6d,italic'
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=#ffcb6d'
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=#ffcb6d'
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument]='fg=#c792ea'
-## Keywords
-## Built ins
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=#89ddff'
-ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=#89ddff'
-ZSH_HIGHLIGHT_STYLES[hashed-command]='fg=#89ddff'
-## Punctuation
-ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=#e1acff'
-ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter-unquoted]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]='fg=#e1acff'
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=#e1acff'
-ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]='fg=#e1acff'
-## Serializable / Configuration Languages
-## Storage
-## Strings
-ZSH_HIGHLIGHT_STYLES[command-substitution-quoted]='fg=#ddffa7'
-ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter-quoted]='fg=#ddffa7'
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=#ddffa7'
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=#ff8b92'
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=#ddffa7'
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=#ff8b92'
-ZSH_HIGHLIGHT_STYLES[rc-quote]='fg=#ddffa7'
-## Variables
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=#ff8b92'
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[assign]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[named-fd]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[numeric-fd]='fg=#ffffff'
-## No category relevant in spec
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=#ff8b92'
-ZSH_HIGHLIGHT_STYLES[path]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[path_pathseparator]='fg=#c792ea'
-ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[path_prefix_pathseparator]='fg=#c792ea'
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[history-expansion]='fg=#c792ea'
-#ZSH_HIGHLIGHT_STYLES[command-substitution]='fg=?'
-#ZSH_HIGHLIGHT_STYLES[command-substitution-unquoted]='fg=?'
-#ZSH_HIGHLIGHT_STYLES[process-substitution]='fg=?'
-#ZSH_HIGHLIGHT_STYLES[arithmetic-expansion]='fg=?'
-ZSH_HIGHLIGHT_STYLES[back-quoted-argument-unclosed]='fg=#ff8b92'
-ZSH_HIGHLIGHT_STYLES[redirection]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[arg0]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[default]='fg=#ffffff'
-ZSH_HIGHLIGHT_STYLES[cursor]='standout'
-
-### Fzf-tab
-# Show full path for files on cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath' # remember to use single quote here!!!
-# Show systemd unit status
-zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
-## Git
-# it is an example. you can change it
-zstyle ':fzf-tab:complete:git-(add|diff|restore):*' fzf-preview \
-	'git diff $word | delta'
-zstyle ':fzf-tab:complete:git-log:*' fzf-preview \
-	'git log --color=always $word'
-zstyle ':fzf-tab:complete:git-help:*' fzf-preview \
-	'git help $word | bat -plman --color=always'
-zstyle ':fzf-tab:complete:git-show:*' fzf-preview \
-	'case "$group" in
-	"commit tag") git show --color=always $word ;;
-	*) git show --color=always $word | delta ;;
-	esac'
-zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
-	'case "$group" in
-	"modified file") git diff $word | delta ;;
-	"recent commit object name") git show --color=always $word | delta ;;
-	*) git log --color=always $word ;;
-	esac'
-
-# Preview for all files on tab
-# zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ${(Q)realpath}'
-
-### Export
-export ANDROID_HOME="$XDG_DATA_HOME"/android
-# Ruby gems path for vimgolf, mdless etc
-export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
-
-# Golang paths
-# export GOROOT=/usr/local/go
-# export PATH=$PATH:$GOROOT/bin
-# The first segment of Gopath is going to be used by go get to store files,
-# but all segments will be searched for source code
-export GOPATH=/home/yasuke/golib
-export PATH=$PATH:$GOPATH/bin
-export GOPATH=$GOPATH:/home/yasuke/code
-
-# Android Flutter path
-# export PATH="$PATH:$HOME/development/flutter/bin"
-# # Android SDKS
-# export ANDROID_SDK_ROOT='/opt/android-sdk'
-# export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
-# export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
-# export PATH=$PATH:$ANDROID_ROOT/emulator
-# export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
-
-# Export path for yarn
-# export PATH="$PATH:$(yarn global bin)"
-
-# Export path for node
-# export PATH=~/.npm-global/bin:$PATH
-
-# Docker Gateway fallback host
-# export DOCKER_GATEWAY_HOST=172.17.0.1
-
-# Chrome executable path for flutter doctor
-# CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
-# export CHROME_EXECUTABLE
-
-# CHROME_EXECUTABLE & chromedriver
-export PATH="$PATH:/usr/bin/chromedriver"
-CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
-export CHROME_EXECUTABLE
-
-# Rust- Cargo path
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-
-export _Z_DATA="$XDG_DATA_HOME/z"
-
-## FZF
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# export FZF_DEFAULT_OPTS='--color=fg:#89ddff,hl:#ddffa7 --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea --color=marker:#ffffff,spinner:#c792ea,header:#82aaff --layout=reverse --height 40%'
-# export FZF_DEFAULT_OPTS="\
-#     --color=fg:#89ddff,hl:#ddffa7 \
-#     --color=fg+:#c792ea,bg+:#44475a,hl+:#ddffa7 \
-#     --color=info:#c792ea,prompt:#c792ea,pointer:#c792ea \
-#     --color=marker:#ffffff,spinner:#c792ea,header:#82aaff \
-#     --layout=reverse --height 40% "
-# Catppuccin FZF theme
-export FZF_DEFAULT_OPTS=" \
-    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-    --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8\
-    --layout=reverse --height 40% "
-# Setting fd as the default source for fzf
-# export FZF_DEFAULT_COMMAND='fd --type f'
-# follow symbolic links and don't exclude hidden files
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-# To apply the command to CTRL-T as well
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
-# # For less lessfilter
-# Override LESSOPEN defined in /etc/profile.d/lesspipe.sh
-export LESSOPEN='|~/.lessfilter %s'
-
-# For github signing with gpgkey
-export GPG_TTY=$(tty)
-
-# Npm global config
-export NPM_CONFIG_PREFIX=~/.npm-global
-export PATH="$PATH:~/.npm-global/bin"
-
-# Export Wakatime HOME for wakapi
-export WAKATIME_HOME='/opt/wakapi'
-
-# Export jfx to fix errors
-# export PATH="$PATH:/usr/lib/jvm/java-17-openjdk/lib/"
-
-# proxy
-# export http_proxy=socks5://192.168.43.1:8089
-
 ### Initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
 ### Source
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
-# source nvm
-# source /usr/share/nvm/init-nvm.sh
 
-# source /home/yasuke/.rvm/scripts/rvm
+# zsh theme + Fzf opts
+source ~/.zshtheme
 
 # colorscript random
 eval "$(starship init zsh)"
