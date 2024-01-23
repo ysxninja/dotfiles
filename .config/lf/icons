@@ -194,7 +194,7 @@ fi             # FILE  	📃
 *rakefile            
 *config.ru           
 *gemfile             
-*makefile            
+*makefile            
 *cmakelists.txt      
 *robots.txt          󰚩
 *Cargo.lock          
@@ -228,7 +228,7 @@ fi             # FILE  	📃
 *Docker-compose.yml     
 *Rakefile               
 *Gemfile                
-*Makefile               
+*Makefile               
 *CMakeLists.txt         
 *.Trash                 
 
