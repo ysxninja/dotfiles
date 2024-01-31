@@ -6,7 +6,7 @@ export ZSH=$HOME/.oh-my-zsh
 #
 # Dotman
 export DOT_DEST=Documents/ya-suke
-export DOT_REPO=git@github.com:Ya-suke/dotfiles.git
+export DOT_REPO=git@github.com:ysxninja/dotfiles.git
 
 export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..|cf|ys|tmux|ttyper)"
 export HISTFILE="$XDG_STATE_HOME"/zsh/history

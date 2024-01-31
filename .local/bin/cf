@@ -2,7 +2,7 @@
 #
 # cf | cf.sh | interactive-config-editor.sh
 #
-# Author: github.com/ya-suke
+# Author: [github.com/ysxninja](https://github.com/ysxninja)
 # Description: This script allows you to interactively select and edit configuration files
 #              from a Git repository using fzf.
 # License: MIT License

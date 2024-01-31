@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Author: github.com/ysxninja
+# Author: [github.com/ysxninja](https://github.com/ysxninja)
 # Description: This script displays your daily config time from wakapi
 # Use case: Add to polybar to help monitor your work time
 # Dependencies: jq, curl

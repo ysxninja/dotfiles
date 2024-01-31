@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # network-traffic.sh | vnstat-checker.sh
-# Author: https://github.com/ya-suke
+# Author: [github.com/ysxninja](https://github.com/ysxninja)
 # Description: A script to monitor / check data usage for network interfaces
 #              using vnstat.
 # Dependencies: Bash, ip(iproute2), ping(iputils-ping), vnstat

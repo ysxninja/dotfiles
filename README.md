@@ -2,13 +2,15 @@
 
 ## /\\/!n]a's Dotfiles
 
+- Note: Less is More
+
 ### To install this configuration
 
 - Clone as non-bare repo and place in arbitrary location(tmp)
 ``` sh
  git clone \
    --separate-git-dir=$HOME/dotfiles \
-   https://github.com/Ya-suke/dotfiles.git \
+   https://github.com/ysxninja/dotfiles.git \
    dotfiles-tmp
 ```
 - copy the snapshot from tmp dir to the correct locations

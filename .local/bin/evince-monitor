@@ -6,7 +6,7 @@
 #   Monitors Evince document viewer activity, captures window information,
 #   and sends heartbeats to WakaTime API.
 
-# Author: github.com/ya-suke
+# Author: [github.com/ysxninja](https://github.com/ysxninja)
 
 # License: MIT
 

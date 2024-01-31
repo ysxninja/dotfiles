@@ -1,5 +1,11 @@
 #!/bin/bash
-
+#
+# Author: [github.com/ysxninja](https://github.com/ysxninja)
+# Description: This script polls for tmux sessions and keeps them alive
+# Use case: Give the illusion of speed when opening the terminal
+# Dependencies: tmux
+# License: MIT
+#
 SESSION_NAMES=("ttrm" "yasuke" "code")
 
 while true; do

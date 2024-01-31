@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Author: github.com/ya-suke
+# Author: [github.com/ysxninja](https://github.com/ysxninja)
 # Description: This Bash script pulls updates from specified Git repositories.
 # Use case: Add to crontab to monitor/update scripts/repositories
 # License: MIT
