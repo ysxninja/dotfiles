@@ -91,8 +91,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id change-brightness up
 bindsym XF86MonBrightnessDown exec --no-startup-id change-brightness down
 
 # Start Applications
-bindsym $mod+Ctrl+b exec --no-startup-id terminal -e 'bmenu'
-bindsym $mod+F2 exec --no-startup-id palemoon
+# bindsym $mod+Ctrl+b exec --no-startup-id terminal -e 'bmenu'
+# bindsym $mod+F2 exec --no-startup-id palemoon
 # bindsym $mod+F3 exec pcmanfm
 # bindsym $mod+F3 exec ranger
 # bindsym $mod+Shift+F3 exec pcmanfm_pkexec
@@ -103,7 +103,7 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Ctrl+h exec --no-startup-id xdg-open /usr/share/doc/manjaro/i3_help.pdf
+# bindsym $mod+Ctrl+h exec --no-startup-id xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym Ctrl+Shift+Escape --release exec --no-startup-id xkill
 
 # INFO: Scratchpads using i3run
