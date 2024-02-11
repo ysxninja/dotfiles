@@ -5,36 +5,27 @@
 # Author: [github.com/ysxninja](https://github.com/ysxninja)
 # Description: This script allows you to interactively select and edit configuration files
 #              from a Git repository using fzf.
-# License: MIT License
-
-# This script allows you to interactively select and edit
-#      configuration files from a Git repository using fzf.
+# License: MIT
 
 # From yadm, or your preferred dotfiles manager
-# Get a list of configuration files from the Git repository
+# Get a list of configuration files from the Git repository, mine is a git bare repo
 dotgitls='/usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke ls-tree --full-tree -r HEAD'
 
-# Additional custom list of files, untracked
-# custom_configs_list="file1  file2 file3"
+# Additional custom list of files, separated by spaces
 custom_configs_list=".local/state/zsh/history"
 custom_configs=$(echo "$custom_configs_list" | xargs -n1 )
 
-# Exclude files ending with ".py" and ".pyc"
-configs=$(eval "$dotgitls" | awk '{print $4}' | xargs -n1 | grep -Ev '\.pyx$|\.pyc$' | sort -u && echo "$custom_configs")
-# echo "$configs"
+# Exclude files ending with ".rasi" and ".pyc"
+configs=$(eval "$dotgitls" | awk '{print $4}' | xargs -n1 | grep -Ev '\.rasi$|\.pyc$' | sort -u && echo "$custom_configs")
 
 # Use fzf to interactively select a configuration file
 selected=$(printf "%s\n" "$configs" | fzf)
-# echo "$selected"
+echo "$selected"
 
 if [ -n "$selected" ]; then
-    # Use grep with word boundaries to ensure an exact match
-    # config_file=$($dotgitls | grep -E "\b$selected\b" | awk '{print $4}')
-    config_file=$( ( eval "$dotgitls" | awk '{print $4}'; echo "$custom_configs" ) | grep -F -e "$selected" )
+    config_file=$( ( eval "$dotgitls" | awk '{print $4}'; echo "$custom_configs" ) | grep -F -e "$selected" | head -n 1 )
 
     if [ -n "$config_file" ]; then
-        # Open the selected configuration file in the user's preferred text editor
-        # DEBUG: echo "$HOME/$config_file"
         $EDITOR "$HOME/$config_file"
     else
         echo "Error: Unable to find a unique match for '$selected'."
