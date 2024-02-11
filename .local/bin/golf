@@ -13,6 +13,7 @@ function display_help {
 	echo
 	echo "Options:"
 	echo "  --update       Update local cache of VimGolf challenges."
+	echo "  --all          Display all VimGolf challenges."
 	echo "  --help         Display this help message."
 	echo
 	echo "Description:"
@@ -22,6 +23,7 @@ function display_help {
 	echo "Examples:"
 	echo "  $0                # Start browsing VimGolf challenges interactively."
 	echo "  $0 --update       # Update the local cache of VimGolf challenges."
+	echo "  $0 --all          # Display all VimGolf challenges."
 	echo "  $0 --help         # Display this help message."
 	echo
 	echo "Author:"
@@ -41,14 +43,35 @@ function display_challenges {
 	fi
 
 	selected=$(fzf --delimiter="::" --preview="echo {} | awk -F '::' '{print \$NF}'" --preview-window=up,3:wrap <"$output_file" | awk -F '::' '{print $1}' | tr -d '[:space:]')
-	echo "Debug: Selected: $selected"
+	echo "Selected: $selected"
 
 	if [ "${#selected}" -eq 24 ]; then
-		echo "Debug: Starting VimGolf! challenge ID: $selected"
+		echo "Starting VimGolf! challenge ID: $selected"
 		vimgolf put "$selected"
 	else
 		echo "${#selected}"
-		echo "Debug: Invalid challenge ID. Please enter a valid 24-character ID."
+		echo "Invalid challenge ID. Please enter a valid 24-character ID."
+	fi
+}
+
+function display_all_challenges {
+	local output_file="$OUTPUT_DIR/all_challenges.txt"
+
+	if [ ! -f "$output_file" ]; then
+		echo "Error: All challenges file not found. Please update the cache."
+		echo "       Run $0 --update to update the cache."
+		exit 1
+	fi
+
+	selected=$(fzf --delimiter="::" --preview="echo {} | awk -F '::' '{print \$NF}'" --preview-window=up,3:wrap <"$output_file" | awk -F '::' '{print $1}' | tr -d '[:space:]')
+	echo "Selected: $selected"
+
+	if [ "${#selected}" -eq 24 ]; then
+		echo "Starting VimGolf! challenge ID: $selected"
+		vimgolf put "$selected"
+	else
+		echo "${#selected}"
+		echo "Invalid challenge ID. Please enter a valid 24-character ID."
 	fi
 }
 
@@ -56,9 +79,40 @@ function update_data {
 	rm -rf "$OUTPUT_DIR" # Remove the existing output files
 	mkdir -p "$OUTPUT_DIR"
 	touch "$CURRENT_PAGE_FILE"
-	for page in {1..12}; do
-		curl -L -s "http://www.vimgolf.com/?page=$page" | tr -d '\n' | grep -oP '\/challenges\/([a-z0-9]+)">([^<]+)<\/a>.*?<p>([^<]+)<\/p>' | sed -n 's#.*challenges/\([^"]*\)">\(.*\)</a>.*<p>\(.*\)</p>.*#\1 :: \2 :: \3#p' >"$OUTPUT_DIR/page_$page.txt"
+
+	# Number of pages to update
+	# TODO: Fetch the number of pages dynamically
+	total_pages=12
+
+	echo "Updating data:"
+	for page in $(seq $total_pages); do
+		echo -n "Page $page/$total_pages ["
+
+		# Simulate a progress bar by printing dots
+		for ((i = 1; i <= page; i++)); do
+			echo -n "="
+		done
+
+		for ((i = page; i < total_pages; i++)); do
+			echo -n "."
+		done
+
+		echo -n "]"
+
+		# Fetch and save data for the current page
+		curl_output=$(curl -L -s "http://www.vimgolf.com/?page=$page" | tr -d '\n' | grep -oP '\/challenges\/([a-z0-9]+)">([^<]+)<\/a>.*?<p>([^<]+)<\/p>' | sed -n 's#.*challenges/\([^"]*\)">\(.*\)</a>.*<p>\(.*\)</p>.*#\1 :: \2 :: \3#p')
+
+		# Save the output to a file
+		echo "$curl_output" >"$OUTPUT_DIR/page_$page.txt"
+
+		# Save the output to the all_challenges file
+		echo "$curl_output" >>"$OUTPUT_DIR/all_challenges.txt"
+
+		echo -ne "\r" # Move cursor back to the beginning of the line
 	done
+
+	echo
+	echo "Update complete."
 }
 
 function handle_input {
@@ -79,18 +133,18 @@ function handle_input {
 				display_challenges "$page" # Call display_challenges with the updated page
 				echo "$page" >"$CURRENT_PAGE_FILE"
 			else
-				echo "Debug: Already at the last page."
+				echo "Already at the last page."
 			fi
 			;;
 		[Pp])
 			page=$(<"$CURRENT_PAGE_FILE")
 			page=$((page - 1))
-			echo "Debug: Going to the previous page. New page: $page"
+			echo "Going to the previous page. New page: $page"
 			if [ $page -ge 1 ]; then
 				display_challenges "$page" # Call display_challenges with the updated page
 				echo "$page" >"$CURRENT_PAGE_FILE"
 			else
-				echo "Debug: Already at the first page."
+				echo "Already at the first page."
 			fi
 			;;
 		[0-9])
@@ -99,20 +153,19 @@ function handle_input {
 			echo "$page" >"$CURRENT_PAGE_FILE"
 			;;
 		[Qq])
-			echo "Debug: Quitting. should_exit set to 1."
+			echo "Quitting. should_exit set to 1."
 			should_exit=1
 			;;
 		[Uu])
-			echo "Debug: Updating data..."
 			update_data
-			echo "Debug: Data updated successfully."
+			echo "Data updated successfully."
 			;;
 		[a-zA-Z0-9]*)
 			if [ "${#prompt}" -eq 24 ]; then
-				echo "Debug: Starting VimGolf! challenge ID: $prompt"
+				echo "Starting VimGolf! challenge ID: $prompt"
 				vimgolf put "$prompt"
 			else
-				echo "Debug: Invalid challenge ID. Please enter a valid 24-character ID."
+				echo "Invalid challenge ID. Please enter a valid 24-character ID."
 			fi
 			;;
 		*)
@@ -146,13 +199,14 @@ function initialize {
 initialize
 
 # Check for --update or --help option
-# TODO: Add --all option to list all pages challenges
 while [[ $# -gt 0 ]]; do
 	case $1 in
 	--update)
-		echo "Debug: Updating data..."
 		update_data
-		echo "Debug: Data updated successfully."
+		exit 0
+		;;
+	--all)
+		display_all_challenges
 		exit 0
 		;;
 	--help)
