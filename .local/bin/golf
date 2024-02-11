@@ -146,6 +146,7 @@ function initialize {
 initialize
 
 # Check for --update or --help option
+# TODO: Add --all option to list all pages challenges
 while [[ $# -gt 0 ]]; do
 	case $1 in
 	--update)
