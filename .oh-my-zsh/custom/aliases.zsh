@@ -11,7 +11,7 @@ alias lf="lfub"
 # alias agrep="alias | rg"
 alias gp="git pull && git push"
 
-alias dd="deemix --path ~/Music "
+alias deemix="deemix --path ~/Music "
 
 # shortcuts to config files
 alias cfv="vim ~/.config/nvim/init.vim"

@@ -8,7 +8,7 @@ set $hyper Hyper
 
 # Keyboard configuration with setxkbmap
 # NOTE: set instead through /etc/X11/xorg.conf.d/00-keyboard.conf
-# exec_always --no-startup-id "setxkbmap -model pc105 -layout us -option caps:ctrl_modifier"
+exec_always --no-startup-id "setxkbmap -model pc105 -layout us -option caps:ctrl_modifier"
 
 # focus_on_window_activation focus
 
@@ -322,10 +322,10 @@ bindsym $mod+Shift+r restart
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        bindsym j resize shrink width 5 px or 5 ppt
-        bindsym k resize grow height 5 px or 5 ppt
-        bindsym l resize shrink height 5 px or 5 ppt
-        bindsym semicolon resize grow width 5 px or 5 ppt
+        # bindsym j resize shrink width 5 px or 5 ppt
+        # bindsym k resize grow height 5 px or 5 ppt
+        # bindsym l resize shrink height 5 px or 5 ppt
+        # bindsym semicolon resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -362,6 +362,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
+exec --no-startup-id conky
 exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 # Because xautolock is annoying to work with.
