@@ -13,6 +13,7 @@ ensure_tmux_is_running() {
 ensure_tmux_is_running
 
 # History file commands loaded into memory and stored in the history file
+export HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=300000
 
