@@ -1,6 +1,19 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+### PATH
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+
+if [ -d "$HOME/Applications" ] ;
+  then PATH="$HOME/Applications:$PATH"
+fi
+
 # Tmux conf
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
@@ -23,19 +36,10 @@ DISABLE_AUTO_UPDATE="true"
 ### SET VI MODE
 bindkey -v
 
-### PATH
-if [ -d "$HOME/.bin" ] ;
-  then PATH="$HOME/.bin:$PATH"
-fi
+### Initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
 
-if [ -d "$HOME/.local/bin" ] ;
-  then PATH="$HOME/.local/bin:$PATH"
-fi
-
-if [ -d "$HOME/Applications" ] ;
-  then PATH="$HOME/Applications:$PATH"
-fi
-
+source ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/fzf-tab/fzf-tab.zsh
 ### PLUGINS ###
 # Add wisely, as too many plugins slow down shell startup.
 # removed yum, docker, vagrant, zsh-completions
@@ -44,14 +48,12 @@ fi
 # for pentest, zsh-pentest, zsh-handy-helpers, nmap taskwarrior git-extras nmap zsh-pentest
 # zsh-handy-helpers httpie web-search
 plugins=(
-    zsh-z
+    z
     zsh-autosuggestions
     zsh-syntax-highlighting
-    zsh-completions
-    fzf-tab
     fzf
 )
-
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 
 ### TITLE BAR
@@ -62,9 +64,6 @@ function set_terminal_title() {
 }
 
 set_terminal_title
-
-### Initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
 
 ### Source
 # source grc, and do automatic aliasing for supported commands
