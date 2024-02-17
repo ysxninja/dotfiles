@@ -48,6 +48,7 @@ map gr cd ~/repos
 map gv cd ~/Videos/
 map gs cd ~/.local/bin
 map gt cd ~/.local/share/Trash/files
+map gm cd /run/media/yasuke/
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for

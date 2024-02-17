@@ -56,7 +56,7 @@ if [ -n "$FIFO_UEBERZUG" ]; then
       draw "$cache" "$@"
       ;;
     *)
-      highlight --out-format ansi "$file" || bat "$file"
+      bat --color=always --style=plain --pager=never "$file" || highlight --out-format ansi "$file"
       ;;
   esac
 fi
