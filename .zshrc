@@ -39,7 +39,7 @@ bindkey -v
 ### Initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
-source ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/fzf-tab/fzf-tab.zsh
+source ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/fzf-tab/fzf-tab.plugin.zsh
 ### PLUGINS ###
 # Add wisely, as too many plugins slow down shell startup.
 # removed yum, docker, vagrant, zsh-completions
