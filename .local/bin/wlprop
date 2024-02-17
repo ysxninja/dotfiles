@@ -8,4 +8,4 @@ Y=$(echo "$SELECTION" | awk -F'[, x]' '{print $2}')
 W=$(echo "$SELECTION" | awk -F'[, x]' '{print $3}')
 H=$(echo "$SELECTION" | awk -F'[, x]' '{print $4}')
 
-echo "$TREE" | jq -r --argjson x "$X" --argjson y "$Y" --argjson w "$W" --argsjon h "$H" '. | select(.at[0]==$x and .at[1]==$y and .size[0]==$w and.size[1]==$h)' 
+echo "$TREE" | jq -r --argjson x "$X" --argjson y "$Y" --argjson w "$W" --argjson h "$H" '. | select(.at[0]==$x and .at[1]==$y and .size[0]==$w and.size[1]==$h)' 
