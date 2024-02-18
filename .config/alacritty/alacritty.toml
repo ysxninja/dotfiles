@@ -1,14 +1,9 @@
 import = [
 "~/.config/alacritty/catppuccin/catppuccin-mocha.toml",   
-# "~/.config/alacritty/catppuccin/catppuccin-macchiato.toml",    
-# "~/.config/alacritty/catppuccin/catppuccin-frappe.toml",   
-# "~/.config/alacritty/catppuccin/catppuccin-latte.toml ",   
 ]
 
 [env]
 COLORTERM = "truecolor"
-WINIT_X11_SCALE_FACTOR = "1.0"
-# WINIT_X11_SCALE_FACTOR = "1.25"
 
 [font]
 size = 11.0
@@ -29,6 +24,7 @@ style = "Medium Italic"
 family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
+# Ctrl + Alt + L To clear screen
 [[keyboard.bindings]]
 action = "Paste"
 key = "Paste"
@@ -36,16 +32,6 @@ key = "Paste"
 [[keyboard.bindings]]
 action = "Copy"
 key = "Copy"
-
-[[keyboard.bindings]]
-action = "ClearLogNotice"
-key = "L"
-mods = "Control"
-
-[[keyboard.bindings]]
-chars = "\f"
-key = "L"
-mods = "Control"
 
 [[keyboard.bindings]]
 action = "ScrollPageUp"
@@ -119,7 +105,7 @@ multiplier = 3
 program = "/usr/bin/zsh"
 
 [window]
-dynamic_padding = false
+dynamic_padding = true
 opacity = 0.9
 title = "Alacritty"
 dynamic_title = true
@@ -127,10 +113,6 @@ dynamic_title = true
 [window.class]
 general = "Alacritty"
 instance = "Alacritty"
-
-[window.dimensions]
-columns = 90
-lines = 29
 
 [window.padding]
 x = 2
