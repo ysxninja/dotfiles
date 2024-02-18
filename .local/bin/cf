@@ -15,8 +15,8 @@ dotgitls='/usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke
 custom_configs_list=".zsh_history"
 custom_configs=$(echo "$custom_configs_list" | xargs -n1 )
 
-# Exclude files ending with ".rasi" and ".pyc"
-configs=$(eval "$dotgitls" | awk '{print $4}' | xargs -n1 | grep -Ev '\.rasi$|\.pyc$' | sort -u && echo "$custom_configs")
+# Exclude files ending with .rasi, pyc, png
+configs=$(eval "$dotgitls" | awk '{print $4}' | xargs -n1 | grep -Ev '\.rasi$|\.pyc$|\.png$' | sort -u && echo "$custom_configs")
 
 # Use fzf to interactively select a configuration file
 selected=$(printf "%s\n" "$configs" | fzf)
