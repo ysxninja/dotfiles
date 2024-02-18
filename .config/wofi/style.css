@@ -1,0 +1,77 @@
+window {
+  margin: 0px;
+  border: 1px solid rgba(51,204,238,0.6);
+  background-color: rgba(30,30,46,0.98);
+  border-radius: 25px;
+}
+
+#input {
+  margin: 10px;
+  border: 1px solid rgba(51,204,238,0.6);
+  color: #d8dee9;
+  outline: none;
+  background-color: rgba(30,30,46,0.98);
+}
+
+#input:focus {
+  background-color: rgba(30,30,46,0.98);
+  border: 1px solid rgba(51,204,238,1);
+}
+
+#inner-box {
+  margin: 5px;
+  border: none;
+  background-color: transparent;
+}
+
+#outer-box {
+  margin: 10px;
+  border-radius: 25px;
+  background-color: red;
+  background-color: rgba(30,30,46,0.98);
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+  background-color: transparent;
+}
+
+#scroll:selected {
+  margin: 0px;
+  border: none;
+  background-color: rgba(30,30,46,0.88);
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: #d8dee9;
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13;
+  background-color: rgba(30,30,46,0.88);
+}
+
+#text:selected {
+  color: rgba(255,172,5,1.0);
+  font-weight: bold;
+  background-color: rgba(30,30,46,0.88);
+}
+
+#img {
+  margin: 5px;
+  border: none;
+  color: #d8dee9;
+  background-color: transparent;
+}
+
+#entry {
+  margin: 0px 0px;
+  border: none;
+  background-color: transparent;
+}
+
+#entry:selected {
+  background-color: rgba(30,30,46,0.88);
+  background-color: transparent;
+}

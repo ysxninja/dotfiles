@@ -1,0 +1,17 @@
+width=450
+height=220
+hide_scroll=true
+location=center
+show=drun
+filter_rate=100
+allow_markup=true
+no_actions=true
+halign=fill
+orientation=vertical
+content_halign=fill
+insensitive=true
+allow_images=true
+image_size=36
+gtk_dark=true
+dynamic_lines=true
+dmenu-print_line_num=true
