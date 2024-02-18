@@ -94,8 +94,8 @@ format = '[[ 󱑎 $time  ](fg:#a0a9cb)]($style)'
 [battery]
 full_symbol = " "
 charging_symbol = "󱐌"
-discharging_symbol = "󰚌 "
-format = '[ $symbol$percentage ]($style)'
+discharging_symbol = "󰚌"
+format = '[ $symbol $percentage ]($style)'
 
 [[battery.display]]
 threshold = 10

@@ -38,7 +38,6 @@ export TERMINAL=/usr/bin/alacritty
 ### "nvim" as manpageer
 export MANPAGER="nvim +Man!"
 
-export QT_QPA_PLATFORMTHEME="qt5ct"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export PATH="$PATH:$XDG_DATA_HOME/cargo/bin"
 
