@@ -56,15 +56,6 @@ plugins=(
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 
-### TITLE BAR
-DISABLE_AUTO_TITLE="true"
-
-function set_terminal_title() {
-    echo -en "\e]2;$@\a"               # For blank
-}
-
-set_terminal_title
-
 ### Source
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
