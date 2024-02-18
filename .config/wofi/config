@@ -1,5 +1,5 @@
 width=450
-height=220
+height=215
 hide_scroll=true
 location=center
 show=drun
@@ -12,6 +12,6 @@ content_halign=fill
 insensitive=true
 allow_images=true
 image_size=36
-gtk_dark=true
+gtk_dark=false
 dynamic_lines=true
 dmenu-print_line_num=true
