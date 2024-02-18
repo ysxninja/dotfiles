@@ -1,22 +1,25 @@
 *{
   /* override gnome box-shadow */
   box-shadow: none;
+  box-sizing: border-box;
 }
 window {
   margin: 0px;
-  border: 1px solid rgba(51,204,238,0.6);
-  background-color: rgba(30,30,46,0.98);
+  border: none;
+  padding: 10px;
+  background: linear-gradient(45deg, rgba(51,204,255,1), rgba(0,255,153,1));
   border-radius: 25px;
+  box-shadow: none;
 }
 
 #input {
   margin: 10px;
-  /* border: 1px solid rgba(51,204,238,0.6); */
   border: none;
   color: #d8dee9;
   outline: none;
   background-color: rgba(30,30,46,0.98);
   box-shadow: 0 0 10px rgba(51,204,238,0.1);
+  font-family: "JetBrainsMono Nerd Font";
 }
 
 #input:not(:focus) {
@@ -32,9 +35,10 @@ window {
 }
 
 #outer-box {
-  margin: 10px;
+  /* Adjust the border size by setting the margin here*/
+  margin: 1px;
+  padding: 10px;
   border-radius: 25px;
-  background-color: red;
   background-color: rgba(30,30,46,0.98);
 }
 
@@ -55,14 +59,14 @@ window {
   border: none;
   color: #d8dee9;
   font-family: "JetBrainsMono Nerd Font";
-  font-size: 13;
-  background-color: rgba(30,30,46,0.88);
+  font-size: 13px;
+  background-color: transparent;
 }
 
 #text:selected {
   color: rgba(255,172,5,1.0);
   font-weight: bold;
-  background-color: rgba(30,30,46,0.88);
+  background-color: transparent;
 }
 
 #img {
@@ -79,6 +83,13 @@ window {
 }
 
 #entry:selected {
-  background-color: rgba(30,30,46,0.88);
   background-color: transparent;
 }
+
+#expander-box {
+  background-color: rgba(30,30,46,0.88);
+  margin-left: 30px;
+  font-weight: bold;
+  font-size: 8px;
+}
+
