@@ -15,3 +15,5 @@ image_size=36
 gtk_dark=true
 dynamic_lines=true
 dmenu-parse_action=true
+
+# vim: ft=cfg
