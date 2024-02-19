@@ -1,7 +1,6 @@
 *{
   /* override gnome box-shadow */
   box-shadow: none;
-  box-sizing: border-box;
 }
 window {
   margin: 0px;
