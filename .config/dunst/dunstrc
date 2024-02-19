@@ -37,6 +37,9 @@
     stack_duplicates = true
     hide_duplicate_count = false
     show_indicators = false
+    # Experimental: Recursive icon lookup. You can set a single theme, instead of having to
+    # define all lookup paths.
+    enable_recursive_icon_lookup = true
     # Set icon theme (only used for recursive icon lookup)
     icon_theme = a_hyb_WhiteSur
     icon_corner_radius = 12
@@ -64,8 +67,6 @@
 [experimental]
     # Calculate the dpi to use on a per-monitor basis.
     # per_monitor_dpi = false
-    enable_recursive_icon_lookup = true
-
 
 [urgency_low]
     background = "#1e1e2eD9"
