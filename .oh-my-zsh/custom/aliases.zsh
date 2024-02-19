@@ -46,8 +46,9 @@ alias chrome="google-chrome-stable"
 # timewarrior
 alias tw="timew"
 
-# openvpn
-alias vpn_us6="sudo openvpn --config ~/Documents/vpn/us-free-06.protonvpn.com.tcp.ovpn --auth-user-pass ~/Documents/vpn/ax --daemon && notify-send 'vpn daemon started'"
+#Recent Installed Packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
 
 # root privileges
 alias doas="doas --"
