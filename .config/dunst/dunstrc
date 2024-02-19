@@ -6,7 +6,7 @@
     width = 300
     height = 300
     origin = top-right
-    offset = 10x40
+    offset = 10x10
     notification_limit = 0
     progress_bar = true
     progress_bar_height = 16
@@ -28,7 +28,7 @@
     font = JetBrainsMono Nerd Font Medium 10
     line_height = 0
     markup = full
-    format = "<span weight='bold'>%s</span>\n%b"
+    format = "<span weight='bold'>%s</span>\n\n%b"
     alignment = left
     vertical_alignment = center
     show_age_threshold = 60
