@@ -37,6 +37,9 @@ if [ -n "$FIFO_UEBERZUG" ]; then
       ffmpegthumbnailer -i "$file" -o "$cache" -s 0
       draw "$cache" "$@"
       ;;
+    audio/*)
+      exiftool "$file"
+      ;;
     application/x-tar)
       tar tf "$file"
       ;;
@@ -50,10 +53,7 @@ if [ -n "$FIFO_UEBERZUG" ]; then
       7z l "$file"
       ;;
     application/pdf)
-      cache="$(hash "$file").jpg"
-      cache "$cache" "$@"
-      gs -o "$cache" -sDEVICE=pngalpha -dLastPage=1 "$file" >/dev/null
-      draw "$cache" "$@"
+      exiftool "$file"
       ;;
     *)
       bat --color=always --style=plain --pager=never "$file" || highlight --out-format ansi "$file"

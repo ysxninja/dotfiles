@@ -40,12 +40,12 @@ map o &mimeopen $f
 map O $mimeopen --ask $f
 
 # Movement
-map gD cd ~/Downloads
-map gd cd ~/Documents
-map gp cd ~/Pictures
+map gD cd ~/downloads
+map gd cd ~/documents
+map gp cd ~/pictures
 map gc cd ~/.config
 map gr cd ~/repos
-map gv cd ~/Videos/
+map gv cd ~/videos/
 map gs cd ~/.local/bin
 map gt cd ~/.local/share/Trash/files
 map gm cd /run/media/yasuke/
