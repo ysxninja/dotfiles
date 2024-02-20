@@ -6,7 +6,7 @@
     width = 300
     height = 300
     origin = top-right
-    offset = 10x10
+    offset = 10x30
     notification_limit = 0
     progress_bar = true
     progress_bar_height = 16
@@ -97,7 +97,8 @@
     urgency = "normal"
     background = "#1e1e2eD9"
     foreground = "#d9e0ee"
-    frame_color = "#33ccff"
+    # frame_color = "#33ccff"
+    # frame_color = "#d9e0eeD9"
     timeout = 5
     highlight = "#89b4fa"
 

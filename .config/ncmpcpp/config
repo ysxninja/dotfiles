@@ -20,16 +20,16 @@ playlist_display_mode = "columns"
 
 ## General Colors ##
 color1 = "cyan"
-color2 = "magenta"
+color2 = "white"
 colors_enabled = "yes"
-main_window_color = "magenta"
+main_window_color = "white"
 header_window_color = "white"
-state_line_color = "magenta"
-state_flags_color = "blue"
+state_line_color = "white"
+state_flags_color = "cyan"
 volume_color = "white"
 statusbar_color = "white"
 progressbar_color = "black"
-progressbar_elapsed_color = "magenta"
+progressbar_elapsed_color = "white"
 window_border-color = "black"
 # browser_playlist_prefix = "$6playlist$6 "
 
@@ -37,7 +37,7 @@ window_border-color = "black"
 # song_columns_list_format = "(10)[blue]{l} (30)[green]{t} (30)[magenta]{a} (30)[yellow]{b}"
 # song_list_format = "{$7%a - $9}{$5%t$9}|{$5%f$9}$R{$6%b $9}{$3%l$9}"
 
-song_columns_list_format = "(33)[yellow]{t} (32)[104]{a} (30)[104]{b} (5f)[104]{l}"
+song_columns_list_format = "(33)[15]{t} (32)[103]{a} (30)[103]{b} (5f)[103]{l}"
 song_list_format = "{%a - }{%t}|{$5%f$9}$R{$7(%l)$9}"
 
 # Library

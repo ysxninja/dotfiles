@@ -15,8 +15,9 @@
     },
     "music": {
       "command": "alacritty --class scratchpadmusic -e ncmpcpp",
+      "margin": 50,
       "unfocus": "hide",
-      "margin": 50
+      "animation": "fromTop"
     },
     "btm": {
       "command": "alacritty --class scratchpad -e btm",
