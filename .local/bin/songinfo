@@ -2,7 +2,7 @@
 # script for ncmpcpp to show album art
 # Depends on: mpc, ffmpeg, notify-send
 
-music_dir="$HOME/Music"
+music_dir="$HOME/music"
 previewdir="$HOME/.config/ncmpcpp/previews"
 filename="$(mpc --format "$music_dir"/%file% current)"
 previewname="$previewdir/$(mpc --format %album% current | base64).png"

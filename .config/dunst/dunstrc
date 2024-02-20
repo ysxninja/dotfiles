@@ -19,7 +19,7 @@
     padding = 15
     horizontal_padding = 25
     # text_icon_padding = 15
-    frame_width = 2
+    frame_width = 1
     frame_color = "#313244"
     gap_size = 10
     separator_color = frame
@@ -90,11 +90,13 @@
 [mpd]
     # for script $HOME/.local/bin/songinfo
     stack_tag = "mpd"
+    min_icon_size = 32
+    max_icon_size = 96
     default_icon = "audio-x-generic"
     urgency = "normal"
     background = "#1e1e2eD9"
     foreground = "#d9e0ee"
-    frame_color = "#f9e2af"
+    frame_color = "#33ccff"
     timeout = 5
     highlight = "#89b4fa"
 
