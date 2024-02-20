@@ -1,9 +1,11 @@
 #!/bin/sh
 
-window_info=$(hyprctl activewindow)
-# checkclass=$(echo "$window_info" | awk '/class/ {print $2}')
-floating=$(echo "$window_info" | awk '/floating:/ {print $2}')
-location=$(echo "$window_info" | awk '/at:/ {print $2}')
+check() {
+	window_info=$(hyprctl activewindow)
+	# checkclass=$(echo "$window_info" | awk '/class/ {print $2}')
+	floating=$(echo "$window_info" | awk '/floating:/ {print $2}')
+	location=$(echo "$window_info" | awk '/at:/ {print $2}')
+}
 
 image() {
 	FILE_PATH="$1"
@@ -52,6 +54,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | tr '[:upper:]' '[:lower:]')" in
 	exiftool "$1"
 	;;
 *.avi | *.mp4 | *.wmv | *.dat | *.3gp | *.ogv | *.mkv | *.mpg | *.mpeg | *.vob | *.fl[icv] | *.m2v | *.mov | *.webm | *.ts | *.mts | *.m4v | *.r[am] | *.qt | *.divx)
+	check
 	if [ "$floating" = "1" ] && [ "$location" != "0,0" ]; then
 		exiftool "$1"
 	else
@@ -60,6 +63,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | tr '[:upper:]' '[:lower:]')" in
 	fi
 	;;
 *.bmp | *.jpg | *.jpeg | *.png | *.xpm | *.webp | *.gif | *.jfif)
+	check
 	if [ "$floating" = "1" ] && [ "$location" != "0,0" ]; then
 		exiftool "$1"
 	else
@@ -67,6 +71,7 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | tr '[:upper:]' '[:lower:]')" in
 	fi
 	;;
 *.svg)
+	check
 	if [ "$floating" = "1" ] && [ "$location" != "0,0" ]; then
 		exiftool "$1"
 	else
