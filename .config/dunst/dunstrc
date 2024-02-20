@@ -92,6 +92,7 @@
     stack_tag = "mpd"
     min_icon_size = 32
     max_icon_size = 96
+    format = "<span weight='bold'>%s</span>\n\n%b"
     default_icon = "audio-x-generic"
     urgency = "normal"
     background = "#1e1e2eD9"
