@@ -1,10 +1,15 @@
 #!/bin/sh
 
+window_info=$(hyprctl activewindow)
+# checkclass=$(echo "$window_info" | awk '/class/ {print $2}')
+floating=$(echo "$window_info" | awk '/floating:/ {print $2}')
+location=$(echo "$window_info" | awk '/at:/ {print $2}')
+
 image() {
 	FILE_PATH="$1"
-	X=$(($4 * 70 / 100))
+	X=$(($4 * 80 / 100))
 	Y=$5
-	MW=$(($2 * 60 / 100))
+	MW=$(($2 * 50 / 100))
 	MH=$3
 	ueberzugpp cmd -s "$UB_SOCKET" -a add -i PREVIEW -x "$X" -y "$Y" --max-width "$MW" --max-height "$MH" -f "$FILE_PATH"
 	exit 1
@@ -47,15 +52,27 @@ case "$(printf "%s\n" "$(readlink -f "$1")" | tr '[:upper:]' '[:lower:]')" in
 	exiftool "$1"
 	;;
 *.avi | *.mp4 | *.wmv | *.dat | *.3gp | *.ogv | *.mkv | *.mpg | *.mpeg | *.vob | *.fl[icv] | *.m2v | *.mov | *.webm | *.ts | *.mts | *.m4v | *.r[am] | *.qt | *.divx)
-	[ ! -f "${CACHE}.jpg" ] && ffmpegthumbnailer -i "$1" -o "${CACHE}.jpg" -s 0 -q 5
-	image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
+	if [ "$floating" = "1" ] && [ "$location" != "0,0" ]; then
+		exiftool "$1"
+	else
+		[ ! -f "${CACHE}.jpg" ] && ffmpegthumbnailer -i "$1" -o "${CACHE}.jpg" -s 0 -q 5
+		image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
+	fi
 	;;
 *.bmp | *.jpg | *.jpeg | *.png | *.xpm | *.webp | *.gif | *.jfif)
-	image "$1" "$2" "$3" "$4" "$5"
+	if [ "$floating" = "1" ] && [ "$location" != "0,0" ]; then
+		exiftool "$1"
+	else
+		image "$1" "$2" "$3" "$4" "$5"
+	fi
 	;;
 *.svg)
-	[ ! -f "${CACHE}.jpg" ] && convert "$1" "${CACHE}.jpg"
-	image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
+	if [ "$floating" = "1" ] && [ "$location" != "0,0" ]; then
+		exiftool "$1"
+	else
+		[ ! -f "${CACHE}.jpg" ] && convert "$1" "${CACHE}.jpg"
+		image "${CACHE}.jpg" "$2" "$3" "$4" "$5"
+	fi
 	;;
 *)
 	batorcat "$1"
