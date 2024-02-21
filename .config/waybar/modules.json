@@ -218,8 +218,7 @@
   },
   "custom/network-ipfinder": {
     "format": " {} ",
-    "tooltip": true,
-    "tooltip-format": "Vpn and Ip status\n{} ",
+    "return-type": "json",
     "exec": "~/.local/bin/ipfinder.sh"
   }
 }
