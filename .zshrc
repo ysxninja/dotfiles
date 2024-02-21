@@ -14,17 +14,6 @@ if [ -d "$HOME/Applications" ] ;
   then PATH="$HOME/Applications:$PATH"
 fi
 
-# Tmux conf
-_not_inside_tmux() { [[ -z "$TMUX" ]] }
-
-ensure_tmux_is_running() {
-  if _not_inside_tmux; then
-    tattach
-  fi
-}
-
-ensure_tmux_is_running
-
 # History file commands loaded into memory and stored in the history file
 export HISTFILE=~/.zsh_history
 HISTSIZE=100000

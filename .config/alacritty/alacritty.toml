@@ -108,6 +108,7 @@ multiplier = 3
 
 [shell]
 program = "/usr/bin/zsh"
+args = ["-l", "-c", "tmux attach -t yasuke || tmux new -s yasuke"]
 
 [window]
 dynamic_padding = true
