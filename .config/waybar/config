@@ -7,11 +7,6 @@
     "margin-bottom": 0,
     "height": 21,
 
-    // Position BOTTOM
-    // "position": "bottom",
-    // "margin-top": 0,
-    // "margin-bottom": 14,
-    
     "layer": "top",
     "margin-left": 0,
     "margin-right": 0,    
@@ -34,20 +29,11 @@
     // Modules Right    
     "modules-right": [
         "group/hardware",
-        //"pulseaudio",
-        // START BT TOOGLE
-        // "bluetooth",
-        // END BT TOOGLE
+        "pulseaudio",
         "battery", 
-        // START NETWORK TOOGLE
         // "network",
-        // END NETWORK TOOGLE
-        // START IDLE TOOGLE
         "idle_inhibitor",
-        // END IDLE TOOGLE
-        // START TRAY TOOGLE
         "tray",
-        // END TRAY TOOGLE
         "clock"
     ]
 }

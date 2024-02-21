@@ -3,9 +3,9 @@
     font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     border: none;
     border-radius: 0px;
-    padding: 0;
-    margin: 0;
-    min-height: 0;
+    padding: 0px;
+    margin: 0px;
+    min-height: 0px;
 }
 
 window#waybar {
@@ -93,21 +93,20 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #taskbar {
-    background: @backgroundlight;
-    margin: 10px;
-    padding:0px;
     border-radius: 10px;
-    margin:0;
-    padding: 0;
+    margin:0px;
+    padding:0px;
+    padding-right: 2px;
     font-weight: normal;
     font-style: normal;
     opacity:0.7;
     background: rgba(255,255,255,0.3);
 }
 
-#taskbar button:hover {
-    margin:0;
-    padding:0;
+#taskbar button{
+    margin:0px;
+    padding:0px;
+    padding-right: 6px;
     opacity:1;
     border-radius: 10px;
 }
@@ -183,19 +182,21 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #idle_inhibitor {
-    margin-right: 15px;
-    font-size: 14px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 12px;
     font-weight: bold;
     opacity: 0.8;
     color: @iconcolor;
 }
 
 #idle_inhibitor.activated {
-    margin-right: 15px;
-    font-size: 14px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 12px;
     font-weight: bold;
     opacity: 0.8;
-    color: #dc2f2f;
+    color: #f38ba8;
 }
 
 /* -----------------------------------------------------
@@ -258,14 +259,17 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #clock {
-    background-color: @backgrounddark;
-    font-size: 12px;
-    color: @textcolor1;
-    /* border-radius: 15px; */
-    /* padding: 1px 10px 0px 10px; */
-    /* margin: 3px 15px 3px 0px; */
+    color: #fff;
+    margin: 10px;
+    border-radius: 10px;
+    margin:0px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    font-style: normal;
     opacity:0.8;
-    /* border:3px solid @bordercolor;    */
+    background: rgba(255,255,255,0.3);
 }
 
 /* -----------------------------------------------------
@@ -282,7 +286,7 @@ window#waybar.empty #window {
 
 #pulseaudio.muted {
     background-color: @backgrounddark;
-    color: @textcolor1;
+    color: #93a1a1;
 }
 
 /* -----------------------------------------------------
