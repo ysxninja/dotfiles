@@ -387,7 +387,7 @@ window#waybar.empty #window {
 
 
 /* -----------------------------------------------------
- * Mpd
+ * mpd
  * ----------------------------------------------------- */
 
 #mpd {
@@ -396,4 +396,16 @@ window#waybar.empty #window {
     font-size: 12px;
     color: @textcolor2;
     opacity:0.8;
-}
+} 
+
+/* -----------------------------------------------------
+ * custom/network-ipfinder
+ * ----------------------------------------------------- */
+
+#custom-network-ipfinder {
+    margin: 0px 5px 0px 5px;
+    background-color: transparent;
+    font-size: 12px;
+    color: #fff;
+    opacity:0.8;
+} 

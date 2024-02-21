@@ -10,9 +10,9 @@ DEFAULT_CHECK_ANYWAY=10 # seconds
 check_anyway=$DEFAULT_CHECK_ANYWAY # seconds
 
 # Icons
-VPN_UP=""
-VPN_DOWN=""
-INTERNET_DOWN=""
+VPN_UP=" 󰞀 "
+VPN_DOWN=" 󰦞 "
+INTERNET_DOWN="  "
 
 # In case we get throttled anyway, try with a different service.
 throttled() {
@@ -97,7 +97,7 @@ while :; do
         fi
     fi
 
-    printf "%-23s\n" "$(echo $status $ip [$country])"
+    printf "%-23s\n" "$(echo "$status" "$ip" ["$country"])"
     previous_interface_state="$(interface_state)"
     previous_uplinks=$(uplinks)
     previous_connection_status=$(connected)

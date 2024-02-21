@@ -215,5 +215,9 @@
     "on-click-middle": "mpc random",
     "on-scroll-up": "mpc prev",
     "on-scroll-down": "mpc next"
+  },
+  "custom/network-ipfinder": {
+    "format": " {} ",
+    "exec": "~/.local/bin/ipfinder.sh"
   }
 }

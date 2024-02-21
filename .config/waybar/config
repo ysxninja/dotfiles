@@ -18,7 +18,8 @@
     // Modules Left
     "modules-left": [
         "wlr/taskbar",
-        "hyprland/window"
+        "hyprland/window",
+        "custom/network-ipfinder"
     ],
 
     // Modules Center
