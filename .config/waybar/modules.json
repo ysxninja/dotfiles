@@ -176,9 +176,9 @@
   },
   "idle_inhibitor": {
     "format": "{icon}",
+    "tooltip": true,
     "tooltip-format-activated": "\nCaffeine {status}",
     "tooltip-format-deactivated": "󰾪\nCaffeine {status}",
-    "tooltip": true,
     "format-icons": {
       "activated": " ",
       "deactivated": " "
@@ -218,6 +218,8 @@
   },
   "custom/network-ipfinder": {
     "format": " {} ",
+    "tooltip": true,
+    "tooltip-format": "Vpn and Ip status\n{} ",
     "exec": "~/.local/bin/ipfinder.sh"
   }
 }
