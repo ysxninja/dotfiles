@@ -1,182 +1,219 @@
 {
-    // Workspaces
-    "hyprland/workspaces" : {
-        "on-click": "activate",
-        "active-only": false,
-        "all-outputs": true,
-        "format": "{}",
-        "format-icons": {
-			"urgent": "",
-			"active": "",
-			"default": ""
-        },
-        "persistent-workspaces": {
-    "*": 4
-        }       
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{}",
+    "format-icons": {
+      "urgent": "",
+      "active": "",
+      "default": ""
     },
-
-    // Taskbar
-    "wlr/taskbar": {
-        "format": " {icon}",
-        "icon-size": 16,
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close",
-        "ignore-list": [
-            "pavucontrol",
-            "scratchpad",
-            "scratchpadttrm",
-            "scratchpadmusic"
-        ],
-        "app_ids-mapping": {
-            "firefoxdeveloperedition": "firefox-developer-edition"
-        },
-        "rewrite": {
-            "Firefox Web Browser": "Firefox",
-            "Foot Server": "Terminal"
-        }
-    },
-
-    // Hyprland Window
-    "hyprland/window": {
-        "rewrite": {
-            "(.*) - Brave": "Brave",
-            "(.*) - Chromium": "Chromium",
-            "(.*) - Brave Search": "Brave",
-            "(.*) — Mozilla Firefox": "Firefox"
-        },
-        "separate-outputs": true
-    },
-
-    // System tray
-    "tray": {
-        "icon-size": 15,
-        "spacing": 5
-    },
-
-    // Clock
-    "clock": {
-        // "timezone": "America/New_York",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
-
-    // System
-    "custom/system": {
-        "format": "",
-        "tooltip": false
-    },
-
-    // CPU
-    "cpu": {
-        "format": "/ C {usage}% ",
-        "on-click": "alacritty -e htop"
-    },
-
-    // Memory
-    "memory": {
-        "format": "/ M {}% ",
-        "on-click": "alacritty -e htop"
-    },
-
-    // Harddisc space used
-    "disk": {
-        "interval": 30,
-        "format": "D {percentage_used}% ",
-        "path": "/",
-        "on-click": "alacritty -e htop"
-    }, 
-
-    "hyprland/language": {
-        "format": "/ K {short}"
-    },
-
-    // Group Hardware
-    "group/hardware": {
-        "orientation": "inherit",
-        "drawer": {
-            "transition-duration": 300,
-            "children-class": "not-memory",
-            "transition-left-to-right": false
-        },        
-        "modules": [
-            "custom/system",
-            "disk",
-            "cpu",
-            "memory",
-        ]
-    },
-    
-    // Network
-    "network": {
-        "format": "{ifname}",
-        "format-wifi": "  ",
-        "format-ethernet": "  {ifname}",
-        "format-disconnected": "Disconnected",
-        "tooltip-format": " {ifname} via {gwaddri}",
-        "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
-        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
-        "tooltip-format-disconnected": "Disconnected",
-        "max-length": 50,
-        "on-click": "~/dotfiles/.settings/networkmanager.sh"
-    },
-
-    // Battery
-    "battery": {
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} ",
-        "format-charging": "  ",
-        "format-plugged": "  ",
-        "format-alt": "{icon}  {time}",
-        // "format-good": "", // An empty format will hide the module
-        "format-full": "󱟢 ",
-        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
-        "tooltip-format": "{capacity}%\n{time}",
-        "tooltip-format-plugged": " {capacity}%\n{time}"
-    },
-
-    // Pulseaudio
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {format_source} ",
-        "format-bluetooth": "{icon} {format_source} ",
-        "format-bluetooth-muted": "  {format_source} ",
-        "format-muted": " {format_source}",
-        "format-source": "<span foreground=\"#00FF00\"></span>",
-        "format-source-muted": "<span foreground=\"#93a1a1\"></span>",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "󰕾", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-
-    // Bluetooth
-    "bluetooth": {
-        "format": " {status}",
-        "format-disabled": "",
-        "format-off": "",
-        "interval": 30,
-        "on-click": "blueman-manager"
-    },
-
-    // Idle Inhibator
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "tooltip": true,
-        "format-icons":{
-            "activated": "󰅶",
-            "deactivated": "󰾪"
-        },
-        "on-click-right": "swaylock"        
+    "persistent-workspaces": {
+      "*": 4
     }
+  },
+  "wlr/taskbar": {
+    "format": " {icon}",
+    "icon-size": 16,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "pavucontrol",
+      "scratchpad",
+      "scratchpadttrm",
+      "scratchpadmusic"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
+  },
+  "hyprland/window": {
+    "rewrite": {
+      "(.*) - Brave": "Brave",
+      "(.*) - Chromium": "Chromium",
+      "(.*) - Brave Search": "Brave",
+      "(.*) — Mozilla Firefox": "Firefox"
+    },
+    "separate-outputs": true
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 5
+  },
+  "clock": {
+    "tooltip-format": "<small>{:%a:::%b:::%e}</small>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "",
+      "on-scroll": 1,
+      "on-click-right": "mode",
+      "format": {
+        "months": "",
+        "days": "<span>{}</span>",
+        "weeks": "<span>W{}</span>",
+        "weekdays": "<span>{}</span>",
+        "today": "<span color='#99ffdd'><b>{}</b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-click-forward": "tz_up",
+      "on-click-backward": "tz_down",
+      "on-scroll-up": "shift_down",
+      "on-scroll-down": "shift_up"
+    }
+  },
+  "custom/system": {
+    "format": "",
+    "tooltip": false
+  },
+  "cpu": {
+    "format": "/ C {usage}% ",
+    "on-click": "alacritty -e htop"
+  },
+  "memory": {
+    "format": "/ M {}% ",
+    "on-click": "alacritty -e htop"
+  },
+  "disk": {
+    "interval": 30,
+    "format": "D {percentage_used}% ",
+    "path": "/",
+    "on-click": "alacritty -e htop"
+  },
+  "hyprland/language": {
+    "format": "/ K {short}"
+  },
+  "group/hardware": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "not-memory",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/system",
+      "disk",
+      "cpu",
+      "memory"
+    ]
+  },
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}",
+    "format-ethernet": "  {ifname}",
+    "format-disconnected": "Disconnected",
+    "tooltip-format": " {ifname} via {gwaddri}",
+    "tooltip-format-wifi": "  {ifname}\n{essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n{gwaddr}\n{netmask}\n/{cidr}\n",
+    "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+    "interval": 1,
+    "on-click": "nm-connection-editor"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} ",
+    "format-charging": "",
+    "format-plugged": "  ",
+    "format-alt": "{icon}  {time}",
+    "format-full": "󱟢 ",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂"
+    ],
+    "tooltip-format": "{capacity}%\n{time}",
+    "tooltip-format-plugged": " {capacity}%\n{time}"
+  },
+  "pulseaudio": {
+    "format": "{icon}{format_source} ",
+    "format-bluetooth": "{icon} {format_source} ",
+    "format-bluetooth-muted": "󰖁  {format_source} ",
+    "format-muted": "󰖁 {format_source} ",
+    "format-source": "<span foreground=\"#00FF00\"> </span>",
+    "format-source-muted": "<span foreground=\"#93a1a1\"> </span>",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [
+        "",
+        "󰕾",
+        ""
+      ]
+    },
+    "on-click": "$HOME/.config/waybar/scripts/volume --toggle",
+    "on-click-right": "$HOME/.config/waybar/scripts/volume --toggle-mic"
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "",
+    "format-off": "",
+    "interval": 30,
+    "on-click": "blueman-manager"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "tooltip-format-activated": "\nCaffeine {status}",
+    "tooltip-format-deactivated": "󰾪\nCaffeine {status}",
+    "tooltip": true,
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    },
+    "on-click-right": "swaylock"
+  },
+  "mpd": {
+    "format": " {stateIcon}  {repeatIcon} {randomIcon} ",
+    "format-disconnected": "",
+    "format-stopped": "",
+    "interval": 1,
+    "consume-icons": {
+      "on": " "
+    },
+    "random-icons": {
+      "on": "󰒟",
+      "off": "󰒞"
+    },
+    "repeat-icons": {
+      "on": "󰑖",
+      "off": "󰑗"
+    },
+    "single-icons": {
+      "on": "1 "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip-format": "{stateIcon} {consumeIcon} \nShuffle:{randomIcon}  Repeat:{repeatIcon} {singleIcon}\n\n{artist}\n{album} - {title}\n({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+    "tooltip-format-disconnected": "MPD (disconnected)",
+    "on-click": "mpc toggle",
+    "on-click-right": "mpc repeat",
+    "on-click-middle": "mpc random",
+    "on-scroll-up": "mpc prev",
+    "on-scroll-down": "mpc next"
+  }
 }

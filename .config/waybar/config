@@ -28,10 +28,11 @@
 
     // Modules Right    
     "modules-right": [
+        "network",
+        "mpd",
         "group/hardware",
         "pulseaudio",
         "battery", 
-        // "network",
         "idle_inhibitor",
         "tray",
         "clock"

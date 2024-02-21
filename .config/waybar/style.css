@@ -61,14 +61,14 @@ window#waybar {
 
 tooltip {
     border-radius: 10px;
-    background-color: @backgroundlight;
-    opacity:0.8;
+    background-color: #1E1E2E;
+    opacity:0.9;
     padding:20px;
     margin:0px;
 }
 
 tooltip label {
-    color: @textcolor2;
+    color: #fff;
 }
 
 /* -----------------------------------------------------
@@ -76,11 +76,11 @@ tooltip label {
  * ----------------------------------------------------- */
 
 #window {
-    background: @backgroundlight;
+    background: transparent;
     margin: 0px 5px 0px 10px;
-    color:@textcolor2;
+    color: #fff;
     font-size: 11px;
-    font-weight:bold;
+    font-weight: bold;
     opacity:0.8;
 }
 
@@ -182,8 +182,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #idle_inhibitor {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 0px 5px 0px 5px;
     font-size: 12px;
     font-weight: bold;
     opacity: 0.8;
@@ -242,9 +241,11 @@ window#waybar.empty #window {
 /* -----------------------------------------------------
  * Hardware Group
  * ----------------------------------------------------- */
+#hardware {
+    margin: 0px 0px 0px 7px;
+}
 
 #disk,#memory,#cpu,#language {
-    margin:0px;
     padding:0px;
     font-size: 12px;
     color:@iconcolor;
@@ -285,6 +286,7 @@ window#waybar.empty #window {
 }
 
 #pulseaudio.muted {
+    margin-right: 5px;
     background-color: @backgrounddark;
     color: #93a1a1;
 }
@@ -295,6 +297,7 @@ window#waybar.empty #window {
 
 #network {
     background-color: @backgroundlight;
+    margin: 0px 5px 0px 5px;
     font-size: 12px;
     color: @textcolor2;
     opacity:0.8;
@@ -335,6 +338,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #battery {
+    margin: 0px 5px 0px 5px;
     background-color: @backgroundlight;
     font-size: 12px;
     color: @textcolor2;
@@ -343,6 +347,7 @@ window#waybar.empty #window {
 
 #battery.charging, #battery.plugged {
     color: @textcolor2;
+    margin: 0px 5px 0px 5px;
     background-color: @backgroundlight;
 }
 
@@ -355,6 +360,7 @@ window#waybar.empty #window {
 
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
+    margin: 0px 5px 0px 5px;
     color: @textcolor3;
     animation-name: blink;
     animation-duration: 0.5s;
@@ -380,3 +386,14 @@ window#waybar.empty #window {
 }
 
 
+/* -----------------------------------------------------
+ * Mpd
+ * ----------------------------------------------------- */
+
+#mpd {
+    margin: 0px 5px 0px 5px;
+    background-color: @backgroundlight;
+    font-size: 12px;
+    color: @textcolor2;
+    opacity:0.8;
+}
