@@ -108,7 +108,9 @@ multiplier = 3
 
 [shell]
 program = "/usr/bin/zsh"
-args = ["-l", "-c", "tmux attach -t yasuke || tmux new -s yasuke"]
+# args = ["-l", "-c", "tmux attach -t yasuke || tmux new -s yasuke"]
+# sources zsh first to avoid breaking things
+args = ["-l", "-c", "source ~/.zshrc; tmux attach -t yasuke 2> /dev/null || tmux new -s yasuke"]
 
 [window]
 dynamic_padding = true
