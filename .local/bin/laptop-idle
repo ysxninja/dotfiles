@@ -6,6 +6,6 @@
 
 sway-audio-idle-inhibit &
 swayidle -w \
-	timeout 300 'lockscreen' \
-	timeout 600 'systemctl suspend' \
-	before-sleep 'lockscreen'
+	timeout 300 "$HOME/.local/bin/lockscreen" \
+	timeout 600 "systemctl suspend" \
+	before-sleep "$HOME/.local/bin/lockscreen"
