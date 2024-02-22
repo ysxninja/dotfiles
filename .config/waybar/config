@@ -23,9 +23,9 @@
     ],
 
     // Modules Center
-    "modules-center": [
-        "hyprland/workspaces"
-    ],
+    //"modules-center": [
+    //    "hyprland/workspaces"
+    //],
 
     // Modules Right    
     "modules-right": [
