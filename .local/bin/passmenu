@@ -13,7 +13,8 @@ if [[ -n $WAYLAND_DISPLAY ]]; then
 	dmenuargs="--conf=$HOME/.config/wofi/config-passmenu"
 	xdotool="ydotool type --file -"
 elif [[ -n $DISPLAY ]]; then
-	dmenu=dmenu
+	dmenu=rofi
+	dmenuargs="-dmenu"
 	xdotool="xdotool type --clearmodifiers --file -"
 else
 	echo "Error: No Wayland or X11 display detected" >&2
