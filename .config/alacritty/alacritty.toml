@@ -119,7 +119,7 @@ multiplier = 3
 program = "/usr/bin/zsh"
 
 [window]
-dynamic_padding = false
+dynamic_padding = true
 opacity = 0.9
 title = "Alacritty"
 dynamic_title = true
