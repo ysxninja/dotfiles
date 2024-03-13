@@ -19,8 +19,8 @@ set $wallpaper $HOME/.config/wallpaper
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border none
-default_floating_border none
+default_border pixel 2
+default_floating_border pixel 2
 
 # Hide borders #smart, none
 hide_edge_borders smart 
@@ -358,7 +358,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-exec --no-startup-id conky
+# exec --no-startup-id conky
 exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 # Because xautolock is annoying to work with.
@@ -405,7 +405,7 @@ set_from_resource $term_color15    color15
 
 #dracula 16A085
 # class                 border  backgr. text    indicator child_border
-  client.focused          #2b2b2b #2b2b2b #e7e7e7 #2b2b2b   #2b2b2b
+  client.focused          #2b2b2b #2b2b2b #e7e7e7 #2b2b2b   #33ccff4d
   client.unfocused        #2b2b2b #2b2b2b #e7e7e7 #2b2b2b   #2b2b2b
   client.focused_inactive #2b2b2b #2b2b2b #e7e7e7 #2b2b2b   #2b2b2b
   client.urgent           #2b2b2b #2b2b2b #e7e7e7 #2b2b2b   #2b2b2b
