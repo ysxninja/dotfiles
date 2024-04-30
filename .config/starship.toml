@@ -36,7 +36,7 @@ format= "[$symbol$number]($style)"
 
 [custom.task-count]
 description = "tasks"
-command = 'echo  "   $(cat ~/.task/pending.data | wc -l) " '
+command = """echo  "   $(sqlite3 ~/.task/taskchampion.sqlite3 "SELECT COUNT(*) FROM tasks WHERE json_extract(data, '$.status') = 'pending';") " """
 format = "[$symbol$output]($style) "
 style = "bold bg:grey fg:purple"
 when = "true"
