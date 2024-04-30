@@ -405,7 +405,7 @@ set_from_resource $term_color15    color15
 
 #dracula 16A085
 # class                 border  backgr. text    indicator child_border
-  client.focused          #2b2b2b #2b2b2b #e7e7e7 #2b2b2b   #33ccff4d
+  client.focused          #2b2b2b #2b2b2b #e7e7e7 #2b2b2b   #fdddd24d
   client.unfocused        #2b2b2b #2b2b2b #e7e7e7 #2b2b2b   #2b2b2b
   client.focused_inactive #2b2b2b #2b2b2b #e7e7e7 #2b2b2b   #2b2b2b
   client.urgent           #2b2b2b #2b2b2b #e7e7e7 #2b2b2b   #2b2b2b
