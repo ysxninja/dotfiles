@@ -241,9 +241,10 @@ assign [class="io.github.celluloid_player.Celluloid"] $ws2
 assign [class="mpv"] $ws2
 assign [class="Google-chrome"] $ws3
 assign [class="xdman-Main"] $ws4
+assign [class="thunderbird"] $ws4
 assign [class="Nemo"] $ws4
 assign [class="Plex"] $ws2
-assign [class="burp-StartBurp"] $ws2
+assign [class="burp-StartBurp"] $ws3
 # assign [class="org-zaproxy-zap-ZAP"] $ws2
 # assign [class="OWASP ZAP"] $ws2
 # assign [class="ZAP"] $ws2
@@ -361,6 +362,7 @@ exec --no-startup-id xfce4-power-manager
 exec --no-startup-id copyq --start-server
 # exec --no-startup-id conky
 exec --no-startup-id blueman-applet
+exec_always --no-startup-id birdtray
 # exec_always --no-startup-id sbxkb
 # Because xautolock is annoying to work with.
 # --not-when-audio :Don't lock when there's audio playing
