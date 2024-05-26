@@ -2,6 +2,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Automatically start tmux if not already inside tmux and not in a non-interactive shell
+if [ -z "$TMUX" ] && [ -n "$SSH_CONNECTION" ] && [[ $- == *i* ]]; then
+    tmux new-session -A -s ttrm
+fi
+
 ### EXPORT
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 
