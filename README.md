@@ -2,13 +2,13 @@
 
 ## /\\/!n]a's Dotfiles (xrandr)
 
-- Note: Less is More
+- Note: Barebones server configs
 
 ### To install this configuration
 
 - Clone as non-bare repo and place in arbitrary location(tmp)
 ``` sh
- git clone \
+ git clone -b server \
    --separate-git-dir=$HOME/dotfiles \
    https://github.com/ysxninja/dotfiles.git \
    dotfiles-tmp
