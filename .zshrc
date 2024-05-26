@@ -30,6 +30,7 @@ export HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=300000
 HISTDUP=erase
+setopt correct
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_dups
@@ -43,14 +44,14 @@ setopt hist_reduce_blanks
 bindkey -v
 
 ### Initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
+autoload -Uz compinit; compinit
 
 ## VARIABLES set in ~/.zshenv
 ### Source Plugins
 source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.zsh
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fpath+=($HOME/.config/zsh/plugins/zsh-completions/src $fpath)
+
 # zsh theme + Fzf-tab opts, aliases
 source $HOME/.zshtheme
 source $HOME/.config/zsh/aliases.zsh
@@ -58,8 +59,6 @@ source $HOME/.config/zsh/aliases.zsh
 # Source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
-# zoxide
+# zoxide, starship prompt
 eval "$(zoxide init zsh)"
-
-# colorscript random
 eval "$(starship init zsh)"
