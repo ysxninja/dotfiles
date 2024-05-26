@@ -46,18 +46,18 @@ bindkey -v
 ### Initialise completions with ZSH's compinit
 autoload -Uz compinit; compinit
 
-## VARIABLES set in ~/.zshenv
+## INFO: VARIABLES set in ~/.zshenv
 ### Source Plugins
-source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.zsh
-source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
 # zsh theme + Fzf-tab opts, aliases
-source $HOME/.zshtheme
-source $HOME/.config/zsh/aliases.zsh
+source $HOME/.zshtheme 2>/dev/null
+source $HOME/.config/zsh/aliases.zsh 2>/dev/null
 
 # Source grc, and do automatic aliasing for supported commands
-[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh 2>/dev/null
 
 # zoxide, starship prompt
 eval "$(zoxide init zsh)"
