@@ -58,6 +58,9 @@ source $HOME/.config/zsh/aliases.zsh 2>/dev/null
 # Source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh 2>/dev/null
 
+# Simple basic prompt
+# PS1='%F{blue}%~ %(?.%F{green}.%F{red})❯%f '
+
 # zoxide, starship prompt
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
