@@ -29,7 +29,7 @@ ensure_tmux_is_running
 export HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=300000
-HISTDUP=erase
+setopt extended_history
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_dups
