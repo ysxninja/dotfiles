@@ -42,3 +42,6 @@ source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting
 # zsh theme, aliases
 source $HOME/.zshtheme 2>/dev/null
 source $HOME/.config/zsh/aliases.zsh 2>/dev/null
+
+# simple prompt
+PS1='%F{blue}%~ %(?.%F{green}.%F{red})❯%f '
