@@ -1,7 +1,4 @@
 ## ALIASES
-
-# # ttyper
-# alias ttyper="RUST_BACKTRACE=full ttyper"
 alias tt="taskwarrior-tui"
 
 # lf with ueberzug
@@ -15,16 +12,61 @@ alias cfa="vim ~/.oh-my-zsh/custom/aliases.zsh"
 alias cft="vim ~/.config/alacritty/alacritty.yml"
 alias cfc="vim ~/Desktop/vim_cheat_sheet.txt"
 
-# history aliases
-alias h="history"
-alias hs="history | grep"
-alias hsi="history | grep -i"
+alias grep="grep --color=auto"
+alias diff="delta"
+
+# history
+alias h="cat $HOME/.zsh_history"
+alias hs="cat $HOME/.zsh_history | grep"
+alias hsi="cat $HOME/.zsh_history | grep -i"
 
 # chrome
 alias chrome="google-chrome-stable"
 
 # vim and emacs
 alias vim="nvim"
+
+# bat
+alias cat='bat'
+
+# Changing "ls" to "eza"
+alias ls='eza -al --color=always --group-directories-first --icons -a -s type' # my preferred listing
+alias la='eza -a --color=always --group-directories-first --icons -a -s type'  # all files and dirs
+alias ll='eza -l --color=always --group-directories-first --icons -a -s type'  # long format
+alias lt='eza -aT --color=always --group-directories-first' # tree listing
+alias l.='eza -a | rg "^\."'
+
+# confirm before overwriting something
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+# adding flags
+alias df='df -h'                          # human-readable sizes
+alias free='free -m'                      # show sizes in MB
+alias vifm='~/.config/vifm/scripts/vifmrun'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+# get error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# switch between shells
+alias tobash="chsh $USER -s /bin/bash && echo 'Now log out.'"
+alias tozsh="chsh $USER -s /bin/zsh && echo 'Now log out.'"
+alias tofish="chsh $USER -s /bin/fish && echo 'Now log out.'"
+
+# bare git repo alias for dotfiles
+alias dotgit="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
+
+# termbin
+alias tb="nc termbin.com 9999"
 
 ### Function extract for common file formats ###
 SAVEIFS=$IFS
@@ -70,45 +112,3 @@ fi
 IFS=$SAVEIFS
 
 ######
-
-# bat
-alias cat='bat'
-
-# Changing "ls" to "eza"
-alias ls='eza -al --color=always --group-directories-first --icons -a -s type' # my preferred listing
-alias la='eza -a --color=always --group-directories-first --icons -a -s type'  # all files and dirs
-alias ll='eza -l --color=always --group-directories-first --icons -a -s type'  # long format
-alias lt='eza -aT --color=always --group-directories-first' # tree listing
-alias l.='eza -a | rg "^\."'
-
-# confirm before overwriting something
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
-
-# adding flags
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias vifm='~/.config/vifm/scripts/vifmrun'
-
-## get top process eating memory
-alias psmem='ps auxf | sort -nr -k 4'
-alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-
-## get top process eating cpu ##
-alias pscpu='ps auxf | sort -nr -k 3'
-alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
-
-# get error messages from journalctl
-alias jctl="journalctl -p 3 -xb"
-
-# switch between shells
-alias tobash="chsh $USER -s /bin/bash && echo 'Now log out.'"
-alias tozsh="chsh $USER -s /bin/zsh && echo 'Now log out.'"
-alias tofish="chsh $USER -s /bin/fish && echo 'Now log out.'"
-
-# bare git repo alias for dotfiles
-alias dotgit="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
-
-# termbin
-alias tb="nc termbin.com 9999"

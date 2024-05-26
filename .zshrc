@@ -30,7 +30,6 @@ export HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=300000
 HISTDUP=erase
-setopt correct
 setopt appendhistory
 setopt sharehistory
 setopt hist_ignore_dups
