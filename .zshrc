@@ -25,13 +25,19 @@ ensure_tmux_is_running() {
 
 ensure_tmux_is_running
 
-# History file commands loaded into memory and stored in the history file
+# History
 export HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=300000
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+setopt hist_reduce_blanks
 
 ### SET VI MODE
 bindkey -v
@@ -40,13 +46,6 @@ bindkey -v
 autoload -Uz compinit && compinit
 
 source ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/fzf-tab/fzf-tab.zsh
-### PLUGINS ###
-# Add wisely, as too many plugins slow down shell startup.
-# removed yum, docker, vagrant, zsh-completions
-# checkout httpie(curl replacement),
-# removed vi-mode, extract already set in script
-# for pentest, zsh-pentest, zsh-handy-helpers, nmap taskwarrior git-extras nmap zsh-pentest
-# zsh-handy-helpers httpie web-search
 plugins=(
     z
     zsh-autosuggestions
@@ -56,20 +55,11 @@ plugins=(
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 
-### TITLE BAR
-DISABLE_AUTO_TITLE="true"
-
-function set_terminal_title() {
-    echo -en "\e]2;$@\a"               # For blank
-}
-
-set_terminal_title
-
 ### Source
 # source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
-# zsh theme + Fzf opts
+# zsh theme + Fzf-tab opts
 source ~/.zshtheme
 
 # colorscript random
