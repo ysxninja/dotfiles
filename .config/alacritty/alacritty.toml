@@ -1,8 +1,5 @@
 import = [
 "~/.config/alacritty/catppuccin/catppuccin-mocha.toml",   
-# "~/.config/alacritty/catppuccin/catppuccin-macchiato.toml",    
-# "~/.config/alacritty/catppuccin/catppuccin-frappe.toml",   
-# "~/.config/alacritty/catppuccin/catppuccin-latte.toml ",   
 ]
 
 [env]

@@ -34,7 +34,7 @@ printf "\n Local File Backup"
 printf "\n Backing up group and hist files\n"
 # TODO: Rethink group.bak... do I need it
 # sudo cat /etc/group > ~/group.bak && printf " group backup successful" || printf " 🗶  group backup failed"
-rsync -av ~/.local/state/zsh/history ~/ysbackup/history && printf "\n hist backup successful \n" || printf "\n 🗶  hist backup failed \n"
+rsync -av ~/.zsh_history ~/ysbackup/history && printf "\n hist backup successful \n" || printf "\n 🗶  hist backup failed \n"
 
 printf "\n Backing up gitconfig\n"
 rsync -av ~/.gitconfig ~/ysbackup/.gitconfig && printf "\n git user config backup successful\n" || printf "\n lua config backup failed\n"
