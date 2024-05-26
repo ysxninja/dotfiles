@@ -10,10 +10,6 @@ if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
 
-if [ -d "$HOME/Applications" ] ;
-  then PATH="$HOME/Applications:$PATH"
-fi
-
 # Tmux conf
 _not_inside_tmux() { [[ -z "$TMUX" ]] }
 
@@ -27,12 +23,10 @@ ensure_tmux_is_running
 
 # History
 export HISTFILE=~/.zsh_history
-HISTSIZE=100000
-SAVEHIST=300000
-HISTDUP=erase
+HISTSIZE=1000
+SAVEHIST=30000
 setopt correct
 setopt appendhistory
-setopt sharehistory
 setopt hist_ignore_dups
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
@@ -48,17 +42,9 @@ autoload -Uz compinit; compinit
 
 ## INFO: VARIABLES set in ~/.zshenv
 ### Source Plugins
-source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.zsh 2>/dev/null
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-# zsh theme + Fzf-tab opts, aliases
+# zsh theme, aliases
 source $HOME/.zshtheme 2>/dev/null
 source $HOME/.config/zsh/aliases.zsh 2>/dev/null
-
-# Source grc, and do automatic aliasing for supported commands
-[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh 2>/dev/null
-
-# zoxide, starship prompt
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
