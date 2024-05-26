@@ -120,13 +120,12 @@ set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
-set termguicolors
 
-" In some version combinations of alacritty + tmux + vim, vim can't properly detect which escape sequence it should use for truecolor. Add the following snippet to tell vim how the escape sequence should look:
-if !empty($TMUX) && empty(&t_8f)
-  let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-  let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+if !has('gui_running') && &term =~ '\%(screen\|tmux\)'
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 endif
+set termguicolors
 
 colorscheme catppuccin_mocha
 
