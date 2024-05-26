@@ -1,30 +1,12 @@
 ## ALIASES
 
-# # ttyper
-# alias ttyper="RUST_BACKTRACE=full ttyper"
-alias tt="taskwarrior-tui"
-
 # lf with ueberzug
 alias lf="lfub"
-
-# shortcuts to config files
-alias cfv="vim ~/.config/nvim/init.vim"
-alias cfz="vim ~/.zshrc"
-alias cfr="vim ~/.local/bin/remaps"
-alias cfa="vim ~/.oh-my-zsh/custom/aliases.zsh"
-alias cft="vim ~/.config/alacritty/alacritty.yml"
-alias cfc="vim ~/Desktop/vim_cheat_sheet.txt"
 
 # history aliases
 alias h="history"
 alias hs="history | grep"
 alias hsi="history | grep -i"
-
-# chrome
-alias chrome="google-chrome-stable"
-
-# vim and emacs
-alias vim="nvim"
 
 ### Function extract for common file formats ###
 SAVEIFS=$IFS
@@ -70,21 +52,6 @@ fi
 IFS=$SAVEIFS
 
 ######
-
-# bat
-alias cat='bat'
-
-# Changing "ls" to "eza"
-alias ls='eza -al --color=always --group-directories-first --icons -a -s type' # my preferred listing
-alias la='eza -a --color=always --group-directories-first --icons -a -s type'  # all files and dirs
-alias ll='eza -l --color=always --group-directories-first --icons -a -s type'  # long format
-alias lt='eza -aT --color=always --group-directories-first' # tree listing
-alias l.='eza -a | rg "^\."'
-
-# confirm before overwriting something
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
 
 # adding flags
 alias df='df -h'                          # human-readable sizes
