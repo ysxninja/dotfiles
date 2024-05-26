@@ -1,6 +1,4 @@
 # exports only
-export ZSH=$HOME/.oh-my-zsh
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 #
@@ -24,7 +22,6 @@ export PAGER="less"
 export LANG=en_US.UTF-8
 export EDITOR=/usr/bin/nvim
 export TERMINAL=/usr/bin/alacritty
-# export WM="bspwm"
 
 ### EXPORT
 # export TERM="xterm-256color"

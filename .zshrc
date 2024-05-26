@@ -45,23 +45,21 @@ bindkey -v
 ### Initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
 
-source ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/fzf-tab/fzf-tab.zsh
-plugins=(
-    z
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    fzf
-)
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-source $ZSH/oh-my-zsh.sh
-
 ## VARIABLES set in ~/.zshenv
-### Source
-# source grc, and do automatic aliasing for supported commands
+### Source Plugins
+source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.zsh
+source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fpath+=($HOME/.config/zsh/plugins/zsh-completions/src $fpath)
+# zsh theme + Fzf-tab opts, aliases
+source $HOME/.zshtheme
+source $HOME/.config/zsh/aliases.zsh
+
+# Source grc, and do automatic aliasing for supported commands
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
-# zsh theme + Fzf-tab opts
-source ~/.zshtheme
+# zoxide
+eval "$(zoxide init zsh)"
 
 # colorscript random
 eval "$(starship init zsh)"
