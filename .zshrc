@@ -1,6 +1,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Automatically start tmux if not already inside tmux and not in a non-interactive shell
+if [ -z "$TMUX" ] && [ -n "$SSH_CONNECTION" ] && [[ $- == *i* ]]; then
+    tmux new-session -A -s ttrm
+fi
+
 ### PATH
 if [ -d "$HOME/.bin" ] ;
   then PATH="$HOME/.bin:$PATH"
@@ -9,17 +14,6 @@ fi
 if [ -d "$HOME/.local/bin" ] ;
   then PATH="$HOME/.local/bin:$PATH"
 fi
-
-# Tmux conf
-_not_inside_tmux() { [[ -z "$TMUX" ]] }
-
-ensure_tmux_is_running() {
-  if _not_inside_tmux; then
-    tattach
-  fi
-}
-
-ensure_tmux_is_running
 
 # History
 export HISTFILE=~/.zsh_history
