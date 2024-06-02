@@ -1,75 +1,27 @@
-# v3 pbasvt svyr (i4)
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
-# Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 set $mod2 Mod4
 set $hyper Hyper
 
-# Keyboard configuration with setxkbmap
-# NOTE: set instead through /etc/X11/xorg.conf.d/00-keyboard.conf
 exec_always --no-startup-id "setxkbmap -model pc105 -layout us -option caps:ctrl_modifier"
 
-# focus_on_window_activation focus
-
 set $wallpaper $HOME/.config/wallpaper
-# set $dunst $HOME/.config/dunst
-
-# set default desktop layout (default is tiling)
-# workspace_layout tabbed <stacking|tabbed>
-
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 2
 default_floating_border pixel 2
-
-# Hide borders #smart, none
 hide_edge_borders smart 
-
-# change borders
-# bindsym $mod+u border none
-# bindsym $mod+y border pixel 1
-# bindsym $mod+n border normal
-
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
 font pango:JetBrainsMono Nerd Font 8
-# font pango:DejaVu Sans Mono 8
-
-# Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
 bindsym $mod+Return exec --no-startup-id alacritty
-# kill focused window
 bindsym $mod+q kill
-# start program launcher
-# bindsym $mod+d exec --no-startup-id dmenu_recency
 bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -font "JetBrainsMono Nerd Font 13"
-# launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
-# NOTE: Below
-################################################################################################
-## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
-################################################################################################
-
-# exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec --no-startup-id terminal -e 'alsamixer'
-# exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
-
-################################################################################################
-
-# Pulse Audio controls
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-# bindsym XF86AudioMute exec --no-startup-id pactl -- set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 bindsym XF86AudioRaiseVolume exec --no-startup-id change-volume up
 bindsym XF86AudioLowerVolume exec --no-startup-id change-volume down
 bindsym XF86AudioMute exec --no-startup-id change-volume mute
 
-# Music Controls
+# INFO: Music Controls
 bindsym F6 exec --no-startup-id mpc stop
 bindsym F7 exec --no-startup-id mpc prev
 bindsym F8 exec --no-startup-id mpc toggle
@@ -78,45 +30,23 @@ bindsym F10 exec --no-startup-id change-volume mute
 bindsym F11 exec --no-startup-id change-volume down
 bindsym F12 exec --no-startup-id change-volume up
 
-# # volume controls
-# bindsym XF86AudioMute exec amixer sset 'Master' toggle
-# bindsym XF86AudioLowerVolume exec amixer sset 'Master' 5%-
-# bindsym XF86AudioRaiseVolume exec amixer sset 'Master' 5%+
-
-# Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 bindsym XF86MonBrightnessUp exec --no-startup-id change-brightness up
 bindsym XF86MonBrightnessDown exec --no-startup-id change-brightness down
 
-# Start Applications
-# bindsym $mod+Ctrl+b exec --no-startup-id terminal -e 'bmenu'
-# bindsym $mod+F2 exec --no-startup-id palemoon
-# bindsym $mod+F3 exec pcmanfm
-# bindsym $mod+F3 exec ranger
-# bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-# bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-# bindsym $mod+Ctrl+h exec --no-startup-id xdg-open /usr/share/doc/manjaro/i3_help.pdf
+bindsym $mod+Shift+p --release exec --no-startup-id i3-scrot -s
 bindsym Ctrl+Shift+Escape --release exec --no-startup-id xkill
 
 # INFO: Scratchpads using i3run
-
-# scratchpad for temporary terminal thus dubbed ttrm
 bindsym $mod+7 exec --no-startup-id i3run --title ttrm -- alacritty --title ttrm -e tattach-ttrm
-# scratchpad for ranger terminal thus dubbed fm
 bindsym $mod+8 exec --no-startup-id i3run --class fm -- alacritty --class fm -e lfub
-# scratchpad for ncmpcpp terminal thus dubbed harmonia, go forth and bring harmony
 bindsym $mod+9 exec --no-startup-id i3run --title harmonia -- alacritty --title harmonia -e ncmpcpp
 # move the currently focused window to the scratchpad
 bindsym $mod+Shift+minus move scratchpad
-# Show the next scratchpad window or hide the focused scratchpad window.
-# If there are multiple scratchpad windows, this command cycles through them.
 bindsym $mod+minus scratchpad show
 
 # INFO: Extras:
@@ -126,9 +56,6 @@ bindsym $mod+Shift+e exec --no-startup-id nemo
 bindsym $mod+v exec --no-startup-id $HOME/.local/bin/rofi-copyq.py
 
 # NOTE: Window Section
-
-# focus_follows_mouse no
-
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -320,12 +247,6 @@ bindsym $mod+Shift+r restart
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # bindsym j resize shrink width 5 px or 5 ppt
-        # bindsym k resize grow height 5 px or 5 ppt
-        # bindsym l resize shrink height 5 px or 5 ppt
-        # bindsym semicolon resize grow width 5 px or 5 ppt
-
-        # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -355,15 +276,11 @@ exec_always --no-startup-id $HOME/.config/polybar/cuts/launch.sh
 # exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id picom -b
 
-#exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id pamac-tray
 exec --no-startup-id copyq --start-server
-# exec --no-startup-id conky
 exec --no-startup-id blueman-applet
 exec_always --no-startup-id birdtray
-# exec_always --no-startup-id sbxkb
 # Because xautolock is annoying to work with.
 # --not-when-audio :Don't lock when there's audio playing
 # --not-when-fullscreen :Don't lock when there's a fullscreen application
@@ -378,7 +295,6 @@ exec --no-startup-id unclutter
 exec --no-startup-id /usr/bin/flameshot
 exec --no-startup-id /usr/lib/kdeconnectd
 exec --no-startup-id /usr/bin/kdeconnect-indicator
-# exec_always --no-startup-id $HOME/.local/bin/remaps
 exec --no-startup-id $HOME/.local/bin/evince-monitor
 exec --no-startup-id $HOME/.local/bin/tmux-sessions
 
@@ -417,22 +333,9 @@ set_from_resource $term_color15    color15
   client.background       #2b2b2b
 
 
-#############################
 ### settings for i3-gaps: ###
-#############################
-
 # Set inner/outer gaps
 gaps inner 4
 gaps outer 2
-
-# Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
-# gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
-
-# Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
-
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
-# on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on

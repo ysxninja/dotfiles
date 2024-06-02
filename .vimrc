@@ -5,13 +5,12 @@ filetype off                  " required
 let mapleader = " "           " space as leader key
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vundle For Managing Plugins
+" => Vim-Plug For Managing Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 call plug#begin('~/.vim/plugged')
 
 "{{ The Basics }}
-    Plug 'gmarik/Vundle.vim'                           " Vundle
     Plug 'itchyny/lightline.vim'                       " Lightline statusbar
     Plug 'suan/vim-instant-markdown', {'rtp': 'after'} " Markdown Preview
     Plug 'frazrepo/vim-rainbow'
@@ -22,15 +21,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'                      " Icons for Nerdtree
 "{{ Productivity }}
     Plug 'vimwiki/vimwiki'                             " VimWiki
-    Plug 'jreybert/vimagit'                            " Magit-like plugin for vim
 "{{ Tim Pope Plugins }}
     Plug 'tpope/vim-surround'                          " Change surrounding marks
 "{{ Syntax Highlighting and Colors }}
-    Plug 'PotatoesMaster/i3-vim-syntax'                " i3 config highlighting
-    Plug 'kovetskiy/sxhkd-vim'                         " sxhkd highlighting
+    Plug 'sheerun/vim-polyglot'
     Plug 'vim-python/python-syntax'                    " Python highlighting
     Plug 'ap/vim-css-color'                            " Color previews for CSS
     Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+    Plug 'mattn/emmet-vim'
 "{{ Junegunn Choi Plugins }}
     Plug 'junegunn/goyo.vim'                           " Distraction-free viewing
     Plug 'junegunn/limelight.vim'                      " Hyperfocus on a range
@@ -39,21 +37,8 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
-
-
-" Am using junegunn/vim-plug so Vundle plugininstall commands won't work here
-
-" Brief help
-" :PlugStatus                   - Check the status of plugins
-" :PlugInstall [name ...]       - installs plugins;
-" :PlugUpdate [name ...]        - install or update plugins
-" :PlugClean[!]                 - Remove unlisted plugins (bang version will clean without prompt)"
-" PlugUpgrade                   - Upgrade vim-plug itself
-" PlugDiff                      - Examine the changes from the previous update and the pending changes
-" PlugSnapshot[!] [output path] -	Generate script for restoring the current snapshot of the plugins
+filetype plugin indent on
+syntax on
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -68,7 +53,6 @@ set noswapfile                  " No swap
 set t_Co=256                    " Set if term supports 256 colors.
 set number relativenumber       " Display line numbers
 set clipboard=unnamedplus       " Copy/paste between vim and other programs.
-syntax enable
 let g:rehash256 = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -204,7 +188,7 @@ map <Leader>ms :InstantMarkdownStop<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Open terminal inside Vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>tt :vnew term://zsh<CR>
+map <Leader>th :vnew term://zsh<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Mouse Scrolling
