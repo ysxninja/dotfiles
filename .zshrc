@@ -48,9 +48,17 @@ autoload -Uz compinit; compinit
 ## INFO: VARIABLES set in ~/.zshenv
 ### Source Plugins
 source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh 2>/dev/null
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
-source $HOME/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh 2>/dev/null
+
+# better history searching
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
 # zsh theme + Fzf-tab opts, aliases
 source $HOME/.zshtheme 2>/dev/null
