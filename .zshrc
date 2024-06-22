@@ -40,7 +40,7 @@ setopt hist_find_no_dups
 setopt hist_reduce_blanks
 
 ### SET VI MODE
-bindkey -v
+# bindkey -v --using zsh-vi-mode plugin instead (much better)
 
 ### Initialise completions with ZSH's compinit
 autoload -Uz compinit; compinit
@@ -50,6 +50,7 @@ autoload -Uz compinit; compinit
 source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.zsh 2>/dev/null
 source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh 2>/dev/null
 
 # zsh theme + Fzf-tab opts, aliases
 source $HOME/.zshtheme 2>/dev/null

@@ -164,14 +164,14 @@ bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
 # bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open applications on specific workspaces
-assign [class="io.github.celluloid_player.Celluloid"] $ws2
-assign [class="mpv"] $ws2
+# assign [class="io.github.celluloid_player.Celluloid"] $ws2
+# assign [class="mpv"] $ws2
+assign [class="burp-StartBurp"] $ws4
 assign [class="Google-chrome"] $ws3
-assign [class="xdman-Main"] $ws4
-assign [class="thunderbird"] $ws4
-assign [class="Nemo"] $ws4
+assign [class="xdman-Main"] $ws5
+assign [class="thunderbird"] $ws5
+assign [class="Nemo"] $ws5
 assign [class="Plex"] $ws2
-assign [class="burp-StartBurp"] $ws3
 # assign [class="org-zaproxy-zap-ZAP"] $ws2
 # assign [class="OWASP ZAP"] $ws2
 # assign [class="ZAP"] $ws2
@@ -285,7 +285,7 @@ exec_always --no-startup-id birdtray
 # --not-when-audio :Don't lock when there's audio playing
 # --not-when-fullscreen :Don't lock when there's a fullscreen application
 ###  dim the screen after 400 seconds, undim is user becomes active, then undim and lock after 30 more seconds, finally, suspend after 1200 seconds
-exec --no-startup-id xidlehook --not-when-audio --timer 400 'xrandr --output "$laptop" --brightness .4' 'xrandr --output "$laptop" --brightness 1' --timer 30 'xrandr --output "$laptop" --brightness 1; betterlockscreen -l dim' '' --timer 1200 'systemctl suspend' 'xrandr --output "$laptop" --brightness 1'
+# exec --no-startup-id xidlehook --not-when-audio --timer 400 'xrandr --output "$laptop" --brightness .4' 'xrandr --output "$laptop" --brightness 1' --timer 30 'xrandr --output "$laptop" --brightness 1; betterlockscreen -l dim' '' --timer 1200 'systemctl suspend' 'xrandr --output "$laptop" --brightness 1'
 # exec --no-startup-id xidlehook --timer 300 "brightnessctl set 600" "brightnessctl set 950" 
 # exec --no-startup-id xidlehook --not-when-audio --timer 360 "betterlockscreen -l dim" ''
 exec_always --no-startup-id ff-theme-util
