@@ -1,0 +1,15 @@
+[Default Applications]
+application/x-extension-burp=install4j_hznb23-BurpSuitePro.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-NL6MN2.desktop
+message/rfc822=userapp-Thunderbird-NL6MN2.desktop
+x-scheme-handler/mid=userapp-Thunderbird-NL6MN2.desktop
+video/mp4=io.github.celluloid_player.Celluloid.desktop
+image/png=viewnior.desktop
+image/jpeg=viewnior.desktop
+
+[Added Associations]
+x-scheme-handler/mailto=userapp-Thunderbird-NL6MN2.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-NL6MN2.desktop;
+video/mp4=io.github.celluloid_player.Celluloid.desktop;
+image/png=viewnior.desktop;
+image/jpeg=viewnior.desktop;
