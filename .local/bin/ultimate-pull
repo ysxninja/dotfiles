@@ -8,8 +8,8 @@
 # Define repositories and their corresponding paths
 declare -A repositories=(
     ["https://github.com/zsh-users/zsh-autosuggestions.git"]="$HOME/.config/zsh/plugins/zsh-autosuggestions"
-    ["https://github.com/zsh-users/zsh-completions.git"]="$HOME/.config/zsh/plugins/zsh-completions"
     ["https://github.com/zsh-users/zsh-syntax-highlighting.git"]="$HOME/.config/zsh/plugins/zsh-syntax-highlighting"
+    ["https://github.com/jeffreytse/zsh-vi-mode.git"]="$HOME/.config/zsh/plugins/zsh-vi-mode"
     ["https://github.com/Aloxaf/fzf-tab"]="$HOME/.config/zsh/plugins/fzf-tab"
     ["https://github.com/catppuccin/alacritty.git"]="$HOME/.config/alacritty/catppuccin"
     # Add more repositories and paths as needed
@@ -34,4 +34,3 @@ for repo in "${!repositories[@]}"; do
         git clone "$repo" "$repo_path" && print_success "Clone successful for $(basename "$repo")"
     fi
 done
-
