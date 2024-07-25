@@ -1,6 +1,4 @@
 # exports only
-export ZSH=$HOME/.oh-my-zsh
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 #
@@ -18,13 +16,12 @@ export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export READER="evince" # zathura
 export VISUAL="nvim"
 export CODEEDITOR="nvim"
-export BROWSER="firefox"
+# export BROWSER="firefox"
 export COLORTERM="truecolor"
 export PAGER="less"
 export LANG=en_US.UTF-8
 export EDITOR=/usr/bin/nvim
 export TERMINAL=/usr/bin/alacritty
-# export WM="bspwm"
 
 ### EXPORT
 # export TERM="xterm-256color"
@@ -38,6 +35,7 @@ export TERMINAL=/usr/bin/alacritty
 ### "nvim" as manpageer
 export MANPAGER="nvim +Man!"
 
+export QT_QPA_PLATFORMTHEME="qt5ct"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export PATH="$PATH:$XDG_DATA_HOME/cargo/bin"
 
@@ -50,6 +48,8 @@ export PATH="$PATH:$XDG_DATA_HOME/cargo/bin"
 
 ### Export
 export ANDROID_HOME="$XDG_DATA_HOME"/android
+# Ruby gems path for vimgolf, mdless etc
+export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 
 # Golang paths
 # export GOROOT=/usr/local/go

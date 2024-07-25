@@ -19,8 +19,6 @@ $fill\
 $cmd_duration\
 $jobs\
 $battery\
-${custom.task-count}\
-$time\
 \n$character"""
 
 [fill]
@@ -31,13 +29,6 @@ symbol = ""
 number_threshold = 2
 style="fg:green"
 format= "[$symbol$number ]($style)"
-
-[custom.task-count]
-description = "tasks"
-command = 'echo  " $(cat ~/.task/pending.data | wc -l)"'
-format = "[ $symbol$output]($style) "
-style = "fg:#a0a9cb"
-when = "true"
 
 [directory]
 format = "[ $path ]($style)"
@@ -62,6 +53,7 @@ style = "bg:#394260"
 format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
 
 [nodejs]
+disabled = true
 symbol = ""
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
