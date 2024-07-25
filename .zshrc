@@ -14,43 +14,62 @@ if [ -d "$HOME/Applications" ] ;
   then PATH="$HOME/Applications:$PATH"
 fi
 
-# History file commands loaded into memory and stored in the history file
+# Tmux conf
+_not_inside_tmux() { [[ -z "$TMUX" ]] }
+
+ensure_tmux_is_running() {
+  if _not_inside_tmux; then
+    tattach
+  fi
+}
+
+ensure_tmux_is_running
+
+# History
 export HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=300000
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+setopt extended_history
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+setopt hist_reduce_blanks
 
 ### SET VI MODE
-bindkey -v
+# bindkey -v --using zsh-vi-mode plugin instead (much better)
 
 ### Initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
+autoload -Uz compinit; compinit
 
-source ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/fzf-tab/fzf-tab.plugin.zsh
-### PLUGINS ###
-# Add wisely, as too many plugins slow down shell startup.
-# removed yum, docker, vagrant, zsh-completions
-# checkout httpie(curl replacement),
-# removed vi-mode, extract already set in script
-# for pentest, zsh-pentest, zsh-handy-helpers, nmap taskwarrior git-extras nmap zsh-pentest
-# zsh-handy-helpers httpie web-search
-plugins=(
-    z
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    fzf
-)
-fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
-source $ZSH/oh-my-zsh.sh
+## INFO: VARIABLES set in ~/.zshenv
+### Source Plugins
+source $HOME/.config/zsh/plugins/fzf-tab/fzf-tab.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh 2>/dev/null
+source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-### Source
-# source grc, and do automatic aliasing for supported commands
-[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+# better history searching
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
 
-# zsh theme + Fzf opts
-source ~/.zshtheme
+# zsh theme + Fzf-tab opts, aliases
+source $HOME/.zshtheme 2>/dev/null
+source $HOME/.config/zsh/aliases.zsh 2>/dev/null
 
-# colorscript random
+# Source grc, and do automatic aliasing for supported commands
+[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh 2>/dev/null
+
+# Simple basic prompt
+# PS1='%F{blue}%~ %(?.%F{green}.%F{red})❯%f '
+
+# zoxide, starship prompt
+eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
