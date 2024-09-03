@@ -3,7 +3,7 @@
 # export ARCHFLAGS="-arch x86_64"
 #
 # Dotman
-export DOT_DEST=Documents/ya-suke
+export DOT_DEST=Documents/ysxninja
 export DOT_REPO=git@github.com:ysxninja/dotfiles.git
 
 export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..|cf|ys|tmux|ttyper)"
@@ -39,11 +39,11 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 export PATH="$PATH:$XDG_DATA_HOME/cargo/bin"
 
-# PATH="/home/yasuke/perl5/bin${PATH:+:${PATH}}"; export PATH;
-# PERL5LIB="/home/yasuke/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-# PERL_LOCAL_LIB_ROOT="/home/yasuke/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-# PERL_MB_OPT="--install_base \"/home/yasuke/perl5\""; export PERL_MB_OPT;
-# PERL_MM_OPT="INSTALL_BASE=/home/yasuke/perl5"; export PERL_MM_OPT;
+# PATH="/home/ysxninja/perl5/bin${PATH:+:${PATH}}"; export PATH;
+# PERL5LIB="/home/ysxninja/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+# PERL_LOCAL_LIB_ROOT="/home/ysxninja/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+# PERL_MB_OPT="--install_base \"/home/ysxninja/perl5\""; export PERL_MB_OPT;
+# PERL_MM_OPT="INSTALL_BASE=/home/ysxninja/perl5"; export PERL_MM_OPT;
 
 
 ### Export
@@ -56,9 +56,9 @@ export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
 # export PATH=$PATH:$GOROOT/bin
 # The first segment of Gopath is going to be used by go get to store files,
 # but all segments will be searched for source code
-export GOPATH=/home/yasuke/golib
+export GOPATH=/home/ysxninja/golib
 export PATH=$PATH:$GOPATH/bin
-export GOPATH=$GOPATH:/home/yasuke/code
+export GOPATH=$GOPATH:/home/ysxninja/code
 
 # Android Flutter path
 # export PATH="$PATH:$HOME/development/flutter/bin"
@@ -134,8 +134,8 @@ export WAKATIME_HOME='/opt/wakapi'
 # proxy
 # export http_proxy=socks5://192.168.43.1:8089
 
-# PATH="/home/yasuke/perl5/bin${PATH:+:${PATH}}"; export PATH;
-# PERL5LIB="/home/yasuke/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-# PERL_LOCAL_LIB_ROOT="/home/yasuke/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-# PERL_MB_OPT="--install_base \"/home/yasuke/perl5\""; export PERL_MB_OPT;
-# PERL_MM_OPT="INSTALL_BASE=/home/yasuke/perl5"; export PERL_MM_OPT;
+# PATH="/home/ysxninja/perl5/bin${PATH:+:${PATH}}"; export PATH;
+# PERL5LIB="/home/ysxninja/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+# PERL_LOCAL_LIB_ROOT="/home/ysxninja/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+# PERL_MB_OPT="--install_base \"/home/ysxninja/perl5\""; export PERL_MB_OPT;
+# PERL_MM_OPT="INSTALL_BASE=/home/ysxninja/perl5"; export PERL_MM_OPT;

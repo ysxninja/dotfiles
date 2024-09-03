@@ -9,7 +9,7 @@
 
 # From yadm, or your preferred dotfiles manager
 # Get a list of configuration files from the Git repository, mine is a git bare repo
-dotgitls='/usr/bin/git --git-dir=/home/yasuke/dotfiles/ --work-tree=/home/yasuke ls-tree --full-tree -r HEAD'
+dotgitls='/usr/bin/git --git-dir=/home/ysxninja/dotfiles/ --work-tree=/home/ysxninja ls-tree --full-tree -r HEAD'
 
 # Additional custom list of files, separated by spaces
 custom_configs_list=".zsh_history"
