@@ -3,11 +3,14 @@
     "on-click": "activate",
     "active-only": false,
     "all-outputs": true,
-    "format": "{}",
+    "format": "{icon}",
     "format-icons": {
-      "urgent": "",
-      "active": "",
-      "default": ""
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "default": ""
     },
     "persistent-workspaces": {
       "*": 4
@@ -37,10 +40,12 @@
     "rewrite": {
       "(.*) - Brave": "Brave",
       "(.*) - Chromium": "Chromium",
+      "(.*) - Google Chrome": "Chrome",
       "(.*) - Brave Search": "Brave",
       "(.*) — Mozilla Firefox": "Firefox"
     },
-    "separate-outputs": true
+    "separate-outputs": true,
+    "max-length": 40
   },
   "tray": {
     "icon-size": 15,
@@ -75,41 +80,41 @@
     "format": "",
     "tooltip": false
   },
+  "custom/bugbounty": {
+    "exec": "~/recon/program.py",
+    "tooltip": false,
+    "interval": "once"
+  },
   "cpu": {
-    "format": "/ C {usage}% ",
-    "on-click": "alacritty -e htop"
+    "format": " {usage}% ",
+    "on-click": "alacritty -e btm"
   },
   "memory": {
-    "format": "/ M {}% ",
-    "on-click": "alacritty -e htop"
+    "format": "   {used:0.1f}/{total:0.1f} ",
+    "on-click": "alacritty -e btm"
   },
   "disk": {
     "interval": 30,
-    "format": "D {percentage_used}% ",
+    "format": " 󰋊 {specific_free:0.2f}  ",
     "path": "/",
-    "on-click": "alacritty -e htop"
+    "unit": "GB",
+    "on-click": "alacritty -e btm"
   },
   "hyprland/language": {
     "format": "/ K {short}"
   },
   "group/hardware": {
     "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 300,
-      "children-class": "not-memory",
-      "transition-left-to-right": false
-    },
     "modules": [
-      "custom/system",
-      "disk",
       "cpu",
-      "memory"
+      "memory",
+      "disk"
     ]
   },
   "network": {
     "format": "{ifname}",
     "format-wifi": "󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}",
-    "format-ethernet": "  {ifname}",
+    "format-ethernet": "󰇚 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}",
     "format-disconnected": "Disconnected",
     "tooltip-format": " {ifname} via {gwaddri}",
     "tooltip-format-wifi": "  {ifname}\n{essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n{gwaddr}\n{netmask}\n/{cidr}\n",
@@ -149,8 +154,8 @@
     "format-bluetooth": "{icon} {format_source} ",
     "format-bluetooth-muted": "󰖁  {format_source} ",
     "format-muted": "󰖁 {format_source} ",
-    "format-source": "<span foreground=\"#00FF00\"> </span>",
-    "format-source-muted": "<span foreground=\"#93a1a1\"> </span>",
+    "format-source": "<span foreground=\"#00FF00\">  </span>",
+    "format-source-muted": "<span foreground=\"#93a1a1\">  </span>",
     "format-icons": {
       "headphone": "",
       "hands-free": "",

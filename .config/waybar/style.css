@@ -28,7 +28,7 @@ window#waybar {
     font-weight: bold;
     font-style: normal;
     opacity: 0.8;
-    font-size: 12px;
+    font-size: 10px;
     color: @textcolor1;
 }
 
@@ -37,15 +37,23 @@ window#waybar {
     border: 0px;
     color: @textcolor1;
     background-color: @workspacesbackground2;
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
+    opacity: 0.7;
+}
+
+#workspaces button.empty {
     opacity: 0.4;
 }
 
 #workspaces button.active {
     color: @textcolor1;
+    border-top: 2px dotted white;
+    border-top-right-radius: 40%;
+    border-top-left-radius: 40%;
+    /* border-top-style: dotted; */
     background: @workspacesbackground2;
     min-width: 25px;
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
     opacity:1.0;
 }
 
@@ -177,6 +185,15 @@ window#waybar.empty #window {
     padding-right: 24px;
 }
 
+#custom-bugbounty {
+    margin-left: 23px;
+    margin-right: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @iconcolor;
+}
+
 /* -----------------------------------------------------
  * Idle Inhibator
  * ----------------------------------------------------- */
@@ -248,7 +265,8 @@ window#waybar.empty #window {
 #disk,#memory,#cpu,#language {
     padding:0px;
     font-size: 12px;
-    color:@iconcolor;
+    color: @textcolor2;
+    opacity:0.8;
 }
 
 #language {

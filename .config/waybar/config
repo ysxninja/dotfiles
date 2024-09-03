@@ -6,7 +6,7 @@
     "margin-top": 0,
     "margin-bottom": 0,
     "height": 21,
-    "start_hidden": true,
+    "start_hidden": false,
 
     "layer": "top",
     "margin-left": 0,
@@ -18,15 +18,16 @@
 
     // Modules Left
     "modules-left": [
-        "wlr/taskbar",
-        "hyprland/window",
-        "custom/network-ipfinder"
+        // "wlr/taskbar",
+        "hyprland/workspaces",
+        "custom/bugbounty",
+        "custom/network-ipfinder",
+        "hyprland/window"
     ],
 
     // Modules Center
-    //"modules-center": [
-    //    "hyprland/workspaces"
-    //],
+    "modules-center": [
+    ],
 
     // Modules Right    
     "modules-right": [
