@@ -1,0 +1,26 @@
+[pyprland]
+plugins = ["scratchpads", "magnify"]
+
+[scratchpads.term]
+command = "alacritty --class scratchpadttrm -e $HOME/.local/bin/tattach-ttrm"
+margin = 50
+
+[scratchpads.lfub]
+command = "alacritty --class scratchpad -e $HOME/.local/bin/lfub"
+margin = 50
+
+[scratchpads.music]
+command = "alacritty --class scratchpadmusic -e ncmpcpp"
+margin = 50
+unfocus = "hide"
+animation = "fromTop"
+
+[scratchpads.btm]
+command = "alacritty --class scratchpad -e btm"
+margin = 50
+
+[scratchpads.pavucontrol]
+command = "pavucontrol"
+margin = 50
+unfocus = "hide"
+animation = "fromTop"
