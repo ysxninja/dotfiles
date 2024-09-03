@@ -6,7 +6,7 @@ window {
   margin: 0px;
   border: none;
   padding: 10px;
-  background: linear-gradient(45deg, rgba(51,204,255,1), rgba(0,255,153,1));
+  /* background: linear-gradient(45deg, rgba(51,204,255,1), rgba(0,255,153,1)); */
   border-radius: 25px;
   box-shadow: none;
 }
