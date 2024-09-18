@@ -100,7 +100,7 @@ while :; do
     # printf "%-23s\n" "$(echo $status $ip [$country])"
     # Json output, text, alt, tooltip, class, percentage
     # printf "%-23s\n" "$(echo \{\"text\":\"$status\", \"alt\":\" \", \"tooltip\":\"Vpn Status and Ip Info $status'\\n\\n'["$country"] :: "$ip"\", \"location\":\"["$country"]\"\})"
-    printf "%-23s\n" "$(echo \{\"text\":\""  " "$ip"\", \"alt\":\" \", \"tooltip\":\"Vpn Status and Ip Info '\\n\\n'"$status " :: "$ip" :: ["$country"]\", \"location\":\"["$country"]\"\})"
+    printf "%-23s\n" "$(echo \{\"text\":\""  " "$ip"\", \"alt\":\" \", \"tooltip\":\"Vpn Status and Ip Info '\n'"$status " :: "$ip" :: ["$country"]\", \"location\":\"["$country"]\"\})"
     previous_interface_state="$(interface_state)"
     previous_uplinks=$(uplinks)
     previous_connection_status=$(connected)

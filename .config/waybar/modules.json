@@ -82,9 +82,11 @@
   },
   "custom/bugbounty": {
     "exec": "~/recon/program.py",
-    "tooltip": false,
+    "tooltip": true,
     "interval": "once",
-    "on-click": "$HOME/.config/hypr/scripts/pick_wallpaper.sh"
+    "tooltip-format": "click-left: change bbp programme\nclick-right: change wallpaper",
+    "on-click": "rm $HOME/recon/last_selected_options.txt",
+    "on-click-right": "$HOME/.config/hypr/scripts/pick_wallpaper.sh"
   },
   "cpu": {
     "format": " {usage}% ",
@@ -189,7 +191,7 @@
       "activated": " ",
       "deactivated": " "
     },
-    "on-click-right": "swaylock"
+    "on-click-right": "hyprlock"
   },
   "mpd": {
     "format": " {stateIcon}  {repeatIcon} {randomIcon} ",
