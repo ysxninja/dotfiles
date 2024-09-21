@@ -68,6 +68,13 @@ alias dotgit="/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME"
 # termbin
 alias tb="nc termbin.com 9999"
 
+# reflector
+# get fastest mirrors
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
+
 ### Function extract for common file formats ###
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
