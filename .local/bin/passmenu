@@ -9,8 +9,10 @@ if [[ $1 == "--type" ]]; then
 fi
 
 if [[ -n $WAYLAND_DISPLAY ]]; then
-	dmenu="wofi"
-	dmenuargs="--conf=$HOME/.config/wofi/config-passmenu"
+	# dmenu="wofi"
+	# dmenuargs="--conf=$HOME/.config/wofi/config-passmenu"
+	dmenu=rofi
+	dmenuargs="-dmenu"
 	xdotool="ydotool type --file -"
 elif [[ -n $DISPLAY ]]; then
 	dmenu=rofi
