@@ -44,11 +44,12 @@ map gD cd ~/downloads
 map gd cd ~/documents
 map gp cd ~/pictures
 map gc cd ~/.config
+map gb cd ~/documents/Books/
 map gr cd ~/repos
 map gv cd ~/videos/
 map gs cd ~/.local/bin
 map gt cd ~/.local/share/Trash/files
-map gm cd /run/media/yasuke/
+map gm cd /run/media/ysxninja/
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
