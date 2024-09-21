@@ -32,7 +32,8 @@ if __name__ == '__main__':
         items.append(text)
 
     title = 'rofi-copyq'
-    rofi = f'rofi -dmenu -i -p {title} -format i'.split()
+    rofi = f'rofi -dmenu -i -p {title} -format i -theme-str listview{{lines:5;columns:1;}}'.split()
+    print(rofi)
     rofi_input = '\n'.join(x for x in items)
 
     p = sp.run(rofi, input=rofi_input, encoding='utf-8', stdout=sp.PIPE, stderr=sp.PIPE)
