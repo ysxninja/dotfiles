@@ -45,7 +45,7 @@ map gd cd ~/documents
 map gp cd ~/pictures
 map gc cd ~/.config
 map gb cd ~/documents/Books/
-map gr cd ~/repos
+map gr cd ~/recon
 map gv cd ~/videos/
 map gs cd ~/.local/bin
 map gt cd ~/.local/share/Trash/files
