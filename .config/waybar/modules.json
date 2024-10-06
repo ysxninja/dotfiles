@@ -134,7 +134,7 @@
     },
     "format": "{icon} ",
     "format-charging": "",
-    "format-plugged": "  ",
+    "format-plugged": " ",
     "format-alt": "{icon}  {time}",
     "format-full": "󱟢 ",
     "format-icons": [
