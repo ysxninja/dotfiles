@@ -14,7 +14,7 @@ search.case.sensitive=no
 list.all.projects=yes
 
 # Color theme
-include /home/yasuke/.local/share/task-themes/catppuccin.theme
+include $XDG_DATA_HOME/task-themes/catppuccin.theme
 
 # Taskwarrior-tui
 uda.taskwarrior-tui.selection.indicator=•
