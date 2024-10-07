@@ -31,7 +31,7 @@ if [ "$status" = "Discharging" ] || [ "$status" = "Full" ]; then
     printf "󰁹 "  # Battery Full
   fi
 elif [ "$status" = "Charging" ]; then
-  printf " "  # Charging
+  printf "󰂄 "  # Charging
 elif [ "$status" = "Not charging" ]; then
   printf " "  # Plugged in but not charging
 fi
