@@ -18,11 +18,15 @@ set period 1
 # Basic Functions
 map d
 map m
+map f
 
+map fz :fzf_jump
+map ff :fzf_search
 map x  cut
 map zp toggle_preview
 map dd trash
 map dr restore_trash
+map de empty_trash
 map <enter> open
 map . set hidden!
 # map <c-h> set hidden! # waiting for #Fix
@@ -35,6 +39,7 @@ map ` !true
 # execute current file (must be executable)
 map gx $$f
 map gX !$f
+map gu extract
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
@@ -150,10 +155,13 @@ cmd trash ${{
 cmd restore_trash ${{
   trash-restore
 }}
+cmd empty_trash ${{
+  trash-empty
+}}
 
-# cmd on-select &{{
-#     lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\""
-# }}
+cmd on-select &{{
+    lf -remote "send $id set statfmt \"$(eza -ld --color=always "$f")\""
+}}
 
 cmd toggle_preview %{{
     if [ "$lf_preview" = "true" ]; then
@@ -161,4 +169,28 @@ cmd toggle_preview %{{
     else
         lf -remote "send $id :set preview true; set ratios 1:2:3"
     fi
+}}
+
+cmd fzf_jump ${{
+    res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
+    fi
+}}
+
+cmd fzf_search ${{
+    RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+    res="$(
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
+    )"
+    [ -n "$res" ] && lf -remote "send $id select \"$res\""
 }}
