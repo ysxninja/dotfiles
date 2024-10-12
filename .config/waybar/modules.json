@@ -84,8 +84,8 @@
     "exec": "~/recon/program.py",
     "tooltip": true,
     "interval": "once",
-    "tooltip-format": "click-left: change bbp programme\nclick-right: change wallpaper",
-    "on-click": "rm $HOME/recon/last_selected_options.txt",
+    "tooltip-format": "click-middle: change bbp programme\nclick-right: change wallpaper",
+    "on-click-middle": "rm $HOME/recon/last_selected_options.txt",
     "on-click-right": "$HOME/.config/hypr/scripts/pick_wallpaper.sh"
   },
   "cpu": {
