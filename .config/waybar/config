@@ -38,6 +38,7 @@
         "battery", 
         "idle_inhibitor",
         "tray",
+        "custom/notification",
         "clock"
     ]
 }

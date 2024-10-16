@@ -435,3 +435,12 @@ window#waybar.empty #window {
     color: #fff;
     opacity:0.8;
 } 
+
+/* -----------------------------------------------------
+ * custom/notification
+ * ----------------------------------------------------- */
+#custom-notification {
+    margin: 0px 12px 0px 2px;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 12px;
+}
