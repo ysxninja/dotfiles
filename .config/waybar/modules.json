@@ -172,8 +172,8 @@
         ""
       ]
     },
-    "on-click": "$HOME/.config/waybar/scripts/volume --toggle",
-    "on-click-right": "$HOME/.config/waybar/scripts/volume --toggle-mic"
+    "on-click": "volumectl toggle-mute",
+    "on-click-right": "volumectl -m toggle-mute"
   },
   "bluetooth": {
     "format": " {status}",
