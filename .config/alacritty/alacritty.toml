@@ -1,4 +1,4 @@
-import = [
+general.import = [
 "~/.config/alacritty/catppuccin/catppuccin-mocha.toml",   
 ]
 
@@ -106,7 +106,7 @@ mode = "Vi"
 history = 5000
 multiplier = 3
 
-[shell]
+[terminal.shell]
 program = "/usr/bin/zsh"
 # args = ["-l", "-c", "tmux attach -t yasuke || tmux new -s yasuke"]
 # sources zsh first to avoid breaking things
@@ -126,3 +126,5 @@ instance = "Alacritty"
 [window.padding]
 x = 2
 y = 3
+
+[terminal]
