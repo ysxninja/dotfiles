@@ -248,5 +248,21 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
+  },
+  "custom/wl-gammarelay-temperature": {
+    "format": " ",
+    "exec": "~/.local/bin/bluelightinfo.sh",
+    "tooltip": true,
+    "return-type": "json",
+    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
+  },
+  "custom/wl-gammarelay-brightness": {
+    "format": "  ",
+    "exec": "~/.local/bin/bluelightinfo.sh",
+    "tooltip": true,
+    "return-type": "json",
+    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
+    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02"
   }
 }

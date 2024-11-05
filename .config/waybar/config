@@ -37,6 +37,8 @@
         "pulseaudio",
         "battery", 
         "idle_inhibitor",
+        "custom/wl-gammarelay-temperature",
+        "custom/wl-gammarelay-brightness",
         "tray",
         "custom/notification",
         "clock"
