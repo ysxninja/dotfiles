@@ -45,13 +45,13 @@ map o &mimeopen $f
 map O $mimeopen --ask $f
 
 # Movement
-map gD cd ~/downloads
-map gd cd ~/documents
-map gp cd ~/pictures
+map gD cd ~/Downloads
+map gd cd ~/Documents
+map gp cd ~/Pictures
 map gc cd ~/.config
-map gb cd ~/documents/Books/
+map gb cd ~/Documents/Books/
 map gr cd ~/recon
-map gv cd ~/videos/
+map gv cd ~/Videos/
 map gs cd ~/.local/bin
 map gt cd ~/.local/share/Trash/files
 map gm cd /run/media/ysxninja/
