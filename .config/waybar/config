@@ -5,12 +5,10 @@
     "layer": "top",
     "margin-top": 0,
     "margin-bottom": 0,
-    "height": 21,
-    "start_hidden": false,
-
-    "layer": "top",
     "margin-left": 0,
     "margin-right": 0,    
+    "height": 21,
+    "start_hidden": false,
     "spacing": 0,
 
     // Load Modules
