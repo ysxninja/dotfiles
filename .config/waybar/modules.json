@@ -128,6 +128,7 @@
     "on-click": "nm-connection-editor"
   },
   "battery": {
+    "interval": 1,
     "states": {
       "warning": 30,
       "critical": 15
