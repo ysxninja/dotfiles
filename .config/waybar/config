@@ -20,7 +20,8 @@
         "hyprland/workspaces",
         "custom/bugbounty",
         "custom/network-ipfinder",
-        "hyprland/window"
+        "hyprland/window",
+        "hyprland/submap" 
     ],
 
     // Modules Center

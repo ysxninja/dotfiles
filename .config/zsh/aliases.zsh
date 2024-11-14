@@ -1,5 +1,6 @@
 ## ALIASES
 alias tt="taskwarrior-tui"
+alias su="su -"
 
 # lf with ueberzug
 alias lf="lfub"
