@@ -1,0 +1,4 @@
+SHELL=/bin/sh
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+# anacron to run every 4 days
+4 0 cron.mine run-parts /home/$USER/.local/etc/cron.semiweekly/

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cp /home/$USER/.zsh_history /home/$USER/ysbackup/zsh_history/zsh_history_$(date +\%Y_\%m_\%d_%H\%M).bak
