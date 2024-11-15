@@ -19,12 +19,41 @@ function print_info() {
 }
 
 function check_connection() {
-    echo -e "\nChecking internet connection..."
+    CYAN="\e[1;36m"
+    GREEN="\e[1;32m"
+    RED="\e[1;31m"
+    RESET="\e[0m"
+
+    echo -ne "\n${CYAN}Checking internet connection${RESET}"
+
+    # Start loading animation in the background
+    while :; do
+        for s in '.' '..' '...'; do
+            echo -ne "\r${CYAN}Checking internet connection${s}${RESET}   "
+            sleep 0.5
+        done
+    done &
+
+    # Save PID of background process
+    LOADING_PID=$!
+
+    # Run the actual connection check
     if httping -qc 1 -t 2 google.com > /dev/null 2>&1; then
-        echo -e "Connection status: Connected"
+        CONNECTION_STATUS="connected"
     else
-        echo -e "Connection status: Disconnected"
-        echo -e "No internet connection detected. Exiting."
+        CONNECTION_STATUS="disconnected"
+    fi
+
+    # Kill loading animation
+    kill "$LOADING_PID" > /dev/null 2>&1
+    wait "$LOADING_PID" 2>/dev/null
+
+    # Print final connection status
+    if [ "$CONNECTION_STATUS" == "connected" ]; then
+        echo -e "\r${GREEN}Connection status: Connected${RESET}       "
+    else
+        echo -e "\r${RED}Connection status: Disconnected${RESET}   "
+        echo -e "${RED}No internet connection detected. Exiting.${RESET}"
         exit 4
     fi
 }
