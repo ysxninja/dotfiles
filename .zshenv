@@ -49,7 +49,7 @@ export PATH="$PATH:$XDG_DATA_HOME/cargo/bin"
 ### Export
 export ANDROID_HOME="$XDG_DATA_HOME"/android
 # Ruby gems path for vimgolf, mdless etc
-export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"
+export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 
 # Golang paths
 # export GOROOT=/usr/local/go
