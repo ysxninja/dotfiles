@@ -90,18 +90,18 @@
   },
   "cpu": {
     "format": " {usage}% ",
-    "on-click": "alacritty -e btm"
+    "on-click": "alacritty -e btm --basic"
   },
   "memory": {
     "format": "   {used:0.1f}/{total:0.1f} ",
-    "on-click": "alacritty -e btm"
+    "on-click": "alacritty -e btm --basic"
   },
   "disk": {
     "interval": 30,
     "format": " 󰋊 {specific_free:0.2f}  ",
     "path": "/",
     "unit": "GB",
-    "on-click": "alacritty -e btm"
+    "on-click": "alacritty -e btm --basic"
   },
   "hyprland/language": {
     "format": "/ K {short}"
@@ -229,6 +229,12 @@
     "format": " {} ",
     "return-type": "json",
     "exec": "~/.local/bin/ipfinder.sh"
+  },
+  "custom/network-traffic": {
+    "format": "  {}",
+    "interval": 10,
+    "on-click": "alacritty -e btm --network_use_log --network_use_bytes --default_widget_type=network -e",
+    "exec": "~/.local/bin/network-traffic.sh up wlan0 lo tap-easytether"
   },
   "custom/notification": {
     "tooltip": false,

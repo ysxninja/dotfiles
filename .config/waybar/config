@@ -31,6 +31,7 @@
     // Modules Right    
     "modules-right": [
         "network",
+        "custom/network-traffic",
         "mpd",
         "group/hardware",
         "pulseaudio",
