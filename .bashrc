@@ -3,6 +3,7 @@
 
 ### EXPORT
 # export TERM="xterm-256color"                      # getting proper colors
+export HISTFILE="$HOME/.bash_history"
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 export ALTERNATE_EDITOR=""                        # setting for emacsclient
 #export EDITOR="emacsclient -t -a ''"              # $EDITOR use Emacs in terminal

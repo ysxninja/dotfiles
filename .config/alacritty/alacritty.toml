@@ -117,9 +117,6 @@ dynamic_padding = true
 opacity = 0.9
 title = "Alacritty"
 dynamic_title = true
-# Decorations theme variant for gtk, 
-# but used here to fix(prevent) color change from pywal, wal command
-decorations_theme_variant = "Dark"
 # startup_mode = "Fullscreen"
 
 [window.class]
