@@ -10,6 +10,7 @@ selected=''
 function display_help {
 	echo "Usage: $0 [OPTIONS]"
 	echo "Browse VimGolf challenges and interact with them."
+	echo "Run $0 --update on first run"
 	echo
 	echo "Options:"
 	echo "  --update       Update local cache of VimGolf challenges."
