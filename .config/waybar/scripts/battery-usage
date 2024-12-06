@@ -1,0 +1,17 @@
+#!/bin/bash
+
+BATTERY_PATH="/sys/class/power_supply/BAT1"
+STATUS=$(cat "$BATTERY_PATH/status")
+POWER=$(cat "$BATTERY_PATH/power_now")
+
+# Convert power_now from µW to W
+# POWER_W=$((POWER / 1000000))
+
+# Convert power_now from µW to W and round to nearest tenths
+POWER_W=$(echo "scale=1; $POWER / 1000000" | bc)
+
+if [ "$STATUS" = "Charging" ] || [ "$STATUS" = "Discharging" ]; then
+    echo "{\"text\": \"$POWER_W\", \"tooltip\": \"Battery: $STATUS, $POWER_W W\"}"
+else
+    echo ""
+fi
