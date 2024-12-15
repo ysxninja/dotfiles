@@ -96,6 +96,7 @@ application/octet-stream=nvim.desktop
 x-scheme-handler/mailto=userapp-Thunderbird-W0W2W2.desktop
 message/rfc822=userapp-Thunderbird-W0W2W2.desktop
 x-scheme-handler/mid=userapp-Thunderbird-W0W2W2.desktop
+application/vnd.ms-excel=nvim.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
@@ -108,3 +109,4 @@ application/octet-stream=nvim.desktop;
 image/webp=viewnior.desktop;
 x-scheme-handler/mailto=userapp-Thunderbird-W0W2W2.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-W0W2W2.desktop;
+application/vnd.ms-excel=nvim.desktop;

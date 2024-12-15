@@ -6,6 +6,7 @@
 # License: MIT
 # Dependencies: httping, git, rsync
 # Updated and modularized for clarity and maintainability
+# TODO: check if wayland or wayland-dual branch before dotgit push
 
 # Colors for terminal output
 CYAN="\e[1;36m"
