@@ -7,4 +7,4 @@ random_pick=$(find "$wp_dir" -type f -name "*.png" -o -name "*.jpg" | shuf -n1)
 # Replace the placeholder in template and save to .conf file
 sed -e "s~<wp>~${random_pick}~g" "$conf_dir"/scripts/hyprpaper.template > "$conf_dir"/hyprpaper.conf
 # update terminal colors with pywal
-wal -i "$random_pick"
+wal -s -i "$random_pick"
