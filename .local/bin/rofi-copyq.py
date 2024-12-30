@@ -79,7 +79,9 @@ def copy_to_clipboard(selected_index, original_items):
     try:
         selected_clipboard_item = original_items[selected_index]
         original_copyq_index = selected_clipboard_item['row']
-        sp.run(f'copyq select({original_copyq_index})'.split(), encoding='utf-8', stdout=sp.PIPE, stderr=sp.PIPE)
+        # sp.run(f'copyq select({original_copyq_index})'.split(), encoding='utf-8', stdout=sp.PIPE, stderr=sp.PIPE)
+        # Fix: Use a list for the command instead of a string
+        sp.run(['copyq', 'select', f'{original_copyq_index}'], encoding='utf-8', stdout=sp.PIPE, stderr=sp.PIPE)
         print(f"rofi-copyq: Item copied to clipboard: {selected_clipboard_item['row']}")
     except IndexError:
         print("rofi-copyq: Invalid selection index")
