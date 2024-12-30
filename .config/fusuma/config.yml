@@ -1,0 +1,27 @@
+swipe:
+  3:
+    left:
+      command: "mpc prev"
+    right:
+      command: "mpc next"
+    up:
+      command: "$HOME/.local/bin/bluelighttoggle.sh"
+    down:
+      command: "mpc toggle"
+  # 4:
+  #   left:
+  #     command: "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -200" # Switch to next workspace
+  #   right:
+  #     command: "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +200" # Switch to previous workspace
+  #   up:
+  #     command: "busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 5700" # increase temp
+  #   down:
+  #     command: "busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500" # reduce temp
+# pinch:
+#   in:
+#     command: "ydotool keydown ctrl click 4 keyup ctrl" # Zoom in
+#   out:
+#     command: "ydotool keydown ctrl click 5 keyup ctrl" # Zoom out
+# hold:
+#   4:
+#     command: "ydotool key super" # Activity
