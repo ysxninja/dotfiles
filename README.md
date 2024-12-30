@@ -22,3 +22,8 @@
 ```sh
  rm -rf dotfiles-tmp
 ```
+
+- configure keyd
+```sh
+ sudo ln -s $HOME/.local/share/keyd/default.conf /etc/keyd/default.conf
+```
