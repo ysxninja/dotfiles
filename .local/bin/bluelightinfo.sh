@@ -1,22 +1,25 @@
 #!/bin/sh
 
-# Get introspect info from wl-gammarelay
-output=$(busctl --user introspect rs.wl-gammarelay / rs.wl.gammarelay)  
+# Check if hyprsunset is running
+pid=$(pgrep -x hyprsunset)
 
-# Format for JSON, escaping newlines for Waybar
-# Extract Brightness and Temperature values
-brightness=$(echo "$output" | grep -E "^\.Brightness" | awk '{print $4}')
-temperature=$(echo "$output" | grep -E "^\.Temperature" | awk '{print $4}')
+# Set temperature based on whether hyprsunset is running or not
+if [ -z "$pid" ]; then
+  # If hyprsunset is not running, default temperature is 6500K
+  temperature=6500
+else
+  # If hyprsunset is running, temperature is 5700K
+  temperature=5700
+fi
 
-# Format for JSON, escaping newlines for Waybar
-# formatted_output=$(echo "$output" | sed ':a;N;$!ba;s/\n/\\n/g')
-#
 # Format the output for Waybar with line breaks
-formatted_output="Brightness: $brightness\nTemperature: $temperature"
+formatted_output="Temperature: $temperature"
 
+# Check if the temperature is greater than or equal to 6500K
 if [ "$temperature" -ge 6500 ]; then
   # Output as JSON for Waybar, escaping newlines
   echo "{\"text\": \"\", \"tooltip\": \"$formatted_output\"}"
 else
+  # Otherwise, output a different icon for lower temperature
   echo "{\"text\": \"󰽥\", \"tooltip\": \"$formatted_output\"}"
 fi
