@@ -14,5 +14,9 @@ temperature=$(echo "$output" | grep -E "^\.Temperature" | awk '{print $4}')
 # Format the output for Waybar with line breaks
 formatted_output="Brightness: $brightness\nTemperature: $temperature"
 
-# Output as JSON for Waybar, escaping newlines
-echo "{\"text\": \"\", \"tooltip\": \"$formatted_output\"}"
+if [ "$temperature" -ge 6500 ]; then
+  # Output as JSON for Waybar, escaping newlines
+  echo "{\"text\": \"\", \"tooltip\": \"$formatted_output\"}"
+else
+  echo "{\"text\": \"󰽥\", \"tooltip\": \"$formatted_output\"}"
+fi

@@ -267,7 +267,7 @@
     "escape": true
   },
   "custom/wl-gammarelay-temperature": {
-    "format": "  ",
+    "format": " {} ",
     "exec": "$HOME/.local/bin/bluelightinfo.sh",
     "tooltip": true,
     "interval": 1,
