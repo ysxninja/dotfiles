@@ -108,3 +108,4 @@ application/octet-stream=nvim.desktop;
 image/webp=viewnior.desktop;
 x-scheme-handler/mailto=userapp-Thunderbird-W0W2W2.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-W0W2W2.desktop;
+text/markdown=nvim.desktop;
