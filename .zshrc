@@ -59,6 +59,7 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # zsh theme + Fzf-tab opts, aliases
 source $HOME/.zshtheme 2>/dev/null
