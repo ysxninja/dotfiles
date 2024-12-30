@@ -8,8 +8,21 @@ previewdir="$HOME/.config/ncmpcpp/previews"
 filename="$(mpc --format "$music_dir"/%file% current)"
 previewname="$previewdir/$(mpc --format %album% current | base64).png"
 
+# Check the playback status
+status=$(mpc status --format "%state%")
+
+# Set the appropriate message based on whether the music is playing or paused
+if echo "$status" | grep -q "playing"; then
+    message="Now Playing"
+elif echo "$status" | grep -q "paused"; then
+    message="Paused"
+else
+    message="No Music Playing"
+fi
+
 [ -e "$previewname" ] || ffmpeg -y -i "$filename" -an -vf scale=128:128 "$previewname" > /dev/null 2>&1
 
-notify-send -e -r 27072 "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)" -i "$previewname"
+notify-send -e -r 27072 "$message" "$(mpc --format '%title% \n%artist% - %album%' current)" -i "$previewname"
+# notify-send -e -r 27072 "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)" -i "$previewname"
 # notify-send -r 27072 "$(mpc --format '%title% \n\n%artist% - %album%' current)" -i "$previewname" -h string:x-dunst-stack-tag:mpd
 # notify-send -r 27072 "$(mpc current)" -i "$previewname"
