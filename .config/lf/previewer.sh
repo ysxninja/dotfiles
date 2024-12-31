@@ -21,15 +21,16 @@ shift
 if [ -n "$FIFO_UEBERZUG" ]; then
   case "$(file -Lb --mime-type -- "$file")" in
     image/*)
-      orientation="$(identify -format '%[EXIF:Orientation]\n' -- "$file")"
-      if [ -n "$orientation" ] && [ "$orientation" != 1 ]; then
-        cache="$(hash "$file").jpg"
-        cache "$cache" "$@"
-        convert -- "$file" -auto-orient "$cache"
-        draw "$cache" "$@"
-      else
-        draw "$file" "$@"
-      fi
+      # orientation="$(identify -format '%[EXIF:Orientation]\n' -- "$file")"
+      # if [ -n "$orientation" ] && [ "$orientation" != 1 ]; then
+      #   cache="$(hash "$file").jpg"
+      #   cache "$cache" "$@"
+      #   convert -- "$file" -auto-orient "$cache"
+      #   draw "$cache" "$@"
+      # else
+      #   draw "$file" "$@"
+      # fi
+      exiftool "$file"
       ;;
     video/*)
       cache="$(hash "$file").jpg"

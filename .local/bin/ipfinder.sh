@@ -17,17 +17,32 @@ last_ip=""
 # Set the maximum check interval
 MAX_CHECK_INTERVAL=60  # in seconds
 
-# In case we get throttled anyway, try with a different service.
-throttled() {
-    response=$(curl -m "$MAX_TIME" -sf -H "Accept: application/json" trackip.net/ip?json)
-    ip=$(echo "$response" | jq -r '.IP' 2>/dev/null)
-    country=$(echo "$response" | jq -r '.Country' 2>/dev/null)
-
-    if [ -z "$ip" ] || echo "$ip" | grep -iq null; then
-        return 1
+# Function to check IP using ipinfo.io
+get_ip_info_ipinfo() {
+    response=$(curl -m "$MAX_TIME" -sf -H "Accept: application/json" ipinfo.io/json)
+    if [ $? -eq 0 ]; then
+        ip=$(echo "$response" | jq -r '.ip' 2>/dev/null)
+        country=$(echo "$response" | jq -r '.country' 2>/dev/null)
+        if [ -n "$ip" ] && ! echo "$ip" | grep -iq null; then
+            echo "$ip" "$country"
+            return 0
+        fi
     fi
+    return 1
+}
 
-    return 0
+# Function to check IP using trackip.net
+get_ip_info_trackip() {
+    response=$(curl -m "$MAX_TIME" -sf -H "Accept: application/json" trackip.net/ip?json)
+    if [ $? -eq 0 ]; then
+        ip=$(echo "$response" | jq -r '.IP' 2>/dev/null)
+        country=$(echo "$response" | jq -r '.Country' 2>/dev/null)
+        if [ -n "$ip" ] && ! echo "$ip" | grep -iq null; then
+            echo "$ip" "$country"
+            return 0
+        fi
+    fi
+    return 1
 }
 
 # Improved connected function that checks for actual internet access
@@ -61,6 +76,38 @@ uplinks() {
     ip link show up | awk -F: '/^[0-9]+/ {print $1}'
 }
 
+# Throttling backoff (exponential retry on failure)
+backoff_retry() {
+    local retries=0
+    local max_retries=5
+    local sleep_time=5
+
+    while [ $retries -lt $max_retries ]; do
+        # Try to get IP info from ipinfo.io first
+        result=$(get_ip_info_ipinfo)
+        if [ $? -eq 0 ]; then
+            echo "$result"
+            return 0
+        fi
+
+        # If ipinfo.io fails, try trackip.net
+        result=$(get_ip_info_trackip)
+        if [ $? -eq 0 ]; then
+            echo "$result"
+            return 0
+        fi
+
+        # If both fail, wait and try again with exponential backoff
+        sleep $sleep_time
+        retries=$((retries + 1))
+        sleep_time=$((sleep_time * 2))  # Exponential backoff
+    done
+
+    # If all retries fail, return a default IP
+    echo "127.0.0.1 Unknown"
+    return 1
+}
+
 while :; do
     current_interface_state="$(interface_state)"
     current_uplinks=$(uplinks)
@@ -75,11 +122,10 @@ while :; do
         status=$INTERNET_DOWN
         ip="127.0.0.1"  # No default route, assume internet is down
     else
-        response=$(curl -m "$MAX_TIME" -sf -H "Accept: application/json" ipinfo.io/json)
-        if [ -n "$response" ] && ! echo "$response" | jq -r '.ip' | grep -iq null; then
-            ip=$(echo "$response" | jq -r '.ip')
-            country=$(echo "$response" | jq -r '.country')
-        fi
+        # Try to get the IP info with retry mechanism
+        result=$(backoff_retry)
+        ip=$(echo "$result" | awk '{print $1}')
+        country=$(echo "$result" | awk '{print $2}')
     fi
 
     # We do not want to exceed the limit of API requests, so we check if there is actually any changes.
@@ -96,6 +142,7 @@ while :; do
 
         # Reset check-anyway counter
         check_anyway=$DEFAULT_CHECK_ANYWAY
+        echo "$MAX_CHECK_INTERVAL"
     else
         # No change detected, so increase the check_anyway time
         last_network_change=$((last_network_change + before_network_check))
@@ -125,7 +172,9 @@ while :; do
     # printf "%-23s\n" "$(echo $status $ip [$country])"
     # Json output, text, alt, tooltip, class, percentage
     # printf "%-23s\n" "$(echo \{\"text\":\"$status\", \"alt\":\" \", \"tooltip\":\"Vpn Status and Ip Info $status'\\n\\n'["$country"] :: "$ip"\", \"location\":\"["$country"]\"\})"
-    printf "%-23s\n" "$(echo \{\"text\":\"" $ICON " "$ip"\", \"alt\":\" $ICON \", \"tooltip\":\"Vpn Status and Ip Info '\n'"$status " :: "$ip" :: ["$country"]\", \"location\":\"["$country"]\"\})"
+
+    # Output the current status in JSON format
+    printf "%-23s\n" "$(echo \{\"text\":\"$ICON $ip\", \"alt\":\"$ICON \", \"tooltip\":\"Vpn Status and Ip Info '\n'"$status " :: "$ip" :: ["$country"]\", \"location\":\"["$country"]\"\})"
 
     previous_interface_state="$(interface_state)"
     previous_uplinks=$(uplinks)

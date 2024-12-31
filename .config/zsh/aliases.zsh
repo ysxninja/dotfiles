@@ -2,8 +2,8 @@
 alias tt="taskwarrior-tui"
 alias su="su -"
 
-# lf with ueberzug
-alias lf="lfub"
+# lf with ueberzug, image previews better with kitty, using yazi
+# alias lf="lfub"
 
 # shortcuts to config files
 alias cfv="vim ~/.config/nvim/init.vim"
