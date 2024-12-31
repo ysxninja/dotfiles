@@ -174,7 +174,7 @@ while :; do
     # printf "%-23s\n" "$(echo \{\"text\":\"$status\", \"alt\":\" \", \"tooltip\":\"Vpn Status and Ip Info $status'\\n\\n'["$country"] :: "$ip"\", \"location\":\"["$country"]\"\})"
 
     # Output the current status in JSON format
-    printf "%-23s\n" "$(echo \{\"text\":\"$ICON $ip\", \"alt\":\"$ICON \", \"tooltip\":\"Vpn Status and Ip Info '\n'"$status " :: "$ip" :: ["$country"]\", \"location\":\"["$country"]\"\})"
+    printf "%-23s\n" "$(echo \{\"text\":\"" $ICON " "$ip"\", \"alt\":\" $ICON \", \"tooltip\":\"Vpn Status and Ip Info '\n'"$status " :: "$ip" :: ["$country"]\", \"location\":\"["$country"]\"\})"
 
     previous_interface_state="$(interface_state)"
     previous_uplinks=$(uplinks)
