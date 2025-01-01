@@ -7,15 +7,43 @@ import json
 import subprocess as sp
 
 copyq_script_getAll = r"""
-var result=[];
-for ( var i = 0; i < size(); ++i ) {
+var result = [];
+
+for (var i = 0; i < size(); ++i) {
     var obj = {};
-    obj.row = i;
-    obj.mimetypes = str(read("?", i)).split("\n");
-    obj.mimetypes.pop();
-    obj.text = str(read(i));
-    result.push(obj);
+    
+    // Read the mime types for the clipboard entry
+    var mime_types = str(read("?", i)).split("\n");
+    mime_types.pop();  // Remove empty last element
+
+    // For text-based entries
+    if (mime_types.includes("text/plain") || mime_types.includes("text/html") || mime_types.includes("application/json")) {
+        obj.row = i;
+        obj.mimetypes = mime_types;
+        obj.text = str(read(i)).trim();  // Trim extra whitespace
+
+        // If the text is empty, label it as <DATA>
+        if (obj.text.length > 0) {
+            result.push(obj);
+        } else {
+            obj.text = "<DATA>";
+            result.push(obj);
+        }
+    }
+    // For image or binary blobs, label them as <IMAGE> or <DATA>
+    else if (mime_types.some(type => type.startsWith("image/"))) {
+        obj.row = i;
+        obj.mimetypes = mime_types;
+        obj.text = "<IMAGE>";  // For image types
+        result.push(obj);
+    } else {
+        obj.row = i;
+        obj.mimetypes = mime_types;
+        obj.text = "<DATA>";  // For any other binary data
+        result.push(obj);
+    }
 }
+
 JSON.stringify(result);
 """
 
