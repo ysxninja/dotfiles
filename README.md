@@ -26,4 +26,5 @@
 - configure keyd
 ```sh
  sudo ln -s $HOME/.local/share/keyd/default.conf /etc/keyd/default.conf
+ sudo usermod -aG keyd $USER
 ```
