@@ -59,6 +59,11 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
+# Bind Ctrl + Arrow Keys
+bindkey '^[[1;5A' up-line-or-beginning-search       # Ctrl + Up Arrow
+bindkey '^[[1;5B' down-line-or-beginning-search     # Ctrl + Down Arrow
+bindkey '^[[1;5D' backward-char                     # Ctrl + Left Arrow
+bindkey '^[[1;5C' forward-char                      # Ctrl + Right Arrow
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 # zsh theme + Fzf-tab opts, aliases
