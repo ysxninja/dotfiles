@@ -22,10 +22,3 @@ multi = false
 command = "kitty --class scratchpad -e btm"
 margin = 50
 multi = false
-
-[scratchpads.pavucontrol]
-command = "pavucontrol"
-margin = 50
-unfocus = "hide"
-animation = "fromTop"
-multi = false
