@@ -92,4 +92,4 @@ print_info "Backing up local files"
 backup_files ~/.zsh_history ~/ysbackup/history "History"
 backup_files ~/.gitconfig ~/ysbackup/.gitconfig "Git user config"
 
-printf "\n${YELLOW}✅✅✅ Completed!$RESET\n"
+printf "\n${YELLOW}✅✅✅ Completed!$RESET\n\n\n"
