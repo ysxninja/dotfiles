@@ -1,0 +1,88 @@
+#!/bin/bash
+#
+# Author: [github.com/ysxninja](https://github.com/ysxninja)
+# Use case: Connect nmcli vpn, toggle killswitch
+# License: MIT
+# Dependencies: nmcli, awk, vpnkillswitch
+# Updated and modularized for clarity and maintainability
+
+# Function to display the help menu
+show_help() {
+    echo "Usage: $0 [-c <country_code>] [-t]"
+    echo
+    echo "Options:"
+    echo "  -c <country_code>   Set the country code for the VPN connection"
+    echo "  -t                  Toggle VPN connection (connect/disconnect)"
+    echo "  -h                  Display this help menu"
+}
+
+# Initialize variables
+country_code=""
+toggle=false
+HOME=/home/ysxninja
+
+# Parse options
+while getopts "c:th" opt; do
+    case "$opt" in
+        c)
+            country_code="$OPTARG"
+            ;;
+        t)
+            toggle=true
+            ;;
+        h)
+            show_help
+            exit 0
+            ;;
+        *)
+            show_help
+            exit 1
+            ;;
+    esac
+done
+
+# Default country code if -t is used
+if [ "$toggle" = true ] && [ -z "$country_code" ]; then
+    country_code="nl"
+fi
+
+# Validate that we have a valid country code if not toggling
+if [ -z "$country_code" ] && [ "$toggle" = false ]; then
+    echo "Error: Please specify a country code with -c"
+    exit 1
+fi
+
+# Construct the VPN connection name based on the country code
+vpn_connection="${country_code}-free-"
+
+# Get the VPN connection status
+available_vpn=$(nmcli connection show | grep -E "${vpn_connection}" | awk '{print $1}')
+echo "$available_vpn"
+
+# If no connection is found, exit with an error message
+if [ -z "$available_vpn" ]; then
+    echo "No available VPN connection matching '$vpn_connection'"
+    exit 1
+fi
+
+# Toggle logic: if -t is used, toggle VPN state
+if [ "$toggle" = true ]; then
+    vpn_isactive="\-free-.*vpn"
+    vpn_status=$(nmcli connection show --active | grep -E "${vpn_isactive}")
+
+    if [ -z "$vpn_status" ]; then
+        "$HOME"/.local/bin/vpnkillswitch -d
+        # VPN is down, connect to the VPN
+        echo "Connecting to VPN: $available_vpn"
+        nmcli connection up "$available_vpn" && "$HOME"/.local/bin/vpnkillswitch -e
+    else
+        # VPN is up, disconnect from the VPN
+        available_altvpn=$(echo "$vpn_status" | awk \{'print $1'\})
+        echo "Disconnecting VPN: $available_altvpn" || echo "Disconnecting VPN: $available_vpn"
+        (nmcli connection down "$available_altvpn" && "$HOME"/.local/bin/vpnkillswitch -d) || (nmcli connection down "$available_vpn" && "$HOME"/.local/bin/vpnkillswitch -d)
+    fi
+else
+    # If not toggling, connect to the specified VPN country code
+    echo "Connecting to VPN: $available_vpn"
+    nmcli connection up "$available_vpn" && "$HOME"/.local/bin/vpnkillswitch -e
+fi
