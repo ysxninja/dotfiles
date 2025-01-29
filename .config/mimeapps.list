@@ -96,13 +96,14 @@ application/octet-stream=nvim.desktop
 x-scheme-handler/mailto=userapp-Thunderbird-W0W2W2.desktop
 message/rfc822=userapp-Thunderbird-W0W2W2.desktop
 x-scheme-handler/mid=userapp-Thunderbird-W0W2W2.desktop
+hoppscotch=hoppscotch-handler.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
 image/png=viewnior.desktop;
 video/mp4=io.github.celluloid_player.Celluloid.desktop;
 application/epub+zip=xreader.desktop;geoclue-where-am-i.desktop;
-image/jpeg=viewnior.desktop;
+image/jpeg=gimp.desktop;google-chrome.desktop;viewnior.desktop;
 video/x-matroska=io.github.celluloid_player.Celluloid.desktop;
 application/octet-stream=nvim.desktop;
 image/webp=viewnior.desktop;
