@@ -1,0 +1,5 @@
+@import url("resource:///org/gtk/libadwaita/ado.css");
+
+AdwStyleContext {
+  color-scheme: dark;
+}

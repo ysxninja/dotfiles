@@ -6,6 +6,7 @@
 export DOT_DEST=Documents/ysxninja
 export DOT_REPO=git@github.com:ysxninja/dotfiles.git
 
+export GTK_THEME=Whitesur-Dark-purple
 export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..|cf|ys|tmux|ttyper)"
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}

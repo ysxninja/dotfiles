@@ -97,6 +97,7 @@ x-scheme-handler/mailto=userapp-Thunderbird-W0W2W2.desktop
 message/rfc822=userapp-Thunderbird-W0W2W2.desktop
 x-scheme-handler/mid=userapp-Thunderbird-W0W2W2.desktop
 hoppscotch=hoppscotch-handler.desktop
+x-scheme-handler/postman=Postman.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
@@ -110,3 +111,4 @@ image/webp=viewnior.desktop;
 x-scheme-handler/mailto=userapp-Thunderbird-W0W2W2.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-W0W2W2.desktop;
 text/markdown=nvim.desktop;
+text/plain=vim.desktop;
