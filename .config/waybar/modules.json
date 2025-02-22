@@ -239,7 +239,7 @@
     "format": " {} ",
     "return-type": "json",
     "exec": "$HOME/.local/bin/ipfinder.sh",
-    "on-click": "pkexec $HOME/.local/bin/vpntoggle -t",
+    "on-click": "pkexec $HOME/.local/bin/vpntoggle -t -c us",
     "on-click-right": "pkexec $HOME/.local/bin/vpntoggle -t -c us"
   },
   "custom/network-traffic": {
