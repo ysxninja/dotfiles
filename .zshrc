@@ -76,6 +76,7 @@ source $HOME/.config/zsh/aliases.zsh 2>/dev/null
 # Simple basic prompt
 # PS1='%F{blue}%~ %(?.%F{green}.%F{red})❯%f '
 
-# zoxide, starship prompt
+# zoxide, starship prompt, atuin history
 eval "$(zoxide init zsh)"
+eval "$(atuin init zsh)"
 eval "$(starship init zsh)"

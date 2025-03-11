@@ -93,12 +93,13 @@ x-scheme-handler/about=google-chrome.desktop
 x-scheme-handler/unknown=google-chrome.desktop
 application/x-extension-burp=install4j_hznb23-BurpSuitePro.desktop
 application/octet-stream=nvim.desktop
-x-scheme-handler/mailto=userapp-Thunderbird-W0W2W2.desktop
+x-scheme-handler/mailto=Mailspring.desktop
 message/rfc822=userapp-Thunderbird-W0W2W2.desktop
 x-scheme-handler/mid=userapp-Thunderbird-W0W2W2.desktop
 hoppscotch=hoppscotch-handler.desktop
 x-scheme-handler/postman=Postman.desktop
 application/x-zerosize=nvim.desktop
+x-scheme-handler/mailspring=Mailspring.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
