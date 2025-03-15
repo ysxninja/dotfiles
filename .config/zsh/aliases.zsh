@@ -17,9 +17,9 @@ alias grep="grep --color=auto"
 alias diff="delta"
 
 # history
-alias h="cat $HOME/.zsh_history"
-alias hs="cat $HOME/.zsh_history | grep"
-alias hsi="cat $HOME/.zsh_history | grep -i"
+alias h="atuin history list --format '{command}'"
+alias hs="atuin search -i"
+alias hsi="atuin search -i"
 
 # chrome
 alias chrome="google-chrome-stable"

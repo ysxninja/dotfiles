@@ -78,5 +78,5 @@ source $HOME/.config/zsh/aliases.zsh 2>/dev/null
 
 # zoxide, starship prompt, atuin history
 eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(starship init zsh)"

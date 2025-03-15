@@ -6,11 +6,11 @@
 # Dependencies: tmux
 # License: MIT
 #
-SESSION_NAMES=("ttrm" "yasuke" "code")
+SESSION_NAMES=("ttrm" "ysxninja" "code")
 
 while true; do
     for SESSION_NAME in "${SESSION_NAMES[@]}"; do
-        if ! tmux has-session -t "$SESSION_NAME" &> /dev/null; then
+        if ! tmux has-session -t "$SESSION_NAME" &>/dev/null; then
             # The session doesn't exist, create it
             tmux new-session -d -s "$SESSION_NAME"
 

@@ -102,7 +102,7 @@ application/x-zerosize=nvim.desktop
 x-scheme-handler/mailspring=Mailspring.desktop
 
 [Added Associations]
-application/pdf=org.gnome.Evince.desktop;
+application/pdf=masterpdfeditor4.desktop;org.gnome.Evince.desktop;
 image/png=viewnior.desktop;
 video/mp4=io.github.celluloid_player.Celluloid.desktop;
 application/epub+zip=xreader.desktop;geoclue-where-am-i.desktop;
