@@ -20,10 +20,11 @@ else
     message="No Music Playing"
 fi
 
-[ -e "$previewname" ] || ffmpeg -y -i "$filename" -an -vf scale=128:128 "$previewname" > /dev/null 2>&1
+[ -e "$previewname" ] || ffmpeg -y -i "$filename" -an -vf scale=128:128 "$previewname" >/dev/null 2>&1
 
 # -r wont work with sway https://github.com/ErikReider/SwayNotificationCenter/issues/499#issuecomment-2564768141
-notify-send -e -t 1200 -r 27072 "$message" "$(mpc --format '%title% \n%artist% - %album%' current)" -i "$previewname"
+# -h string:synchronous:songinfo is a good alternative for this
+notify-send -e -t 1200 -r 27072 "$message" "$(mpc --format '%title% \n%artist% - %album%' current)" -i "$previewname" -h string:synchronous:songinfo
 # notify-send -e -r 27072 "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)" -i "$previewname"
 # notify-send -r 27072 "$(mpc --format '%title% \n\n%artist% - %album%' current)" -i "$previewname" -h string:x-dunst-stack-tag:mpd
 # notify-send -r 27072 "$(mpc current)" -i "$previewname"
