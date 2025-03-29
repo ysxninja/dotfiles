@@ -9,3 +9,6 @@ map <C-c> <Esc>
 let mapleader=" "
 " zen mode
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+
+" which-key plugin
+set which-key
