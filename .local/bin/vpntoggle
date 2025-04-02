@@ -24,20 +24,20 @@ HOME=/home/ysxninja
 # Parse options
 while getopts "c:th" opt; do
     case "$opt" in
-        c)
-            country_code="$OPTARG"
-            ;;
-        t)
-            toggle=true
-            ;;
-        h)
-            show_help
-            exit 0
-            ;;
-        *)
-            show_help
-            exit 1
-            ;;
+    c)
+        country_code="$OPTARG"
+        ;;
+    t)
+        toggle=true
+        ;;
+    h)
+        show_help
+        exit 0
+        ;;
+    *)
+        show_help
+        exit 1
+        ;;
     esac
 done
 
@@ -80,7 +80,6 @@ if [ "$toggle" = true ]; then
         available_altvpn=$(echo "$vpn_status" | awk \{'print $1'\})
         echo "Disconnecting VPN: $available_altvpn" || echo "Disconnecting VPN: $available_vpn"
         (nmcli connection down "$available_altvpn" && "$HOME"/.local/bin/vpnkillswitch -d) || (nmcli connection down "$available_vpn" && "$HOME"/.local/bin/vpnkillswitch -d)
-        sudo ufw disable
     fi
 else
     # If not toggling, connect to the specified VPN country code
