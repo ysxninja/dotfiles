@@ -80,6 +80,7 @@ if [ "$toggle" = true ]; then
         available_altvpn=$(echo "$vpn_status" | awk \{'print $1'\})
         echo "Disconnecting VPN: $available_altvpn" || echo "Disconnecting VPN: $available_vpn"
         (nmcli connection down "$available_altvpn" && "$HOME"/.local/bin/vpnkillswitch -d) || (nmcli connection down "$available_vpn" && "$HOME"/.local/bin/vpnkillswitch -d)
+        sudo $HOME/ysbackup/ufwrules.sh
     fi
 else
     # If not toggling, connect to the specified VPN country code
