@@ -117,12 +117,7 @@
   },
   "group/hardware": {
     "orientation": "inherit",
-    "modules": [
-      "cpu",
-      "temperature",
-      "memory",
-      "disk"
-    ]
+    "modules": ["cpu", "temperature", "memory", "disk"]
   },
   "network": {
     "format": "{ifname}",
@@ -148,25 +143,14 @@
     "format-plugged": " ",
     "format-alt": "{icon}  {time}",
     "format-full": "󱟢 ",
-    "format-icons": [
-      "󰂎",
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂"
-    ],
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
     "tooltip-format": "{capacity}%\n{time}",
     "tooltip-format-plugged": " {capacity}%\n{time}"
   },
   "pulseaudio": {
     "format": "{icon}{format_source} ",
-    "format-bluetooth": "{icon} {format_source} ",
-    "format-bluetooth-muted": "󰖁  {format_source} ",
+    "format-bluetooth": "{icon}{format_source}  ",
+    "format-bluetooth-muted": "󰖁 {format_source}  ",
     "format-muted": "󰖁{format_source} ",
     "format-source": "<span foreground=\"#00FF00\">  </span>",
     "format-source-muted": "<span foreground=\"#93a1a1\">  </span>",
@@ -177,11 +161,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "󰕿",
-        "󰕾",
-        ""
-      ]
+      "default": ["󰕿", "󰕾", ""]
     },
     "on-click": "volumectl toggle-mute",
     "on-click-right": "volumectl -m toggle-mute"
