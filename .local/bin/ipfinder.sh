@@ -17,6 +17,20 @@ last_ip=""
 # Set the maximum check interval
 MAX_CHECK_INTERVAL=60  # in seconds
 
+# Function to check IP using ifconfig.me/all.json
+get_ip_info_ifconfig() {
+    response=$(curl -m "$MAX_TIME" -sf -H "Accept: application/json" ifconfig.me/all.json)
+    if [ $? -eq 0 ]; then
+        ip=$(echo "$response" | jq -r '.ip_addr' 2>/dev/null)
+        if [ -n "$ip" ] && ! echo "$ip" | grep -iq null; then
+            # ifconfig.me doesn't provide country info, so we'll use a default
+            echo "$ip" "Unknown"
+            return 0
+        fi
+    fi
+    return 1
+}
+
 # Function to check IP using ipinfo.io
 get_ip_info_ipinfo() {
     response=$(curl -m "$MAX_TIME" -sf -H "Accept: application/json" ipinfo.io/json)
@@ -90,14 +104,21 @@ backoff_retry() {
             return 0
         fi
 
-        # If ipinfo.io fails, try trackip.net
+        # If ipinfo.io fails, try ifconfig.me
+        result=$(get_ip_info_ifconfig)
+        if [ $? -eq 0 ]; then
+            echo "$result"
+            return 0
+        fi
+
+        # If all fails, try trackip.net
         result=$(get_ip_info_trackip)
         if [ $? -eq 0 ]; then
             echo "$result"
             return 0
         fi
 
-        # If both fail, wait and try again with exponential backoff
+        # If all fail, wait and try again with exponential backoff
         sleep $sleep_time
         retries=$((retries + 1))
         sleep_time=$((sleep_time * 2))  # Exponential backoff
