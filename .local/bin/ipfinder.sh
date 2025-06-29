@@ -104,15 +104,15 @@ backoff_retry() {
             return 0
         fi
 
-        # If ipinfo.io fails, try ifconfig.me
-        result=$(get_ip_info_ifconfig)
+        # If ipinfo.io fails, try trackip.net
+        result=$(get_ip_info_trackip)
         if [ $? -eq 0 ]; then
             echo "$result"
             return 0
         fi
 
-        # If all fails, try trackip.net
-        result=$(get_ip_info_trackip)
+        # If all fails, try ifconfig.me
+        result=$(get_ip_info_ifconfig)
         if [ $? -eq 0 ]; then
             echo "$result"
             return 0
