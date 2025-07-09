@@ -22,3 +22,12 @@
 ```sh
  rm -rf dotfiles-tmp
 ```
+
+- configure keyd
+```sh
+ sudo ln -s $HOME/.config/keyd/default.conf /etc/keyd/default.conf
+ sudo usermod -aG keyd $USER
+
+ sudo usermod -aG input $USER
+ sudo usermod -aG docker $USER
+```

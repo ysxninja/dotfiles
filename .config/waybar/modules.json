@@ -85,7 +85,7 @@
     "tooltip": false
   },
   "custom/bugbounty": {
-    "exec": "~/recon/program.py",
+    "exec": "$HOME/recon/program.py",
     "tooltip": true,
     "interval": "once",
     "tooltip-format": "click-middle: change bbp programme\nclick-right: change wallpaper",
@@ -121,12 +121,7 @@
   },
   "group/hardware": {
     "orientation": "inherit",
-    "modules": [
-      "cpu",
-      "temperature",
-      "memory",
-      "disk"
-    ]
+    "modules": ["cpu", "temperature", "memory", "disk"]
   },
   "network": {
     "format": "{ifname}",
@@ -152,26 +147,15 @@
     "format-plugged": " ",
     "format-alt": "{icon}  {time}",
     "format-full": "󱟢 ",
-    "format-icons": [
-      "󰂎",
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂"
-    ],
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
     "tooltip-format": "{capacity}%\n{time}",
     "tooltip-format-plugged": " {capacity}%\n{time}"
   },
   "pulseaudio": {
     "format": "{icon}{format_source} ",
-    "format-bluetooth": "{icon} {format_source} ",
-    "format-bluetooth-muted": "󰖁  {format_source} ",
-    "format-muted": "󰖁 {format_source} ",
+    "format-bluetooth": "{icon}{format_source}  ",
+    "format-bluetooth-muted": "󰖁 {format_source}  ",
+    "format-muted": "󰖁{format_source} ",
     "format-source": "<span foreground=\"#00FF00\">  </span>",
     "format-source-muted": "<span foreground=\"#93a1a1\">  </span>",
     "format-icons": {
@@ -181,11 +165,7 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": [
-        "",
-        "󰕾",
-        ""
-      ]
+      "default": ["󰕿", "󰕾", ""]
     },
     "on-click": "volumectl toggle-mute",
     "on-click-right": "volumectl -m toggle-mute"
@@ -242,13 +222,15 @@
   "custom/network-ipfinder": {
     "format": " {} ",
     "return-type": "json",
-    "exec": "~/.local/bin/ipfinder.sh"
+    "exec": "$HOME/.local/bin/ipfinder.sh",
+    "on-click": "pkexec $HOME/.local/bin/vpntoggle -t -c us",
+    "on-click-right": "pkexec $HOME/.local/bin/vpntoggle -t -c us"
   },
   "custom/network-traffic": {
     "format": "  {}",
     "interval": 10,
     "on-click": "alacritty -e btm --network_use_log --network_use_bytes --default_widget_type=network -e",
-    "exec": "~/.local/bin/network-traffic.sh up wlan0 lo tap-easytether"
+    "exec": "$HOME/.local/bin/network-traffic.sh up wlan0 lo tap-easytether"
   },
   "custom/notification": {
     "tooltip": false,
@@ -271,27 +253,17 @@
     "escape": true
   },
   "custom/wl-gammarelay-temperature": {
-    "format": " ",
-    "exec": "~/.local/bin/bluelightinfo.sh",
+    "format": " {} ",
+    "exec": "$HOME/.local/bin/bluelightinfo.sh",
     "tooltip": true,
     "interval": 1,
     "return-type": "json",
-    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
-    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
-  },
-  "custom/wl-gammarelay-brightness": {
-    "format": "  ",
-    "exec": "~/.local/bin/bluelightinfo.sh",
-    "tooltip": true,
-    "interval": 1,
-    "return-type": "json",
-    "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
-    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02"
+    "on-click": "$HOME/.local/bin/bluelighttoggle.sh"
   },
   "custom/battery-power-usage": {
     "format": "{}W",
     "return-type": "json",
-    "exec": "~/.config/waybar/scripts/battery-usage",
+    "exec": "$HOME/.config/waybar/scripts/battery-usage",
     "tooltip": true,
     "interval": 2
   }

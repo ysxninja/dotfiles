@@ -6,6 +6,7 @@
 export DOT_DEST=Documents/ysxninja
 export DOT_REPO=git@github.com:ysxninja/dotfiles.git
 
+export GTK_THEME=Whitesur-Dark-purple
 export HISTORY_IGNORE="(ls|clear|vim|cd|pwd|exit|sudo reboot|history|cd -|cd ..|cf|ys|tmux|ttyper)"
 export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
 export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}
@@ -45,11 +46,11 @@ export PATH="$PATH:$XDG_DATA_HOME/cargo/bin"
 # PERL_MB_OPT="--install_base \"/home/ysxninja/perl5\""; export PERL_MB_OPT;
 # PERL_MM_OPT="INSTALL_BASE=/home/ysxninja/perl5"; export PERL_MM_OPT;
 
-
 ### Export
 export ANDROID_HOME="$XDG_DATA_HOME"/android
 # Ruby gems path for vimgolf, mdless etc
-export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
+RUBYPATH=($HOME/.local/share/gem/ruby/*/bin(N[-1]))
+export PATH="$PATH:$RUBYPATH"
 
 # Golang paths
 # export GOROOT=/usr/local/go

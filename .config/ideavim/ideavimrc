@@ -1,0 +1,14 @@
+set clipboard+=unnamed
+set clipboard+=ideaput
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+
+" remap Ctrl c to <ESC>
+map <C-c> <Esc>
+
+let mapleader=" "
+" zen mode
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+
+" which-key plugin
+set which-key

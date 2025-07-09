@@ -385,7 +385,7 @@ window#waybar.empty #window {
 #battery.critical:not(.charging) {
     background-color: #f53c3c;
     margin: 0px;
-    padding: 0px 0px 0px 6px;
+    padding: 0px 5px 0px 5px;
     border-radius: 10px;
     color: @textcolor3;
     animation-name: blink;

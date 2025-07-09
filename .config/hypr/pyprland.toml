@@ -7,7 +7,7 @@ margin = 50
 multi = false
 
 [scratchpads.lfub]
-command = "kitty --class scratchpad -e $HOME/.local/bin/lfub"
+command = "kitty --class scratchpad -e /usr/bin/lf --config $HOME/.config/lf/lfrc_kitty"
 margin = 50
 multi = false
 
@@ -21,11 +21,4 @@ multi = false
 [scratchpads.btm]
 command = "kitty --class scratchpad -e btm"
 margin = 50
-multi = false
-
-[scratchpads.pavucontrol]
-command = "pavucontrol"
-margin = 50
-unfocus = "hide"
-animation = "fromTop"
 multi = false

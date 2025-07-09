@@ -1,14 +1,13 @@
 #!/bin/sh
 
 killall waybar
+killall bluelighttoggle
 killall hyprpaper
-killall swaync
-killall wl-gammarelay
+
 kdeconnect-cli --refresh
 
-"$HOME"/.config/hypr/scripts/pick_wallpaper.sh
-waybar &
-hyprpaper &
-swaync &
-
+pidof waybar || nohup waybar >/dev/null 2>&1 &
+pidof hyprpaper || nohup hyprpaper >/dev/null 2>&1 &
 hyprctl reload
+
+exit 0

@@ -2,38 +2,70 @@
 
 shopt -s nullglob globstar
 
+# Default flags
 typeit=0
-if [[ $1 == "--type" ]]; then
-	typeit=1
-	shift
+edit=0
+
+# Check if `pass` is available
+if ! command -v pass &> /dev/null; then
+    echo "Error: 'pass' command not found. Please install 'pass' to proceed." >&2
+    exit 1
 fi
 
+# Parse flags using getopts
+while getopts "te" opt; do
+  case $opt in
+    t) typeit=1 ;;
+    e) edit=1 ;;
+    *) echo "Usage: $0 [--type] [--edit]" >&2; exit 1 ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+# Set up dmenu in rofi/wofi
 if [[ -n $WAYLAND_DISPLAY ]]; then
-	# dmenu="wofi"
-	# dmenuargs="--conf=$HOME/.config/wofi/config-passmenu"
-	dmenu=rofi
-	dmenuargs="-dmenu"
-	xdotool="ydotool type --file -"
+    # dmenu="wofi"   
+    # dmenuargs="--conf=$HOME/.config/wofi/config-passmenu"
+    dmenu=rofi
+    dmenuargs="-dmenu"
+    xdotool="ydotool type --file -"
 elif [[ -n $DISPLAY ]]; then
-	dmenu=rofi
-	dmenuargs="-dmenu"
-	xdotool="xdotool type --clearmodifiers --file -"
+    dmenu=rofi
+    dmenuargs="-dmenu"
+    xdotool="xdotool type --clearmodifiers --file -"
 else
-	echo "Error: No Wayland or X11 display detected" >&2
-	exit 1
+    echo "Error: No Wayland or X11 display detected" >&2
+    exit 1
 fi
 
+# Define password directory and gather password files
 prefix=${PASSWORD_STORE_DIR-~/.password-store}
 password_files=( "$prefix"/**/*.gpg )
 password_files=( "${password_files[@]#"$prefix"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
+# Prompt for selection
 password=$(printf '%s\n' "${password_files[@]}" | "$dmenu" "$dmenuargs" "$@")
 
+# If no password was selected, exit
 [[ -n $password ]] || exit
 
+# Edit mode: Open the password in nvim using `pass edit`
+if [[ $edit -eq 1 ]]; then
+    # Use rofi for confirmation
+    confirm=$(echo -e "Yes\nNo" | rofi -dmenu -p "Are you sure you want to edit the password for '$password'?")
+
+    if [[ $confirm == "Yes" ]]; then
+        alacritty -e zsh -c "pass edit '$password'; exec zsh"
+    else
+        echo "Edit canceled."
+    fi
+    exit
+fi
+
+# Display or type the password
 if [[ $typeit -eq 0 ]]; then
-	pass show -c "$password" 2>/dev/null
+    pass show -c "$password" 2>/dev/null
 else
-	pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } | $xdotool
+    pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } | $xdotool
 fi

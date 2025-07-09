@@ -1,9 +1,10 @@
 ## ALIASES
 alias tt="taskwarrior-tui"
 alias su="su -"
+alias hyprfix='pacman -Qq | grep -E "(hypr|aqua)" | grep -- -git | yay -Sy --rebuild --rebuildall --rebuildtree --noconfirm -'
 
-# lf with ueberzug
-alias lf="lfub"
+# lf with ueberzug, image previews better with kitty, using yazi
+# alias lf="lfub"
 
 # shortcuts to config files
 alias cfv="vim ~/.config/nvim/init.vim"
@@ -17,9 +18,9 @@ alias grep="grep --color=auto"
 alias diff="delta"
 
 # history
-alias h="cat $HOME/.zsh_history"
-alias hs="cat $HOME/.zsh_history | grep"
-alias hsi="cat $HOME/.zsh_history | grep -i"
+alias h="atuin history list --format '{command}'"
+alias hs="atuin search -i"
+alias hsi="atuin search -i"
 
 # chrome
 alias chrome="google-chrome-stable"
@@ -29,13 +30,6 @@ alias vim="nvim"
 
 # bat
 alias cat='bat'
-
-# Changing "ls" to "eza"
-alias ls='eza -al --color=always --group-directories-first --icons -a -s type' # my preferred listing
-alias la='eza -a --color=always --group-directories-first --icons -a -s type'  # all files and dirs
-alias ll='eza -l --color=always --group-directories-first --icons -a -s type'  # long format
-alias lt='eza -aT --color=always --group-directories-first' # tree listing
-alias l.='eza -a | rg "^\."'
 
 # confirm before overwriting something
 alias cp='cp -i'
@@ -71,7 +65,7 @@ alias tb="nc termbin.com 9999"
 
 # reflector
 # get fastest mirrors
-alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --download-timeout 60 --verbose --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
 alias mirrora="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
@@ -119,4 +113,47 @@ fi
 
 IFS=$SAVEIFS
 
-######
+##### Easier directory navigation #############
+
+# Changing/making/removing directory
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+alias -g ......='../../../../..'
+
+alias -- -='cd -'
+alias 1='cd -1'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+
+alias md='mkdir -p'
+alias rd=rmdir
+
+function d () {
+  if [[ -n $1 ]]; then
+    dirs "$@"
+  else
+    dirs -v | head -n 10
+  fi
+}
+compdef _dirs d
+
+# List directory contents
+# Changing "ls" to "eza"
+alias ls='eza -al --color=always --group-directories-first --icons -a -s type' # my preferred listing
+alias la='eza -a --color=always --group-directories-first --icons -a -s type'  # all files and dirs
+alias ll='eza -l --color=always --group-directories-first --icons -a -s type'  # long format
+alias lt='eza -aT --color=always --group-directories-first' # tree listing
+alias l.='eza -a | rg "^\."'
+##### Easier directory navigation #############

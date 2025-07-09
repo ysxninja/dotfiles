@@ -15,7 +15,7 @@ $reboot
 $shutdown" | rofi -dmenu\
                   -i\
                   -p "Power"\
-                  -config "~/.config/rofi/powermenu.rasi"\
+                  -config "$HOME/.config/rofi/powermenu.rasi"\
                   -font "Cascadia Code 12"\
                   -width "15"\
                   -lines 5\
@@ -26,10 +26,10 @@ $shutdown" | rofi -dmenu\
 # Do something based on selected option
 if [ "$selected_option" == "$lock" ]
 then
-    betterlockscreen -l dimblur
+    hyprlock
 elif [ "$selected_option" == "$logout" ]
 then
-    loginctl terminate-user `whoami`
+    loginctl terminate-user "$(whoami)"
 elif [ "$selected_option" == "$shutdown" ]
 then
     systemctl poweroff
