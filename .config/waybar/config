@@ -1,8 +1,9 @@
-{
+[{
     // General Settings
 
     // Position TOP
     "layer": "top",
+    "output": "eDP-1",
     "margin-top": 0,
     "margin-bottom": 0,
     "margin-left": 0,
@@ -44,4 +45,53 @@
         "custom/notification",
         "clock"
     ]
+},
+{
+    // General Settings
+
+    // Position TOP
+    "layer": "top",
+    "output": "HDMI-A-1",
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "margin-left": 0,
+    "margin-right": 0,    
+    "height": 19,
+    "start_hidden": false,
+    "spacing": 0,
+
+    // Load Modules
+    "include": ["~/.config/waybar/modules.json"],
+
+    // Modules Left
+    "modules-left": [
+        // "wlr/taskbar",
+        "hyprland/workspaces",
+        "custom/bugbounty",
+        "custom/network-ipfinder",
+        "hyprland/window",
+        "hyprland/submap" 
+    ],
+
+    // Modules Center
+    "modules-center": [
+    ],
+
+    // Modules Right    
+    "modules-right": [
+        "network",
+        "custom/network-traffic",
+        "mpd",
+        "group/hardware",
+        "pulseaudio",
+        "battery", 
+        "custom/battery-power-usage",
+        "idle_inhibitor",
+        "custom/wl-gammarelay-temperature",
+        "custom/wl-gammarelay-brightness",
+        "tray",
+        "custom/notification",
+        "clock"
+    ]
 }
+]

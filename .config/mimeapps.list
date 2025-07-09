@@ -100,6 +100,7 @@ hoppscotch=hoppscotch-handler.desktop
 x-scheme-handler/postman=Postman.desktop
 application/x-zerosize=nvim.desktop
 x-scheme-handler/mailspring=Mailspring.desktop
+application/vnd.ms-excel=nvim.desktop
 
 [Added Associations]
 application/pdf=masterpdfeditor4.desktop;org.gnome.Evince.desktop;
@@ -118,3 +119,4 @@ application/json=nvim.desktop;
 application/x-zerosize=nvim.desktop;
 audio/x-vorbis+ogg=de.wagnermartin.Plattenalbum.desktop;
 image/svg+xml=org.inkscape.Inkscape.desktop;
+application/vnd.ms-excel=nvim.desktop;
