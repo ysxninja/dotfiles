@@ -1,3 +1,6 @@
 $wp = <wp>
 preload = $wp
-wallpaper = , $wp
+wallpaper = eDP-1, $wp
+
+preload = /home/ysxninja/wallpapers/porsche-911-2560x1440-13014.jpg
+wallpaper = HDMI-A-1, /home/ysxninja/wallpapers/porsche-911-2560x1440-13014.jpg
