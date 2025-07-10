@@ -17,10 +17,10 @@
 
     // Modules Left
     "modules-left": [
-        // "wlr/taskbar",
         "hyprland/workspaces",
         "custom/bugbounty",
-        "custom/network-ipfinder",
+        // "custom/network-ipfinder",
+        "wlr/taskbar",
         "hyprland/window",
         "hyprland/submap" 
     ],
@@ -56,7 +56,7 @@
     "margin-bottom": 0,
     "margin-left": 0,
     "margin-right": 0,    
-    "height": 19,
+    "height": 21,
     "start_hidden": false,
     "spacing": 0,
 
@@ -65,16 +65,17 @@
 
     // Modules Left
     "modules-left": [
-        // "wlr/taskbar",
         "hyprland/workspaces",
         "custom/bugbounty",
         "custom/network-ipfinder",
+        "wlr/taskbar",
         "hyprland/window",
         "hyprland/submap" 
     ],
 
     // Modules Center
     "modules-center": [
+        "clock"
     ],
 
     // Modules Right    
@@ -84,14 +85,13 @@
         "mpd",
         "group/hardware",
         "pulseaudio",
-        "battery", 
-        "custom/battery-power-usage",
+        // "battery", 
+        // "custom/battery-power-usage",
         "idle_inhibitor",
         "custom/wl-gammarelay-temperature",
         "custom/wl-gammarelay-brightness",
-        "tray",
-        "custom/notification",
-        "clock"
+        // "tray",
+        "custom/notification"
     ]
 }
 ]
