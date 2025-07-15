@@ -83,15 +83,13 @@
         "network",
         "custom/network-traffic",
         "mpd",
-        "group/hardware",
-        "pulseaudio",
+        "group/hardware"
+        // "pulseaudio",
         // "battery", 
         // "custom/battery-power-usage",
-        "idle_inhibitor",
-        "custom/wl-gammarelay-temperature",
-        "custom/wl-gammarelay-brightness",
+        // "idle_inhibitor",
         // "tray",
-        "custom/notification"
+        // "custom/notification"
     ]
 }
 ]
