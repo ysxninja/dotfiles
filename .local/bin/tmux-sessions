@@ -6,7 +6,7 @@
 # Dependencies: tmux
 # License: MIT
 #
-SESSION_NAMES=("ttrm" "ysxninja" "code")
+SESSION_NAMES=("ttrm" "ysxninja" "code" "work")
 
 while true; do
     for SESSION_NAME in "${SESSION_NAMES[@]}"; do
