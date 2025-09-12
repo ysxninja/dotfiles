@@ -118,3 +118,5 @@ application/json=nvim.desktop;
 application/x-zerosize=nvim.desktop;
 audio/x-vorbis+ogg=de.wagnermartin.Plattenalbum.desktop;
 image/svg+xml=org.inkscape.Inkscape.desktop;
+application/vnd.ms-excel=nvim.desktop;
+application/xml=sublime_text.desktop;codium-wayland.desktop;

@@ -2,6 +2,7 @@
 alias tt="taskwarrior-tui"
 alias su="su -"
 alias hyprfix='pacman -Qq | grep -E "(hypr|aqua)" | grep -- -git | yay -Sy --rebuild --rebuildall --rebuildtree --noconfirm -'
+alias neofetch="fastfetch"
 
 # lf with ueberzug, image previews better with kitty, using yazi
 # alias lf="lfub"
