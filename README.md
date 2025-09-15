@@ -1,6 +1,6 @@
 ![Shell Script](https://img.shields.io/badge/shell_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white)
 
-## /\\/!n]a's Dotfiles (cloud)
+## /\\/!n]a's Dotfiles (cloud server setups)
 
 - Note: Barebones server configs
 
@@ -21,4 +21,13 @@
 - remove the tmp dir
 ```sh
  rm -rf dotfiles-tmp
+```
+
+- install utilities +vimplug
+```sh
+ sh ./utilsetup.sh
+```
+- in tmux (finish tmux plugin install + config)
+```
+Trigger Keybindings ctrl-b + i
 ```
