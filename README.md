@@ -31,3 +31,7 @@
 ```
 Trigger Keybindings ctrl-b + i
 ```
+- optionally (switch main terminal to zsh)
+```sh
+sudo chsh -s /usr/bin/zsh ysxninja # replace with your username
+```
