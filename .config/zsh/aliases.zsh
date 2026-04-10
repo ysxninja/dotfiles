@@ -163,17 +163,17 @@ alias l.='eza -a | rg "^\."'
 incognito () {
   if [[ $1 = disable ]] || [[ $1 == d ]]
   then
-    unset INCOGNITO_MODE
-    export HISTFILE="$HOME/.zsh_history"
-    add-zsh-hook -d precmd _atuin_precmd
-    add-zsh-hook -d preexec _atuin_preexec
-  else
     export INCOGNITO_MODE=1
     # Stop Zsh from writing to the file
     export HISTFILE=/dev/null
     # Strip Atuin hooks
     add-zsh-hook precmd _atuin_precmd
     add-zsh-hook preexec _atuin_preexec
+  else
+    unset INCOGNITO_MODE
+    export HISTFILE="$HOME/.zsh_history"
+    add-zsh-hook -d precmd _atuin_precmd
+    add-zsh-hook -d preexec _atuin_preexec
   fi
 }
 
