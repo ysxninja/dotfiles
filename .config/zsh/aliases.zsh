@@ -160,7 +160,22 @@ alias l.='eza -a | rg "^\."'
 ##### Easier directory navigation #############
 
 ##### incognito ###############################
-alias incognito='_DISABLE_ATUIN=1 HISTFILE=/dev/null INCOGNITO_MODE=1 zsh'
+incognito () {
+  if [[ $1 = disable ]] || [[ $1 == d ]]
+  then
+    unset INCOGNITO_MODE
+    export HISTFILE="$HOME/.zsh_history"
+    add-zsh-hook -d precmd _atuin_precmd
+    add-zsh-hook -d preexec _atuin_preexec
+  else
+    export INCOGNITO_MODE=1
+    # Stop Zsh from writing to the file
+    export HISTFILE=/dev/null
+    # Strip Atuin hooks
+    add-zsh-hook precmd _atuin_precmd
+    add-zsh-hook preexec _atuin_preexec
+  fi
+}
 
 # Optional(default prompt): Add icon to your prompt if in incognito mode
 # Otherwise configure ~/.config/starship.toml
