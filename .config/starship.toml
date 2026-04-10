@@ -19,6 +19,7 @@ $fill\
 $cmd_duration\
 $jobs\
 $battery\
+$custom\
 \n$character"""
 
 [fill]
@@ -99,3 +100,9 @@ style = "bold yellow"
 
 [cmd_duration]
 format = '[ 󱎫 $duration ]($style)'
+
+[custom.incognito]
+symbol = "󰗹 "
+when = 'test -n "$INCOGNITO_MODE"'
+format= "[$symbol ]($style)"
+style = "bold yellow"

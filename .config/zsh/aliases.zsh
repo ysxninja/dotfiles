@@ -158,3 +158,13 @@ alias ll='eza -l --color=always --group-directories-first --icons -a -s type'  #
 alias lt='eza -aT --color=always --group-directories-first' # tree listing
 alias l.='eza -a | rg "^\."'
 ##### Easier directory navigation #############
+
+##### incognito ###############################
+alias incognito='_DISABLE_ATUIN=1 HISTFILE=/dev/null INCOGNITO_MODE=1 zsh'
+
+# Optional(default prompt): Add icon to your prompt if in incognito mode
+# Otherwise configure ~/.config/starship.toml
+if [[ -n "$INCOGNITO_MODE" ]]; then
+  export PS1="󰗹 $PS1"
+fi
+##### incognito ###############################
