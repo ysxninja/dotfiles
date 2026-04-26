@@ -1,6 +1,6 @@
 
 if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
   # exec startx "$XINITRC"
-  pgrep Hyprland || Hyprland
+  pgrep start-hyprland || start-hyprland
   # sway
 fi
