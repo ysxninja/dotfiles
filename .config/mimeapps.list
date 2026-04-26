@@ -100,6 +100,7 @@ hoppscotch=hoppscotch-handler.desktop
 x-scheme-handler/postman=Postman.desktop
 application/x-zerosize=nvim.desktop
 x-scheme-handler/mailspring=Mailspring.desktop
+application/vnd.sqlite3=Alacritty.desktop
 
 [Added Associations]
 application/pdf=masterpdfeditor4.desktop;org.gnome.Evince.desktop;
@@ -108,7 +109,7 @@ video/mp4=io.github.celluloid_player.Celluloid.desktop;
 application/epub+zip=xreader.desktop;geoclue-where-am-i.desktop;
 image/jpeg=gimp.desktop;google-chrome.desktop;viewnior.desktop;
 video/x-matroska=io.github.celluloid_player.Celluloid.desktop;
-application/octet-stream=nvim.desktop;
+application/octet-stream=sublime_text.desktop;nvim.desktop;
 image/webp=gimp.desktop;viewnior.desktop;
 x-scheme-handler/mailto=userapp-Thunderbird-W0W2W2.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-W0W2W2.desktop;
@@ -121,3 +122,5 @@ image/svg+xml=org.inkscape.Inkscape.desktop;
 application/vnd.ms-excel=nvim.desktop;
 application/xml=sublime_text.desktop;codium-wayland.desktop;
 text/vcard=nvim.desktop;
+application/x-troff-man=nvim.desktop;sublime_text.desktop;
+application/vnd.sqlite3=nvim.desktop;sublime_text.desktop;mysql-workbench.desktop;Alacritty.desktop;
