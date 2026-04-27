@@ -1,11 +1,12 @@
 [pyprland]
-plugins = ["scratchpads", "expose", "lost_windows"]
+plugins = ["scratchpads"]
 
 [scratchpads.term]
 command = "alacritty --class scratchpadttrm -e $HOME/.local/bin/tattach-ttrm"
 margin = 50
 size = "55% 65%"
 position = "360px 175px"
+animation = ""
 multi = false
 
 [scratchpads.lfub]
@@ -13,6 +14,7 @@ command = "kitty --class scratchpad -e /usr/bin/lf --config $HOME/.config/lf/lfr
 margin = 50
 size = "55% 65%"
 position = "360px 175px"
+animation = ""
 multi = false
 
 [scratchpads.music]
@@ -21,7 +23,7 @@ margin = 50
 size = "50% 40%"
 position = "25% 4%"
 unfocus = "hide"
-animation = "fromTop"
+animation = ""
 multi = false
 
 [scratchpads.btm]
@@ -29,4 +31,5 @@ command = "kitty --class scratchpad -e btm"
 margin = 50
 size = "55% 65%"
 position = "360px 175px"
+animation = ""
 multi = false
