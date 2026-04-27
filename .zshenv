@@ -74,7 +74,7 @@ export GOPATH=$GOPATH:/home/ysxninja/code
 # export PATH="$PATH:$(yarn global bin)"
 
 # Export path for node
-# export PATH=~/.npm-global/bin:$PATH
+export PATH=~/.npm-global/bin:$PATH
 
 # Docker Gateway fallback host
 # export DOCKER_GATEWAY_HOST=172.17.0.1
