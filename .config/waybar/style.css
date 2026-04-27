@@ -34,11 +34,14 @@ window#waybar {
 
 #workspaces button {
     min-height: 0;
+    min-width: 25px;
     border: 0px;
+    border-top: 2px solid transparent; 
     color: @textcolor1;
     background-color: @workspacesbackground2;
     /* transition: all 0.3s ease-in-out; */
     opacity: 0.7;
+    transition: all 0.1s ease-in-out;
 }
 
 #workspaces button.empty {
@@ -52,7 +55,6 @@ window#waybar {
     border-top-left-radius: 40%;
     /* border-top-style: dotted; */
     background: @workspacesbackground2;
-    min-width: 25px;
     /* transition: all 0.3s ease-in-out; */
     opacity:1.0;
 }
