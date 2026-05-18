@@ -361,8 +361,8 @@ window#waybar.empty #window {
     margin: 0px 0px 0px 5px;
     background-color: @backgroundlight;
     font-size: 12px;
-    color: @textcolor2;
-    opacity:0.8;
+    color: #fff;
+    opacity:0.6;
 }
 
 #battery.charging {

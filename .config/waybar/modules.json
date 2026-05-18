@@ -141,9 +141,10 @@
     "format": "{icon}",
     "format-charging": "",
     "format-plugged": " ",
-    "format-alt": "{icon}  {time}",
+    "format-alt": "{icon} {time}",
     "format-full": "󱟢 ",
     "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂"],
+    "format-time": "{H}:{m}",
     "tooltip-format": "{capacity}%\n{time}",
     "tooltip-format-plugged": " {capacity}%\n{time}"
   },
