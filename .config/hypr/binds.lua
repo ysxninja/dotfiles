@@ -6,7 +6,7 @@ local terminal = "alacritty"
 local fileManager = "thunar"
 -- $menu = wofi
 --
-local menu = "rofi -show drun -show-icons -font JetBrainsMono Nerd Font 13"
+local menu = "rofi -show drun -show-icons -font 'JetBrainsMono Nerd Font 13'"
 -- $powermenu = $HOME/.config/wofi/powermenu.sh
 local powermenu = "rofi -show power-menu -modi power-menu:" .. os.getenv("HOME") .. "/.local/bin/rofi-power-menu"
 local passmenu = os.getenv("HOME") .. "/.local/bin/passmenu -t"
