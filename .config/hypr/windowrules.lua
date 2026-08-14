@@ -26,7 +26,7 @@ hl.window_rule({
 	name = "windowrule-3",
 	match = { class = "^(scratchpadttrm)$" },
 	float = true,
-	-- animation = "popin",
+	animation = "fade 90%",
 	-- no_anim = true, -- was: animation = windows,0 / animation = fade,0
 })
 
