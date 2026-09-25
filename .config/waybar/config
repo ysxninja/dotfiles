@@ -18,8 +18,8 @@
     "modules-left": [
         // "wlr/taskbar",
         "hyprland/workspaces",
-        "custom/bugbounty",
-        "custom/network-ipfinder",
+        // "custom/bugbounty",
+        // "custom/network-ipfinder",
         "hyprland/window",
         "hyprland/submap" 
     ],

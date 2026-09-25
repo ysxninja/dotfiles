@@ -243,6 +243,25 @@ hl.window_rule({
 	move = "1165 28",
 })
 
+-- Match the screen sharing notification and route it instantly to the hidden minimize buffer
+-- Force the Google Meet screen sharing popup to be completely invisible and unclickable
+-- hl.window_rule({
+-- 	name = "hide-screenshare-popup",
+-- 	match = { initial_title = "^.*is sharing (your screen|a window).*$" },
+-- 	opacity = "0.0 override 0.0 override",
+-- 	no_shadow = true,
+-- 	no_focus = true,
+-- 	no_initial_focus = true,
+-- })
+-- Send the screen-sharing banner silently away to workspace 5
+hl.window_rule({
+	name = "send-screenshare-to-w5",
+	match = { initial_title = "^.*is sharing (your screen|a window).*$" },
+	workspace = "5 silent", -- The "silent" modifier forces it backgrounded
+	no_focus = true,
+	no_initial_focus = true,
+})
+
 -- Intellij - for when buttons unclickable
 -- find in files
 -- hl.window_rule({ match = { class = "jetbrains-toolbox", float = true }, no_initial_focus = true })

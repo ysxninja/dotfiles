@@ -124,3 +124,4 @@ application/xml=sublime_text.desktop;codium-wayland.desktop;
 text/vcard=nvim.desktop;
 application/x-troff-man=nvim.desktop;sublime_text.desktop;
 application/vnd.sqlite3=nvim.desktop;sublime_text.desktop;mysql-workbench.desktop;Alacritty.desktop;
+text/html=vim.desktop;

@@ -96,8 +96,8 @@ hl.bind(mainMod .. " + " .. "V", hl.dsp.exec_cmd(clipmenu))
 hl.bind(mainMod .. " + " .. "M", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
 
 -- Screenshot
-hl.bind(mainMod .. " + " .. "S", hl.dsp.exec_cmd('grim -g "$(slurp)"-| swappy -f-'))
-hl.bind("Print", hl.dsp.exec_cmd('grim -g "$(slurp)"-| swappy -f-'))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd('bash -c "grim -g \\"$(slurp)\\" - | swappy -f - "'))
+hl.bind("Print", hl.dsp.exec_cmd('bash -c "grim -g \\"$(slurp)\\" - | swappy -f - "'))
 
 -- Screen record
 -- TODO: Write script to handle this recording, naming and timer
