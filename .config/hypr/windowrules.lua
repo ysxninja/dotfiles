@@ -299,3 +299,11 @@ hl.layer_rule({
 	match = { namespace = "rofi" },
 	blur = true,
 })
+
+-- Waydroid rules
+-- When Waydroid opens, swap it into the master slot
+hl.on("window.open", function(w)
+	if w and w.class == "Waydroid" then
+		hl.dispatch(hl.dsp.layout("swapwithmaster"))
+	end
+end)

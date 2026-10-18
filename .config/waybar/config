@@ -19,7 +19,7 @@
         // "wlr/taskbar",
         "hyprland/workspaces",
         // "custom/bugbounty",
-        // "custom/network-ipfinder",
+        "custom/network-ipfinder",
         "hyprland/window",
         "hyprland/submap" 
     ],
