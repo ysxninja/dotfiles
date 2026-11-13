@@ -80,3 +80,6 @@ source $HOME/.config/zsh/aliases.zsh 2>/dev/null
 eval "$(zoxide init zsh)"
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(starship init zsh)"
+
+# opencode
+export PATH=/home/ysxninja/.opencode/bin:$PATH
